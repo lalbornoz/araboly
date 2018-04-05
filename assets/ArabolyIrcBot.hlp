@@ -1,0 +1,26 @@
+General IRC commands:
+* .mhelp -- Display help screen
+* .mpart -- Leave current game
+* .mstatus -- Display game and player status
+
+Bot owner IRC commands:
+* .mkick <player> -- Kick <player> from game
+* .mstop -- Stop current game
+
+Attract mode IRC commands:
+* .mstart <players> -- Start new game with <players> players
+* .mjoin -- Join current game
+
+In-game IRC commands:
+* .mboard -- Display game board
+* .mcheat -- Instantly win the game and steal everyone else's everything
+* .mdevelop <field> <level> -- Develop property on <field> at level <level>
+* .mdice -- Roll dice, advance player, and process turn
+
+Property mode IRC commands:
+* .mbuy -- Buy offered property
+* .mpass -- Don't buy offered property and enter auction mode
+
+Auction mode IRC commands:
+* .mbid <price> -- Bid on property at <price>
+* .mpass -- Pass on property

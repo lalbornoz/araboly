@@ -1,0 +1,40 @@
+START		200	None		Collect $200 as you pass GO	
+PROPERTY	60	DARK_RED	Gorf's council estate		
+CHEST		-1	None		Community Chest			
+PROPERTY	60	DARK_RED	Giraffe enclosure		
+TAX		100	None		Oxygen tax (pay $100)		
+UTILITY		200	None		Chrono's Railroad		
+PROPERTY	100	RED		Zubwolf's Loft			
+CHANCE		-1	None		Chance				
+PROPERTY	100	Red		IRCnet Avenue			
+PROPERTY	120	Red		EFrael Avenue			
+LOONY_BIN	-1	None		In the loony bin/Just visiting	
+PROPERTY	140	DARK_GREEN	Schizophrenia			
+UTILITY		150	None		Welfare Office			
+PROPERTY	140	DARK_GREEN	Bipolar				
+PROPERTY	160	DARK_GREEN	Giraffe Disorder		
+UTILITY		200	None		Chrono's Airport		
+PROPERTY	180	YELLOW		#r4l-social			
+CHEST		-1	None		Community Chest			
+PROPERTY	180	YELLOW		#superbowl			
+PROPERTY	200	YELLOW		#arab				
+FREE_LSD	-1	None		Free LSD! la ^_^		
+PROPERTY	220	BLUE		The Ping Castle			
+CHANCE		-1	None		Chance				
+PROPERTY	220	BLUE		Timeout Castle			
+PROPERTY	240	BLUE		Nadia Castle			
+UTILITY		200	None		Chrono's Cabs			
+PROPERTY	260	PINK		Knubbze's Bathroom		
+PROPERTY	260	PINK		Knubbze's Watch			
+UTILITY		150	None		Knocking Shop			
+PROPERTY	280	PINK		Knubbze's Drugs Budget		
+SECTIONED	300	None		You got sectioned! (Go to loony bin)
+PROPERTY	300	GREEN		Pynchon's Harem			
+PROPERTY	300	GREEN		Kade's Webcam			
+CHEST		-1	None		Community Chest			
+PROPERTY	320	GREEN		sh0rt1e's Box o' Kids		
+UTILITY		200	None		Chrono's Horses			
+CHANCE		-1	None		Chance				
+PROPERTY	350	DARK_BLUE	Ghost Park			
+TAX		100	None		The Gov't Hates You (pay $100)	
+PROPERTY	400	DARK_BLUE	Shadow People Park		
