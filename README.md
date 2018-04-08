@@ -13,7 +13,7 @@ Immaculately crafted 32-bit code!|___/  RAM on |_| \_| |_|   |____(_)_|  phone
 
 ```
 
-**WARNING**: All Characters and events in this IRC board game -- especially those based on real people --
+**WARNING**: All characters and events in this IRC board game -- especially those based on real people --
 are entirely fictional. The game contains coarse language, politically incorrect and universally offensive
 humour, extremely unfunny jokes that even the most ordinary hippopotami would categorically refuse to
 entertain, and due to its content it should not be played by anyone. If you are affiliated with South(c)
