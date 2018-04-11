@@ -178,23 +178,16 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_status(self, channel, context, output, src, **params): XXX
     def dispatch_status(self, channel, context, output, src, **params):
-        delay = 0.750
         if context.state == ArabolyGameState.GAME       \
         or context.state == ArabolyGameState.PROPERTY   \
         or context.state == ArabolyGameState.AUCTION:
-            delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Araboly status for player {}:".format(src)]}]
-            delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Field....: {}".format(context.board[context.fields[src]][3])]}]
-            delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Wallet...: {}".format(context.wallets[src])]}]
-            delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Properties owned:"]}]
+            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Araboly status for player {}:".format(src)]}]
+            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Field....: {}".format(context.board[context.fields[src]][3])]}]
+            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Wallet...: {}".format(context.wallets[src])]}]
+            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Properties owned:"]}]
             for prop in context.properties[src]:
-                delay += 0.750
-                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "${} -- {}, level {}, houses: {}".format(prop[1], prop[3], prop[4], str(prop[5][1:]))]}]
-            delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Current turn: {}".format(context.players[context.playerCur])]}]
+                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "${} -- {}, level {}, houses: {}".format(prop[1], prop[3], prop[4], str(prop[5][1:]))]}]
+            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Current turn: {}".format(context.players[context.playerCur])]}]
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatch_stop(self, channel output, **params): XXX
