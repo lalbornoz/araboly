@@ -14,7 +14,7 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
 
     # {{{ dispatch001(self, output, **params): Dispatch single 001 (RPL_WELCOME)
     def dispatch001(self, output, **params):
-        output += [{"type":"message", "delay":0, "cmd":"JOIN", "args":[self.clientChannel]}]
+        output += [{"type":"message", "delay":-1, "cmd":"JOIN", "args":[self.clientChannel]}]
         return {"output":output, **params}
     # }}}
     # {{{ dispatchJOIN(self, args, **params): Dispatch single JOIN message from server
@@ -33,7 +33,7 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
     # }}}
     # {{{ dispatchPING(self, args, output, **params): Dispatch single PING message from server
     def dispatchPing(self, args, output, **params):
-        output += {"type":"message", "delay":0, "cmd":"PONG", "args":args}
+        output += {"type":"message", "delay":-1, "cmd":"PONG", "args":args}
         return {"args":args, "output":output, **params}
     # }}}
     # {{{ dispatchPRIVMSG(self, args, output, **params): Dispatch single PRIVMSG message from server

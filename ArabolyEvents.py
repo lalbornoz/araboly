@@ -5,22 +5,24 @@
 # This project is licensed under the terms of the MIT licence.
 #
 
-import select
+from select import select
+from time import time
 
 class ArabolyEvents(object):
     """XXX"""
-    nextTimeout = None; timers = [];
+    nextTimeout = None; timerList = [];
     rlist = []; wlist = []; xlist = [];
 
     # {{{ concatSelect(self, rlist=[], wlist=[], xlist=[]): XXX
     def concatSelect(self, rlist=[], wlist=[], xlist=[]):
         self.rlist += rlist; self.wlist += wlist; self.xlist += xlist;
     # }}}
-    # {{{ concatTimers(self, timers): XXX
-    def concatTimers(self, timers):
-        self.timers = sorted(self.timers + [{"type":"timer", **timers}], key="expire")
-        if len(self.timers):
-            self.nextTimeout = self.timers[0]["expire"]
+    # {{{ concatTimers(self, **timer): XXX
+    def concatTimers(self, **timer):
+        timer_ = timer.copy(); timer_["expire"] += time();
+        self.timerList = sorted(self.timerList + [{"type":"timer", **timer_}], key=lambda x: x["expire"])
+        if len(self.timerList):
+            self.nextTimeout = self.timerList[0]["expire"]
         else:
             self.nextTimeout = None
     # }}}
@@ -32,35 +34,39 @@ class ArabolyEvents(object):
     # }}}
     # {{{ filterTimers(self, timers): XXX
     def filterTimers(self, timers):
-        self.timers = [timer for timer in self.timers if timer not in timers]
-        if len(self.timers):
-            self.timers = sorted(self.timers)
-            self.nextTimeout = self.timers[0][0]
+        self.timerList = [timer for timer in self.timerList if timer not in timers]
+        if len(self.timerList):
+            self.timerList = sorted(self.timerList)
+            self.nextTimeout = self.timerList[0]["expire"]
         else:
             self.nextTimeout = None
     # }}}
     # {{{ select(self): XXX
     def select(self):
+        timeNow = time()
         if self.nextTimeout:
-            timeNow = time.time()
-            readySet = select.select(self.rlist, self.wlist, self.xlist, nextTimeout - timeNow)
+            if self.nextTimeout > timeNow:
+                readySet = select(self.rlist, self.wlist, self.xlist, self.nextTimeout - timeNow)
+            else:
+                readySet = select(self.rlist, self.wlist, self.xlist, 0)
         else:
-            readySet = select.select(self.rlist, self.wlist, self.xlist)
+            readySet = select(self.rlist, self.wlist, self.xlist)
         return readySet
     # }}}
     # {{{ timers(self): XXX
     def timers(self):
         timers = []
         if self.nextTimeout:
-            timeNow = time.time()
-            for timerIdx in range(len(self.timers)):
-                if self.timers[timerIdx]["expire"] <= timeNow:
-                    timers += self.timers[timerIdx].copy()
-                    del self.timers[timerIdx]
-                    if len(self.timers):
-                        self.nextTimeout = self.timers[0]["expire"]
-                    else:
-                        self.nextTimeout = None
+            timeNow = time()
+            for timerIdx in range(len(self.timerList)):
+                if self.timerList[timerIdx]["expire"] <= timeNow:
+                    timers += [self.timerList[timerIdx].copy()]
+                    self.timerList[timerIdx]["_delete"] = True
+            self.timerList = [a for a in self.timerList if "_delete" not in a]
+            if len(self.timerList):
+                self.nextTimeout = self.timerList[0]["expire"]
+            else:
+                self.nextTimeout = None
         return timers
     # }}}
     # {{{ __init__(self, **kwargs): initialisation method
