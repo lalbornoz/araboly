@@ -7,21 +7,37 @@
 
 from ArabolyMonad import ArabolyMonadFunctionDecorator
 from ArabolyTypeClass import ArabolyTypeClass
+from string import ascii_lowercase
 
 class ArabolyIrcToCommandMap(ArabolyTypeClass):
     """XXX"""
-    clientChannel = None; clientChannelRejoin = False; clientNick = "";
+    clientChannel = None; clientChannelRejoin = False; clientNick = ""; nickMap = {};
 
     # {{{ dispatch001(self, output, **params): Dispatch single 001 (RPL_WELCOME)
     def dispatch001(self, output, **params):
         output += [{"type":"message", "delay":-1, "cmd":"JOIN", "args":[self.clientChannel]}]
         return {"output":output, **params}
     # }}}
-    # {{{ dispatchJOIN(self, args, **params): Dispatch single JOIN message from server
-    def dispatchJOIN(self, args, **params):
+    # {{{ dispatch353(self, args, src, **params): Dispatch single 353 message from server
+    def dispatch353(self, args, src, **params):
+        if  args[1] == "="  \
+        and args[2].lower() == self.clientChannel.lower():
+            for nickSpec in args[3].split(" "):
+                if nickSpec[0].lower() not in ascii_lowercase:
+                    nickSpec = nickSpec[1:]
+                if nickSpec.lower() != self.clientNick.lower():
+                    self.nickMap[nickSpec] = nickSpec
+        return {"args":args, "src":src, **params}
+    # }}}
+    # {{{ dispatchJOIN(self, args, src, **params): Dispatch single JOIN message from server
+    def dispatchJOIN(self, args, src, **params):
         if args[0].lower() == self.clientChannel.lower():
-            self.clientChannelRejoin = False
-        return {"args":args, **params}
+            nick = src.split("!")[0].lower()
+            if nick == self.clientNick.lower():
+                self.clientChannelRejoin = False
+            elif nick not in self.nickMap:
+                self.nickMap[nick] = nick
+        return {"args":args, "src":src, **params}
     # }}}
     # {{{ dispatchKICK(self, args, output, **params): Dispatch single KICK message from server
     def dispatchKICK(self, args, output, **params):
@@ -31,20 +47,35 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
             output += {"type":"message", "delay":time.time() + 15, "cmd":"JOIN", "args":[self.clientChannel]}
         return {"args":args, "output":output, **params}
     # }}}
+    # {{{ dispatchNICK(self, args, src, **params): Dispatch single NICK message from server
+    def dispatchNICK(self, args, src, **params):
+        nick = src.split("!")[0]
+        self.nickMap[args[0]] = self.nickMap[nick]
+        del self.nickMap[nick]
+        return {"args":args, "src":src, **params}
+    # }}}
+    # {{{ dispatchPART(self, args, **params): Dispatch single PART message from server
+    def dispatchPART(self, args, **params):
+        if args[0].lower() == self.clientChannel.lower():
+            self.nickMap = {}
+        return {"args":args, **params}
+    # }}}
     # {{{ dispatchPING(self, args, output, **params): Dispatch single PING message from server
     def dispatchPing(self, args, output, **params):
         output += {"type":"message", "delay":-1, "cmd":"PONG", "args":args}
         return {"args":args, "output":output, **params}
     # }}}
-    # {{{ dispatchPRIVMSG(self, args, output, **params): Dispatch single PRIVMSG message from server
-    def dispatchPRIVMSG(self, args, output, **params):
+    # {{{ dispatchPRIVMSG(self, args, output, src, **params): Dispatch single PRIVMSG message from server
+    def dispatchPRIVMSG(self, args, output, src, **params):
         if  args[0].lower() == self.clientChannel.lower()   \
         and args[1].startswith(".m"):
             params["cmd"] = args[1].split(" ")[0][2:]
             params["channel"] = args[0].lower()
+            params["srcFull"] = src
+            src = self.nickMap[src.split("!")[0]]
             args = args[1].split(" ")[1:]
             params["type"] = "command"
-        return {"args":args, "output":output, **params}
+        return {"args":args, "output":output, "src":src, **params}
     # }}}
     # {{{ __init__(self, channel, nick, **kwargs): initialisation method
     def __init__(self, channel, nick, **kwargs):
