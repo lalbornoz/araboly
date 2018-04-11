@@ -7,7 +7,7 @@
 
 import select, socket
 
-class ArabolyIrcClient:
+class ArabolyIrcClient(object):
     """Non-blocking abstraction over the IRC protocol"""
     serverHname = serverPort = None;
     clientNick = clientIdent = clientGecos = None;
@@ -87,10 +87,10 @@ class ArabolyIrcClient:
                 del self.clientQueue[0]
         return True
     # }}}
-    # {{{ __init__(self, serverHname, serverPort, clientNick, clientIdent, clientGecos): initialisation method
-    def __init__(self, serverHname, serverPort, clientNick, clientIdent, clientGecos):
-        self.serverHname = serverHname; self.serverPort = serverPort;
-        self.clientNick = clientNick; self.clientIdent = clientIdent; self.clientGecos = clientGecos;
+    # {{{ __init__(self, hostname, nick, port, realname, user, **kwargs): initialisation method
+    def __init__(self, hostname, nick, port, realname, user, **kwargs):
+        self.serverHname = hostname; self.serverPort = port;
+        self.clientNick = nick; self.clientIdent = user; self.clientGecos = realname;
     # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120

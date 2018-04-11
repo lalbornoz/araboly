@@ -175,8 +175,8 @@ class ArabolyOutput(ArabolyTypeClass):
                 return {"e":e, "output":output, **params}
         return {"e":e, "exc_fname":exc_fname, "exc_lineno":exc_lineno, "exc_stack":exc_stack, "output":output, **params}
     # }}}
-    # {{{ __init__(self): initialisation method
-    def __init__(self):
+    # {{{ __init__(self, **kwargs): initialisation method
+    def __init__(self, **kwargs):
         with open("assets/ArabolyIrcBot.hlp", "r") as fileObject:
             self.helpLines = fileObject.readlines()
     # }}}

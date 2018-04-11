@@ -63,5 +63,9 @@ class ArabolyEvents(object):
                         self.nextTimeout = None
         return timers
     # }}}
+    # {{{ __init__(self, **kwargs): initialisation method
+    def __init__(self, **kwargs):
+        pass
+    # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120
