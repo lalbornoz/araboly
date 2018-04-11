@@ -32,6 +32,7 @@ class ArabolyGameState(Enum):
 class ArabolyGame(object):
     """XXX"""
     auctionProperty = []; auctionBidders = -1; auctionBids = {};
+    clientParams = {}; clientUaf = [];
     playerCur = -1; fields = {}; wallets = {};
     players = []; playersMax = -1;
     board = []; state = ArabolyGameState.ATTRACT;
@@ -48,8 +49,17 @@ class ArabolyGame(object):
                 lineType, linePrice, lineColour, lineTitle = fileFields[0], int(fileFields[1]), fileFields[2], *fileFields[3:]
                 lineType = getattr(ArabolyGameField, lineType)
                 self.board += [[lineType, linePrice, lineColour, lineTitle, 1, [-1, 0, 0, 0]]]
-        self.boardTmp.clear()
         with open("assets/ArabolyBoard.irc", "r") as fileObject:
             self.boardTmp = fileObject.readlines()
+        self.clientParams = kwargs.copy()
+        self.clientUaf.clear()
+        with open("assets/ArabolyIrcBot.uaf", "r") as fileObject:
+            for fileLine in fileObject.readlines():
+                fileLine = fileLine.rstrip("\n")
+                if  not fileLine.startswith("#")    \
+                and not len(fileLine) == 0:
+                    fileFields = [f for f in fileLine.split("\t") if len(f)]
+                    hostnameMask, channelMask, clientMask = fileFields[0], fileFields[1], fileFields[2]
+                    self.clientUaf += [[hostnameMask, channelMask, clientMask]]
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120

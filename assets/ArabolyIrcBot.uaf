@@ -1,0 +1,4 @@
+# Hostname	Channel	Client
+10.128.0.2	*	*!arab@127.0.0.1
+
+# vim:filetype=sh
