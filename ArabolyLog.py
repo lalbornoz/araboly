@@ -6,8 +6,8 @@
 #
 
 from ArabolyTypeClass import ArabolyTypeClass
-from datetime import date
-from time import time, strftime
+from datetime import datetime
+from time import strftime
 from enum import Enum
 
 class ArabolyLogLevel(Enum):
@@ -48,7 +48,7 @@ class ArabolyLog(ArabolyTypeClass):
         if level == ArabolyLogLevel.LOG_DEBUG:
             pass
         elif kwargs["type"] == "command":
-            ts = date.fromtimestamp(time()).strftime("%d-%b-%Y %H:%M:%S").upper()
+            ts = datetime.now().strftime("%d-%b-%Y %H:%M:%S").upper()
             cmd = kwargs["cmd"]; msg = " ".join(kwargs["args"]).rstrip("\n");
             channel = kwargs["channel"]; msg = ": " + msg if len(msg) else "";
             if isOutput:
@@ -57,7 +57,7 @@ class ArabolyLog(ArabolyTypeClass):
                 src = kwargs["src"].rstrip("!")
                 print("{} {} Command {} from {} on {}{}".format(ts, "<<<", cmd, src, channel, msg))
         elif kwargs["type"] == "message":
-            ts = date.fromtimestamp(time()).strftime("%d-%b-%Y %H:%M:%S").upper()
+            ts = datetime.now().strftime("%d-%b-%Y %H:%M:%S").upper()
             destType = "channel " + kwargs["args"][0] if kwargs["args"][0][0] == "#" else "server"
             cmdType = kwargs["cmd"].upper() + " command"
             msg = " ".join(kwargs["args"][1:]).rstrip("\n")
