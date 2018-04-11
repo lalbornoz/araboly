@@ -54,7 +54,7 @@ class ArabolyLog(ArabolyTypeClass):
             if isOutput:
                 print("{} {} Command {} output {} to {}{}".format(ts, ">>>", cmd, channel, msg))
             else:
-                src = kwargs["src"].rstrip("!")
+                src = kwargs["src"]
                 print("{} {} Command {} from {} on {}{}".format(ts, "<<<", cmd, src, channel, msg))
         elif kwargs["type"] == "message":
             ts = datetime.now().strftime("%d-%b-%Y %H:%M:%S").upper()
@@ -66,7 +66,7 @@ class ArabolyLog(ArabolyTypeClass):
                 dest = " to " + kwargs["args"][0] if "args" in kwargs else ""
                 print("{} {} {} {}{}{}".format(ts, ">>>", destType.title(), cmdType, dest, msg))
             else:
-                src = " from " + kwargs["src"].rstrip("!") if "src" in kwargs else ""
+                src = " from " + kwargs["src"] if "src" in kwargs else ""
                 print("{} {} {} {}{}{}".format(ts, "<<<", destType.title(), cmdType, src, msg))
     # }}}
 
