@@ -50,6 +50,11 @@ class ArabolyIrcBot(object):
                         eventsIn += ircClient.readlines()
                     eventsIn += events.timers()
                     for eventIn in eventsIn:
+                        if  eventIn["type"] == "timer"  \
+                        and "unqueue" in eventIn:
+                            for unqueueLine in eventIn["unqueue"]:
+                                ircClient.queue(*unqueueLine); unqueueFlag = True;
+                            continue
                         game = arabolyIrcBot.typeDict[ArabolyGame]
                         unit = ArabolyMonad(context=game, output=[], status=True, **eventIn)
                         eventsOut += (unit                                          \
@@ -64,8 +69,12 @@ class ArabolyIrcBot(object):
                                 >> ArabolyIrcBot.typeDict[ArabolyCommit]).params["output"]
                     for eventOut in eventsOut:
                         if eventOut["type"] == "message":
-                            ircClient.queue(eventOut["cmd"], *eventOut["args"])
-                            unqueueFlag = True;
+                            msg = [eventOut["cmd"], *eventOut["args"]]
+                            if eventOut["delay"] == 0:
+                                ircClient.queue(*msg); unqueueFlag = True;
+                            else:
+                                delay = 0.100 if eventOut["delay"] == -1 else eventOut["delay"]
+                                events.concatTimers(expire=delay, unqueue=[msg])
                     if unqueueFlag:
                         if not ircClient.unqueue():
                             events.concatSelect(wlist=[ircClient.clientSocket.fileno()])
@@ -90,7 +99,6 @@ class ArabolyIrcBot(object):
                 return None
         else:
             for typeObject in self.typeObjects:
-                print(typeObject)
                 self.typeDict[typeObject] = typeObject(**opts)
             return self
 
