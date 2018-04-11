@@ -80,7 +80,7 @@ class ArabolyState(ArabolyTypeClass):
         params["newFields"] = {src:0}
         params["newPlayers"] = [src]
         params["newProperties"] = {src:[]}
-        params["newWallets"] = {src:20}
+        params["newWallets"] = {src:1500}
         return {"context":context, "src":src, **params}
     # }}}
     # {{{ dispatch_kick(self, **params): XXX
