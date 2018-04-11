@@ -1,40 +1,675 @@
-START		200	None		Collect $200 as you pass GO	
-PROPERTY	60	DARK_RED	Gorf's council estate		
-CHEST		-1	None		Community Chest			
-PROPERTY	60	DARK_RED	Giraffe enclosure		
-TAX		100	None		Oxygen tax (pay $100)		
-UTILITY		200	None		Chrono's Railroad		
-PROPERTY	100	RED		Zubwolf's Loft			
-CHANCE		-1	None		Chance				
-PROPERTY	100	Red		IRCnet Avenue			
-PROPERTY	120	Red		EFrael Avenue			
-LOONY_BIN	-1	None		In the loony bin/Just visiting	
-PROPERTY	140	DARK_GREEN	Schizophrenia			
-UTILITY		150	None		Welfare Office			
-PROPERTY	140	DARK_GREEN	Bipolar				
-PROPERTY	160	DARK_GREEN	Giraffe Disorder		
-UTILITY		200	None		Chrono's Airport		
-PROPERTY	180	YELLOW		#r4l-social			
-CHEST		-1	None		Community Chest			
-PROPERTY	180	YELLOW		#superbowl			
-PROPERTY	200	YELLOW		#arab				
-FREE_LSD	-1	None		Free LSD! la ^_^		
-PROPERTY	220	BLUE		The Ping Castle			
-CHANCE		-1	None		Chance				
-PROPERTY	220	BLUE		Timeout Castle			
-PROPERTY	240	BLUE		Nadia Castle			
-UTILITY		200	None		Chrono's Cabs			
-PROPERTY	260	PINK		Knubbze's Bathroom		
-PROPERTY	260	PINK		Knubbze's Watch			
-UTILITY		150	None		Knocking Shop			
-PROPERTY	280	PINK		Knubbze's Drugs Budget		
+START		200	None		Collect $200 as you pass GO
+PROPERTY	60	DARK_RED	Gorf's council estate
+	HOUSE	1	0	Jobseeker's Allowance
+	BUY	1	0	{buyer} pretends to look for work and claims unemployment benefits!
+	BUY	1	0	{buyer} becomes a dole scrounger!
+	BUY	1	0	The UK is now 50% closer to leaving the EU!
+	RENT	1	0	Oh my! {who} must pay for {owner}'s Jobseeker's Allowances and loses ${cost}!
+	HOUSE	1	1	Employment and Support Allowance
+	BUY	1	1	{buyer} seems to be ill or disabled and unable to work!
+	BUY	1	1	Yay! {buyer} becomes a part-time dole scrounger!
+	BUY	1	1	The UK is now 75% closer to leaving the EU!
+	RENT	1	1	Oh no! {who} must pay for {owner}'s Employment and Support Allowance and loses ${cost}!
+	HOUSE	1	2	Disability Living Allowance
+	BUY	1	2	{buyer} appears to have personal care and/or mobility needs as a result of a mental or physical disability!
+	BUY	1	2	Awfom! {buyer} claims Disability Living Allowance! {buyer} becomes a full-time dole scrounger!
+	BUY	1	2	The UK is now 90% closer to leaving the EU!
+	RENT	1	2	Oh dear! {who} must pay for {owner}'s Disability Living Allowance and loses ${cost}!
+	HOUSE	1	3	Lord of Giraffeshire
+	BUY	1	3	Sweet! Her Majesty The Queen declares {buyer} the Lord of Giraffeshire!
+	BUY	1	3	Oh my! The UK has left the EU!
+	BUY	1	3	Oops! The DWP and the NHS have spontaneously run out of money!
+	BUY	1	3	Oh no! Amazon buys England, turns Wales into a landfill, and moves Scotland to Disneyland!
+	RENT	1	3	Oh shit! Elizabeth II orders {who} to pay ${cost} to {owner} for trespassing on Giraffeshire!
+	HOUSE	2	1	Loud spot
+	BUY	2	1	{buyer} starts selling Sour Diesel, Pure Power Plant, and Johnny Vegas Kush!
+	BUY	2	1	Oops! {buyer} starts getting hie on their own supply!
+	BUY	2	1	Awfom! {buyer} is hie as fuck!
+	RENT	2	1	{who} buys ${cost} worth of loud from {owner} and gets hie as fuck!
+	RENT	2	1	Oh shit! {who} is smoking el paquete del diablo!
+	HOUSE	2	2	Oclet cave
+	BUY	2	2	{buyer} moves in with oclet for no apparent reason!
+	RENT	2	2	{who} takes 38 white girls, 87 yayos, 44 Ks, 28 5-meo-dmts, and 31 peyotes with oclet!
+	RENT	2	2	Oh no! Hepkitten enters the cave, beats up oclet, and steals ${cost} from {who}!
+	HOUSE	2	3	Gourmet meth lab
+	BUY	2	3	{buyer} walks, swims, and walks to Gustavo Fring's preferred Pollos Hermanos branch!
+	BUY	2	3	{buyer} uses Quantum Time Travel and kills Walt's and Jesse's great-grandfathers!
+	BUY	2	3	{buyer} gains an open-ended employment contract and access to a gourmet meth lab!
+	RENT	2	3	{who} buys ${cost} worth of meth from {owner}!
+	RENT	2	3	{who} cleans the cat, brushes the flat, digs a hole, and blogs on #arab for 29 hours!
+	HOUSE	3	1	Pizza fa(c)tory
+	BUY	3	1	{buyer} chases the cat away, has a wank to kade.rar, and slps all day!
+	BUY	3	1	Oh no! {buyer} is _very_ hungry!
+	BUY	3	1	Awfom! {buyer} buys a Pizza fa(c)tory!
+	RENT	3	1	{who} buys a 9XXXXXL gourmet ${cost} pizza from {owner} w/ mango, sushi, chorizo, sLmi, kangaroo, emu, and caviar toppings!
+	RENT	3	1	Oh dear! {who} has developed Post-Pizza Traumatic Depression Disorder!
+	HOUSE	3	2	Xbox trolling group
+	BUY	3	2	Yay! {buyer} buys an Xbox One and a headset!
+	BUY	3	2	Awfom! {buyer} joins the Pink Unicorn Mob!
+	RENT	3	2	{who} plays Xbox with the Pink Unicorn Mob and trolls people on voice chat!
+	RENT	3	2	Oh no! {who} has been sentenced to pay ${cost} to {owner} for Hate Crimes and Anti-Social Behaviour!
+	HOUSE	3	3	Kade grazing spot
+	BUY	3	3	{buyer} buys 39 games, 15 video game consoles, 20 webcams, 0 food, 0 water, and 64 cocobolo wood panels!
+	BUY	3	3	{buyer} assembles a Hall of Grazing Kades!
+	BUY	3	3	Awfom! {buyer} has attracted one (1) grazing kade!
+	RENT	3	3	{who} spots kade on her favourite grazing spot!
+	RENT	3	3	Oh no! kade talks to {who} about her eating disorder!
+	RENT	3	3	Oh my! kade accidentally starves to death!
+	RENT	3	3	Oh dear! {who} must pay ${cost} to {owner} for killing kade!
+CHEST		-1	None		Community Chest
+PROPERTY	60	DARK_RED	Giraffe enclosure
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+TAX		100	None		Oxygen tax (pay $100)
+UTILITY		200	None		Chrono's Railroad
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} to {owner}!
+PROPERTY	100	RED		Zubwolf's Loft
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+CHANCE		-1	None		Chance
+PROPERTY	100	Red		IRCnet Avenue
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+PROPERTY	120	Red		EFrael Avenue
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+LOONY_BIN	-1	None		In the loony bin/Just visiting
+PROPERTY	140	DARK_GREEN	Schizophrenia
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+UTILITY		150	None		Welfare Office
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} to {owner}!
+PROPERTY	140	DARK_GREEN	Bipolar
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+PROPERTY	160	DARK_GREEN	Giraffe Disorder
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+UTILITY		200	None		Chrono's Airport
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} to {owner}!
+PROPERTY	180	YELLOW		#r4l-social
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+CHEST		-1	None		Community Chest
+PROPERTY	180	YELLOW		#superbowl
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+PROPERTY	200	YELLOW		#arab
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+FREE_LSD	-1	None		Free LSD! la ^_^
+PROPERTY	220	BLUE		The Ping Castle
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+CHANCE		-1	None		Chance
+PROPERTY	220	BLUE		Timeout Castle
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+PROPERTY	240	BLUE		Nadia Castle
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+UTILITY		200	None		Chrono's Cabs
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} to {owner}!
+PROPERTY	260	PINK		Knubbze's Bathroom
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+PROPERTY	260	PINK		Knubbze's Watch
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+UTILITY		150	None		Knocking Shop
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} to {owner}!
+PROPERTY	280	PINK		Knubbze's Drugs Budget
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
 SECTIONED	300	None		You got sectioned! (Go to loony bin)
-PROPERTY	300	GREEN		Pynchon's Harem			
-PROPERTY	300	GREEN		Kade's Webcam			
-CHEST		-1	None		Community Chest			
-PROPERTY	320	GREEN		sh0rt1e's Box o' Kids		
-UTILITY		200	None		Chrono's Horses			
-CHANCE		-1	None		Chance				
-PROPERTY	350	DARK_BLUE	Ghost Park			
-TAX		100	None		The Gov't Hates You (pay $100)	
-PROPERTY	400	DARK_BLUE	Shadow People Park		
+PROPERTY	300	GREEN		Pynchon's Harem
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+PROPERTY	300	GREEN		Kade's Webcam
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+CHEST		-1	None		Community Chest
+PROPERTY	320	GREEN		sh0rt1e's Box o' Kids
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+UTILITY		200	None		Chrono's Horses
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} to {owner}!
+CHANCE		-1	None		Chance
+PROPERTY	350	DARK_BLUE	Ghost Park
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
+TAX		100	None		The Gov't Hates You (pay $100)
+PROPERTY	400	DARK_BLUE	Shadow People Park
+	HOUSE	1	0	House
+	BUY	1	0	{buyer} buys {prop}!
+	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	1	House
+	BUY	1	1	{buyer} buys another house on {prop}!
+	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	2	House
+	BUY	1	2	{buyer} buys another house on {prop}!
+	RENT	1	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	1	House
+	BUY	2	1	{buyer} buys another house on {prop}!
+	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	2	House
+	BUY	2	2	{buyer} buys another house on {prop}!
+	RENT	2	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	2	3	House
+	BUY	2	3	{buyer} buys another house on {prop}!
+	RENT	2	3	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	House
+	BUY	3	1	{buyer} buys another house on {prop}!
+	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	2	House
+	BUY	3	2	{buyer} buys another house on {prop}!
+	RENT	3	2	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	3	House
+	BUY	3	3	{buyer} buys another house on {prop}!
+	RENT	3	3	{who} pays ${cost} rent to {owner}!
