@@ -7,6 +7,7 @@
 
 from ArabolyGame import ArabolyGameState
 from ArabolyTypeClass import ArabolyTypeClass
+from fnmatch import fnmatch
 
 class ArabolyValidate(ArabolyTypeClass):
     """XXX"""
@@ -80,16 +81,15 @@ class ArabolyValidate(ArabolyTypeClass):
             status = False
         return {"args":args, "context":context, "src":src, "status":status, **params}
     # }}}
-    # {{{ dispatch_kick(self, args, context, src, status, **params): XXX
-    def dispatch_kick(self, args, context, src, status, **params):
+    # {{{ dispatch_kick(self, args, channel, context, src, status, **params): XXX
+    def dispatch_kick(self, args, channel, context, src, status, **params):
         if context.state == ArabolyGameState.DISABLED   \
         or len(args) != 1 or args[0] not in context.players:
             status = False
-        elif src.lower() != "v!arab@127.0.0.1".lower():
-            status = False
         else:
             params["otherPlayer"] = args[0]
-        return {"args":args, "context":context, "src":src, "status":status, **params}
+            status = self._authorised(channel, context, src)
+        return {"args":args, "channel":channel, "context":context, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_part(self, args, context, src, status, **params): XXX
     def dispatch_part(self, args, context, src, status, **params):
@@ -130,8 +130,8 @@ class ArabolyValidate(ArabolyTypeClass):
             status = False
         return {"args":args, "context":context, "status":status, **params}
     # }}}
-    # {{{ dispatch_stop(self, args, context, src, status, **params): XXX
-    def dispatch_stop(self, args, context, src, status, **params):
+    # {{{ dispatch_stop(self, args, channel, context, src, status, **params): XXX
+    def dispatch_stop(self, args, channel, context, src, status, **params):
         if  context.state != ArabolyGameState.SETUP     \
         and context.state != ArabolyGameState.GAME      \
         and context.state != ArabolyGameState.PROPERTY  \
@@ -139,9 +139,18 @@ class ArabolyValidate(ArabolyTypeClass):
             status = False
         elif len(args):
             status = False
-        elif src.lower() != "v!arab@127.0.0.1".lower():
-            status = False
-        return {"args":args, "context":context, "src":src, "status":status, **params}
+        else:
+            status = self._authorised(channel, context, src)
+        return {"args":args, "channel":channel, "context":context, "src":src, "status":status, **params}
+    # }}}
+    # {{{ _authorised(self, channel, context, src): XXX
+    def _authorised(self, channel, context, src):
+        for hostnameMask, channelMask, srcMask in context.clientUaf:
+            if  fnmatch(context.clientParams["hostname"], hostnameMask) \
+            and fnmatch(channel, channelMask)                           \
+            and fnmatch(src, srcMask):
+                return True
+        return False
     # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120
