@@ -6,6 +6,7 @@
 #
 
 from ArabolyGame import ArabolyGameField, ArabolyGameState
+from ArabolyLog import ArabolyLogLevel
 from ArabolyTypeClass import ArabolyTypeClass
 
 class ArabolyOutput(ArabolyTypeClass):
@@ -25,7 +26,7 @@ class ArabolyOutput(ArabolyTypeClass):
     # {{{ dispatch_board(self, channel, context, output, **params): XXX
     def dispatch_board(self, channel, context, output, **params):
         for boardLine in context.boardTmp:
-            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
+            output += [{"type":"message", "delay":0, "logLevel":ArabolyLogLevel.LOG_DEBUG, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
         return {"channel":channel, "context":context, "output":output, **params}
     # }}}
     # {{{ dispatch_buy(self, channel, context, output, src, **params): XXX
@@ -48,7 +49,7 @@ class ArabolyOutput(ArabolyTypeClass):
     def dispatch_dice(self, channel, context, dice, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, newPlayerCur, output, src, **params):
         output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "{} rolls {} and {}!".format(src, dice[0], dice[1])]}]
         for boardLine in context.boardTmp:
-            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
+            output += [{"type":"message", "delay":0, "logLevel":ArabolyLogLevel.LOG_DEBUG, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
         output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "{} lands on {}!".format(src, context.board[newField][3])]}]
         if newFieldPastGo:
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "{} collects 200!".format(src)]}]

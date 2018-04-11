@@ -11,6 +11,7 @@ from ArabolyEvents import ArabolyEvents
 from ArabolyGame import ArabolyGame
 from ArabolyIrcClient import ArabolyIrcClient
 from ArabolyIrcToCommandMap import ArabolyIrcToCommandMap
+from ArabolyLog import ArabolyLog
 from ArabolyLogic import ArabolyLogic
 from ArabolyMonad import ArabolyMonad
 from ArabolyOutput import ArabolyOutput
@@ -26,7 +27,7 @@ class ArabolyIrcBot(object):
     optsMap = {"c":"channel", "h":"help", "H":"hostname", "n":"nick", "p":"port", "r":"realname", "u":"user"}
     optsString = "c:hH:n:p:r:u:"
     typeDict = {}
-    typeObjects = [ArabolyCommit, ArabolyDaʕat, ArabolyEvents, ArabolyGame, ArabolyIrcClient, ArabolyIrcToCommandMap, ArabolyLogic, ArabolyOutput, ArabolyRules, ArabolyState, ArabolyValidate]
+    typeObjects = [ArabolyCommit, ArabolyDaʕat, ArabolyEvents, ArabolyGame, ArabolyIrcClient, ArabolyIrcToCommandMap, ArabolyLog, ArabolyLogic, ArabolyOutput, ArabolyRules, ArabolyState, ArabolyValidate]
 
     #
     # main(argv): XXX
@@ -59,6 +60,7 @@ class ArabolyIrcBot(object):
                                 >> ArabolyIrcBot.typeDict[ArabolyState]             \
                                 >> ArabolyIrcBot.typeDict[ArabolyRules]             \
                                 >> ArabolyIrcBot.typeDict[ArabolyOutput]            \
+                                >> ArabolyIrcBot.typeDict[ArabolyLog]               \
                                 >> ArabolyIrcBot.typeDict[ArabolyCommit]).params["output"]
                     for eventOut in eventsOut:
                         if eventOut["type"] == "message":
