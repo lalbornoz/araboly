@@ -81,15 +81,15 @@ class ArabolyValidate(ArabolyTypeClass):
             status = False
         return {"args":args, "context":context, "src":src, "status":status, **params}
     # }}}
-    # {{{ dispatch_kick(self, args, channel, context, src, status, **params): XXX
-    def dispatch_kick(self, args, channel, context, src, status, **params):
+    # {{{ dispatch_kick(self, args, channel, context, srcFull, status, **params): XXX
+    def dispatch_kick(self, args, channel, context, srcFull, status, **params):
         if context.state == ArabolyGameState.DISABLED   \
         or len(args) != 1 or args[0] not in context.players:
             status = False
         else:
             params["otherPlayer"] = args[0]
-            status = self._authorised(channel, context, src)
-        return {"args":args, "channel":channel, "context":context, "src":src, "status":status, **params}
+            status = self._authorised(channel, context, srcFull)
+        return {"args":args, "channel":channel, "context":context, "srcFull":srcFull, "status":status, **params}
     # }}}
     # {{{ dispatch_part(self, args, context, src, status, **params): XXX
     def dispatch_part(self, args, context, src, status, **params):
@@ -130,8 +130,8 @@ class ArabolyValidate(ArabolyTypeClass):
             status = False
         return {"args":args, "context":context, "status":status, **params}
     # }}}
-    # {{{ dispatch_stop(self, args, channel, context, src, status, **params): XXX
-    def dispatch_stop(self, args, channel, context, src, status, **params):
+    # {{{ dispatch_stop(self, args, channel, context, srcFull, status, **params): XXX
+    def dispatch_stop(self, args, channel, context, srcFull, status, **params):
         if  context.state != ArabolyGameState.SETUP     \
         and context.state != ArabolyGameState.GAME      \
         and context.state != ArabolyGameState.PROPERTY  \
@@ -140,15 +140,15 @@ class ArabolyValidate(ArabolyTypeClass):
         elif len(args):
             status = False
         else:
-            status = self._authorised(channel, context, src)
-        return {"args":args, "channel":channel, "context":context, "src":src, "status":status, **params}
+            status = self._authorised(channel, context, srcFull)
+        return {"args":args, "channel":channel, "context":context, "srcFull":srcFull, "status":status, **params}
     # }}}
-    # {{{ _authorised(self, channel, context, src): XXX
-    def _authorised(self, channel, context, src):
+    # {{{ _authorised(self, channel, context, srcFull): XXX
+    def _authorised(self, channel, context, srcFull):
         for hostnameMask, channelMask, srcMask in context.clientUaf:
             if  fnmatch(context.clientParams["hostname"], hostnameMask) \
             and fnmatch(channel, channelMask)                           \
-            and fnmatch(src, srcMask):
+            and fnmatch(srcFull, srcMask):
                 return True
         return False
     # }}}
