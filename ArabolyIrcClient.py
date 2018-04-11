@@ -5,21 +5,21 @@
 # This project is licensed under the terms of the MIT licence.
 #
 
-import select, socket
+import select, socket, ssl
 
 class ArabolyIrcClient(object):
     """Non-blocking abstraction over the IRC protocol"""
     serverHname = serverPort = None;
     clientNick = clientIdent = clientGecos = None;
-    clientSocket = clientSocketFile = None;
-    clientQueue = None
+    clientSocket = clientQueue = None;
     partialLine = ""
+    sslFlag = False
 
     # {{{ close(self): Close connection to server
     def close(self):
         if self.clientSocket != None:
             self.clientSocket.close()
-        self.clientSocket = self.clientSocketFile = None;
+        self.clientSocket = None
     # }}}
     # {{{ connect(self, timeout=None): Connect to server and register w/ optional timeout
     def connect(self, timeout=None):
@@ -35,7 +35,14 @@ class ArabolyIrcClient(object):
                 self.close(); return False;
         else:
             select.select([], [self.clientSocket.fileno()], [])
-        self.clientSocketFile = self.clientSocket.makefile(encoding="utf-8", errors="replace")
+        if self.sslFlag:
+            self.clientSocket = ssl.wrap_socket(self.clientSocket, do_handshake_on_connect=False)
+            while True:
+                try:
+                    self.clientSocket.do_handshake()
+                    break
+                except ssl.SSLWantReadError:
+                    readySet = select.select([], [self.clientSocket.fileno()], [], timeout)
         self.clientQueue = []
         self.queue("NICK", self.clientNick)
         self.queue("USER", self.clientIdent, "0", "0", self.clientGecos)
@@ -45,25 +52,41 @@ class ArabolyIrcClient(object):
     def readlines(self):
         lines = []
         while True:
-            msg = self.clientSocketFile.readline()
-            if msg == None:
+            try:
+                if len(self.partialLine) >= 512:
+                    raise ValueError
+                newLines = self.clientSocket.recv(512 - len(self.partialLine))
+            except ssl.SSLWantReadError:
+                return lines
+            except BlockingIOError:
+                return lines
+            except ValueError:
+                self.partialLine = 0; continue;
+            if newLines == None:
                 lines += [None]; break;
-            elif len(msg) == 0:
+            elif len(newLines) == 0:
                 break
-            elif msg[-1] != "\n":
-                self.partialLine = msg; break
             else:
-                msg = self.partialLine + msg.rstrip("\n")
-                self.partialLine = ""
-                msg = msg.split(" :", 1)
-                if len(msg) == 1:
-                    msg = msg[0].split(" ")
-                elif len(msg) == 2:
-                    msg = msg[0].split(" ") + [msg[1]]
-                if msg[0][0] == ':':
-                    lines += [{"type":"message", "src":msg[0][1:], "cmd":msg[1], "args":[*msg[2:]]}]
+                newLines = str(newLines, "utf-8")
+                if newLines[-2:] == "\r\n":
+                    msgs = (self.partialLine + newLines).split("\r\n")[0:-1]
+                    self.partialLine = ""
                 else:
-                    lines += [{"type":"message", "cmd":msg[0], "args":[*msg[1:]]}]
+                    msgs = (self.partialLine + newLines).split("\r\n")
+                    if len(msgs) > 1:
+                        self.partialLine = msgs[-1]; msgs = msgs[0:-1];
+                    else:
+                        self.partialLine += msgs[0]; msgs = [];
+                for msg in msgs:
+                    msg = msg.split(" :", 1)
+                    if len(msg) == 1:
+                        msg = msg[0].split(" ")
+                    elif len(msg) == 2:
+                        msg = msg[0].split(" ") + [msg[1]]
+                    if msg[0][0] == ':':
+                        lines += [{"type":"message", "src":msg[0][1:], "cmd":msg[1], "args":[*msg[2:]]}]
+                    else:
+                        lines += [{"type":"message", "cmd":msg[0], "args":[*msg[1:]]}]
         return lines
     # }}}
     # {{{ queue(self, *args): Parse and queue single line to server from list
@@ -87,10 +110,11 @@ class ArabolyIrcClient(object):
                 del self.clientQueue[0]
         return True
     # }}}
-    # {{{ __init__(self, hostname, nick, port, realname, user, **kwargs): initialisation method
-    def __init__(self, hostname, nick, port, realname, user, **kwargs):
+    # {{{ __init__(self, hostname, nick, port, realname, user, ssl=False, **kwargs): initialisation method
+    def __init__(self, hostname, nick, port, realname, user, ssl=False, **kwargs):
         self.serverHname = hostname; self.serverPort = port;
         self.clientNick = nick; self.clientIdent = user; self.clientGecos = realname;
+        self.sslFlag = ssl
     # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120

@@ -23,9 +23,9 @@ from sys import argv, stderr
 
 class ArabolyIrcBot(object):
     """XXX"""
-    optsDefault = {"channel":"#ARABOLY", "hostname":None, "nick":"ARABOLY", "port":"6667", "realname":"Araboly NT 3.1 Advanced Server", "user":"ARABOLY"}
-    optsMap = {"c":"channel", "h":"help", "H":"hostname", "n":"nick", "p":"port", "r":"realname", "u":"user"}
-    optsString = "c:hH:n:p:r:u:"
+    optsDefault = {"channel":"#ARABOLY", "hostname":None, "nick":"ARABOLY", "port":"6667", "realname":"Araboly NT 3.1 Advanced Server", "ssl":False, "user":"ARABOLY"}
+    optsMap = {"c":"channel", "h":"help", "H":"hostname", "n":"nick", "p":"port", "r":"realname", "S":"ssl", "u":"user"}
+    optsString = "c:hH:n:p:r:Su:"
     typeDict = {}
     typeObjects = [ArabolyCommit, ArabolyDaʕat, ArabolyEvents, ArabolyGame, ArabolyIrcClient, ArabolyIrcToCommandMap, ArabolyLog, ArabolyLogic, ArabolyOutput, ArabolyRules, ArabolyState, ArabolyValidate]
 
@@ -90,6 +90,9 @@ class ArabolyIrcBot(object):
     def __new__(self, argv):
         optsList, args = getopt(argv[1:], self.optsString)
         optsDict = {self.optsMap[a[1:]]:b for a,b in optsList}
+        optsDict["ssl"] = True if "ssl" in optsDict else False
+        if optsDict["ssl"] and "port" not in optsDict:
+            optsDict["port"] = "6697"
         opts = self.optsDefault.copy(); opts.update(optsDict);
         if "help" in opts or opts["hostname"] == None:
             if opts["hostname"] == None:

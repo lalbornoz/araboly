@@ -30,12 +30,13 @@ This project is licensed under the terms of the MIT licence.
 ### How to run:
 ```
 usage: ./ArabolyIrcBot.py [-c <channel name>] [-h] [-n <nick name>]
-                          [-p <port>] [-r <IRC real name>] [-u <user name>]
-                           -H <hostname>
+                          [-p <port>] [-r <IRC real name>] [-S]
+                          [-u <user name>] -H <hostname>
          -c <channel name>.:  defaults to #ARABOLY.
          -n <nick name>....:  defaults to ARABOLY.
-         -p <port>.........:  defaults to 6667.
+         -p <port>.........:  defaults to 6667 or 6697 if using SSL.
          -r <IRC real name>:  defaults to `Araboly NT 3.1 Advanced Server'.
+         -S ...............:  use SSL; disabled by default.
          -u <user name>....:  defaults to ARABOLY.
 ```
 Requires Python >= v3.5.
