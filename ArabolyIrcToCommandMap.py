@@ -46,9 +46,9 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
             params["type"] = "command"
         return {"args":args, "output":output, **params}
     # }}}
-    # {{{ __init__(self, clientChannel="#ARABOLY", clientNick="ARABOLY"): initialisation method
-    def __init__(self, clientChannel="#ARABOLY", clientNick="ARABOLY"):
-        self.clientChannel = clientChannel; self.clientNick = clientNick;
+    # {{{ __init__(self, channel, nick, **kwargs): initialisation method
+    def __init__(self, channel, nick, **kwargs):
+        self.clientChannel = channel; self.clientNick = nick;
     # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120

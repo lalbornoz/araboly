@@ -64,5 +64,9 @@ class ArabolyTypeClass(object):
     def dispatch_stop(self, context, eventsOut, status, cmd, player, channel, *args):
         raise TypeError
     # }}}
+    # {{{ __init__(self, **kwargs): initialisation method
+    def __init__(self, **kwargs):
+        pass
+    # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120

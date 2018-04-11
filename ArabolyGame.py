@@ -39,8 +39,8 @@ class ArabolyGame(object):
     properties = {}
 
     #
-    # __init__(self): initialisation method
-    def __init__(self):
+    # __init__(self, **kwargs): initialisation method
+    def __init__(self, **kwargs):
         self.board.clear()
         with open("assets/ArabolyBoard.lst", "r") as fileObject:
             for fileLine in fileObject.readlines():
