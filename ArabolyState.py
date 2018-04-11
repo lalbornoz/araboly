@@ -95,7 +95,7 @@ class ArabolyState(ArabolyTypeClass):
     def dispatch_pass(self, context, src, **params):
         if context.state == ArabolyGameState.PROPERTY:
             params["newAuctionBidders"] = 0
-            params["newAuctionProperty"] = [*context.board[context.fields[src]], newField]
+            params["newAuctionProperty"] = [*context.board[context.fields[src]], context.fields[src]]
         elif context.state == ArabolyGameState.AUCTION:
             params["newAuctionBidders"] = context.auctionBidders + 1
             params["newAuctionBids"] = {src:0}
