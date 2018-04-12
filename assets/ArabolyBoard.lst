@@ -140,43 +140,100 @@ LOONY_BIN	-1	None		In the loony bin/Just visiting
 PROPERTY	140	DARK_GREEN	Schizophrenia
 	HOUSE	1	0	Ideas of Reference
 	BUY	1	0	{buyer} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	Oh no! {buyer} has started to develop {prop}!
+	BUY	1	0	Oh dear! {buyer} is developing Ideas of Reference!
+	BUY	1	0	Awfom! {buyer} discovered 29 patterns in number plates, spoder webs, people that wear hats vs. people that wear chainsaws, and the order of hours in a 24 hour day!
+	RENT	1	0	Oh my! {owner} bumps into {who}!
+	RENT	1	0	Oops! {who} buys ${cost} worth of patterns from {who}!
+	RENT	1	0	Awfom! {who} gains crazy points!
 	HOUSE	1	1	Negative Symptoms
-	BUY	1	1	{buyer} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	1	{buyer} buys Negative Symptoms on {prop}!
+	BUY	1	1	Oh my! {buyer}'s Schizophrenia is starting!
+	BUY	1	1	Oh no! {buyer} can't be arsed to finish the rest of this sente
+	BUY	1	1	{buyer} ${cost} {prop} whatever
+	RENT	1	1	Oops! {who} is sucked into {owner}'s black hole of Negative Symptoms! 
+	RENT	1	1	Oh my! {who} can't be arsed to finish the rest of thi
+	RENT	1	1	${cost} {who} cba {owner}
 	HOUSE	2	1	Delusions
-	BUY	2	1	{buyer} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	BUY	2	1	{buyer} buys Delusions on {prop}!
+	BUY	2	1	Oh my! {buyer}'s Schizophrenia is worsening!
+	BUY	2	1	Awfom! {buyer} understands 4EVERYTHING!
+	RENT	2	1	Oh dear! {who} spots {owner} chucking a prolonged speech at nobody in particular!
+	RENT	2	1	Awfom! {who} gains entropy and chaos from {owner} for only ${cost}!
 	HOUSE	3	1	Deadly Art Gallery
-	BUY	3	1	{buyer} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	3	1	{buyer} builds a Deadly Art Gallery on {prop}!
+	BUY	3	1	Oh my! {buyer} has drawn 3951 drawings of kade!
+	RENT	3	1	{who} enters {owner}'s Deadly Art Gallery!
+	RENT	3	1	Oh no! The Deadly Art Gallery is inside a tesseract!
+	RENT	3	1	Oops! {who} pays ${cost} to {owner} for a handdrawn map!
 TAX		100	None		Oxygen tax (pay $100)
 PROPERTY	140	DARK_GREEN	Spoke Forest
 	HOUSE	1	0	Crystal Plantation
 	BUY	1	0	{buyer} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	{buyer} builds a Crystal Plantation on {prop}!
+	BUY	1	0	{buyer} starts growing crystals!
+	BUY	1	0	The {prop} grows denser!
+	RENT	1	0	{who} enters the {prop}!
+	RENT	1	0	Awfom! {who} eats 15 white crystals, smokes 29 green crystals, and pets 8 pink crystal cats!
+	RENT	1	0	Oops! {who} pays ${cost} to {owner}!
 	HOUSE	1	1	Shadow Lion Woods
-	BUY	1	1	{buyer} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	1	{buyer} momentarily steals everyone's shadow!
+	BUY	1	1	{buyer} harvests Shadow Lions!
+	BUY	1	1	{buyer} adds Shadow Lion Woods to {prop}!
+	BUY	1	1	The Spoke Forest grows much denser!
+	RENT	1	1	{who} enters the Shadow Lion Woods in the {prop}!
+	RENT	1	1	Oh no! A group of Shadow Lions inhales {who}!
+	RENT	1	1	Oh dear! {who} is reprocessed into mIRC art!
+	RENT	1	1	Awfom! {owner} restores {who} at the cost of ${cost}!
 	HOUSE	2	1	Acid Ants Jungle
-	BUY	2	1	{buyer} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	Hall of Ghosts
-	BUY	3	1	{buyer} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	2	1	{buyer} goes to slp!
+	BUY	2	1	Awfom! {buyer} is dreaming about ants!
+	BUY	2	1	Oh my! {buyer} puts the dream on a blotter!
+	BUY	2	1	{buyer} adds Acid Ants Jungle to {prop}!
+	BUY	2	1	The Spoke Forest is now covering half of the planet!
+	RENT	2	1	{who} enters the Acid Ants Jungle in the {prop}!
+	RENT	2	1	Oops! {who} falls aslp and can't wake up!
+	RENT	2	1	Oh no! {who} has ceased to exist!
+	RENT	2	1	Awfom! {owner} brings {who} back to existence for only ${cost}!
+	HOUSE	3	1	Hall of Spokes
+	BUY	3	1	Oh dear! {buyer} clones the {prop} into itself!
+	BUY	3	1	Awfom! {buyer} has built a Hall of Spokes!
+	BUY	3	1	Oops! The Spoke Forest is now covering half of the known universe!
+	RENT	3	1	{who} enters the Hall of Spokes in the {prop}!
+	RENT	3	1	Oh dear! {owner} clones {who} into {who}!
+	RENT	3	1	Oops! {owner} claims ${cost} for from {who} for neutrino-related expenses!
 PROPERTY	160	DARK_GREEN	Nadia Hospital
 	HOUSE	1	0	Hidden Cave of Health Mushrooms
 	BUY	1	0	{buyer} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	Oh my! The {prop} contains a Hidden Cave of Health Mushrooms!
+	BUY	1	0	Oh dear! The Hidden Cave of Health Mushrooms contains a Nadia!
+	BUY	1	0	The Nadias are multiplying!
+	RENT	1	0	Oh no! {who} is losing it!
+	RENT	1	0	{who} is sent to the Nadia inside the Hidden Cave of Health Mushrooms in {owner}'s {prop}!
+	RENT	1	0	Awfom! {who} is found, cured, sliced, diced, and ironed at the cost of only ${cost} paid to {owner}!
 	HOUSE	1	1	Covert Cryptocurrency Pyramid Scam
-	BUY	1	1	{buyer} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	1	{buyer} starts a Covert Cryptocurrency Pyramid Scam in the {prop}!
+	BUY	1	1	Awfom! {buyer} gains 2200 BTC, 1200 ETH, 1150 HIE, and 476 Djiboutian Biti-Bitis!
+	BUY	1	1	Oops! Crab People are beginning to raid the Cryptocurrency Pyramid!
+	BUY	1	1	The Nadias are multiplying!
+	RENT	1	1	Oh dear! {who} is showing symptoms of Low On Cash Disorder (LOCD) and Spontaneous Money Evaporation Syndrome (SMES)!
+	RENT	1	1	{who} is sent to the Cryptocurrency Pyramid in {owner}'s {prop} for extensive treatment!
+	RENT	1	1	Oh no! Crab People from the Cryptocurrency Pyramid are attacking {who}!
+	RENT	1	1	Oops! The Crab People obtain ${cost} from {who} in order to further {owner}'s Covert Cryptocurrency Pyramid Scam!
 	HOUSE	2	1	14.8 Tesla Facebook Friendship Magnet
-	BUY	2	1	{buyer} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	BUY	2	1	{buyer} buys a 14.8 Tesla Facebook Friendship Magnet for the {prop}!
+	BUY	2	1	Awfom! {buyer}'s {prop} gains 7.6 billion new Facebook Friendships!
+	BUY	2	1	The Nadias are multiplying!
+	RENT	2	1	Oh no! {who} is running out of Facebook Friends!
+	RENT	2	1	{who} is sent to {owner}'s {prop} for immediate Facebook Friendship transfusion!
+	RENT	2	1	Awfom! {who} gains 99315 new Facebook Friendships thanks to {owner}'s 14.8 Tesla Facebook Friendship Magnet for only ${cost}!
 	HOUSE	3	1	Icy Death Plains Owl Farm
-	BUY	3	1	{buyer} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	3	1	{buyer} builds a Icy Death Plains Owl Farm inside the Hidden Cave of Health Mushrooms in the {prop}!
+	BUY	3	1	The Nadias are freezing!
+	RENT	3	1	Oh dear! {who}'s blood owl level is dangerously low!
+	RENT	3	1	{who} is sent to the Icy Death Plains Owl Farm inside the Hidden Cave of Health Mushrooms in {owner}'s {prop}!
+	RENT	3	1	Awfom! {who}'s blood is replaced with the freezing Nadias at {owner}'s {prop} for only ${cost}!
+	RENT	3	1	The Nadias are decreasing!
 UTILITY		200	None		Winged Chrono Port
 	BUY	1	0	{buyer} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
