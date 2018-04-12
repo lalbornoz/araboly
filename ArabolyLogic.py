@@ -51,22 +51,16 @@ class ArabolyLogic(ArabolyTypeClass):
                     else:
                         newDevelopedProperties += [playerProp]
         if status:
-            if (targetField[5][targetField[4]] + 1) < 3:
+            incrLevel = True
+            for otherProp in newDevelopedProperties:
+                if otherProp != targetField:
+                    if otherProp[5][targetField[4]] != 1:
+                        incrLevel = False; break;
+            if targetField[4] == 3:
+                incrLevel = False
+            if not incrLevel:
                 newDevelopedProperties = [targetField]
-                params["newDevelopedProperties"] = newDevelopedProperties 
-            elif (targetField[5][targetField[4]] + 1) == 3:
-                incrLevel = True
-                for otherProp in newDevelopedProperties:
-                    if otherProp != targetField:
-                        if otherProp[5][targetField[4]] != 3:
-                            incrLevel = False; break;
-                if targetField[4] == 3:
-                    incrLevel = False
-                if not incrLevel:
-                    newDevelopedProperties = [targetField]
-                params["newDevelopedProperties"] = newDevelopedProperties 
-            else:
-                status = False
+            params["newDevelopedProperties"] = newDevelopedProperties 
         return {"context":context, "field":field, "level":level, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_dice(self, context, dice, src, **params): XXX
