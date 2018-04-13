@@ -6,11 +6,11 @@
 #
 
 from collections import defaultdict
-from enum import Enum
 
-nested_dict = lambda: defaultdict(nested_dict)
+def nested_dict():
+    return defaultdict(nested_dict)
 
-class ArabolyGameField(Enum):
+class ArabolyGameField():
     """XXX"""
     NONE = 0
     CHANCE = 1
@@ -23,7 +23,7 @@ class ArabolyGameField(Enum):
     TAX = 8
     UTILITY = 9
 
-class ArabolyPropSubType(Enum):
+class ArabolyPropSubType():
     """XXX"""
     NONE = 0
     BUY = 1
@@ -31,7 +31,7 @@ class ArabolyPropSubType(Enum):
     LEVEL = 2
     RENT = 3
 
-class ArabolyGameState(Enum):
+class ArabolyGameState():
     """XXX"""
     DISABLED = 0
     ATTRACT = 1
@@ -42,15 +42,15 @@ class ArabolyGameState(Enum):
 
 class ArabolyGame(object):
     """XXX"""
-    auctionProperty = []; auctionBidders = -1; auctionBids = {};
-    clientParams = {}; clientUaf = [];
-    playerCur = -1; players = []; playersMax = -1;
-    board = []; boardStrings = nested_dict(); boardTmp = [];
-    fields = {}; properties = {}; state = ArabolyGameState.ATTRACT; wallets = {};
 
     #
     # __init__(self, **kwargs): initialisation method
     def __init__(self, **kwargs):
+        self.auctionProperty = []; self.auctionBidders = -1; self.auctionBids = {};
+        self.clientParams = {}; self.clientUaf = [];
+        self.playerCur = -1; self.players = []; self.playersMax = -1;
+        self.board = []; self.boardStrings = nested_dict(); self.boardTmp = [];
+        self.fields = {}; self.properties = {}; self.state = ArabolyGameState.ATTRACT; self.wallets = {};
         self.board.clear()
         with open("assets/ArabolyBoard.lst", "r") as fileObject:
             for fileLine in fileObject.readlines():

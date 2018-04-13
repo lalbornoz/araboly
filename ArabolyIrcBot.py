@@ -20,13 +20,14 @@ from ArabolyState import ArabolyState
 from ArabolyValidate import ArabolyValidate
 from getopt import getopt
 from sys import argv, stderr
+import copy, pickle, os
 
 class ArabolyIrcBot(object):
     """XXX"""
-    optsDefault = {"channel":"#ARABOLY", "hostname":None, "nick":"ARABOLY", "port":"6667", "realname":"Araboly NT 3.1 Advanced Server", "ssl":False, "user":"ARABOLY"}
-    optsMap = {"c":"channel", "h":"help", "H":"hostname", "n":"nick", "p":"port", "r":"realname", "S":"ssl", "u":"user"}
-    optsString = "c:hH:n:p:r:Su:"
-    typeDict = {}
+    optsDefault = {"channel":"#ARABOLY", "debug":False, "hostname":None, "nick":"ARABOLY", "port":"6667", "realname":"Araboly NT 3.1 Advanced Server", "ssl":False, "user":"ARABOLY"}
+    optsMap = {"c":"channel", "d":"debug", "h":"help", "H":"hostname", "n":"nick", "p":"port", "r":"realname", "S":"ssl", "u":"user"}
+    optsString = "c:dhH:n:p:r:Su:"
+    options = {}; typeDict = {};
     typeObjects = [ArabolyCommit, ArabolyDaʕat, ArabolyEvents, ArabolyGame, ArabolyIrcClient, ArabolyIrcToCommandMap, ArabolyLog, ArabolyLogic, ArabolyOutput, ArabolyRules, ArabolyState, ArabolyValidate]
 
     #
@@ -43,6 +44,11 @@ class ArabolyIrcBot(object):
                 events.concatSelect(rlist=[ircClient.clientSocket.fileno()], wlist=wlist)
                 if len(wlist):
                     events.concatSelect(wlist=[ircClient.clientSocket.fileno()])
+                if  arabolyIrcBot.options["debug"]                                   \
+                and os.path.isfile("./ArabolyIrcBot.snapshot"):
+                    with open("./ArabolyIrcBot.snapshot", "rb") as fileObject:
+                        print("Loading game snapshot from ./ArabolyIrcBot.snapshot")
+                        arabolyIrcBot.typeDict[ArabolyGame] = pickle.load(fileObject)
                 while True:
                     eventsIn = []; eventsOut = []; unqueueFlag = False; wlistFlag = False;
                     readySet = events.select()
@@ -50,14 +56,16 @@ class ArabolyIrcBot(object):
                         eventsIn += ircClient.readlines()
                     eventsIn += events.timers()
                     for eventIn in eventsIn:
-                        if  eventIn["type"] == "timer"  \
+                        if  eventIn["type"] == "timer"                              \
                         and "unqueue" in eventIn:
                             for unqueueLine in eventIn["unqueue"]:
                                 ircClient.queue(*unqueueLine); unqueueFlag = True;
                             continue
+                        if arabolyIrcBot.options["debug"]:
+                            gameSnapshot = copy.deepcopy(arabolyIrcBot.typeDict[ArabolyGame])
                         game = arabolyIrcBot.typeDict[ArabolyGame]
                         unit = ArabolyMonad(context=game, output=[], status=True, **eventIn)
-                        eventsOut += (unit                                          \
+                        unit = unit                                                 \
                                 >> ArabolyIrcBot.typeDict[ArabolyIrcToCommandMap]   \
                                 >> ArabolyIrcBot.typeDict[ArabolyValidate]          \
                                 >> ArabolyIrcBot.typeDict[ArabolyDaʕat]             \
@@ -66,7 +74,8 @@ class ArabolyIrcBot(object):
                                 >> ArabolyIrcBot.typeDict[ArabolyRules]             \
                                 >> ArabolyIrcBot.typeDict[ArabolyOutput]            \
                                 >> ArabolyIrcBot.typeDict[ArabolyLog]               \
-                                >> ArabolyIrcBot.typeDict[ArabolyCommit]).params["output"]
+                                >> ArabolyIrcBot.typeDict[ArabolyCommit]
+                        eventsOut += unit.params["output"]
                     for eventOut in eventsOut:
                         if eventOut["type"] == "message":
                             msg = [eventOut["cmd"], *eventOut["args"]]
@@ -80,6 +89,12 @@ class ArabolyIrcBot(object):
                             events.concatSelect(wlist=[ircClient.clientSocket.fileno()])
                         else:
                             events.filterSelect(wlist=[ircClient.clientSocket.fileno()])
+                    if  arabolyIrcBot.options["debug"]                          \
+                    and "exc_obj" in unit.params:
+                        with open("./ArabolyIrcBot.snapshot", "wb+") as fileObject:
+                            print("Saving pre-exception game snapshot to ./ArabolyIrcBot.snapshot")
+                            pickle.dump(gameSnapshot, fileObject)
+                        return False
                 ircClient.close()
             else:
                 return False
@@ -90,6 +105,7 @@ class ArabolyIrcBot(object):
     def __new__(self, argv):
         optsList, args = getopt(argv[1:], self.optsString)
         optsDict = {self.optsMap[a[1:]]:b for a,b in optsList}
+        optsDict["debug"] = True if "debug" in optsDict else False
         optsDict["ssl"] = True if "ssl" in optsDict else False
         if optsDict["ssl"] and "port" not in optsDict:
             optsDict["port"] = "6697"
@@ -101,8 +117,9 @@ class ArabolyIrcBot(object):
                 [print(line.rstrip("\n")) for line in fileObject.readlines()]
                 return None
         else:
+            self.options = opts
             for typeObject in self.typeObjects:
-                self.typeDict[typeObject] = typeObject(**opts)
+                self.typeDict[typeObject] = typeObject(**self.options)
             return self
 
 if __name__ == "__main__":

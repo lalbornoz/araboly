@@ -8,6 +8,7 @@
 from ArabolyGame import ArabolyGameField, ArabolyPropSubType, ArabolyGameState
 from ArabolyLog import ArabolyLogLevel
 from ArabolyTypeClass import ArabolyTypeClass
+import random
 
 class ArabolyOutput(ArabolyTypeClass):
     """XXX"""
@@ -35,9 +36,10 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_buy(self, channel, context, output, src, **params): XXX
     def dispatch_buy(self, channel, context, output, src, **params):
+        delay = 0.750
         for buyString in context.boardStrings[context.fields[src]][ArabolyPropSubType.BUY][1][0]:
             rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
-            delay = 0.750
+            delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, buyString.format(owner=src, prop=context.board[context.fields[src]][3], rands=rands)]}]
         delay += 0.750
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format(context.players[params["newPlayerCur"]])]}]
@@ -214,17 +216,16 @@ class ArabolyOutput(ArabolyTypeClass):
                 return {"output":output, **params}
         return {"output":output, **params}
     # }}}
-    # {{{ dispatchException(self, e, exc_fname, exc_lineno, exc_stack, output, **params): XXX
-    def dispatchException(self, e, exc_fname, exc_lineno, exc_stack, output, **params):
+    # {{{ dispatchException(self, exc_fname, exc_lineno, exc_obj, exc_type, exc_stack, output, **params): XXX
+    def dispatchException(self, exc_fname, exc_lineno, exc_obj, exc_type, exc_stack, output, **params):
         if params["type"] == "command":
             if "channel" in params:
                 output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "Traceback (most recent call last):"]}]
                 for stackLine in exc_stack:
                     output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], stackLine]}]
-                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "{} exception in {}:{}: {}".format(e.__class__.__name__, exc_fname, exc_lineno, str(e))]}]
+                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "{} exception in {}:{}: {}".format(str(exc_type), exc_fname, exc_lineno, str(exc_obj))]}]
                 output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "Monadic value: {}".format(str(params))]}]
-                return {"e":e, "output":output, **params}
-        return {"e":e, "exc_fname":exc_fname, "exc_lineno":exc_lineno, "exc_stack":exc_stack, "output":output, **params}
+        return {"exc_fname":exc_fname, "exc_lineno":exc_lineno, "exc_obj":exc_obj, "exc_type":exc_type, "exc_stack":exc_stack, "output":output, **params}
     # }}}
     # {{{ __init__(self, **kwargs): initialisation method
     def __init__(self, **kwargs):
