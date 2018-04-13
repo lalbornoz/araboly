@@ -51,6 +51,7 @@ class ArabolyGame(object):
         self.playerCur = -1; self.players = []; self.playersMax = -1;
         self.board = []; self.boardStrings = nested_dict(); self.boardTmp = [];
         self.fields = {}; self.properties = {}; self.state = ArabolyGameState.ATTRACT; self.wallets = {};
+        self.inhibitUntil = 0
         self.board.clear()
         with open("assets/ArabolyBoard.lst", "r") as fileObject:
             for fileLine in fileObject.readlines():
