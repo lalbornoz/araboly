@@ -35,11 +35,10 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_buy(self, channel, context, output, src, **params): XXX
     def dispatch_buy(self, channel, context, output, src, **params):
-        def msg_(buyer, buyString, prop):
-            return buyString.format(**locals())
         for buyString in context.boardStrings[context.fields[src]][ArabolyPropSubType.BUY][1][0]:
+            rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
             delay = 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, msg_(src, buyString, context.board[context.fields[src]][3])]}]
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, buyString.format(owner=src, prop=context.board[context.fields[src]][3], rands=rands)]}]
         delay += 0.750
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format(context.players[params["newPlayerCur"]])]}]
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
@@ -49,22 +48,19 @@ class ArabolyOutput(ArabolyTypeClass):
         delay = 0.750
         for newDevProp in newDevelopedProperties:
             if len(newDevelopedProperties) > 1:
-                def msg_(buyer, developString, prop):
-                    return developString.format(**locals());
                 for developString in context.boardStrings[newDevProp[-1]][ArabolyPropSubType.BUY][newDevProp[4] - 1][newDevProp[5][newDevProp[4] - 1]]:
+                    rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
                     delay += 0.750
-                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, msg_(src, developString, context.board[newDevProp[-1]][3])]}]
-                def msg__(buyer, levelString):
-                    return levelString.format(**locals())
+                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, developString.format(owner=src, prop=context.board[newDevProp[-1]][3], rands=rands)]}]
                 for levelString in context.boardStrings[newDevProp[-1]][ArabolyPropSubType.LEVEL][newDevProp[4] - 1][newDevProp[5][newDevProp[4] - 1]]:
+                    rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
                     delay += 0.750
-                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, msg__(src, levelString)]}]
+                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, levelString.format(owner=src, rands=rands)]}]
             else:
-                def msg_(buyer, developString, prop):
-                    return developString.format(**locals())
                 for developString in context.boardStrings[newDevProp[-1]][ArabolyPropSubType.BUY][newDevProp[4]][newDevProp[5][newDevProp[4]]]:
+                    rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
                     delay += 0.750
-                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, msg_(src, developString, context.board[newDevProp[-1]][3])]}]
+                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, developString.format(owner=src, prop=context.board[newDevProp[-1]][3], rands=rands)]}]
         return {"channel":channel, "context":context, "newDevelopedProperties":newDevelopedProperties, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatch_dice(self, channel, context, dice, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, newPlayerCur, output, src, **params): XXX
@@ -107,11 +103,10 @@ class ArabolyOutput(ArabolyTypeClass):
                         for playerProp in context.properties[player]:
                             if playerProp[-1] == newField:
                                 propOwner = player; break;
-                    def msg_(cost, owner, who, string_):
-                        return string_.format(**locals())
                     for rentString in context.boardStrings[newField][ArabolyPropSubType.RENT][playerProp[4]][playerProp[5][playerProp[4]]]:
+                        rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
                         delay += 0.750
-                        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, msg_(params["newPropRent"], propOwner, src, rentString)]}]
+                        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, rentString.format(cost=params["newPropRent"], owner=propOwner, rands=rands, who=src)]}]
         if newPlayerCur != context.playerCur:
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format(context.players[newPlayerCur])]}]
