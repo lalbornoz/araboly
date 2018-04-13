@@ -8,6 +8,7 @@
 from ArabolyMonad import ArabolyMonadFunctionDecorator
 from ArabolyTypeClass import ArabolyTypeClass
 from string import ascii_lowercase
+import time
 
 class ArabolyIrcToCommandMap(ArabolyTypeClass):
     """XXX"""
@@ -65,17 +66,22 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
         output += {"type":"message", "delay":-1, "cmd":"PONG", "args":args}
         return {"args":args, "output":output, **params}
     # }}}
-    # {{{ dispatchPRIVMSG(self, args, output, src, **params): Dispatch single PRIVMSG message from server
-    def dispatchPRIVMSG(self, args, output, src, **params):
+    # {{{ dispatchPRIVMSG(self, args, context, output, src, **params): Dispatch single PRIVMSG message from server
+    def dispatchPRIVMSG(self, args, context, output, src, **params):
         if  args[0].lower() == self.clientChannel.lower()   \
         and args[1].startswith(".m"):
+            if context.inhibitUntil > 0:
+                if context.inhibitUntil <= time.time():
+                    context.inhibitUntil = 0
+                else:
+                    return {"args":args, "context":context, "output":output, "src":src, **params}
             params["cmd"] = args[1].split(" ")[0][2:]
             params["channel"] = args[0].lower()
             params["srcFull"] = src
             src = self.nickMap[src.split("!")[0]]
             args = args[1].split(" ")[1:]
             params["type"] = "command"
-        return {"args":args, "output":output, "src":src, **params}
+        return {"args":args, "context":context, "output":output, "src":src, **params}
     # }}}
     # {{{ __init__(self, channel, nick, **kwargs): initialisation method
     def __init__(self, channel, nick, **kwargs):

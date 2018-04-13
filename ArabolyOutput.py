@@ -8,7 +8,7 @@
 from ArabolyGame import ArabolyGameField, ArabolyPropSubType, ArabolyGameState
 from ArabolyLog import ArabolyLogLevel
 from ArabolyTypeClass import ArabolyTypeClass
-import random
+import random, time
 
 class ArabolyOutput(ArabolyTypeClass):
     """XXX"""
@@ -26,6 +26,7 @@ class ArabolyOutput(ArabolyTypeClass):
         else:
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Current highest bid: ${}".format(newHighestBid)]}]
+        params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "newAuctionBids":newAuctionBids, "newHighestBid":newHighestBid, "newHighestBidder":newHighestBidder, "output":output, "price":price, "src":src, **params}
     # }}}
     # {{{ dispatch_board(self, channel, context, output, **params): XXX
@@ -43,6 +44,7 @@ class ArabolyOutput(ArabolyTypeClass):
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, buyString.format(owner=src, prop=context.board[context.fields[src]][3], rands=rands)]}]
         delay += 0.750
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format(context.players[params["newPlayerCur"]])]}]
+        params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatch_develop(self, channel, context, newDevelopedProperties, output, src, **params): XXX
@@ -63,6 +65,7 @@ class ArabolyOutput(ArabolyTypeClass):
                     rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
                     delay += 0.750
                     output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, developString.format(owner=src, prop=context.board[newDevProp[-1]][3], rands=rands)]}]
+        params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "newDevelopedProperties":newDevelopedProperties, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatch_dice(self, channel, context, dice, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, newPlayerCur, output, src, **params): XXX
@@ -112,6 +115,7 @@ class ArabolyOutput(ArabolyTypeClass):
         if newPlayerCur != context.playerCur:
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format(context.players[newPlayerCur])]}]
+        params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "dice":dice, "output":output, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "newPlayerCur":newPlayerCur, "src":src, **params}
     # }}}
     # {{{ dispatch_help(self, channel, output, **params): XXX
@@ -129,6 +133,7 @@ class ArabolyOutput(ArabolyTypeClass):
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Araboly game with {} players has started!".format(context.playersMax)]}]
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format([*context.players, *params["newPlayers"]][context.playerCur])]}]
+        params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatch_kick(self, channel, context, otherPlayer, output, **params): XXX
@@ -138,6 +143,7 @@ class ArabolyOutput(ArabolyTypeClass):
         if len(context.players) <= 1:
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Stopping current Araboly game!"]}]
+        params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "otherPlayer":otherPlayer, "output":output, **params}
     # }}}
     # {{{ dispatch_part(self, channel, context, output, src, **params): XXX
@@ -147,6 +153,7 @@ class ArabolyOutput(ArabolyTypeClass):
         if len(context.players) <= 1:
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Stopping current Araboly game!"]}]
+        params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatch_pass(self, channel, context, output, src, **params): XXX
@@ -181,11 +188,13 @@ class ArabolyOutput(ArabolyTypeClass):
                 else:
                     delay += 0.750
                     output += [{"type":"message", "delay":0.750, "cmd":"PRIVMSG", "args":[channel, "Current highest bid: $0"]}]
+        params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatch_start(self, channel, context, output, players, src, **params): XXX
     def dispatch_start(self, channel, context, output, players, src, **params):
         output += [{"type":"message", "delay":0.750, "cmd":"PRIVMSG", "args":[channel, "Starting Araboly game with {} players!".format(players)]}]
+        params["newInhibitUntil"] = time.time() + 0.750
         return {"channel":channel, "context":context, "output":output, "players":players, "src":src, **params}
     # }}}
     # {{{ dispatch_status(self, channel, context, output, src, **params): XXX
