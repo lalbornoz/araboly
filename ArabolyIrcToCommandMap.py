@@ -16,7 +16,7 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
 
     # {{{ dispatch001(self, output, **params): Dispatch single 001 (RPL_WELCOME)
     def dispatch001(self, output, **params):
-        output += [{"type":"message", "delay":-1, "cmd":"JOIN", "args":[self.clientChannel]}]
+        output += [{"type":"message", "delay":0, "cmd":"JOIN", "args":[self.clientChannel]}]
         return {"output":output, **params}
     # }}}
     # {{{ dispatch353(self, args, src, **params): Dispatch single 353 message from server
@@ -30,22 +30,24 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
                     self.nickMap[nickSpec] = nickSpec
         return {"args":args, "src":src, **params}
     # }}}
-    # {{{ dispatchJOIN(self, args, src, **params): Dispatch single JOIN message from server
-    def dispatchJOIN(self, args, src, **params):
+    # {{{ dispatchJOIN(self, args, context, output, src, **params): Dispatch single JOIN message from server
+    def dispatchJOIN(self, args, context, output, src, **params):
         if args[0].lower() == self.clientChannel.lower():
             nick = src.split("!")[0].lower()
             if nick == self.clientNick.lower():
+                for logoLine in context.logoLines:
+                    output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[args[0], logoLine.rstrip("\n")]}]
                 self.clientChannelRejoin = False
             elif nick not in self.nickMap:
                 self.nickMap[nick] = nick
-        return {"args":args, "src":src, **params}
+        return {"args":args, "context":context, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatchKICK(self, args, output, **params): Dispatch single KICK message from server
     def dispatchKICK(self, args, output, **params):
         if  args[0].lower() == self.clientChannel.lower() \
         and args[1].lower() == self.clientNick.lower():
             self.clientChannelRejoin = True
-            output += {"type":"message", "delay":time.time() + 15, "cmd":"JOIN", "args":[self.clientChannel]}
+            output += [{"type":"message", "delay":time.time() + 15, "cmd":"JOIN", "args":[self.clientChannel]}]
         return {"args":args, "output":output, **params}
     # }}}
     # {{{ dispatchNICK(self, args, src, **params): Dispatch single NICK message from server
@@ -62,8 +64,8 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
         return {"args":args, **params}
     # }}}
     # {{{ dispatchPING(self, args, output, **params): Dispatch single PING message from server
-    def dispatchPing(self, args, output, **params):
-        output += {"type":"message", "delay":-1, "cmd":"PONG", "args":args}
+    def dispatchPING(self, args, output, **params):
+        output += [{"type":"message", "delay":0, "cmd":"PONG", "args":args}]
         return {"args":args, "output":output, **params}
     # }}}
     # {{{ dispatchPRIVMSG(self, args, context, output, src, **params): Dispatch single PRIVMSG message from server
