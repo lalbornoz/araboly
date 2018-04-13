@@ -1,25 +1,25 @@
 START		200	None		Collect $200 as you pass GO
 PROPERTY	60	DARK_RED	Gorf's council estate
 	HOUSE	1	0	Disability Living Allowance
-	BUY	1	0	{buyer} buys {prop}!
-	BUY	1	0	{buyer} appears to have personal care and/or mobility needs as a result of a mental or physical disability!
-	BUY	1	0	Awfom! {buyer} claims Disability Living Allowance! {buyer} becomes a full-time dole scrounger!
+	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	{owner} appears to have personal care and/or mobility needs as a result of a mental or physical disability!
+	BUY	1	0	Awfom! {owner} claims Disability Living Allowance! {owner} becomes a full-time dole scrounger!
 	RENT	1	0	Oh dear! {who} must pay for {owner}'s Disability Living Allowance and loses ${cost}!
 	HOUSE	1	1	Xbox trolling group
-	BUY	1	1	Yay! {buyer} buys an Xbox One and a headset!
-	BUY	1	1	Awfom! {buyer} joins the Pink Unicorn Mob on {prop}!
+	BUY	1	1	Yay! {owner} buys an Xbox One and a headset!
+	BUY	1	1	Awfom! {owner} joins the Pink Unicorn Mob on {prop}!
 	RENT	1	1	{who} plays Xbox with the Pink Unicorn Mob and trolls people on voice chat!
 	RENT	1	1	Oh no! {who} has been sentenced to pay ${cost} to {owner} for Hate Crimes and Anti-Social Behaviour!
 	HOUSE	2	1	Pizza fa(c)tory
-	BUY	2	1	{buyer} chases the cat away, has a wank to kade.rar, and slps all day!
-	BUY	2	1	Oh no! {buyer} is _very_ hungry!
-	BUY	2	1	Awfom! {buyer} buys a Pizza fa(c)tory on {prop}!
-	RENT	2	1	{who} buys a 9XXXXXL gourmet ${cost} pizza from {owner} w/ mango, sushi, chorizo, sLmi, kangaroo, emu, and caviar toppings!
+	BUY	2	1	{owner} chases the cat away, has a wank to kade.rar, and slps all day!
+	BUY	2	1	Oh no! {owner} is _very_ hungry!
+	BUY	2	1	Awfom! {owner} buys a Pizza fa(c)tory on {prop}!
+	RENT	2	1	{who} buys a {rands[0]}XXXXXL gourmet ${cost} pizza from {owner} w/ mango, sushi, chorizo, sLmi, kangaroo, emu, and caviar toppings!
 	RENT	2	1	Oh dear! {who} has developed Post-Pizza Traumatic Depression Disorder!
 	HOUSE	3	1	Kade grazing spot
-	BUY	3	1	{buyer} buys 39 games, 15 video game consoles, 20 webcams, 0 food, 0 water, and 64 cocobolo wood panels!
-	BUY	3	1	{buyer} assembles a Hall of Grazing Kades!
-	BUY	3	1	Awfom! {buyer} has attracted one (1) grazing kade on {prop}!
+	BUY	3	1	{owner} buys {rands[0]} games, {rands[1]} video game consoles, {rands[2]} webcams, 0 food, 0 water, and {rands[3]} cocobolo wood panels!
+	BUY	3	1	{owner} assembles a Hall of Grazing Kades!
+	BUY	3	1	Awfom! {owner} has attracted one (1) grazing kade on {prop}!
 	RENT	3	1	{who} spots kade on her favourite grazing spot!
 	RENT	3	1	Oh no! kade talks to {who} about her eating disorder!
 	RENT	3	1	Oh my! kade accidentally starves to death!
@@ -27,184 +27,184 @@ PROPERTY	60	DARK_RED	Gorf's council estate
 CHEST		-1	None		Community Brr
 PROPERTY	60	DARK_RED	Incog's council estate
 	HOUSE	1	0	Jobseeker's Allowance
-	BUY	1	0	{buyer} buys {prop}!
-	BUY	1	0	{buyer} pretends to look for work and claims unemployment benefits!
-	BUY	1	0	{buyer} becomes a dole scrounger!
+	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	{owner} pretends to look for work and claims unemployment benefits!
+	BUY	1	0	{owner} becomes a dole scrounger!
 	BUY	1	0	The UK is now 90% closer to leaving the EU!
 	RENT	1	0	Oh my! {who} must pay for {owner}'s Jobseeker's Allowances and loses ${cost}!
 	HOUSE	1	1	Lord of Incogshire
-	BUY	1	1	Yay! Her Majesty The Queen declares {buyer} Lord of Incogshire!
+	BUY	1	1	Yay! Her Majesty The Queen declares {owner} Lord of Incogshire!
 	BUY	1	1	Oops! The UK has left the EU!
 	BUY	1	1	Oh my! The DWP and the NHS have spontaneously run out of money!
 	BUY	1	1	Oh no! Amazon buys England, turns Wales into a landfill, and moves Scotland to Disneyland!
 	RENT	1	1	Oh dear! {who} must pay ${cost} to {owner} for trespassing on Incogshire!
 	HOUSE	2	1	Ristorante D'XSS
-	BUY	2	1	{buyer} buys Ristorante D'XSS on {prop} and replaces the staff with 99.998% identical Winkie clones!
-	BUY	2	1	Oh no! Over 315 XSS vulnerabilities have been discovered in Araboly!
+	BUY	2	1	{owner} buys Ristorante D'XSS on {prop} and replaces the staff with 99.998% identical Winkie clones!
+	BUY	2	1	Oh no! Over {rands[0]} XSS vulnerabilities have been discovered in Araboly!
 	RENT	2	1	{who} orders weaponised deep-fried XSS with steamed XSS rice, carbonated XSS, and XSS rings on the side!
 	RENT	2	1	Oh no! The bill is vulnerable to XSS attacks!
 	RENT	2	1	Oh shit! {owner} steals ${cost} from {who}!
 	HOUSE	3	1	Loud spot
-	BUY	3	1	{buyer} starts selling Sour Diesel, Pure Power Plant, and Johnny Vegas Kush on {prop}!
-	BUY	3	1	Oops! {buyer} starts getting hie on their own supply!
-	BUY	3	1	Awfom! {buyer} is hie as fuck!
+	BUY	3	1	{owner} starts selling Sour Diesel, Pure Power Plant, and Johnny Vegas Kush on {prop}!
+	BUY	3	1	Oops! {owner} starts getting hie on their own supply!
+	BUY	3	1	Awfom! {owner} is hie as fuck!
 	RENT	3	1	{who} buys ${cost} worth of loud from {owner} and gets hie as fuck!
 	RENT	3	1	Oh shit! {who} is smoking el paquete del diablo!
 UTILITY		150	None		Welfare Office
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 UTILITY		200	None		Chrono Camel Company
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 PROPERTY	100	RED		Rizon Towers
 	HOUSE	1	0	Chrissy's Vagina
-	BUY	1	0	{buyer} buys {prop}!
-	BUY	1	0	{buyer} joins #808!
-	BUY	1	0	{buyer} buys Chrissy's Vagina!
-	BUY	1	0	Oh no! {buyer} is becoming a brony!
+	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	{owner} joins #808!
+	BUY	1	0	{owner} buys Chrissy's Vagina!
+	BUY	1	0	Oh no! {owner} is becoming a brony!
 	RENT	1	0	{who} enters Chrissy's Vagina!
-	RENT	1	0	Oh my! {who} is assaulted by 39 white knights!
+	RENT	1	0	Oh my! {who} is assaulted by {rands[0]} white knights!
 	RENT	1	0	Oh shit! {who} must pay ${cost} rent to {owner} for occupying Chrissy's Vagina!
 	HOUSE	1	1	Animu Enthusiasts Club
-	BUY	1	1	{buyer} starts an Animu Enthusiasts Club in {prop}!
-	BUY	1	1	Oh no! {buyer} is becoming a tranny!
-	RENT	1	1	Oops! {who} buys a pinku (that's Japanese for pink) box with 2 kotoba (that's Japanese for 2 compartments) from {owner}!
+	BUY	1	1	{owner} starts an Animu Enthusiasts Club in {prop}!
+	BUY	1	1	Oh no! {owner} is becoming a tranny!
+	RENT	1	1	Oops! {who} buys a pinku (that's Japanese for pink) box with {rands[0]} kotoba (that's Japanese for {rands[0]} compartments) from {owner}!
 	RENT	1	1	Oh my! It's really chibi (small) sized and really kawaii (cute) and only costs ${cost} bux!
 	HOUSE	2	1	Mob of Tranny Sects
-	BUY	2	1	Oh no! {buyer} has become a tranny!
-	BUY	2	1	{buyer} gains an O:line!
-	BUY	2	1	{buyer} starts a Mob of Tranny Sects on {prop} with 48 genderqueer members, 52 drag queens, 0.5 non-binary skoliosexuals, and 20 cross-dressers!
+	BUY	2	1	Oh no! {owner} has become a tranny!
+	BUY	2	1	{owner} gains an O:line!
+	BUY	2	1	{owner} starts a Mob of Tranny Sects on {prop} with {rands[0]} genderqueer members, {rands[1]} drag queens, {rands[2]}.5 non-binary skoliosexuals, and {rands[3]} cross-dressers!
 	RENT	2	1	Oops! {who} is assaulted by a very angry Mob of Tranny Sects!
 	RENT	2	1	Oh no! {who} is accused of transphobia, gender-normative fascism, hate crimes, and perpetuating patriarchialism!
 	RENT	2	1	Oh dear! {who} must pay ${cost} to {owner}!
 	HOUSE	3	1	The Free Army of #chimpire
-	BUY	3	1	{buyer} gains mantits!
-	BUY	3	1	{buyer} gains 300 stone!
-	BUY	3	1	{buyer} joins The Free Army of #chimpire!
-	BUY	3	1	Oh no! {buyer} has become a nazi tranny!
+	BUY	3	1	{owner} gains mantits!
+	BUY	3	1	{owner} gains {rands[0]} stone!
+	BUY	3	1	{owner} joins The Free Army of #chimpire!
+	BUY	3	1	Oh no! {owner} has become a nazi tranny!
 	RENT	3	1	Oh my! {who} is racially analysed by The Free Army of #chimpire!
 	RENT	3	1	Oh shit! The Free Army of #chimpire confiscates ${cost} of {who}'s wealth for being racially inferior!
 CHANCE		-1	None		Chance
 PROPERTY	100	Red		EFrael Avenue
 	HOUSE	1	0	G-line silo
-	BUY	1	0	{buyer} buys {prop}!
-	BUY	1	0	{buyer} builds a G-line silo on {prop} for purposes of defence and recreation!
+	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	{owner} builds a G-line silo on {prop} for purposes of defence and recreation!
 	BUY	1	0	4/!\ 5WARNING: IRC IS SERIOUS 4/!\
 	RENT	1	0	{who} joins {prop}!
 	RENT	1	0	Oh no! {owner} launches a deadly G-line at {who}!
 	RENT	1	0	Oh my! {who} is banned from {prop}!
 	RENT	1	0	Oh dear! {who} pays ${cost} to {owner} for trespassing on {prop}!
 	HOUSE	1	1	mIRC art adventure park
-	BUY	1	1	{buyer} builds a mIRC art adventure park on {prop}!
-	BUY	1	1	Awfom! {buyer} has pissed off at least 52 oldschool ASCII art scene groups!
+	BUY	1	1	{owner} builds a mIRC art adventure park on {prop}!
+	BUY	1	1	Awfom! {owner} has pissed off at least {rands[0]} oldschool ASCII art scene groups!
 	RENT	1	1	{who} enters the mIRC art adventure park on {prop}!
 	RENT	1	1	Oh my! {who} is illuminated and overwhelmed by an endless forest of mIRC art bricks in various arrangements!
 	RENT	1	1	Oops! {who} buys ${cost} worth of mIRC art from {owner}!
 	HOUSE	2	1	Penis Pump 4 Life
-	BUY	2	1	{buyer} starts Penis Pump 4 Life on {prop}!
-	BUY	2	1	Awfom! {buyer} has pissed off at least 900 EFrael opers!
+	BUY	2	1	{owner} starts Penis Pump 4 Life on {prop}!
+	BUY	2	1	Awfom! {owner} has pissed off at least {rands[0]} EFrael opers!
 	RENT	2	1	{who} joins Penis Pump 4 Life on {prop}!
 	RENT	2	1	Oops! {who} buys ${cost} worth of penis pumps from {owner}!
 	HOUSE	3	1	EFnet News
-	BUY	3	1	{buyer} starts EFnet News on {prop}!
+	BUY	3	1	{owner} starts EFnet News on {prop}!
 	BUY	3	1	0/!\ FREE NPK 0/!\
 	RENT	3	1	{who} joins EFnet News on {prop}!
-	RENT	3	1	Oops! {who} accidentally shoots 12 armed police officers!
-	RENT	3	1	Oh no! {who} is sent to gaol for 300 years, 2 days, 1 hour, 20 minutes, and 5 seconds!
+	RENT	3	1	Oops! {who} accidentally shoots {rands[0]} armed police officers!
+	RENT	3	1	Oh no! {who} is sent to gaol for {rands[0]} years, {rands[1]} days, {rands[2]} hours, {rands[3]} minutes, and {rands[4]} seconds!
 	RENT	3	1	Awfom! EFnet News smuggles {who} out of gaol for the nominal fee of ${cost} paid to {owner}!
 PROPERTY	120	Red		SandNET Oasis
 	HOUSE	1	0	Gigantic MOTD Carpet
-	BUY	1	0	{buyer} buys {prop}!
-	BUY	1	0	{buyer} buys a Gigantic MOTD Carpet for {prop}!
+	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	{owner} buys a Gigantic MOTD Carpet for {prop}!
 	RENT	1	0	{who} joins {prop}!
 	RENT	1	0	Oops! {who} is apprehended by the Gigantic MOTD Carpet Palace Guard!
 	RENT	1	0	Oh my! {who} is forced to read, memorise, and recite the Gigantic MOTD Carpet of {prop}!
-	RENT	1	0	Oh no! {who} has made 39012 mistakes and must pay ${cost} to {owner}!
+	RENT	1	0	Oh no! {who} has made {rands[0]} mistakes and must pay ${cost} to {owner}!
 	HOUSE	1	1	mspaint.exe Art Gallery
-	BUY	1	1	{buyer} builds a mspaint.exe Art Gallery in {prop}!
+	BUY	1	1	{owner} builds a mspaint.exe Art Gallery in {prop}!
 	RENT	1	1	{who} joins {prop}!
 	RENT	1	1	Oh my! {who} is confused and puzzled by the fractal geometry of the mspaint.exe Art Gallery!
-	RENT	1	1	Oops! {who} accidentally buys 50 empty mspaint.exe drawings from {owner} for ${cost}!
+	RENT	1	1	Oops! {who} accidentally buys {rands[0]} blank mspaint.exe drawings from {owner} for ${cost}!
 	HOUSE	2	1	Mob of Angry Bots
-	BUY	2	1	{buyer} founds a Mob of Angry Bots on {prop}!
-	BUY	2	1	Oh dear! {buyer} will be replaced by the Mob of Angry Bots in 9.5 turns!
+	BUY	2	1	{owner} founds a Mob of Angry Bots on {prop}!
+	BUY	2	1	Oh dear! {owner} will be replaced by the Mob of Angry Bots in {rands[0]} turns!
 	RENT	2	1	{who} joins {prop}!
 	RENT	2	1	Oh no! {who} is textually, sensually, intellectually, emotionally, and cognitively assaulted by a Mob of Angry Bots!
 	RENT	2	1	Oh my! {who} appeases the Mob of Angry Bots by paying ${cost} to {owner}!
 	HOUSE	3	1	Word Factory
-	BUY	3	1	{buyer} builds a Word Factory on {prop}!
-	BUY	3	1	Awfom! {buyer} has invented 39 new sub-dialects of Pumi!
+	BUY	3	1	{owner} builds a Word Factory on {prop}!
+	BUY	3	1	Awfom! {owner} has invented {rands[0]} new sub-dialects of Pumi!
 	RENT	3	1	{who} joins {prop}!
-	RENT	3	1	Oops! {who} buys 500 words from the jungle of non-existent objects from {owner} for ${cost}!
+	RENT	3	1	Oops! {who} buys {rands[0]} words from the jungle of non-existent objects from {owner} for ${cost}!
 LOONY_BIN	-1	None		In the loony bin/Just visiting
 PROPERTY	140	DARK_GREEN	Schizophrenia
 	HOUSE	1	0	Ideas of Reference
-	BUY	1	0	{buyer} buys {prop}!
-	BUY	1	0	Oh no! {buyer} has started to develop {prop}!
-	BUY	1	0	Oh dear! {buyer} is developing Ideas of Reference!
-	BUY	1	0	Awfom! {buyer} discovered 29 patterns in number plates, spoder webs, people that wear hats vs. people that wear chainsaws, and the order of hours in a 24 hour day!
+	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	Oh no! {owner} has started to develop {prop}!
+	BUY	1	0	Oh dear! {owner} is developing Ideas of Reference!
+	BUY	1	0	Awfom! {owner} discovered {rands[0]} patterns in number plates, spoder webs, people that wear hats vs. people that wear chainsaws, and the order of hours in a {rands[1]} hour day!
 	RENT	1	0	Oh my! {owner} bumps into {who}!
 	RENT	1	0	Oops! {who} buys ${cost} worth of patterns from {who}!
 	RENT	1	0	Awfom! {who} gains crazy points!
 	HOUSE	1	1	Negative Symptoms
-	BUY	1	1	{buyer} buys Negative Symptoms on {prop}!
-	BUY	1	1	Oh my! {buyer}'s Schizophrenia is starting!
-	BUY	1	1	Oh no! {buyer} can't be arsed to finish the rest of this sente
-	BUY	1	1	{buyer} ${cost} {prop} whatever
+	BUY	1	1	{owner} buys Negative Symptoms on {prop}!
+	BUY	1	1	Oh my! {owner}'s Schizophrenia is starting!
+	BUY	1	1	Oh no! {owner} can't be arsed to finish the rest of this sente
+	BUY	1	1	{owner} ${cost} {prop} whatever
 	RENT	1	1	Oops! {who} is sucked into {owner}'s black hole of Negative Symptoms! 
 	RENT	1	1	Oh my! {who} can't be arsed to finish the rest of thi
 	RENT	1	1	${cost} {who} cba {owner}
 	HOUSE	2	1	Delusions
-	BUY	2	1	{buyer} buys Delusions on {prop}!
-	BUY	2	1	Oh my! {buyer}'s Schizophrenia is worsening!
-	BUY	2	1	Awfom! {buyer} understands 4EVERYTHING!
+	BUY	2	1	{owner} buys Delusions on {prop}!
+	BUY	2	1	Oh my! {owner}'s Schizophrenia is worsening!
+	BUY	2	1	Awfom! {owner} understands 4EVERYTHING!
 	RENT	2	1	Oh dear! {who} spots {owner} chucking a prolonged speech at nobody in particular!
 	RENT	2	1	Awfom! {who} gains entropy and chaos from {owner} for only ${cost}!
 	HOUSE	3	1	Deadly Art Gallery
-	BUY	3	1	{buyer} builds a Deadly Art Gallery on {prop}!
-	BUY	3	1	Oh my! {buyer} has drawn 3951 drawings of kade!
+	BUY	3	1	{owner} builds a Deadly Art Gallery on {prop}!
+	BUY	3	1	Oh my! {owner} has drawn {rands[0]} drawings of kade!
 	RENT	3	1	{who} enters {owner}'s Deadly Art Gallery!
 	RENT	3	1	Oh no! The Deadly Art Gallery is inside a tesseract!
 	RENT	3	1	Oops! {who} pays ${cost} to {owner} for a handdrawn map!
 TAX		100	None		Oxygen tax (pay $100)
 PROPERTY	140	DARK_GREEN	Spoke Forest
 	HOUSE	1	0	Crystal Plantation
-	BUY	1	0	{buyer} buys {prop}!
-	BUY	1	0	{buyer} builds a Crystal Plantation on {prop}!
-	BUY	1	0	{buyer} starts growing crystals!
+	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	{owner} builds a Crystal Plantation on {prop}!
+	BUY	1	0	{owner} starts growing crystals!
 	BUY	1	0	The {prop} grows denser!
 	RENT	1	0	{who} enters the {prop}!
-	RENT	1	0	Awfom! {who} eats 15 white crystals, smokes 29 green crystals, and pets 8 pink crystal cats!
+	RENT	1	0	Awfom! {who} eats {rands[0]} white crystals, smokes {rands[1]} green crystals, and pets {rands[2]} pink crystal cats!
 	RENT	1	0	Oops! {who} pays ${cost} to {owner}!
 	HOUSE	1	1	Shadow Lion Woods
-	BUY	1	1	{buyer} momentarily steals everyone's shadow!
-	BUY	1	1	{buyer} harvests Shadow Lions!
-	BUY	1	1	{buyer} adds Shadow Lion Woods to {prop}!
+	BUY	1	1	{owner} momentarily steals everyone's shadow!
+	BUY	1	1	{owner} harvests Shadow Lions!
+	BUY	1	1	{owner} adds Shadow Lion Woods to {prop}!
 	BUY	1	1	The Spoke Forest grows much denser!
 	RENT	1	1	{who} enters the Shadow Lion Woods in the {prop}!
 	RENT	1	1	Oh no! A group of Shadow Lions inhales {who}!
 	RENT	1	1	Oh dear! {who} is reprocessed into mIRC art!
 	RENT	1	1	Awfom! {owner} restores {who} at the cost of ${cost}!
 	HOUSE	2	1	Acid Ants Jungle
-	BUY	2	1	{buyer} goes to slp!
-	BUY	2	1	Awfom! {buyer} is dreaming about ants!
-	BUY	2	1	Oh my! {buyer} puts the dream on a blotter!
-	BUY	2	1	{buyer} adds Acid Ants Jungle to {prop}!
+	BUY	2	1	{owner} goes to slp!
+	BUY	2	1	Awfom! {owner} is dreaming about ants!
+	BUY	2	1	Oh my! {owner} puts the dream on a blotter!
+	BUY	2	1	{owner} adds Acid Ants Jungle to {prop}!
 	BUY	2	1	The Spoke Forest is now covering half of the planet!
 	RENT	2	1	{who} enters the Acid Ants Jungle in the {prop}!
 	RENT	2	1	Oops! {who} falls aslp and can't wake up!
 	RENT	2	1	Oh no! {who} has ceased to exist!
 	RENT	2	1	Awfom! {owner} brings {who} back to existence for only ${cost}!
 	HOUSE	3	1	Hall of Spokes
-	BUY	3	1	Oh dear! {buyer} clones the {prop} into itself!
-	BUY	3	1	Awfom! {buyer} has built a Hall of Spokes!
+	BUY	3	1	Oh dear! {owner} clones the {prop} into itself!
+	BUY	3	1	Awfom! {owner} has built a Hall of Spokes!
 	BUY	3	1	Oops! The Spoke Forest is now covering half of the known universe!
 	RENT	3	1	{who} enters the Hall of Spokes in the {prop}!
 	RENT	3	1	Oh dear! {owner} clones {who} into {who}!
 	RENT	3	1	Oops! {owner} claims ${cost} for from {who} for neutrino-related expenses!
 PROPERTY	160	DARK_GREEN	Nadia Hospital
 	HOUSE	1	0	Hidden Cave of Health Mushrooms
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	BUY	1	0	Oh my! The {prop} contains a Hidden Cave of Health Mushrooms!
 	BUY	1	0	Oh dear! The Hidden Cave of Health Mushrooms contains a Nadia!
 	BUY	1	0	The Nadias are multiplying!
@@ -212,8 +212,8 @@ PROPERTY	160	DARK_GREEN	Nadia Hospital
 	RENT	1	0	{who} is sent to the Nadia inside the Hidden Cave of Health Mushrooms in {owner}'s {prop}!
 	RENT	1	0	Awfom! {who} is found, cured, sliced, diced, and ironed at the cost of only ${cost} paid to {owner}!
 	HOUSE	1	1	Covert Cryptocurrency Pyramid Scam
-	BUY	1	1	{buyer} starts a Covert Cryptocurrency Pyramid Scam in the {prop}!
-	BUY	1	1	Awfom! {buyer} gains 2200 BTC, 1200 ETH, 1150 HIE, and 476 Djiboutian Biti-Bitis!
+	BUY	1	1	{owner} starts a Covert Cryptocurrency Pyramid Scam in the {prop}!
+	BUY	1	1	Awfom! {owner} gains 2200 BTC, 1200 ETH, 1150 HIE, and 476 Djiboutian Biti-Bitis!
 	BUY	1	1	Oops! Crab People are beginning to raid the Cryptocurrency Pyramid!
 	BUY	1	1	The Nadias are multiplying!
 	RENT	1	1	Oh dear! {who} is showing symptoms of Low On Cash Disorder (LOCD) and Spontaneous Money Evaporation Syndrome (SMES)!
@@ -221,217 +221,271 @@ PROPERTY	160	DARK_GREEN	Nadia Hospital
 	RENT	1	1	Oh no! Crab People from the Cryptocurrency Pyramid are attacking {who}!
 	RENT	1	1	Oops! The Crab People obtain ${cost} from {who} in order to further {owner}'s Covert Cryptocurrency Pyramid Scam!
 	HOUSE	2	1	14.8 Tesla Facebook Friendship Magnet
-	BUY	2	1	{buyer} buys a 14.8 Tesla Facebook Friendship Magnet for the {prop}!
-	BUY	2	1	Awfom! {buyer}'s {prop} gains 7.6 billion new Facebook Friendships!
+	BUY	2	1	{owner} buys a 14.8 Tesla Facebook Friendship Magnet for the {prop}!
+	BUY	2	1	Awfom! {owner}'s {prop} gains 7.6 billion new Facebook Friendships!
 	BUY	2	1	The Nadias are multiplying!
 	RENT	2	1	Oh no! {who} is running out of Facebook Friends!
 	RENT	2	1	{who} is sent to {owner}'s {prop} for immediate Facebook Friendship transfusion!
-	RENT	2	1	Awfom! {who} gains 99315 new Facebook Friendships thanks to {owner}'s 14.8 Tesla Facebook Friendship Magnet for only ${cost}!
+	RENT	2	1	Awfom! {who} gains {rands[0]} million new Facebook Friendships thanks to {owner}'s 14.8 Tesla Facebook Friendship Magnet for only ${cost}!
 	HOUSE	3	1	Icy Death Plains Owl Farm
-	BUY	3	1	{buyer} builds a Icy Death Plains Owl Farm inside the Hidden Cave of Health Mushrooms in the {prop}!
+	BUY	3	1	{owner} builds a Icy Death Plains Owl Farm inside the Hidden Cave of Health Mushrooms in the {prop}!
 	BUY	3	1	The Nadias are freezing!
 	RENT	3	1	Oh dear! {who}'s blood owl level is dangerously low!
 	RENT	3	1	{who} is sent to the Icy Death Plains Owl Farm inside the Hidden Cave of Health Mushrooms in {owner}'s {prop}!
 	RENT	3	1	Awfom! {who}'s blood is replaced with the freezing Nadias at {owner}'s {prop} for only ${cost}!
 	RENT	3	1	The Nadias are decreasing!
 UTILITY		200	None		Winged Chrono Port
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 PROPERTY	200	YELLOW		IRC Housing Projects
 	HOUSE	1	0	acidstorm's Cell
-	BUY	1	0	{buyer} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
-	HOUSE	1	1	alghazi's Bronx Tower
-	BUY	1	1	{buyer} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	{owner} builds acidstorm's Cell on {prop}!
+	BUY	1	0	0/!\ FREE ACIDSTORM 0/!\
+	RENT	1	0	{who} joins acidstorm's Cell on {prop}!
+	RENT	1	0	Oh no! {owner} arranges for a prisoner exchange and gets {who} sent to gaol!
+	RENT	1	0	Oops! {who} pays ${cost} to {owner} to get released from gaol!
+	HOUSE	1	1	alghazi's Kraken Lair
+	BUY	1	1	{owner} builds alghazi's Kraken Lair on {prop}!
+	BUY	1	1	Oops! {owner} takes {rands[0]}g plantation maeng da, {rands[1]}g red maha kali, {rands[2]}g red sumatra, and {rands[3]}mg white maeng da!
+	BUY	1	1	Awfom! {owner} is hie as fuck!
+	RENT	1	1	{who} joins alghazi's Kraken Lair on {prop}!
+	RENT	1	1	Oh no! {owner}'s Kraken attacks {who}!
+	RENT	1	1	Oh my! {owner}'s Kraken partially agonises {who}'s μ-opioid receptors!
+	RENT	1	1	Oops! {who} is hie as fuck and pays ${cost} to {owner}!
 	HOUSE	2	1	dzl's $700 Shirt
-	BUY	2	1	{buyer} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	vap0r's Wholecat Shop
-	BUY	3	1	{buyer} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	2	1	{owner} runs into dzl on {prop}!
+	BUY	2	1	Awfom! {owner} has bought one (1) dzl's $700 Shirt!
+	BUY	2	1	Oops! It's dolphin-shaped!
+	RENT	2	1	{who} joins {prop}!
+	RENT	2	1	Awfom! {owner} leases dzl's $700 Shirt to {who} for only ${cost}!
+	RENT	2	1	Oh dear! {owner} has attracted {rands[0]} trannies, {rands[1]} Facebook bints, {rands[2]} stickup kids, and the IRS!
+	HOUSE	3	1	vap0r's Chop Shop
+	BUY	3	1	{owner} builds vap0r's Chop Shop on {prop}!
+	BUY	3	1	Awfom! {owner} hires Omar with the Scimitar!
+	RENT	3	1	{who} joins vap0r's Chop Shop on {prop}!
+	RENT	3	1	Oh no! {owner} chops {who} into {rand[0]} pieces with Omar's Scimitar!
+	RENT	3	1	Oops! {who} pays ${cost} to {owner} for Body Rearrangement Surgery!
 CHEST		-1	None		Community Brr
 PROPERTY	180	YELLOW		#bantown
 	HOUSE	1	0	Banbot
-	BUY	1	0	{buyer} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	{owner} puts a Banbot on {prop}!
+	BUY	1	0	Oh no! {owner} is turning into weev!
+	BUY	1	0	Oh my! {owner} turns into a self-loathing dwarf!
+	RENT	1	0	{who} joins {prop}!
+	RENT	1	0	Oh shit! {owner}'s Banbot bans {who} from {prop}!
+	RENT	1	0	Awfom! {who} bribes {owner}'s Banbot with ${cost} and is invited back!
 	HOUSE	1	1	Accidental Blowjob Help Call Centre
-	BUY	1	1	{buyer} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	San Francisco Fam
-	BUY	2	1	{buyer} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	Gaol of Perennial Rape
-	BUY	3	1	{buyer} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	1	{owner} builds an Accidental Blowjob Help Call Centre on {prop}!
+	BUY	1	1	Oh my! {owner} is turning into weev!
+	BUY	1	1	Oh dear! {owner} grows a shiny red beard!
+	RENT	1	1	{who} joins {prop}!
+	RENT	1	1	Oops! {who} ingests, shoots up, smokes, and snorts {rand[0]} XTCs!
+	RENT	1	1	Oh no! {who} accidentally sucks {rand[0]} cocks!
+	RENT	1	1	Oh dear! {who} loses ${cost} to {owner}'s Accidental Blowjob Help Call Centre!
+	HOUSE	2	1	Extremely Talkative Hepkitten Fountain
+	BUY	2	1	{owner} builds a Extremely Talkative Hepkitten Fountain on {prop}!
+	BUY	2	1	Oh shit! {owner} is turning into weev!
+	BUY	2	1	Oh no! {owner} gains a mutilated microcock!
+	RENT	2	1	{who} joins {prop}!
+	RENT	2	1	Oh my! {owner}'s Extremely Talkative Hepkitten Fountain is blogging at {who}!
+	RENT	2	1	Awfom! {who} smashes the Extremely Talkative Hepkitten Fountain!
+	RENT	2	1	Oops! {who} pays ${cost} to {owner} for smashing the Extremely Talkative Hepkitten Fountain!
+	HOUSE	3	1	Weev Cave
+	BUY	3	1	{owner} builds a Weev Cave on {prop}!
+	BUY	3	1	Oh shit! {owner} has turned into weev!
+	BUY	3	1	Oh dear! {owner} has attracted a Luper!
+	BUY	3	1	Oh no! The Luper is anally raping {owner}!
+	RENT	3	1	{who} joins {owner} and the Luper in the Weev Cave on {prop}!
+	RENT	3	1	Oh dear! {who} looks upon {owner} and the Luper and is revolted!
+	RENT	3	1	Oh my! {who} pukes on {owner}!
+	RENT	3	1	Oops! {who} makes {owner} and the Luper go away with ${cost}!
 PROPERTY	180	YELLOW		#5000
-	HOUSE	1	0	Infinite /FORCEJOIN
-	BUY	1	0	{buyer} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
-	HOUSE	1	1	Ferocious Spam
-	BUY	1	1	{buyer} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	Relentless DDoS
-	BUY	2	1	{buyer} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	IDF-assisted SWATting
-	BUY	3	1	{buyer} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	1	0	Infinite /FORCEJOIN Cannon
+	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	{owner} installs an Infinite /FORCEJOIN Cannon on {prop}!
+	BUY	1	0	Over {rand[0]} thousand people have succumbed to {owner}'s {prop}!
+	RENT	1	0	{who} joins {prop}!
+	RENT	1	0	Oh dear! {owner} has installed an Infinite /FORCEJOIN Cannon on {prop}!
+	RENT	1	0	Oh my! {owner} forcibly joins {who} to {rand[0]} thousand channels!
+	RENT	1	0	Oh no! {who} loses ${cost} to {owner} for Infinite /FORCEJOIN channel tax!
+	HOUSE	1	1	IRC Help Support Centre
+	BUY	1	1	{owner} builds an IRC Help Support Centre on {prop}!
+	BUY	1	1	Over {rand[0]} million people have succumbed to {owner}'s {prop}!
+	RENT	1	1	{who} joins the IRC Help Support Centre on {prop}!
+	RENT	1	1	Oops! {who} receives {rand[0]} million channel /FORCEJOINs instead of help!
+	RENT	1	1	Oh no! {who} pays ${cost} to {owner} for visiting the IRC Help Support Centre!
+	HOUSE	2	1	IRL DDoS Device
+	BUY	2	1	{owner} installed an IRL DDoS Device on {prop}!
+	BUY	2	1	Over {rand[0]} billion people have succumbed to {owner}'s {prop}!
+	RENT	2	1	{who} joins {prop}!
+	RENT	2	1	Oh shit! {owner} has installed an IRL DDoS Device on {prop}!
+	RENT	2	1	Oh dear! {rand[0]} unemployed blowfish are join-part spamming {who}'s flat IRL!
+	RENT	2	1	Oh no! {rand[0]} thousand empty boxes have been delivered to {who}'s flat!
+	RENT	2	1	Oops! {who} loses ${cost} to {owner} for no apparent reason!
+	HOUSE	3	1	Puking Pillow
+	BUY	3	1	{owner} puts a Puking Pillow into {prop}!
+	BUY	3	1	Over {rand[0]} trillion people have succumbed to {owner}'s {prop}!
+	RENT	3	1	{who} joins {prop}!
+	RENT	3	1	Oh no! {owner} uses the Puking Pillow on {who}!
+	RENT	3	1	Oh my! {owner} pukes on {who}!
+	RENT	3	1	Oops! {who} pays ${cost} to {owner} to get cleaned up!
 FREE_LSD	-1	None		Free LSD! la ^_^
 PROPERTY	220	BLUE		Crazy Pills Factory
 	HOUSE	1	0	Benzodieazepines
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	Neurodeathics
-	BUY	1	1	{buyer} buys another house on {prop}!
+	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	Political Correctness
-	BUY	2	1	{buyer} buys another house on {prop}!
+	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	Katy Perry
-	BUY	3	1	{buyer} buys another house on {prop}!
+	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
 CHANCE		-1	None		Chance
 PROPERTY	220	BLUE		 
 	HOUSE	1	0	Valley of the Quest
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	Valley of Knowledge
-	BUY	1	1	{buyer} buys another house on {prop}!
+	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	Valley of Unity
-	BUY	2	1	{buyer} buys another house on {prop}!
+	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	Valley of Poverty and Annihilation
-	BUY	3	1	{buyer} buys another house on {prop}!
+	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
 PROPERTY	240	BLUE		Hells Pass Bank
 	HOUSE	1	0	Topless Bank Account
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	Idea Copyright Violation Office
-	BUY	1	1	{buyer} buys another house on {prop}!
+	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	Soul Storage Interest
-	BUY	2	1	{buyer} buys another house on {prop}!
+	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	Government Bailout
-	BUY	3	1	{buyer} buys another house on {prop}!
+	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
 UTILITY		200	None		Chrono's Time Travel
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 PROPERTY	260	PINK		Cave of the Knubbze
 	HOUSE	1	0	The Knubbze is Hungry :[
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	The Knubbze is Angry :]
-	BUY	1	1	{buyer} buys another house on {prop}!
+	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	The Knubbze is Packetting You :[
-	BUY	2	1	{buyer} buys another house on {prop}!
+	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	The Knubbze is Stealing Your Drugs :]
-	BUY	3	1	{buyer} buys another house on {prop}!
+	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
 PROPERTY	260	PINK		Monster Shop
 	HOUSE	1	0	HIE Monsters
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	lopl Tigers
-	BUY	1	1	{buyer} buys another house on {prop}!
+	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	Nothing Snakes
-	BUY	2	1	{buyer} buys another house on {prop}!
+	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	Kade's Rancid Cooter
-	BUY	3	1	{buyer} buys another house on {prop}!
+	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
 UTILITY		150	None		Knocking Shop
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 PROPERTY	280	PINK		Knubbze's Drugs Budget
 	HOUSE	1	0	42 LSDs, 62 weeds, 6 cocaines, 63 jazz cigarettes, 15 cough syrups, topped off with 22 ketamines
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	98 ayahuascas, 25 dimethyltryptamines, 100 peyotes, 390 psilocybin mushrooms, and 9 2c-bs
-	BUY	1	1	{buyer} buys another house on {prop}!
+	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	10 sodium hydrogen carbonates, 59 copper II sulfate pentahydrates, 50 bath salts, and 39 potassium chlorides
-	BUY	2	1	{buyer} buys another house on {prop}!
+	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	Player-to-Drug Dragon Breath
-	BUY	3	1	{buyer} buys another house on {prop}!
+	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
 SECTIONED	300	None		You got sectioned! (Go to loony bin)
 PROPERTY	300	GREEN		Facebook
 	HOUSE	1	0	invite player to profile w/ mandatory refusal penalty
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	spie and steal secrets from player
-	BUY	1	1	{buyer} buys another house on {prop}!
+	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	install brane implant
-	BUY	2	1	{buyer} buys another house on {prop}!
+	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	oh no! you got raped by mark zuckerberg!
-	BUY	3	1	{buyer} buys another house on {prop}!
+	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
 PROPERTY	300	GREEN		Kade
 	HOUSE	1	0	upload kade.rar
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	get hit up by dzl [alias/logs!]
-	BUY	1	1	{buyer} buys another house on {prop}!
+	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	become chaturbate porn actress
-	BUY	2	1	{buyer} buys another house on {prop}!
+	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	game developer
-	BUY	3	1	{buyer} buys another house on {prop}!
+	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
 CHEST		-1	None		Community Brr
 PROPERTY	320	GREEN		East IRC
 	HOUSE	1	0	analog's mausoleum
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	babak's floor
-	BUY	1	1	{buyer} buys another house on {prop}!
+	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	kade's box
-	BUY	2	1	{buyer} buys another house on {prop}!
+	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	lol3izer's brane
-	BUY	3	1	{buyer} buys another house on {prop}!
+	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
 UTILITY		200	None		Chrono on Speed
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 CHANCE		-1	None		Chance
 PROPERTY	350	DARK_BLUE	Desert of Words
 	HOUSE	1	0	sudden word theft bedouin raid
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	Ubadah al-Qazzaz
-	BUY	1	1	{buyer} buys another house on {prop}!
+	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	al-jahiz
-	BUY	2	1	{buyer} buys another house on {prop}!
+	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	al-Mutanabbi destruction with discerning hand and mouth
-	BUY	3	1	{buyer} buys another house on {prop}!
+	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
 TAX		100	None		The Gov't Hates You (pay $100)
 PROPERTY	400	DARK_BLUE	Kween's Magic Shoppe
 	HOUSE	1	0	beginners spellbook
-	BUY	1	0	{buyer} buys {prop}!
+	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	lower arts training
-	BUY	1	1	{buyer} buys another house on {prop}!
+	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	higher arts training
-	BUY	2	1	{buyer} buys another house on {prop}!
+	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	third circle
-	BUY	3	1	{buyer} buys another house on {prop}!
+	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
