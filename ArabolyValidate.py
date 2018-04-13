@@ -15,7 +15,8 @@ class ArabolyValidate(ArabolyTypeClass):
     # {{{ dispatch_bid(self, args, context, status, **params): XXX
     def dispatch_bid(self, args, context, status, **params):
         if context.state != ArabolyGameState.AUCTION    \
-        or len(args) != 1 or int(args[0]) <= 0:
+        or len(args) != 1 or not args[0].isdigit()      \
+        or int(args[0]) <= 0:
             status = False
         else:
             params["price"] = int(args[0])
@@ -55,7 +56,8 @@ class ArabolyValidate(ArabolyTypeClass):
         if  context.state != ArabolyGameState.GAME      \
         and context.state != ArabolyGameState.PROPERTY:
             status = False
-        elif len(args) != 2:
+        elif len(args) != 2                             \
+        or   not args[0].isdigit() or not args[1].isdigit():
             status = False
         else:
             params.update({"field":int(args[0]), "level":int(args[1])})
@@ -84,7 +86,8 @@ class ArabolyValidate(ArabolyTypeClass):
     # {{{ dispatch_kick(self, args, channel, context, srcFull, status, **params): XXX
     def dispatch_kick(self, args, channel, context, srcFull, status, **params):
         if context.state == ArabolyGameState.DISABLED   \
-        or len(args) != 1 or args[0] not in context.players:
+        or len(args) != 1 or len(args[0]) < 1           \
+        or args[0] not in context.players:
             status = False
         else:
             params["otherPlayer"] = args[0]
@@ -117,7 +120,7 @@ class ArabolyValidate(ArabolyTypeClass):
     # {{{ dispatch_start(self, args, context, src, status, **params): XXX
     def dispatch_start(self, args, context, src, status, **params):
         if context.state != ArabolyGameState.ATTRACT    \
-        or len(args) != 1:
+        or len(args) != 1 or not args[0].isdigit():
             status = False
         else:
             params["players"] = int(args[0])
