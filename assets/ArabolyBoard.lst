@@ -335,88 +335,162 @@ FREE_LSD	-1	None		Free LSD! la ^_^
 PROPERTY	220	BLUE		Crazy Pills Factory
 	HOUSE	1	0	Benzodieazepines
 	BUY	1	0	{owner} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	{owner} starts synthesizing Benzodieazepines on {prop}!
+	BUY	1	0	Oh no! {owner} is addicted to Benzodieazepines!
+	RENT	1	0	Oh dear! {who} has Chronic Insomnia and Benzodieazepine Addiction!
+	RENT	1	0	{who} visits the {prop}!
+	RENT	1	0	Awfom! {who} buys {rand[0]} Benzodieazepines for ${cost} from {owner}!
 	HOUSE	1	1	Neurodeathics
-	BUY	1	1	{owner} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	1	{owner} starts growing Neurodeathics on {prop}! 
+	BUY	1	1	Oops! {owner}'s brane cells are dying!
+	RENT	1	1	Oh my! {who} is diagnosed with Catatonic Schizophrenia and Unexplained Spontaneous Death Syndrome!
+	RENT	1	1	{who} visits the {prop}!
+	RENT	1	1	Awfom! {who} buys {rand[0]} Neurodeathics for ${cost} from {owner}!
 	HOUSE	2	1	Political Correctness
-	BUY	2	1	{owner} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	Katy Perry
-	BUY	3	1	{owner} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	2	1	{owner} is tired of hate crimes, the overprivileged, free speech, and common sense!
+	BUY	2	1	{owner} introduces Political Correctness on {prop}!
+	BUY	2	1	Awfom! {owner} has attracted a Legion of Pissed Off Social Justice Warriors!
+	RENT	2	1	Oh shit! {owner} has caught {who} being a patriarchialist, nationalistic, fascist, and transphobic pig!
+	RENT	2	1	Oh no! {who} loses ${cost} to {owner} for violating Political Correctness!
+	HOUSE	3	1	Happy Pills
+	BUY	3	1	{owner} starts harvesting Happy Pills on {prop}!
+	BUY	3	1	Oh no! The Happy Pills are very unhappy!
+	BUY	3	1	Oh shit! Twill appears and sings her tunes to the unhappy Happy Pills!
+	BUY	3	1	Awfom! The unhappy Happy Pills destroy Twill and become happy!
+	RENT	3	1	Oh dear! {owner} feels very unhappy and depressed!
+	RENT	3	1	{who} visits the {prop}!
+	RENT	3	1	Awfom! {who} buys {rand[0]} Happy Pills from {owner} for ${cost} and becomes happy!
 CHANCE		-1	None		Chance
 PROPERTY	220	BLUE		 
-	HOUSE	1	0	Valley of the Quest
+	HOUSE	1	0	 
 	BUY	1	0	{owner} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
-	HOUSE	1	1	Valley of Knowledge
-	BUY	1	1	{owner} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	Valley of Unity
-	BUY	2	1	{owner} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	Valley of Poverty and Annihilation
-	BUY	3	1	{owner} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	{owner} builds a   on {prop}!
+	BUY	1	0	The   multiply!
+	RENT	1	0	Why is {who} here?
+	RENT	1	0	Oh no! {who} forgot {who}'s name!
+	RENT	1	0	Oh dear! {who} forgets ${cost} in {owner}'s {prop}!
+	HOUSE	1	1	 
+	BUY	1	1	{owner} builds another   on {prop}!
+	BUY	1	1	The   are waking up!
+	RENT	1	1	When did {who} come here?
+	RENT	1	1	Oh my! {who} is hopelessly lost!
+	RENT	1	1	Oops! {owner} sells {who} a map to {prop} for ${cost}!
+	HOUSE	2	1	 
+	BUY	2	1	{owner} builds a third   on {prop}!
+	BUY	2	1	The   are roaring in fury!
+	RENT	2	1	Suddenly, a big scary ArabolyTypeClass.py appears and bites {who} in the object! 
+	RENT	2	1	Oh no! A pride of voraciously hungry   is drinking {who}'s bits!
+	RENT	2	1	Awfom! {who} fights them off with ${cost} paid to {owner}!
+	HOUSE	3	1	 
+	BUY	3	1	{owner} builds a fourth   on {prop}!
+	BUY	3	1	The   have become!
+	BUY	3	1	Saving {owner}'s consciousness to STOLENBRANES/ARABOLY/{rand[0]}.DAT...
+	BUY	3	1	Done! Have a nice death!
+	RENT	3	1	Oh shit! A starving horde of stolen branes assaults {who} on {owner}'s {prop}!
+	RENT	3	1	Oh dear! {who} flees into Breaking Bad Season 3 Episode 10!
+	RENT	3	1	Awfom! {who} buys {rand[0]} kg meth from Walt and Jesse in order to return to reality!
+	RENT	3	1	Oops! Jesse turned out to be {owner}!
 PROPERTY	240	BLUE		Hells Pass Bank
 	HOUSE	1	0	Topless Bank Account
 	BUY	1	0	{owner} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	2/!\ DO YOU LIKE MONEY? DO YOU LIKE EVEN MORE MONEY? 2/!\
+	BUY	1	0	3/!\ SO DO WE! OPEN A TOPLESS BANK ACCOUNT AT HELLS PASS BANK TODAY! 3/!\
+	RENT	1	0	{who} checks their Topless Bank Account balance at {owner}'s {prop}!
+	RENT	1	0	Oh no! {who} didn't read the fine print (volumes III-XI, annotated)!
+	RENT	1	0	Oops! {who} loses ${cost} to {owner}!
 	HOUSE	1	1	Idea Copyright Violation Office
-	BUY	1	1	{owner} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	Soul Storage Interest
-	BUY	2	1	{owner} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	1	{owner} builds an Idea Copyright Violation Office in {prop}!
+	BUY	1	1	4/!\ DO YOU LIKE IDEAS? HAVE YOU GOT ANY? 4/!\
+	BUY	1	1	5/!\ WELL WE DON'T SO WE'LL STEAL YOURS AND GET RICH! 5/!\
+	RENT	1	1	{who} walks past {owner}'s {prop}!
+	RENT	1	1	Oops! {prop} charges {who} with copyright violations over breathing(c), walking(c), possessing DNA(c), and the English(c) language!
+	RENT	1	1	Oh no! {who} must pay ${cost} to {owner}!
+	HOUSE	2	1	Soul Problem Unit
+	BUY	2	1	{owner} builds a Soul Problem Unit in {prop}!
+	BUY	2	1	6/!\ DID YOU KNOW THAT INFALLIBLE EMPIRICAL SCIENCE HAS PROVEN THAT SOULS DO NOT EXIST? 6/!\
+	RENT	2	1	{who} walks past {owner}'s {prop}!
+	RENT	2	1	Oh my! {owner} uses Infallible Empirical Science in order to prove that {who} does not exist!
+	RENT	2	1	Oops! {prop} orders {who} to pay ${cost} to {owner} for disagreeing with Infallible Empirical Science!
 	HOUSE	3	1	Government Bailout
-	BUY	3	1	{owner} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	3	1	Oh no! {owner}'s {prop} has gone spontaneously bankrupt for no apparent reason!
+	BUY	3	1	Awfom! The Government bails out {prop}!
+	RENT	3	1	Oh dear! {owner}'s {prop} has gone spontaneously bankrupt again for no apparent reason! How exceedingly improbable!
+	RENT	3	1	Awfom! The Government bails out {prop}!
+	RENT	3	1	Oops! The Government forces {who} to pay ${cost} to {prop}!
 UTILITY		200	None		Chrono's Time Travel
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 PROPERTY	260	PINK		Cave of the Knubbze
-	HOUSE	1	0	The Knubbze is Hungry :[
+	HOUSE	1	0	The Knubbze is Hungry :]
 	BUY	1	0	{owner} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
-	HOUSE	1	1	The Knubbze is Angry :]
-	BUY	1	1	{owner} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	The Knubbze is Packetting You :[
-	BUY	2	1	{owner} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	The Knubbze is Stealing Your Drugs :]
-	BUY	3	1	{owner} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	Oh dear! The Knubbze is Hungry :]
+	RENT	1	0	{who} walks past {owner}'s {prop}!
+	RENT	1	0	Oh dear! The Knubbze is Hungry :]
+	RENT	1	0	Oh no! The Knubbze demands ${cost} from {who} for {rand[0}} giraffe meat and {rand[1]} hippopotami!
+	HOUSE	1	1	The Knubbze is Fat :[
+	BUY	1	1	{owner} feeds The Knubbze {rand[0]} ephelants, {rand[1]} cocodriles, and {rand[2]} mountain goats!
+	BUY	1	1	Oh my! The Knubbze is Fat :[
+	RENT	1	1	{who} walks past {owner}'s {prop}!
+	RENT	1	1	Oh my! The Knubbze is Fat :[
+	RENT	1	1	Oops! The Knubbze demands ${cost} from {who} in order to demand ${cost} from ${who}!
+	HOUSE	2	1	The Knubbze is Packetting You :]
+	BUY	2	1	{owner} puts The Knubbze on a Homeopathic Weight Loss Programme!
+	BUY	2	1	Oh no! The Knubbze is Packetting You :]
+	RENT	2	1	{who} walks past {owner}'s {prop}!
+	RENT	2	1	Oh no! The Knubbze is Packetting You :]
+	RENT	2	1	Oh shit! {owner} increases {who}'s ISP bill by ${cost} million!
+	HOUSE	3	1	The Knubbze is Stealing Your Drugs :[
+	BUY	3	1	{owner} cancels The Knubbze's ISP contract!
+	BUY	3	1	Oh shit! The Knubbze is Stealing Your Drugs :[
+	RENT	3	1	{who} walks past {owner}'s {prop}!
+	RENT	3	1	Oh shit! The Knubbze is Stealing Your Drugs :[
+	RENT	3	1	Oh my! The Knubbze accidentally smokes ${cost} of {who}'s money!
 PROPERTY	260	PINK		Monster Shop
 	HOUSE	1	0	HIE Monsters
 	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	{owner} orders {rand[0]} HIE Monsters from the AAMS(c)!
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
 	HOUSE	1	1	lopl Tigers
-	BUY	1	1	{owner} buys another house on {prop}!
+	BUY	1	1	{owner} hunts and captures {rand[0]} lopl Tigers from the Steppes of Lorf!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	2	1	Nothing Snakes
-	BUY	2	1	{owner} buys another house on {prop}!
+	BUY	2	1	{owner} uses Arcane Zubkatz Magic and manages to charms {rand[0]} Nothing Snakes!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	Kade's Rancid Cooter
-	BUY	3	1	{owner} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	HOUSE	3	1	Big Scary Monster
+	BUY	3	1	Suddenly, a Big Scary Monster came and bit {owner} in the leg.
+	RENT	3	1	Suddenly, a Big Scary Monster came and bit {who} in the leg.
+	RENT	3	1	Oops! The big scary monster had AIDS!
 UTILITY		150	None		Knocking Shop
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
-PROPERTY	280	PINK		Knubbze's Drugs Budget
-	HOUSE	1	0	42 LSDs, 62 weeds, 6 cocaines, 63 jazz cigarettes, 15 cough syrups, topped off with 22 ketamines
+PROPERTY	280	PINK		Oclet's Crackhouse
+	HOUSE	1	0	Decrepit Crackhouse
 	BUY	1	0	{owner} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
-	HOUSE	1	1	98 ayahuascas, 25 dimethyltryptamines, 100 peyotes, 390 psilocybin mushrooms, and 9 2c-bs
-	BUY	1	1	{owner} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	10 sodium hydrogen carbonates, 59 copper II sulfate pentahydrates, 50 bath salts, and 39 potassium chlorides
-	BUY	2	1	{owner} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	Player-to-Drug Dragon Breath
-	BUY	3	1	{owner} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	{owner} expands {prop} to a Decrepit Crackhouse!
+	BUY	1	0	Oops! Oclet demands {rand[0]} LSDs, {rand[1]} weeds, {rand[2]} cocaines, {rand[3]} jazz cigarettes, and {rand[4]} cough syrups, topped off with {rand[5]} ketamines!
+	RENT	1	0	{who} visits Oclet's Decrepit Crackhouse!
+	RENT	1	0	Awfom! {who} does {rand[0]} LSDs, {rand[1]} weeds, {rand[2]} cocaines, {rand[3]} jazz cigarettes, and {rand[4]} cough syrups, topped off with {rand[5]} ketamines with oclet!
+	RENT	1	0	Oh no! {who} loses ${cost} to {owner}!
+	HOUSE	1	1	Crackhouse Tower
+	BUY	1	1	{owner} expands {prop} to a Crackhouse Tower!
+	BUY	1	1	Oh no! Oclet demands {rand[0]} ayahuascas, {rand[1]} dimethyltryptamines, {rand[2]} peyotes, {rand[3]} psilocybin mushrooms, and {rand[4]} 2c-bs!
+	RENT	1	1	{who} visits Oclet's Crackhouse Tower!
+	RENT	1	1	Awfom! {who} does {rand[0]} ayahuascas, {rand[1]} dimethyltryptamines, {rand[2]} peyotes, {rand[3]} psilocybin mushrooms, and {rand[4]} 2c-bs with oclet!
+	RENT	1	1	Oh no! {who} loses ${cost} to {owner}!
+	HOUSE	2	1	Walled Crackhouse City
+	BUY	2	1	{owner} expands {prop} to a Walled Crackhouse City!
+	BUY	2	1	Oh dear! Oclet demands {rand[0]} sodium hydrogen carbonates, {rand[1]} copper II sulfate pentahydrates, {rand[2]} bath salts, and {rand[3]} potassium chlorides!
+	RENT	2	1	{who} visits Oclet's Walled Crackhouse City!
+	RENT	2	1	Awfom! {who} does {rand[0]} sodium hydrogen carbonates, {rand[1]} copper II sulfate pentahyd... wait no!
+	RENT	2	1	Oh dear! Oclet is assembling an Improvised Poison Gas Kade!
+	RENT	2	1	Oops! {who} pays ${cost} to {owner} and promises not to snitch!
+	HOUSE	3	1	New Jersey
+	BUY	3	1	{owner} expands {prop} to New Jersey!
+	BUY	3	1	Oh my! Oclet demands {rand[0]} kg hydrogen cyanide, {rand[1]} land mines, {rand[2]} logic bombs, and {rand[3]} kg TNT!
+	RENT	3	1	{who} visits Oclet's New Jersey!
+	RENT	3	1	Awfom! Oclet gives {who} a logic bomb!
+	RENT	3	1	Oh no! The logic bomb explodes!
+	RENT	3	1	Oops! By the inalterable twists and turns of fate, {who} loses ${cost} to {owner}!
 SECTIONED	300	None		You got sectioned! (Go to loony bin)
 PROPERTY	300	GREEN		Facebook
 	HOUSE	1	0	invite player to profile w/ mandatory refusal penalty

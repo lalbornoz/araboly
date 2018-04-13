@@ -220,7 +220,7 @@ class ArabolyOutput(ArabolyTypeClass):
     def dispatchError(self, output, **params):
         if params["type"] == "command":
             if "channel" in params:
-                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "general error!"]}]
+                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "Oh no! arab can't be bothered to write error messages!"]}]
                 output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "Monadic value: {}".format(str(params))]}]
                 return {"output":output, **params}
         return {"output":output, **params}
