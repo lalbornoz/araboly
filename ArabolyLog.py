@@ -8,9 +8,8 @@
 from ArabolyTypeClass import ArabolyTypeClass
 from datetime import datetime
 from time import strftime
-from enum import Enum
 
-class ArabolyLogLevel(Enum):
+class ArabolyLogLevel():
     LOG_INFO      = 0
     LOG_ERROR     = 1
     LOG_WARNING   = 2
@@ -34,12 +33,12 @@ class ArabolyLog(ArabolyTypeClass):
             self._log(ArabolyLogLevel.LOG_ERROR, **outputLine)
         return params
     # }}}
-    # {{{ dispatchException(self, e, exc_fname, exc_lineno, exc_stack, **params): XXX
-    def dispatchException(self, e, exc_fname, exc_lineno, exc_stack, **params):
+    # {{{ dispatchException(self, **params): XXX
+    def dispatchException(self, **params):
         self._log(isOutput=False, **params)
         for outputLine in params["output"] if "output" in params else []:
             self._log(ArabolyLogLevel.LOG_EXCEPTION, **outputLine)
-        return {"e":e, "exc_fname":exc_fname, "exc_lineno":exc_lineno, "exc_stack":exc_stack, **params}
+        return params
     # }}}
     # {{{ _log(self, level=ArabolyLogLevel.LOG_INFO, isOutput=True, **kwargs): XXX
     def _log(self, level=ArabolyLogLevel.LOG_INFO, isOutput=True, **kwargs):

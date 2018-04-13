@@ -29,10 +29,10 @@ This project is licensed under the terms of the MIT licence.
 
 ### How to run:
 ```
-usage: ./ArabolyIrcBot.py [-c <channel name>] [-h] [-n <nick name>]
-                          [-p <port>] [-r <IRC real name>] [-S]
-                          [-u <user name>] -H <hostname>
+usage: ./ArabolyIrcBot.py [-c <channel name>] [-d] [-h] [-n <nick name>] [-p <port>]
+                          [-r <IRC real name>] [-S] [-u <user name>] -H <hostname>
          -c <channel name>.:  defaults to #ARABOLY.
+         -d ...............:  debugging mode; disabled by default.
          -n <nick name>....:  defaults to ARABOLY.
          -p <port>.........:  defaults to 6667 or 6697 if using SSL.
          -r <IRC real name>:  defaults to `Araboly NT 3.1 Advanced Server'.

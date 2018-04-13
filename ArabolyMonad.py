@@ -34,17 +34,21 @@ class ArabolyMonad(object):
             if select in other.__class__.__dict__:
                 try:
                     params = getattr(other, select)(**self.params)
-                except TypeError as e:
+                except:
                     exc_type, exc_obj, exc_tb = sys.exc_info()
-                    self.params["failClass"] = str(other.__class__)
-                    self.params["e"] = e; self.params["status"] = False;
-                    self.params["exc_fname"] = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-                    self.params["exc_lineno"] = exc_tb.tb_lineno
-                    self.params["exc_stack"] = "\n".join(traceback.format_stack()).split("\n")
-                    if hasattr(other, "dispatchException"):
-                        params = getattr(other, "dispatchException")(**self.params)
+                    if exc_type == KeyboardInterrupt:
+                        raise exc_obj
                     else:
-                        params = self.params
+                        self.params["failClass"] = str(other.__class__)
+                        self.params["exc_obj"] = exc_obj; self.params["exc_type"] = exc_type;
+                        self.params["exc_fname"] = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+                        self.params["exc_lineno"] = exc_tb.tb_lineno
+                        self.params["exc_stack"] = "\n".join(traceback.format_stack()).split("\n")
+                        self.params["status"] = False
+                        if hasattr(other, "dispatchException"):
+                            params = getattr(other, "dispatchException")(**self.params)
+                        else:
+                            params = self.params
                 if not params["status"]:
                     params["failClass"] = str(other.__class__)
             else:
