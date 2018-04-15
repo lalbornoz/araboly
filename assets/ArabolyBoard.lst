@@ -361,27 +361,27 @@ PROPERTY	220	BLUE		Crazy Pills Factory
 	RENT	3	1	{who} visits the {prop}!
 	RENT	3	1	Awfom! {who} buys {rands[0]} Happy Pills from {owner} for ${cost} and becomes happy!
 CHANCE		-1	None		Chance
-PROPERTY	220	BLUE		
-	HOUSE	1	0	
+PROPERTY	220	BLUE		
+	HOUSE	1	0	
 	BUY	1	0	{owner} buys {prop}!
 	BUY	1	0	{owner} builds a   on {prop}!
 	BUY	1	0	The   multiply!
 	RENT	1	0	Why is {who} here?
 	RENT	1	0	Oh no! {who} forgot {who}'s name!
 	RENT	1	0	Oh dear! {who} forgets ${cost} in {owner}'s {prop}!
-	HOUSE	1	1	
+	HOUSE	1	1	
 	BUY	1	1	{owner} builds another   on {prop}!
 	BUY	1	1	The   are waking up!
 	RENT	1	1	When did {who} come here?
 	RENT	1	1	Oh my! {who} is hopelessly lost!
 	RENT	1	1	Oops! {owner} sells {who} a map to {prop} for ${cost}!
-	HOUSE	2	1	
+	HOUSE	2	1	
 	BUY	2	1	{owner} builds a third   on {prop}!
 	BUY	2	1	The   are roaring in fury!
 	RENT	2	1	Suddenly, a big scary ArabolyTypeClass.py appears and bites {who} in the object!
 	RENT	2	1	Oh no! A pride of voraciously hungry   is drinking {who}'s bits!
 	RENT	2	1	Awfom! {who} fights them off with ${cost} paid to {owner}!
-	HOUSE	3	1	
+	HOUSE	3	1	
 	BUY	3	1	{owner} builds a fourth   on {prop}!
 	BUY	3	1	The   have become!
 	BUY	3	1	Saving {owner}'s consciousness to STOLENBRANES/ARABOLY/{rands[0]}.DAT...
@@ -613,42 +613,42 @@ PROPERTY	350	DARK_BLUE	House of Words
 	RENT	1	0	يَدٌ مِن بَعيدٍ أَو قَريبٍ أَتَت بِهِ * شَآمِيَّةٌ غَبَراءُ ذاتُ قَتامِ
 	RENT	1	0	whether the hand of a stranger or one of near kin * brought to you by a violent north-wind that blows the dust along.
 	RENT	1	0	{who} is amazed by the poet's liberality in offering hospitality to strangers and offers ${cost} to {owner}!
-	HOUSE	1	1	أبو عبدالله محمد بن عُبادة بن القزّاز من المرية بني تُجيب
-	HOUSE	1	1	Abū ʕabdillāh Muḥammad b. ʕubādah b. al-Qazzāz of Tujībid Almería
-	BUY	1	1	{owner} invites Muḥammad b. ʕubādah b. al-Qazzāz to {prop}!
-	BUY	1	1	Oh dear! Tribe Tujīb takes over {prop}!
-	BUY	1	1	إذا سلّوا البواتر في الحَيْن والحتوف
-	BUY	1	1	When cutting swords are drawn * Splitting death and destruction
-	BUY	1	1	والنصر والفتوح وآية تلوح
-	BUY	1	1	From victory and triumph * And his verse and sign emerge!
-	BUY	1	1	ما أملحَ العساكر وترتيب الصفوف
-	BUY	1	1	How beautiful the armies * When arranged in ranks!
-	BUY	1	1	والأبطال تصيح الواثق يا مليح
-	BUY	1	1	And when the champions declare: Long live al-Wāṯiq, the Handsome!
-	RENT	1	1	{who} visits {owner}'s {prop}! Muḥammad b. ʕubādah b. al-Qazzāz says:
-	RENT	1	1	رُحْ للراح وباكر * بالمُعَلم المشوف * غبوقا وصبوح * على الوتَر الفصيح
-	RENT	1	1	Rush to wine and early! * By the marked shining coin
-	RENT	1	1	In the evening, in the morning * Upon eloquent metre!
-	RENT	1	1	{who} is impressed by the poet's originality and eloquence!
-	RENT	1	1	Oops! {who} feels compelled to buy {rand[0]} kg word silk from {owner}!
-	HOUSE	2	1	أبو تمّام حبيب بن أوس الطائي
-	HOUSE	2	1	Abū Tammām Ḥabīb b. Aws aṭ-Ṭā'ī of Abbasid Syria
-	BUY	2	1	{owner} invites Abū Tammām to {prop}!
-	BUY	2	1	السَّيْفُ أَصْدَقُ إِنْبَاءً مِنَ الكُتُبِ * في حدهِ الحدُّ بينَ الجدِّ واللَّعبِ
-	BUY	2	1	The sword is more veracious than the writings of the astrologers * its cutting edge splits earnestness from sport!
-	BUY	2	1	بيضُ الصَّفائحِ لاَ سودُ الصَّحائفِ في * مُتُونِهنَّ جلاءُ الشَّك والريَبِ
-	BUY	2	1	The white of the blade, not the black of the page * its broadsides clarify uncertainty and doubt!
-	BUY	2	1	والعِلْمُ في شُهُبِ الأَرْمَاحِ لاَمِعَة ً * بَيْنَ الخَمِيسَيْنِ لافي السَّبْعَة ِ الشُّهُبِ
-	BUY	2	1	Knowledge lies in the bright spears gleaming between two armies * not in the seven gleaming stars!
-	BUY	2	1	أَيْنَ الروايَة ُ بَلْ أَيْنَ النُّجُومُ وَمَا * صَاغُوه مِنْ زُخْرُفٍ فيها ومنْ كَذِبِ
-	BUY	2	1	Where now is their report? Where are the stars? Where the elaborate contrivances they forged?
-	RENT	2	1	{who} visits {owner}'s {prop}! Abū Tammām says:
-	RENT	2	1	لو بيَّنت قطّ أمراً قبل موقعه * لم تُخْفِ ماحلَّ بالأوثان والصلُبِ
-	RENT	2	1	If the stars could foretell events before their time, * the fate of idols and crosses would not have been kept hidden
-	RENT	2	1	فَتْحُ الفُتوحِ تَعَالَى أَنْ يُحيطَ بِهِ * نَظْمٌ مِن الشعْرِ أَوْ نَثْرٌ مِنَ الخُطَبِ
-	RENT	2	1	Conquest of conquests that is beyond what poets' measured verse * could ever encompass or orators' unbound prose!
-	RENT	2	1	Oh my! {who} fires their astrologer and smashes the Araboly dice!
-	RENT	2	1	Oops! {who} pays ${cost} to {owner} for behaving impulsively and smashing the Araboly dice!
+	HOUSE	1	1	أبو تمّام حبيب بن أوس الطائي
+	HOUSE	1	1	Abū Tammām Ḥabīb b. Aws aṭ-Ṭā'ī of Abbasid Syria
+	BUY	1	1	{owner} invites Abū Tammām to {prop}!
+	BUY	1	1	السَّيْفُ أَصْدَقُ إِنْبَاءً مِنَ الكُتُبِ * في حدهِ الحدُّ بينَ الجدِّ واللَّعبِ
+	BUY	1	1	The sword is more veracious than the writings of the astrologers * its cutting edge splits earnestness from sport!
+	BUY	1	1	بيضُ الصَّفائحِ لاَ سودُ الصَّحائفِ في * مُتُونِهنَّ جلاءُ الشَّك والريَبِ
+	BUY	1	1	The white of the blade, not the black of the page * its broadsides clarify uncertainty and doubt!
+	BUY	1	1	والعِلْمُ في شُهُبِ الأَرْمَاحِ لاَمِعَة ً * بَيْنَ الخَمِيسَيْنِ لافي السَّبْعَة ِ الشُّهُبِ
+	BUY	1	1	Knowledge lies in the bright spears gleaming between two armies * not in the seven gleaming stars!
+	BUY	1	1	أَيْنَ الروايَة ُ بَلْ أَيْنَ النُّجُومُ وَمَا * صَاغُوه مِنْ زُخْرُفٍ فيها ومنْ كَذِبِ
+	BUY	1	1	Where now is their report? Where are the stars? Where the elaborate contrivances they forged?
+	RENT	1	1	{who} visits {owner}'s {prop}! Abū Tammām says:
+	RENT	1	1	لو بيَّنت قطّ أمراً قبل موقعه * لم تُخْفِ ماحلَّ بالأوثان والصلُبِ
+	RENT	1	1	If the stars could foretell events before their time, * the fate of idols and crosses would not have been kept hidden
+	RENT	1	1	فَتْحُ الفُتوحِ تَعَالَى أَنْ يُحيطَ بِهِ * نَظْمٌ مِن الشعْرِ أَوْ نَثْرٌ مِنَ الخُطَبِ
+	RENT	1	1	Conquest of conquests that is beyond what poets' measured verse * could ever encompass or orators' unbound prose!
+	RENT	1	1	Oh my! {who} fires their astrologer and smashes the Araboly dice!
+	RENT	1	1	Oops! {who} pays ${cost} to {owner} for behaving impulsively and smashing the Araboly dice!
+	HOUSE	2	1	أبو عبدالله محمد بن عُبادة بن القزّاز من المرية بني تُجيب
+	HOUSE	2	1	Abū ʕabdillāh Muḥammad b. ʕubādah b. al-Qazzāz of Tujībid Almería
+	BUY	2	1	{owner} invites Muḥammad b. ʕubādah b. al-Qazzāz to {prop}!
+	BUY	2	1	Oh dear! Tribe Tujīb takes over {prop}!
+	BUY	2	1	إذا سلّوا البواتر في الحَيْن والحتوف
+	BUY	2	1	When cutting swords are drawn * Splitting death and destruction
+	BUY	2	1	والنصر والفتوح وآية تلوح
+	BUY	2	1	From victory and triumph * And his verse and sign emerge!
+	BUY	2	1	ما أملحَ العساكر وترتيب الصفوف
+	BUY	2	1	How beautiful the armies * When arranged in ranks!
+	BUY	2	1	والأبطال تصيح الواثق يا مليح
+	BUY	2	1	And when the champions declare: Long live al-Wāṯiq, the Handsome!
+	RENT	2	1	{who} visits {owner}'s {prop}! Muḥammad b. ʕubādah b. al-Qazzāz says:
+	RENT	2	1	رُحْ للراح وباكر * بالمُعَلم المشوف * غبوقا وصبوح * على الوتَر الفصيح
+	RENT	2	1	Rush to wine and early! * By the marked shining coin
+	RENT	2	1	In the evening, in the morning * Upon eloquent metre!
+	RENT	2	1	{who} is impressed by the poet's originality and eloquence!
+	RENT	2	1	Oops! {who} feels compelled to buy {rand[0]} kg word silk from {owner}!
 	HOUSE	3	1	أبو الطيب أحمد بن الحسين المتنبي الكندي
 	HOUSE	3	1	Abū ṭ-Ṭayyib Aḥmad b. al-Ḥusayn al-Mutanabbī al-Kindī of Ḥamdanid Syria
 	BUY	3	1	{owner} invites al-Mutanabbī to {prop}!
