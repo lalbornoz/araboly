@@ -598,7 +598,7 @@ PROPERTY	300	GREEN		Lesbian Community College
 	HOUSE	2	1	Luper's Advanced Hacking Course
 	BUY	2	1	{owner} hires Luper at {prop} and is now offering Luper's Advanced Hacking Course!
 	RENT	2	1	{who} feels stupid and decides to study Advanced Hacking at {owner}'s {prop}!
-	RENT	2	1	Oh shit! Luper teaches {who} how to Redesign the FreeBSD.org Website in only {rand[0]} days!
+	RENT	2	1	Oh shit! Luper teaches {who} how to Redesign the FreeBSD.org Website in only {rands[0]} days!
 	RENT	2	1	Awfom! Luper teaches {who} how to be an Obscenely Rich Person Template!
 	RENT	2	1	{who} pays ${cost} to {owner} and no longer feels stupid!
 	HOUSE	3	1	Kade's Game Development Course
@@ -610,18 +610,36 @@ PROPERTY	300	GREEN		Lesbian Community College
 	RENT	3	1	{who} pays ${cost} to {owner} and no longer feels stupid!
 CHEST		-1	None		Community Brr
 PROPERTY	320	GREEN		East IRC
-	HOUSE	1	0	analog's mausoleum
+	HOUSE	1	0	Analog's Mausoleum
 	BUY	1	0	{owner} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
-	HOUSE	1	1	babak's floor
-	BUY	1	1	{owner} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	darkmage's github
-	BUY	2	1	{owner} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	lol3izer's brane
-	BUY	3	1	{owner} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	{owner} builds Analog's Mausoleum on {prop}!
+	BUY	1	0	Oops! Analog's ghost starts haunting {prop}!
+	RENT	1	0	{who} visits Analog's Mausoleum on {prop} and reads:
+	RENT	1	0	“HERE LIE THE MORTAL REMAINS OF ANALOG, WHO WAS BRUTALLY SLAIN BY FASCIST OPERS AND SUMMARILY G-LINED FROM LIFE.”
+	RENT	1	0	Oh no! Analog's ghost appears and demands that {who} pay ${cost} to {owner}! What a strange request!
+	HOUSE	1	1	Bābak's Floor
+	BUY	1	1	{owner} glues together Bābak's Floor on {prop}!
+	BUY	1	1	Oh no! Bābak accidentally shits his pants!
+	BUY	1	1	Analog's ghost is haunting {prop}!
+	RENT	1	1	{who} visits Bābak's Floor on {prop}!
+	RENT	1	1	Oh dear! Bābak accidentally shits his pants!
+	RENT	1	1	Awfom! Analog's ghost appears and admonishes Bābak for having a Loose Arsehole on account getting pounded in the latter by Lexi with a strap-on!
+	RENT	1	1	Oops! Analog's ghost demands that {who} pay ${cost} to {owner}! What a strange request!
+	HOUSE	2	1	The Bank of Klatuu
+	BUY	2	1	{owner} builds The Bank of Klatuu on {prop}!
+	BUY	2	1	Analog's ghost is haunting {prop}!
+	RENT	2	1	{who} visits The Bank of Klatuu on {prop}!
+	RENT	2	1	Awfom! Klatuu wants to be {who}'s friend and agrees to pay {who} ${rands[0]} for an Online Friendship that never expires!
+	RENT	2	1	Oh dear! Analog's ghost appears and stares at Klatuu with a blank look on his face!
+	RENT	2	1	Oh no! Analog's ghost demands that {who} pay ${cost} to {owner}! What a strange request!
+	HOUSE	3	1	lol3izer's Brane
+	BUY	3	1	{owner} assembles lol3izer's Brane on {prop}!
+	BUY	3	1	Oh dear! Nobody understands how it works!
+	BUY	3	1	Analog's ghost is haunting {prop}!
+	RENT	3	1	{who} visits lol3izer's Brane on {prop}!
+	RENT	3	1	Oh dear! A wild Wood Buffaro appears, eats lol3izer's Brane, experiences violent convulsions, and dies on the spot!
+	RENT	3	1	Oh my! Analog's ghost appears and complains to {who} about allowing lol3izer into the Sphere of Ghosts!
+	RENT	3	1	Oh no! Analog's ghost demands that {who} pay ${cost} to {owner}! What a strange request!
 UTILITY		200	None		Chrono on Speed
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
@@ -678,7 +696,7 @@ PROPERTY	350	DARK_BLUE	House of Words
 	RENT	2	1	Rush to wine and early! * By the marked shining coin
 	RENT	2	1	In the evening, in the morning * Upon eloquent metre!
 	RENT	2	1	{who} is impressed by the poet's originality and eloquence!
-	RENT	2	1	Oops! {who} feels compelled to buy {rand[0]} kg word silk from {owner}!
+	RENT	2	1	Oops! {who} feels compelled to buy {rands[0]} kg word silk from {owner}!
 	HOUSE	3	1	أبو الطيب أحمد بن الحسين المتنبي الكندي
 	HOUSE	3	1	Abū ṭ-Ṭayyib Aḥmad b. al-Ḥusayn al-Mutanabbī al-Kindī of Ḥamdānid Syria
 	BUY	3	1	{owner} invites al-Mutanabbī to {prop}!
@@ -710,7 +728,7 @@ PROPERTY	400	DARK_BLUE	World Trade Center
 	HOUSE	2	1	Rape Analogy
 	BUY	2	1	Awfom! {owner} equips The {prop} with a Rape Analogy!
 	RENT	2	1	Oops! {who} accidentally flies an aeroplane into The {prop}!
-	RENT	2	1	Oh dear! The {prop} uses a Rape Analogy and has {rand[0]} Pissed Off Feminists assault {who}!
+	RENT	2	1	Oh dear! The {prop} uses a Rape Analogy and has {rands[0]} Pissed Off Feminists assault {who}!
 	RENT	2	1	{who} pays ${cost} to {owner} for diverting attention away from the absence of actual jokes by accusing other players of using repetitive jokes!
 	HOUSE	3	1	The Duck
 	BUY	3	1	Awfom! {owner} equips The {prop} with The Duck!
