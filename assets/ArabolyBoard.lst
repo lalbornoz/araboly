@@ -151,7 +151,7 @@ PROPERTY	140	DARK_GREEN	Schizophrenia
 	BUY	1	1	Oh my! {owner}'s Schizophrenia is starting!
 	BUY	1	1	Oh no! {owner} can't be arsed to finish the rest of this sente
 	BUY	1	1	{owner} ${cost} {prop} whatever
-	RENT	1	1	Oops! {who} is sucked into {owner}'s black hole of Negative Symptoms! 
+	RENT	1	1	Oops! {who} is sucked into {owner}'s black hole of Negative Symptoms!
 	RENT	1	1	Oh my! {who} can't be arsed to finish the rest of thi
 	RENT	1	1	${cost} {who} cba {owner}
 	HOUSE	2	1	Delusions
@@ -264,7 +264,7 @@ PROPERTY	200	YELLOW		IRC Housing Projects
 	BUY	3	1	{owner} builds vap0r's Chop Shop on {prop}!
 	BUY	3	1	Awfom! {owner} hires Omar with the Scimitar!
 	RENT	3	1	{who} joins vap0r's Chop Shop on {prop}!
-	RENT	3	1	Oh no! {owner} chops {who} into {rand[0]} pieces with Omar's Scimitar!
+	RENT	3	1	Oh no! {owner} chops {who} into {rands[0]} pieces with Omar's Scimitar!
 	RENT	3	1	Oops! {who} pays ${cost} to {owner} for Body Rearrangement Surgery!
 CHEST		-1	None		Community Brr
 PROPERTY	180	YELLOW		#bantown
@@ -281,8 +281,8 @@ PROPERTY	180	YELLOW		#bantown
 	BUY	1	1	Oh my! {owner} is turning into weev!
 	BUY	1	1	Oh dear! {owner} grows a shiny red beard!
 	RENT	1	1	{who} joins {prop}!
-	RENT	1	1	Oops! {who} ingests, shoots up, smokes, and snorts {rand[0]} XTCs!
-	RENT	1	1	Oh no! {who} accidentally sucks {rand[0]} cocks!
+	RENT	1	1	Oops! {who} ingests, shoots up, smokes, and snorts {rands[0]} XTCs!
+	RENT	1	1	Oh no! {who} accidentally sucks {rands[0]} cocks!
 	RENT	1	1	Oh dear! {who} loses ${cost} to {owner}'s Accidental Blowjob Help Call Centre!
 	HOUSE	2	1	Extremely Talkative Hepkitten Fountain
 	BUY	2	1	{owner} builds a Extremely Talkative Hepkitten Fountain on {prop}!
@@ -305,28 +305,28 @@ PROPERTY	180	YELLOW		#5000
 	HOUSE	1	0	Infinite /FORCEJOIN Cannon
 	BUY	1	0	{owner} buys {prop}!
 	BUY	1	0	{owner} installs an Infinite /FORCEJOIN Cannon on {prop}!
-	BUY	1	0	Over {rand[0]} thousand people have succumbed to {owner}'s {prop}!
+	BUY	1	0	Over {rands[0]} thousand people have succumbed to {owner}'s {prop}!
 	RENT	1	0	{who} joins {prop}!
 	RENT	1	0	Oh dear! {owner} has installed an Infinite /FORCEJOIN Cannon on {prop}!
-	RENT	1	0	Oh my! {owner} forcibly joins {who} to {rand[0]} thousand channels!
+	RENT	1	0	Oh my! {owner} forcibly joins {who} to {rands[0]} thousand channels!
 	RENT	1	0	Oh no! {who} loses ${cost} to {owner} for Infinite /FORCEJOIN channel tax!
 	HOUSE	1	1	IRC Help Support Centre
 	BUY	1	1	{owner} builds an IRC Help Support Centre on {prop}!
-	BUY	1	1	Over {rand[0]} million people have succumbed to {owner}'s {prop}!
+	BUY	1	1	Over {rands[0]} million people have succumbed to {owner}'s {prop}!
 	RENT	1	1	{who} joins the IRC Help Support Centre on {prop}!
-	RENT	1	1	Oops! {who} receives {rand[0]} million channel /FORCEJOINs instead of help!
+	RENT	1	1	Oops! {who} receives {rands[0]} million channel /FORCEJOINs instead of help!
 	RENT	1	1	Oh no! {who} pays ${cost} to {owner} for visiting the IRC Help Support Centre!
 	HOUSE	2	1	IRL DDoS Device
 	BUY	2	1	{owner} installed an IRL DDoS Device on {prop}!
-	BUY	2	1	Over {rand[0]} billion people have succumbed to {owner}'s {prop}!
+	BUY	2	1	Over {rands[0]} billion people have succumbed to {owner}'s {prop}!
 	RENT	2	1	{who} joins {prop}!
 	RENT	2	1	Oh shit! {owner} has installed an IRL DDoS Device on {prop}!
-	RENT	2	1	Oh dear! {rand[0]} unemployed blowfish are join-part spamming {who}'s flat IRL!
-	RENT	2	1	Oh no! {rand[0]} thousand empty boxes have been delivered to {who}'s flat!
+	RENT	2	1	Oh dear! {rands[0]} unemployed blowfish are join-part spamming {who}'s flat IRL!
+	RENT	2	1	Oh no! {rands[0]} thousand empty boxes have been delivered to {who}'s flat!
 	RENT	2	1	Oops! {who} loses ${cost} to {owner} for no apparent reason!
 	HOUSE	3	1	Puking Pillow
 	BUY	3	1	{owner} puts a Puking Pillow into {prop}!
-	BUY	3	1	Over {rand[0]} trillion people have succumbed to {owner}'s {prop}!
+	BUY	3	1	Over {rands[0]} trillion people have succumbed to {owner}'s {prop}!
 	RENT	3	1	{who} joins {prop}!
 	RENT	3	1	Oh no! {owner} uses the Puking Pillow on {who}!
 	RENT	3	1	Oh my! {owner} pukes on {who}!
@@ -339,13 +339,13 @@ PROPERTY	220	BLUE		Crazy Pills Factory
 	BUY	1	0	Oh no! {owner} is addicted to Benzodieazepines!
 	RENT	1	0	Oh dear! {who} has Chronic Insomnia and Benzodieazepine Addiction!
 	RENT	1	0	{who} visits the {prop}!
-	RENT	1	0	Awfom! {who} buys {rand[0]} Benzodieazepines for ${cost} from {owner}!
+	RENT	1	0	Awfom! {who} buys {rands[0]} Benzodieazepines for ${cost} from {owner}!
 	HOUSE	1	1	Neurodeathics
-	BUY	1	1	{owner} starts growing Neurodeathics on {prop}! 
+	BUY	1	1	{owner} starts growing Neurodeathics on {prop}!
 	BUY	1	1	Oops! {owner}'s brane cells are dying!
 	RENT	1	1	Oh my! {who} is diagnosed with Catatonic Schizophrenia and Unexplained Spontaneous Death Syndrome!
 	RENT	1	1	{who} visits the {prop}!
-	RENT	1	1	Awfom! {who} buys {rand[0]} Neurodeathics for ${cost} from {owner}!
+	RENT	1	1	Awfom! {who} buys {rands[0]} Neurodeathics for ${cost} from {owner}!
 	HOUSE	2	1	Political Correctness
 	BUY	2	1	{owner} is tired of hate crimes, the overprivileged, free speech, and common sense!
 	BUY	2	1	{owner} introduces Political Correctness on {prop}!
@@ -359,36 +359,36 @@ PROPERTY	220	BLUE		Crazy Pills Factory
 	BUY	3	1	Awfom! The unhappy Happy Pills destroy Twill and become happy!
 	RENT	3	1	Oh dear! {owner} feels very unhappy and depressed!
 	RENT	3	1	{who} visits the {prop}!
-	RENT	3	1	Awfom! {who} buys {rand[0]} Happy Pills from {owner} for ${cost} and becomes happy!
+	RENT	3	1	Awfom! {who} buys {rands[0]} Happy Pills from {owner} for ${cost} and becomes happy!
 CHANCE		-1	None		Chance
-PROPERTY	220	BLUE		 
-	HOUSE	1	0	 
+PROPERTY	220	BLUE		
+	HOUSE	1	0	
 	BUY	1	0	{owner} buys {prop}!
 	BUY	1	0	{owner} builds a   on {prop}!
 	BUY	1	0	The   multiply!
 	RENT	1	0	Why is {who} here?
 	RENT	1	0	Oh no! {who} forgot {who}'s name!
 	RENT	1	0	Oh dear! {who} forgets ${cost} in {owner}'s {prop}!
-	HOUSE	1	1	 
+	HOUSE	1	1	
 	BUY	1	1	{owner} builds another   on {prop}!
 	BUY	1	1	The   are waking up!
 	RENT	1	1	When did {who} come here?
 	RENT	1	1	Oh my! {who} is hopelessly lost!
 	RENT	1	1	Oops! {owner} sells {who} a map to {prop} for ${cost}!
-	HOUSE	2	1	 
+	HOUSE	2	1	
 	BUY	2	1	{owner} builds a third   on {prop}!
 	BUY	2	1	The   are roaring in fury!
-	RENT	2	1	Suddenly, a big scary ArabolyTypeClass.py appears and bites {who} in the object! 
+	RENT	2	1	Suddenly, a big scary ArabolyTypeClass.py appears and bites {who} in the object!
 	RENT	2	1	Oh no! A pride of voraciously hungry   is drinking {who}'s bits!
 	RENT	2	1	Awfom! {who} fights them off with ${cost} paid to {owner}!
-	HOUSE	3	1	 
+	HOUSE	3	1	
 	BUY	3	1	{owner} builds a fourth   on {prop}!
 	BUY	3	1	The   have become!
-	BUY	3	1	Saving {owner}'s consciousness to STOLENBRANES/ARABOLY/{rand[0]}.DAT...
+	BUY	3	1	Saving {owner}'s consciousness to STOLENBRANES/ARABOLY/{rands[0]}.DAT...
 	BUY	3	1	Done! Have a nice death!
 	RENT	3	1	Oh shit! A starving horde of stolen branes assaults {who} on {owner}'s {prop}!
 	RENT	3	1	Oh dear! {who} flees into Breaking Bad Season 3 Episode 10!
-	RENT	3	1	Awfom! {who} buys {rand[0]} kg meth from Walt and Jesse in order to return to reality!
+	RENT	3	1	Awfom! {who} buys {rands[0]} kg meth from Walt and Jesse in order to return to reality!
 	RENT	3	1	Oops! Jesse turned out to be {owner}!
 PROPERTY	240	BLUE		Hells Pass Bank
 	HOUSE	1	0	Topless Bank Account
@@ -426,9 +426,9 @@ PROPERTY	260	PINK		Cave of the Knubbze
 	BUY	1	0	Oh dear! The Knubbze is Hungry :]
 	RENT	1	0	{who} walks past {owner}'s {prop}!
 	RENT	1	0	Oh dear! The Knubbze is Hungry :]
-	RENT	1	0	Oh no! The Knubbze demands ${cost} from {who} for {rand[0}} giraffe meat and {rand[1]} hippopotami!
+	RENT	1	0	Oh no! The Knubbze demands ${cost} from {who} for {rands[0}} giraffe meat and {rands[1]} hippopotami!
 	HOUSE	1	1	The Knubbze is Fat :[
-	BUY	1	1	{owner} feeds The Knubbze {rand[0]} ephelants, {rand[1]} cocodriles, and {rand[2]} mountain goats!
+	BUY	1	1	{owner} feeds The Knubbze {rands[0]} ephelants, {rands[1]} cocodriles, and {rands[2]} mountain goats!
 	BUY	1	1	Oh my! The Knubbze is Fat :[
 	RENT	1	1	{who} walks past {owner}'s {prop}!
 	RENT	1	1	Oh my! The Knubbze is Fat :[
@@ -448,18 +448,47 @@ PROPERTY	260	PINK		Cave of the Knubbze
 PROPERTY	260	PINK		Monster Shop
 	HOUSE	1	0	HIE Monsters
 	BUY	1	0	{owner} buys {prop}!
-	BUY	1	0	{owner} orders {rand[0]} HIE Monsters from the AAMS(c)!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	{owner} orders {rands[0]} HIE Monsters from the AAMS(c)!
+	RENT	1	0	{who} visits {owner}'s {prop}!
+	RENT	1	0	Oh dear!
+	RENT	1	0	 _____       _____   _____       _____
+	RENT	1	0	/     \     /     \ /     \     /     \
+	RENT	1	0	\:     \   /     :/ \:     \   /     :/
+	RENT	1	0	 \      \ /      /   \      \ /      /
+	RENT	1	0	 /      / \      \   /      / \      \
+	RENT	1	0	/      /   \      \ /      /   \      \
+	RENT	1	0	\_____/     \_____/ \_____/     \_____/
+	RENT	1	0	{owner} has HIE Monsters!
+	RENT	1	0	Oops! The HIE Monsters keep saying HIE until {who} pays ${cost} to {owner}!
 	HOUSE	1	1	lopl Tigers
-	BUY	1	1	{owner} hunts and captures {rand[0]} lopl Tigers from the Steppes of Lorf!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	1	{owner} hunts and captures {rands[0]} lopl Tigers from the Steppes of Lorf!
+	RENT	1	1	{who} visits {owner}'s {prop}!
+	RENT	1	1	Oh my!
+	RENT	1	1	 ("`-''-/").___..--''"`-._
+	RENT	1	1	  `0,3LOPL  )   `-.  (     ).`-LOPL.`)
+	RENT	1	1	  (_Y_.)'  ._   )  `._ `. ``-..-'
+	RENT	1	1	   `--'_..-_/  /--'_.' ,'
+	RENT	1	1	(ll).-''  (((!.'  ((!.-'
+	RENT	1	1	{owner} has a lopl Tiger!
+	RENT	1	1	Oh no! The lopl Tiger knows Shaolin Kung Fu, Drunken Boxing, and Black Tiger Fist Style!
+	RENT	1	1	Oops! {who} appeases the lopl Tiger by paying ${cost} to {owner}!
 	HOUSE	2	1	Nothing Snakes
-	BUY	2	1	{owner} uses Arcane Zubkatz Magic and manages to charms {rand[0]} Nothing Snakes!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	BUY	2	1	{owner} uses Arcane Zubkatz Magic and manages to charms {rands[0]} Nothing Snakes!
+	RENT	2	1	{who} visits {owner}'s {prop}!
+	RENT	2	1	Oh no!
+	RENT	2	1	
+	RENT	2	1	
+	RENT	2	1	
+	RENT	2	1	
+	RENT	2	1	
+	RENT	2	1	{owner} has a Nothing Snake!
+	RENT	2	1	Oh dear!
 	HOUSE	3	1	Big Scary Monster
 	BUY	3	1	Suddenly, a Big Scary Monster came and bit {owner} in the leg.
+	RENT	3	1	{who} visits {owner}'s {prop}!
 	RENT	3	1	Suddenly, a Big Scary Monster came and bit {who} in the leg.
 	RENT	3	1	Oops! The big scary monster had AIDS!
+	RENT	3	1	Awfom! {owner} cures {who}'s AIDS with ${cost}!
 UTILITY		150	None		Knocking Shop
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
@@ -467,26 +496,26 @@ PROPERTY	280	PINK		Oclet's Crackhouse
 	HOUSE	1	0	Decrepit Crackhouse
 	BUY	1	0	{owner} buys {prop}!
 	BUY	1	0	{owner} expands {prop} to a Decrepit Crackhouse!
-	BUY	1	0	Oops! Oclet demands {rand[0]} LSDs, {rand[1]} weeds, {rand[2]} cocaines, {rand[3]} jazz cigarettes, and {rand[4]} cough syrups, topped off with {rand[5]} ketamines!
+	BUY	1	0	Oops! Oclet demands {rands[0]} LSDs, {rands[1]} weeds, {rands[2]} cocaines, {rands[3]} jazz cigarettes, and {rands[4]} cough syrups, topped off with {rands[5]} ketamines!
 	RENT	1	0	{who} visits Oclet's Decrepit Crackhouse!
-	RENT	1	0	Awfom! {who} does {rand[0]} LSDs, {rand[1]} weeds, {rand[2]} cocaines, {rand[3]} jazz cigarettes, and {rand[4]} cough syrups, topped off with {rand[5]} ketamines with oclet!
+	RENT	1	0	Awfom! {who} does {rands[0]} LSDs, {rands[1]} weeds, {rands[2]} cocaines, {rands[3]} jazz cigarettes, and {rands[4]} cough syrups, topped off with {rands[5]} ketamines with oclet!
 	RENT	1	0	Oh no! {who} loses ${cost} to {owner}!
 	HOUSE	1	1	Crackhouse Tower
 	BUY	1	1	{owner} expands {prop} to a Crackhouse Tower!
-	BUY	1	1	Oh no! Oclet demands {rand[0]} ayahuascas, {rand[1]} dimethyltryptamines, {rand[2]} peyotes, {rand[3]} psilocybin mushrooms, and {rand[4]} 2c-bs!
+	BUY	1	1	Oh no! Oclet demands {rands[0]} ayahuascas, {rands[1]} dimethyltryptamines, {rands[2]} peyotes, {rands[3]} psilocybin mushrooms, and {rands[4]} 2c-bs!
 	RENT	1	1	{who} visits Oclet's Crackhouse Tower!
-	RENT	1	1	Awfom! {who} does {rand[0]} ayahuascas, {rand[1]} dimethyltryptamines, {rand[2]} peyotes, {rand[3]} psilocybin mushrooms, and {rand[4]} 2c-bs with oclet!
+	RENT	1	1	Awfom! {who} does {rands[0]} ayahuascas, {rands[1]} dimethyltryptamines, {rands[2]} peyotes, {rands[3]} psilocybin mushrooms, and {rands[4]} 2c-bs with oclet!
 	RENT	1	1	Oh no! {who} loses ${cost} to {owner}!
 	HOUSE	2	1	Walled Crackhouse City
 	BUY	2	1	{owner} expands {prop} to a Walled Crackhouse City!
-	BUY	2	1	Oh dear! Oclet demands {rand[0]} sodium hydrogen carbonates, {rand[1]} copper II sulfate pentahydrates, {rand[2]} bath salts, and {rand[3]} potassium chlorides!
+	BUY	2	1	Oh dear! Oclet demands {rands[0]} sodium hydrogen carbonates, {rands[1]} copper II sulfate pentahydrates, {rands[2]} bath salts, and {rands[3]} potassium chlorides!
 	RENT	2	1	{who} visits Oclet's Walled Crackhouse City!
-	RENT	2	1	Awfom! {who} does {rand[0]} sodium hydrogen carbonates, {rand[1]} copper II sulfate pentahyd... wait no!
+	RENT	2	1	Awfom! {who} does {rands[0]} sodium hydrogen carbonates, {rands[1]} copper II sulfate pentahyd... wait no!
 	RENT	2	1	Oh dear! Oclet is assembling an Improvised Poison Gas Kade!
 	RENT	2	1	Oops! {who} pays ${cost} to {owner} and promises not to snitch!
 	HOUSE	3	1	New Jersey
 	BUY	3	1	{owner} expands {prop} to New Jersey!
-	BUY	3	1	Oh my! Oclet demands {rand[0]} kg hydrogen cyanide, {rand[1]} land mines, {rand[2]} logic bombs, and {rand[3]} kg TNT!
+	BUY	3	1	Oh my! Oclet demands {rands[0]} kg hydrogen cyanide, {rands[1]} land mines, {rands[2]} logic bombs, and {rands[3]} kg TNT!
 	RENT	3	1	{who} visits Oclet's New Jersey!
 	RENT	3	1	Awfom! Oclet gives {who} a logic bomb!
 	RENT	3	1	Oh no! The logic bomb explodes!
@@ -536,17 +565,56 @@ UTILITY		200	None		Chrono on Speed
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 CHANCE		-1	None		Chance
-PROPERTY	350	DARK_BLUE	Desert of Words
-	HOUSE	1	0	sudden word theft bedouin raid
+PROPERTY	350	DARK_BLUE	House of Words
+	HOUSE	1	0	عمرو بن قُميئة الثعلبي البكري
+	HOUSE	1	0	ʕamrū b. Qumī'ah aṯ-Ṯaʕlabī al-Bakrī of pre-Islamic Lakhmid Southern Iraq
 	BUY	1	0	{owner} buys {prop}!
+	BUY	1	0	{owner} invites ʕamrū b. Qumī'ah to {prop}!
+	BUY	1	0	رمتني بنات الدهر من حيث لا ألرى * فكيف بمن يرمى وبليس برام
+	BUY	1	0	The daughters of time have shot me and from where, I do not see * and what is of him who is shot at when he is not shooting?
+	BUY	1	0	وأفنى وما أفنى من الدهر ليلة * ولم يغن ما أفنيت سلك نظام
+	BUY	1	0	So I waste away and I do not waste even a single night of time * and yet of what I have wasted, it yields not but a single thread
+	BUY	1	0	وأهلكني تأميل يوم وليلة * وتأميل بعد ذاك وعام
+	BUY	1	0	I am slain by looking forward to day and night * and looking onward to year, thereafter, and to year
 	RENT	1	0	{who} pays ${cost} rent to {owner}!
-	HOUSE	1	1	Ubadah al-Qazzaz
-	BUY	1	1	{owner} buys another house on {prop}!
+	HOUSE	1	1	أبو عبدالله محمد بن عُبادة بن القزّاز من المرية بني تُجيب
+	HOUSE	1	1	Abū ʕabdillāh Muḥammad b. ʕubādah b. al-Qazzāz of Tujībid Almería
+	BUY	1	1	{owner} invites Muḥammad b. ʕubādah b. al-Qazzāz to {prop}!
+	BUY	1	1	Oops! Tribe Tujīb takes over {prop}!
+	BUY	1	1	إذا سلّوا البواتر في الحَيْن والحتوف
+	BUY	1	1	When cutting swords are drawn * Splitting death and destruction
+	BUY	1	1	والنصر والفتوح وآية تلوح
+	BUY	1	1	From victory and triumph * And his verse and sign emerge!
+	BUY	1	1	ما أملحَ العساكر وترتيب الصفوف
+	BUY	1	1	How beautiful the armies * When arranged in ranks!
+	BUY	1	1	والأبطال تصيح الواثق يا مليح
+	BUY	1	1	And when the champions declare: Long live al-Wāṯiq, the Handsome!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	al-jahiz
-	BUY	2	1	{owner} buys another house on {prop}!
+	HOUSE	2	1	أبو تمّام حبيب بن أوس الطائي
+	HOUSE	2	1	Abū Tammām Ḥabīb b. Aws aṭ-Ṭā'ī of Abbasid Syria
+	BUY	2	1	{owner} invites Abū Tammām to {prop}!
+	BUY	2	1	السَّيْفُ أَصْدَقُ إِنْبَاءً مِنَ الكُتُبِ * في حدهِ الحدُّ بينَ الجدِّ واللَّعبِ
+	BUY	2	1	The sword is more veracious than the writings of the astrologers * Its cutting edge splits earnestness from sport!
+	BUY	2	1	بيضُ الصَّفائحِ لاَ سودُ الصَّحائفِ في * مُتُونِهنَّ جلاءُ الشَّك والريَبِ
+	BUY	2	1	The white of the blade, not the black of the page * Its broadsides clarify uncertainty and doubt!
+	BUY	2	1	والعِلْمُ في شُهُبِ الأَرْمَاحِ لاَمِعَة ً * بَيْنَ الخَمِيسَيْنِ لافي السَّبْعَة ِ الشُّهُبِ
+	BUY	2	1	Knowledge lies in the bright spears gleaming between two armies * Not in the seven gleaming stars!
+	BUY	2	1	أَيْنَ الروايَة ُ بَلْ أَيْنَ النُّجُومُ وَمَا * صَاغُوه مِنْ زُخْرُفٍ فيها ومنْ كَذِبِ
+	BUY	2	1	Where now is their report? Where are the stars? Where the elaborate contrivances they forged?
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	al-Mutanabbi destruction with discerning hand and mouth
+	HOUSE	3	1	أبو الطيب أحمد بن الحسين المتنبي الكندي
+	HOUSE	3	1	Abū ṭ-Ṭayyib Aḥmad b. al-Ḥusayn al-Mutanabbī al-Kindī of Ḥamdanid Syria
+	BUY	3	1	{owner} invites al-Mutanabbī to {prop}!
+	BUY	3	1	أيَّ مَحَلٍّ أرْتَقي * أيَّ عَظيمٍ أتّقي
+	BUY	3	1	What great man need I claim! * What status need I attain!
+	BUY	3	1	وَكُلّ مَا قَدْ خَلَقَ اللّـ * ـهُ وَما لَمْ يُخْلَقِ
+	BUY	3	1	For all that which God has created * and that which he has not:
+	BUY	3	1	مُحْتَقَرٌ في هِمّتي * كَشَعْرَةٍ في مَفْرِقي
+	BUY	3	1	Is mean compared to my will * like a hair on my forehead!
+	RENT	3	1	وَجاهِلٍ مَدّهُ في جَهْلِهِ ضَحِكي * حَتى أتَتْه يَدٌ فَرّاسَةٌ وَفَمُ
+	RENT	3	1	I laughed at the frauds and their ignorance * until with discerning hand and mouth, I destroy them!
+	RENT	3	1	إذا رَأيْتَ نُيُوبَ اللّيْثِ بارِزَةً * فَلا تَظُنّنّ أنّ اللّيْثَ يَبْتَسِمُ
+	RENT	3	1	If you see the lion baring his teeth * then do not think that he is smiling!
 	BUY	3	1	{owner} buys another house on {prop}!
 	RENT	3	1	{who} pays ${cost} rent to {owner}!
 TAX		100	None		The Gov't Hates You (pay $100)
