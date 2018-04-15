@@ -51,9 +51,11 @@ PROPERTY	60	DARK_RED	Incog's council estate
 	RENT	3	1	{who} buys ${cost} worth of loud from {owner} and gets hie as fuck!
 	RENT	3	1	Oh shit! {who} is smoking el paquete del diablo!
 UTILITY		150	None		Welfare Office
+	HOUSE	1	0	Welfare Office
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 UTILITY		200	None		Chrono Camel Company
+	HOUSE	1	0	Chrono Camel Company
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 PROPERTY	100	RED		Rizon Towers
@@ -235,6 +237,7 @@ PROPERTY	160	DARK_GREEN	Nadia Hospital
 	RENT	3	1	Awfom! {who}'s blood is replaced with the freezing Nadias at {owner}'s {prop} for only ${cost}!
 	RENT	3	1	The Nadias are decreasing!
 UTILITY		200	None		Winged Chrono Port
+	HOUSE	1	0	Winged Chrono Port
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 PROPERTY	200	YELLOW		IRC Housing Projects
@@ -418,6 +421,7 @@ PROPERTY	240	BLUE		Hells Pass Bank
 	RENT	3	1	Awfom! The Government bails out {prop}!
 	RENT	3	1	Oops! The Government forces {who} to pay ${cost} to {prop}!
 UTILITY		200	None		Chrono's Time Travel
+	HOUSE	1	0	Chrono's Time Travel
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 PROPERTY	260	PINK		Cave of the Knubbze
@@ -521,6 +525,7 @@ PROPERTY	260	PINK		Monster Shop
 	RENT	3	1	Oops! The big scary monster had AIDS!
 	RENT	3	1	Awfom! {owner} cures {who}'s AIDS with ${cost}!
 UTILITY		150	None		Knocking Shop
+	HOUSE	1	0	Knocking Shop
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 PROPERTY	280	PINK		Oclet's Crackhouse
@@ -641,6 +646,7 @@ PROPERTY	320	GREEN		East IRC
 	RENT	3	1	Oh my! Analog's ghost appears and complains to {who} about allowing lol3izer into the Sphere of Ghosts!
 	RENT	3	1	Oh no! Analog's ghost demands that {who} pay ${cost} to {owner}! What a strange request!
 UTILITY		200	None		Chrono on Speed
+	HOUSE	1	0	Chrono on Speed
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 CHANCE		-1	None		Chance
