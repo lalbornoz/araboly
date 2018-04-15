@@ -552,19 +552,32 @@ PROPERTY	280	PINK		Oclet's Crackhouse
 	RENT	3	1	Oh no! The logic bomb explodes!
 	RENT	3	1	Oops! By the inalterable twists and turns of fate, {who} loses ${cost} to {owner}!
 SECTIONED	300	None		You got sectioned! (Go to loony bin)
-PROPERTY	300	GREEN		Facebook
-	HOUSE	1	0	invite player to profile w/ mandatory refusal penalty
+PROPERTY	300	GREEN		Kade & Kween's ReHab©
+	HOUSE	1	0	Dark Room
 	BUY	1	0	{owner} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
-	HOUSE	1	1	spie and steal secrets from player
-	BUY	1	1	{owner} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	install brane implant
-	BUY	2	1	{owner} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	oh no! you got raped by mark zuckerberg!
-	BUY	3	1	{owner} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	{owner} builds a Dark Room in {prop}!
+	RENT	1	0	Oh my! {who} is sent to the Dark Room in {prop} for Ganjas, Cocaine Blunts, Snooters, Shrooms, and Alcohols Addiction!
+	RENT	1	0	Oh no! {who} receives a Painfully Thorough Fisting from Kade & Kween in the Dark Room!
+	RENT	1	0	Awfom! {who} no longer wants to do drugs!
+	RENT	1	0	{who} pays ${cost} to {owner}!
+	HOUSE	1	1	Shock Therapy Volcano
+	BUY	1	1	{owner} builds a Shock Therapy Volcano in {prop}!
+	RENT	1	1	Oops! {who} was caught shooting up Saffron, Uranium Salts, Catnip, and Hillary Clinton's Dried Period Blood!
+	RENT	1	1	Oh no! Kade & Kween threaten to throw {who} into the Shock Therapy Volcano!
+	RENT	1	1	Awfom! {who} is too scared to do drugs!
+	RENT	1	1	{who} pays ${cost} to {owner}!
+	HOUSE	2	1	Alternative Therapy Centre
+	BUY	2	1	{owner} builds an Alternative Therapy Centre in {prop}!
+	RENT	2	1	Oh shit! {who}'s body contains more DXM and Ketamine than blood!
+	RENT	2	1	Awfom! Kade & Kween cure {who}'s drug addictions with Alternative Therapy!
+	RENT	2	1	Oops! {who} is now addicted to Krokodil, Women with Excessive Pubic Hair, and Black Tar Heroin!
+	RENT	2	1	{who} pays ${cost} to {owner} for more drugs!
+	HOUSE	3	1	War on Drugs
+	BUY	3	1	{owner} starts a War on Drugs at {prop}!
+	RENT	3	1	Oh no! {who} is experiencing Multiple Organ Failure, Inexplicable Death Syndrome, and Severe Opiate Withdrawal!
+	RENT	3	1	Awfom! Kade & Kween promise to save {who} with the cutting-edge War on Drugs method!
+	RENT	3	1	Oops! Kade & Kween execute {who} with a machete!
+	RENT	3	1	{who} has been cured and pays ${cost} to {owner}!
 PROPERTY	300	GREEN		Kade
 	HOUSE	1	0	upload kade.rar
 	BUY	1	0	{owner} buys {prop}!
