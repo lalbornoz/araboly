@@ -30,6 +30,12 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
                     self.nickMap[nickSpec] = nickSpec
         return {"args":args, "src":src, **params}
     # }}}
+    # {{{ dispatch433(self, args, output, **params): Dispatch single 353 message from server
+    def dispatch433(self, args, output, **params):
+        self.clientNick += "_"
+        output += [{"type":"message", "delay":0, "cmd":"NICK", "args":[self.clientNick]}]
+        return {"args":args, "src":src, **params}
+    # }}}
     # {{{ dispatchJOIN(self, args, context, output, src, **params): Dispatch single JOIN message from server
     def dispatchJOIN(self, args, context, output, src, **params):
         if args[0].lower() == self.clientChannel.lower():

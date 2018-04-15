@@ -205,9 +205,18 @@ class ArabolyOutput(ArabolyTypeClass):
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Araboly status for player {}:".format(src)]}]
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Field....: {}".format(context.board[context.fields[src]][3])]}]
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Wallet...: {}".format(context.wallets[src])]}]
-            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Properties owned:"]}]
-            for prop in context.properties[src]:
-                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "${} -- {}, level {}, houses: {}".format(prop[1], prop[3], prop[4], str(prop[5][1:]))]}]
+            if len(context.properties[src]):
+                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Properties owned:"]}]
+                for prop in context.properties[src]:
+                    houses = []
+                    for houseLevel in range(1, prop[4]+1):
+                        houseNumMin = 0 if prop[4] < 2 else 1
+                        for houseNum in range(houseNumMin, prop[5][prop[4]]+1):
+                            houses += context.boardStrings[prop[-1]][ArabolyPropSubType.HOUSE][houseLevel][houseNum]
+                    if len(houses):
+                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "${} -- {}, developments: {}".format(prop[1], prop[3], ", ".join(houses))]}]
+                    else:
+                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "${} -- {}".format(prop[1], prop[3])]}]
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Current turn: {}".format(context.players[context.playerCur])]}]
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}
