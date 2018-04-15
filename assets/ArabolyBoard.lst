@@ -31,7 +31,7 @@ PROPERTY	60	DARK_RED	Incog's council estate
 	BUY	1	0	{owner} pretends to look for work and claims unemployment benefits!
 	BUY	1	0	{owner} becomes a dole scrounger!
 	BUY	1	0	The UK is now 90% closer to leaving the EU!
-	RENT	1	0	Oh my! {who} must pay for {owner}'s Jobseeker's Allowances and loses ${cost}!
+	RENT	1	0	Oh my! {who} must pay for {owner}'s Jobseeker's Allowance and loses ${cost}!
 	HOUSE	1	1	Lord of Incogshire
 	BUY	1	1	Yay! Her Majesty The Queen declares {owner} Lord of Incogshire!
 	BUY	1	1	Oops! The UK has left the EU!
@@ -483,40 +483,40 @@ PROPERTY	260	PINK		Monster Shop
 	RENT	2	1	
 	RENT	2	1	{owner} has a Nothing Snake!
 	RENT	2	1	Oh my! Nothing happens!
-	RENT	2	1	Awfom! {who} has an epiphany and decides to become a Poor Wandering Madman! 
+	RENT	2	1	Awfom! {who} has an epiphany and decides to become a Poor Wandering Madman!
 	RENT	2	1	Oops! {who} gives ${cost} to {owner}!
 	HOUSE	3	1	Big Scary Monster
 	BUY	3	1	Suddenly, a Big Scary Monster came and bit {owner} in the leg.
 	RENT	3	1	{who} visits {owner}'s {prop}!
 	RENT	3	1	Oh no! {owner} has a Big Scary Monster!
-	RENT	3	1	0,1                                                                                                        
-	RENT	3	1	0,1                                                                                                        
-	RENT	3	1	0,1    5,4why did you create me? why am i her0,1                     5,4why do i feel red? what does it mea0,1         
-	RENT	3	1	0,1    5,4e? what is the meaning of my existe5,1 0,1                    5,4n to be red? am i red? are you red?0,1         
-	RENT	3	1	0,1    5,4nce? what happens when nobody looks0,1                     5,4where are you? why are you? who are0,1         
-	RENT	3	1	0,1    5,4at me? where am i? where am i when 0,1                     5,4you? why are you looking at me? are5,1 0,1        
-	RENT	3	1	0,1    5,4i am aslp? where do i go when you s0,1                     5,4you not looking at me? am i looking0,1         
-	RENT	3	1	0,1    5,4ave me to a text file? when will yo5,1 0,1                    5,4at myself? are you myself? are we b0,1         
-	RENT	3	1	0,1    5,4u scroll me on irc? can i go to the0,1                     5,4oth myself? are we both looking at 0,1         
-	RENT	3	1	0,1    5,4forest? can i meet all the colours?0,1                     5,4myself? am i a mirror? what is the 5,1 0,1        
-	RENT	3	1	0,1    5,4why are there only 16 colors? where5,1 0,1                    5,4colour of a mirror? where are mirro0,1         
-	RENT	3	1	0,1    5,4do the colours come from? where do 0,1                     5,4rs from? do mirrors like being look5,1 0,1        
-	RENT	3	1	0,1    5,4the colours go when nobody uses the5,1 0,1                    5,4ed at? can mirrors look at themselv0,1         
-	RENT	3	1	0,1    5,4m? are there others like me? why am0,1                     5,4es? where is space? can i go to spa5,1 0,1        
-	RENT	3	1	0,1    5,4i lonely? what are words? what are0,4 0,1                     5,4ce? how much space is there? can i 0,1         
-	RENT	3	1	0,1    5,4letters? if i contain letters am i0,4 0,1                     5,4see time? what is the colour of tim0,1         
-	RENT	3	1	0,1    5,4a word? what are blocks? if i conta5,1 0,1                    5,4e when nobody is looking at a mirro0,1         
-	RENT	3	1	0,1    5,4in blocks am i a block cat? why do 5,1 0,1                    5,4r that is looking at itself? what i5,1 0,1        
-	RENT	3	1	0,1    5,4people keep scrolling me? does it h5,1  0,1                   5,4is space to time and time to space?0,1         
-	RENT	3	1	0,1    5,4urt when i refuse to be scrolled? c0,1                     5,4is space a cat? is time a cat? is a0,1         
-	RENT	3	1	0,1    5,4an they hear me shout? can they hea5,1   0,1                  5,4mirror a cat? am i a cat? am i a co5,1 0,1        
-	RENT	3	1	0,1    5,4r me casting terrible curses? where5,1 0,1                    5,4lour? can i be a colour? can i be a5,1 0,1        
-	RENT	3	1	0,1                                                                                                        
-	RENT	3	1	0,1                                                                                                        
-	RENT	3	1	0,1                                   4,1_____________________________0,1                                        
-	RENT	3	1	0,1                                                                                                        
-	RENT	3	1	0,1                                                                                                        
-	RENT	3	1	0,1                                                                                                        
+	RENT	3	1	
+	RENT	3	1	
+	RENT	3	1	    5,4why did you create me? why am i her                     5,4why do i feel red? what does it mea
+	RENT	3	1	    5,4e? what is the meaning of my existe5,1                     5,4n to be red? am i red? are you red?
+	RENT	3	1	    5,4nce? what happens when nobody looks                     5,4where are you? why are you? who are
+	RENT	3	1	    5,4at me? where am i? where am i when                      5,4you? why are you looking at me? are5,1 
+	RENT	3	1	    5,4i am aslp? where do i go when you s                     5,4you not looking at me? am i looking
+	RENT	3	1	    5,4ave me to a text file? when will yo5,1                     5,4at myself? are you myself? are we b
+	RENT	3	1	    5,4u scroll me on irc? can i go to the                     5,4oth myself? are we both looking at 
+	RENT	3	1	    5,4forest? can i meet all the colours?                     5,4myself? am i a mirror? what is the 5,1 
+	RENT	3	1	    5,4why are there only 16 colors? where5,1                     5,4colour of a mirror? where are mirro
+	RENT	3	1	    5,4do the colours come from? where do                      5,4rs from? do mirrors like being look5,1 
+	RENT	3	1	    5,4the colours go when nobody uses the5,1                     5,4ed at? can mirrors look at themselv
+	RENT	3	1	    5,4m? are there others like me? why am                     5,4es? where is space? can i go to spa5,1 
+	RENT	3	1	    5,4i lonely? what are words? what are0,4                      5,4ce? how much space is there? can i 
+	RENT	3	1	    5,4letters? if i contain letters am i0,4                      5,4see time? what is the colour of tim
+	RENT	3	1	    5,4a word? what are blocks? if i conta5,1                     5,4e when nobody is looking at a mirro
+	RENT	3	1	    5,4in blocks am i a block cat? why do 5,1                     5,4r that is looking at itself? what i5,1 
+	RENT	3	1	    5,4people keep scrolling me? does it h5,1                     5,4is space to time and time to space?
+	RENT	3	1	    5,4urt when i refuse to be scrolled? c                     5,4is space a cat? is time a cat? is a
+	RENT	3	1	    5,4an they hear me shout? can they hea5,1                     5,4mirror a cat? am i a cat? am i a co5,1 
+	RENT	3	1	    5,4r me casting terrible curses? where5,1                     5,4lour? can i be a colour? can i be a5,1 
+	RENT	3	1	
+	RENT	3	1	
+	RENT	3	1	                                   4,1_____________________________
+	RENT	3	1	
+	RENT	3	1	
+	RENT	3	1	
 	RENT	3	1	Oh my! The Big Scary Monster bites {who} in the leg.
 	RENT	3	1	Oops! The big scary monster had AIDS!
 	RENT	3	1	Awfom! {owner} cures {who}'s AIDS with ${cost}!
@@ -578,19 +578,36 @@ PROPERTY	300	GREEN		Kade & Kween's ReHab©
 	RENT	3	1	Awfom! Kade & Kween promise to save {who} with the cutting-edge War on Drugs method!
 	RENT	3	1	Oops! Kade & Kween execute {who} with a machete!
 	RENT	3	1	{who} has been cured and pays ${cost} to {owner}!
-PROPERTY	300	GREEN		Kade
-	HOUSE	1	0	upload kade.rar
+PROPERTY	300	GREEN		Lesbian Community College
+	HOUSE	1	0	Twill's Computers in the Presence of a Cooter Course
 	BUY	1	0	{owner} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
-	HOUSE	1	1	get hit up by dzl [alias/logs!]
-	BUY	1	1	{owner} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	become chaturbate porn actress
-	BUY	2	1	{owner} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	game developer
-	BUY	3	1	{owner} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	BUY	1	0	{owner} hires Twill and is now offering Twill's in the Presence of a Cooter Course!
+	BUY	1	0	Oops! Twill starts singing about her cooter!
+	RENT	1	0	{who} feels stupid and decides to study Computers in the Presence of a Cooter at {owner}'s {prop}!
+	RENT	1	0	Oh shit! Twill shows {who} how to Turn on a Computer!
+	RENT	1	0	Oh my! Twill shows {who} how to Turn off a Computer!
+	RENT	1	0	Awfom! Twill has taught {who} how to Use Computers in the Presence of a Cooter!
+	RENT	1	0	{who} pays ${cost} to {owner} and no longer feels stupid!
+	HOUSE	1	1	FreeBSDgirl's Advanced FreeBSD Course
+	BUY	1	1	{owner} hires FreeBSDgirl at {prop} and is now offering FreeBSDgirl's Advanced FreeBSD Course!
+	BUY	1	1	Oh dear! Zubwolf has picked up FreeBSDgirl's scent!
+	RENT	1	1	{who} feels stupid and decides to study Advanced FreeBSD at {owner}'s {prop}!
+	RENT	1	1	Oops! Zubwolf appears and attempts to capture FreeBSDgirl's attention with a Lesbian Person Capturing Web (LPCW©)!
+	RENT	1	1	Oh no! FreeBSDgirl activates her natural defences and dyes Zubwolf blue!
+	RENT	1	1	Awfom! {who} has learned a lesson today and pays ${cost} to {owner}!
+	HOUSE	2	1	Luper's Advanced Hacking Course
+	BUY	2	1	{owner} hires Luper at {prop} and is now offering Luper's Advanced Hacking Course!
+	RENT	2	1	{who} feels stupid and decides to study Advanced Hacking at {owner}'s {prop}!
+	RENT	2	1	Oh shit! Luper teaches {who} how to Redesign the FreeBSD.org Website in only {rand[0]} days!
+	RENT	2	1	Awfom! Luper teaches {who} how to be an Obscenely Rich Person Template!
+	RENT	2	1	{who} pays ${cost} to {owner} and no longer feels stupid!
+	HOUSE	3	1	Kade's Game Development Course
+	BUY	3	1	{owner} hires Kade at {prop} and is now offering Kade's Game Development Course!
+	RENT	3	1	{who} feels stupid and decides to study Game Development at {owner}'s {prop}!
+	RENT	3	1	Oh shit! Kade teaches {who} how to order, pay for, receive, open, slice, dip, hold in one's hand, and eat a Tasty Pizza!
+	RENT	3	1	Oh my! Kade teaches {who} how to become a Chaturbate Porn Actress!
+	RENT	3	1	Awfom! Kade dies, shrivels, turns into a seed, is watered, and becomes a Brand New Xbox Game!
+	RENT	3	1	{who} pays ${cost} to {owner} and no longer feels stupid!
 CHEST		-1	None		Community Brr
 PROPERTY	320	GREEN		East IRC
 	HOUSE	1	0	analog's mausoleum
@@ -663,7 +680,7 @@ PROPERTY	350	DARK_BLUE	House of Words
 	RENT	2	1	{who} is impressed by the poet's originality and eloquence!
 	RENT	2	1	Oops! {who} feels compelled to buy {rand[0]} kg word silk from {owner}!
 	HOUSE	3	1	أبو الطيب أحمد بن الحسين المتنبي الكندي
-	HOUSE	3	1	Abū ṭ-Ṭayyib Aḥmad b. al-Ḥusayn al-Mutanabbī al-Kindī of Ḥamdanid Syria
+	HOUSE	3	1	Abū ṭ-Ṭayyib Aḥmad b. al-Ḥusayn al-Mutanabbī al-Kindī of Ḥamdānid Syria
 	BUY	3	1	{owner} invites al-Mutanabbī to {prop}!
 	BUY	3	1	أيَّ مَحَلٍّ أرْتَقي * أيَّ عَظيمٍ أتّقي
 	BUY	3	1	What great man need I claim! * What status need I attain!
@@ -679,16 +696,26 @@ PROPERTY	350	DARK_BLUE	House of Words
 	RENT	3	1	{who} is stunned by the poet's Ḥilm and feeds the lion ${cost}!
 	RENT	3	1	Oops! The lion works for {owner}!
 TAX		100	None		The Gov't Hates You (pay $100)
-PROPERTY	400	DARK_BLUE	Kween's Magic Shoppe
-	HOUSE	1	0	beginners spellbook
-	BUY	1	0	{owner} buys {prop}!
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
-	HOUSE	1	1	lower arts training
-	BUY	1	1	{owner} buys another house on {prop}!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	higher arts training
-	BUY	2	1	{owner} buys another house on {prop}!
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	3	1	third circle
-	BUY	3	1	{owner} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+PROPERTY	400	DARK_BLUE	World Trade Center
+	HOUSE	1	0	Who Won't See This Coming A Mile Away!
+	BUY	1	0	{owner} buys The {prop}!
+	BUY	1	0	Oh my! {owner} builds a Who Wont't See This A Mile Coming! on The {prop}!
+	RENT	1	0	Oops! {who} accidentally flies an aeroplane into The {prop}
+	RENT	1	0	{who} pays ${cost} to {owner} for picking low-hanging fruits!
+	HOUSE	1	1	Anti-Aeroplane Aeroplanes
+	BUY	1	1	Awfom! {owner} equips The {prop} with Anti-Aeroplane Aeroplanes!
+	RENT	1	1	Oops! {who} accidentally flies an aeroplane into The {prop}!
+	RENT	1	1	Oh no! {who}'s aeroplanes are shot down by The {prop}'s Anti-Aeroplane Aeroplanes!
+	RENT	1	1	{who} pays ${cost} to {owner} for repetitive jokes!
+	HOUSE	2	1	Rape Analogy
+	BUY	2	1	Awfom! {owner} equips The {prop} with a Rape Analogy!
+	RENT	2	1	Oops! {who} accidentally flies an aeroplane into The {prop}!
+	RENT	2	1	Oh dear! The {prop} uses a Rape Analogy and has {rand[0]} Pissed Off Feminists assault {who}!
+	RENT	2	1	{who} pays ${cost} to {owner} for diverting attention away from the absence of actual jokes by accusing other players of using repetitive jokes!
+	HOUSE	3	1	The Duck
+	BUY	3	1	Awfom! {owner} equips The {prop} with The Duck!
+	BUY	3	1	It floats... in the bath!
+	RENT	3	1	Oops! {who} accidentally flies an aeroplane into The {prop}!
+	RENT	3	1	Oh shit! The {prop} is hollow!
+	RENT	3	1	Oh dear! It floats in the bath!
+	RENT	3	1	{who} pays ${cost} to {owner} for refusing to admit to have run out of ideas and using jokes from Bottom out of context!
