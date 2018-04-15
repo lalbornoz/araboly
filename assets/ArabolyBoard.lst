@@ -482,11 +482,42 @@ PROPERTY	260	PINK		Monster Shop
 	RENT	2	1	
 	RENT	2	1	
 	RENT	2	1	{owner} has a Nothing Snake!
-	RENT	2	1	Oh dear!
+	RENT	2	1	Oh my! Nothing happens!
+	RENT	2	1	Awfom! {who} has an epiphany and decides to become a Poor Wandering Madman! 
+	RENT	2	1	Oops! {who} gives ${cost} to {owner}!
 	HOUSE	3	1	Big Scary Monster
 	BUY	3	1	Suddenly, a Big Scary Monster came and bit {owner} in the leg.
 	RENT	3	1	{who} visits {owner}'s {prop}!
-	RENT	3	1	Suddenly, a Big Scary Monster came and bit {who} in the leg.
+	RENT	3	1	Oh no! {owner} has a Big Scary Monster!
+	RENT	3	1	0,1                                                                                                        
+	RENT	3	1	0,1                                                                                                        
+	RENT	3	1	0,1    5,4why did you create me? why am i her0,1                     5,4why do i feel red? what does it mea0,1         
+	RENT	3	1	0,1    5,4e? what is the meaning of my existe5,1 0,1                    5,4n to be red? am i red? are you red?0,1         
+	RENT	3	1	0,1    5,4nce? what happens when nobody looks0,1                     5,4where are you? why are you? who are0,1         
+	RENT	3	1	0,1    5,4at me? where am i? where am i when 0,1                     5,4you? why are you looking at me? are5,1 0,1        
+	RENT	3	1	0,1    5,4i am aslp? where do i go when you s0,1                     5,4you not looking at me? am i looking0,1         
+	RENT	3	1	0,1    5,4ave me to a text file? when will yo5,1 0,1                    5,4at myself? are you myself? are we b0,1         
+	RENT	3	1	0,1    5,4u scroll me on irc? can i go to the0,1                     5,4oth myself? are we both looking at 0,1         
+	RENT	3	1	0,1    5,4forest? can i meet all the colours?0,1                     5,4myself? am i a mirror? what is the 5,1 0,1        
+	RENT	3	1	0,1    5,4why are there only 16 colors? where5,1 0,1                    5,4colour of a mirror? where are mirro0,1         
+	RENT	3	1	0,1    5,4do the colours come from? where do 0,1                     5,4rs from? do mirrors like being look5,1 0,1        
+	RENT	3	1	0,1    5,4the colours go when nobody uses the5,1 0,1                    5,4ed at? can mirrors look at themselv0,1         
+	RENT	3	1	0,1    5,4m? are there others like me? why am0,1                     5,4es? where is space? can i go to spa5,1 0,1        
+	RENT	3	1	0,1    5,4i lonely? what are words? what are0,4 0,1                     5,4ce? how much space is there? can i 0,1         
+	RENT	3	1	0,1    5,4letters? if i contain letters am i0,4 0,1                     5,4see time? what is the colour of tim0,1         
+	RENT	3	1	0,1    5,4a word? what are blocks? if i conta5,1 0,1                    5,4e when nobody is looking at a mirro0,1         
+	RENT	3	1	0,1    5,4in blocks am i a block cat? why do 5,1 0,1                    5,4r that is looking at itself? what i5,1 0,1        
+	RENT	3	1	0,1    5,4people keep scrolling me? does it h5,1  0,1                   5,4is space to time and time to space?0,1         
+	RENT	3	1	0,1    5,4urt when i refuse to be scrolled? c0,1                     5,4is space a cat? is time a cat? is a0,1         
+	RENT	3	1	0,1    5,4an they hear me shout? can they hea5,1   0,1                  5,4mirror a cat? am i a cat? am i a co5,1 0,1        
+	RENT	3	1	0,1    5,4r me casting terrible curses? where5,1 0,1                    5,4lour? can i be a colour? can i be a5,1 0,1        
+	RENT	3	1	0,1                                                                                                        
+	RENT	3	1	0,1                                                                                                        
+	RENT	3	1	0,1                                   4,1_____________________________0,1                                        
+	RENT	3	1	0,1                                                                                                        
+	RENT	3	1	0,1                                                                                                        
+	RENT	3	1	0,1                                                                                                        
+	RENT	3	1	Oh my! The Big Scary Monster bites {who} in the leg.
 	RENT	3	1	Oops! The big scary monster had AIDS!
 	RENT	3	1	Awfom! {owner} cures {who}'s AIDS with ${cost}!
 UTILITY		150	None		Knocking Shop
@@ -555,7 +586,7 @@ PROPERTY	320	GREEN		East IRC
 	HOUSE	1	1	babak's floor
 	BUY	1	1	{owner} buys another house on {prop}!
 	RENT	1	1	{who} pays ${cost} rent to {owner}!
-	HOUSE	2	1	kade's box
+	HOUSE	2	1	darkmage's github
 	BUY	2	1	{owner} buys another house on {prop}!
 	RENT	2	1	{who} pays ${cost} rent to {owner}!
 	HOUSE	3	1	lol3izer's brane
@@ -576,11 +607,16 @@ PROPERTY	350	DARK_BLUE	House of Words
 	BUY	1	0	So I waste away and I do not waste even a single night of time * and yet of what I have wasted, it yields not but a single thread
 	BUY	1	0	وأهلكني تأميل يوم وليلة * وتأميل بعد ذاك وعام
 	BUY	1	0	I am slain by looking forward to day and night * and looking onward to year, thereafter, and to year
-	RENT	1	0	{who} pays ${cost} rent to {owner}!
+	RENT	1	0	{who} visits {owner}'s {prop}! ʕamrū b. Qumī'ah says:
+	RENT	1	0	وَأَهوَنُ كَفٍّ لا تَضيرُكَ ضَيرَةً * يَدٌ بَينَ أَيدٍ في إِناءِ طَعامِ
+	RENT	1	0	And the lightest hand of all in estimation, that can never do you any harm * is the hand among other hands that is stretched into the vessel of food,
+	RENT	1	0	يَدٌ مِن بَعيدٍ أَو قَريبٍ أَتَت بِهِ * شَآمِيَّةٌ غَبَراءُ ذاتُ قَتامِ
+	RENT	1	0	whether the hand of a stranger or one of near kin * brought to you by a violent north-wind that blows the dust along.
+	RENT	1	0	{who} is amazed by the poet's liberality in offering hospitality to strangers and offers ${cost} to {owner}!
 	HOUSE	1	1	أبو عبدالله محمد بن عُبادة بن القزّاز من المرية بني تُجيب
 	HOUSE	1	1	Abū ʕabdillāh Muḥammad b. ʕubādah b. al-Qazzāz of Tujībid Almería
 	BUY	1	1	{owner} invites Muḥammad b. ʕubādah b. al-Qazzāz to {prop}!
-	BUY	1	1	Oops! Tribe Tujīb takes over {prop}!
+	BUY	1	1	Oh dear! Tribe Tujīb takes over {prop}!
 	BUY	1	1	إذا سلّوا البواتر في الحَيْن والحتوف
 	BUY	1	1	When cutting swords are drawn * Splitting death and destruction
 	BUY	1	1	والنصر والفتوح وآية تلوح
@@ -589,19 +625,30 @@ PROPERTY	350	DARK_BLUE	House of Words
 	BUY	1	1	How beautiful the armies * When arranged in ranks!
 	BUY	1	1	والأبطال تصيح الواثق يا مليح
 	BUY	1	1	And when the champions declare: Long live al-Wāṯiq, the Handsome!
-	RENT	1	1	{who} pays ${cost} rent to {owner}!
+	RENT	1	1	{who} visits {owner}'s {prop}! Muḥammad b. ʕubādah b. al-Qazzāz says:
+	RENT	1	1	رُحْ للراح وباكر * بالمُعَلم المشوف * غبوقا وصبوح * على الوتَر الفصيح
+	RENT	1	1	Rush to wine and early! * By the marked shining coin
+	RENT	1	1	In the evening, in the morning * Upon eloquent metre!
+	RENT	1	1	{who} is impressed by the poet's originality and eloquence!
+	RENT	1	1	Oops! {who} feels compelled to buy {rand[0]} kg word silk from {owner}!
 	HOUSE	2	1	أبو تمّام حبيب بن أوس الطائي
 	HOUSE	2	1	Abū Tammām Ḥabīb b. Aws aṭ-Ṭā'ī of Abbasid Syria
 	BUY	2	1	{owner} invites Abū Tammām to {prop}!
 	BUY	2	1	السَّيْفُ أَصْدَقُ إِنْبَاءً مِنَ الكُتُبِ * في حدهِ الحدُّ بينَ الجدِّ واللَّعبِ
-	BUY	2	1	The sword is more veracious than the writings of the astrologers * Its cutting edge splits earnestness from sport!
+	BUY	2	1	The sword is more veracious than the writings of the astrologers * its cutting edge splits earnestness from sport!
 	BUY	2	1	بيضُ الصَّفائحِ لاَ سودُ الصَّحائفِ في * مُتُونِهنَّ جلاءُ الشَّك والريَبِ
-	BUY	2	1	The white of the blade, not the black of the page * Its broadsides clarify uncertainty and doubt!
+	BUY	2	1	The white of the blade, not the black of the page * its broadsides clarify uncertainty and doubt!
 	BUY	2	1	والعِلْمُ في شُهُبِ الأَرْمَاحِ لاَمِعَة ً * بَيْنَ الخَمِيسَيْنِ لافي السَّبْعَة ِ الشُّهُبِ
-	BUY	2	1	Knowledge lies in the bright spears gleaming between two armies * Not in the seven gleaming stars!
+	BUY	2	1	Knowledge lies in the bright spears gleaming between two armies * not in the seven gleaming stars!
 	BUY	2	1	أَيْنَ الروايَة ُ بَلْ أَيْنَ النُّجُومُ وَمَا * صَاغُوه مِنْ زُخْرُفٍ فيها ومنْ كَذِبِ
 	BUY	2	1	Where now is their report? Where are the stars? Where the elaborate contrivances they forged?
-	RENT	2	1	{who} pays ${cost} rent to {owner}!
+	RENT	2	1	{who} visits {owner}'s {prop}! Abū Tammām says:
+	RENT	2	1	لو بيَّنت قطّ أمراً قبل موقعه * لم تُخْفِ ماحلَّ بالأوثان والصلُبِ
+	RENT	2	1	If the stars could foretell events before their time, * the fate of idols and crosses would not have been kept hidden
+	RENT	2	1	فَتْحُ الفُتوحِ تَعَالَى أَنْ يُحيطَ بِهِ * نَظْمٌ مِن الشعْرِ أَوْ نَثْرٌ مِنَ الخُطَبِ
+	RENT	2	1	Conquest of conquests that is beyond what poets' measured verse * could ever encompass or orators' unbound prose!
+	RENT	2	1	Oh my! {who} fires their astrologer and smashes the Araboly dice!
+	RENT	2	1	Oops! {who} pays ${cost} to {owner} for behaving impulsively and smashing the Araboly dice!
 	HOUSE	3	1	أبو الطيب أحمد بن الحسين المتنبي الكندي
 	HOUSE	3	1	Abū ṭ-Ṭayyib Aḥmad b. al-Ḥusayn al-Mutanabbī al-Kindī of Ḥamdanid Syria
 	BUY	3	1	{owner} invites al-Mutanabbī to {prop}!
@@ -611,12 +658,13 @@ PROPERTY	350	DARK_BLUE	House of Words
 	BUY	3	1	For all that which God has created * and that which he has not:
 	BUY	3	1	مُحْتَقَرٌ في هِمّتي * كَشَعْرَةٍ في مَفْرِقي
 	BUY	3	1	Is mean compared to my will * like a hair on my forehead!
+	RENT	3	1	{who} visits {owner}'s {prop}! al-Mutanabbī says:
 	RENT	3	1	وَجاهِلٍ مَدّهُ في جَهْلِهِ ضَحِكي * حَتى أتَتْه يَدٌ فَرّاسَةٌ وَفَمُ
 	RENT	3	1	I laughed at the frauds and their ignorance * until with discerning hand and mouth, I destroy them!
 	RENT	3	1	إذا رَأيْتَ نُيُوبَ اللّيْثِ بارِزَةً * فَلا تَظُنّنّ أنّ اللّيْثَ يَبْتَسِمُ
 	RENT	3	1	If you see the lion baring his teeth * then do not think that he is smiling!
-	BUY	3	1	{owner} buys another house on {prop}!
-	RENT	3	1	{who} pays ${cost} rent to {owner}!
+	RENT	3	1	{who} is stunned by the poet's Ḥilm and feeds the lion ${cost}!
+	RENT	3	1	Oops! The lion works for {owner}!
 TAX		100	None		The Gov't Hates You (pay $100)
 PROPERTY	400	DARK_BLUE	Kween's Magic Shoppe
 	HOUSE	1	0	beginners spellbook
