@@ -667,24 +667,25 @@ PROPERTY	350	DARK_BLUE	House of Words
 	RENT	1	0	يَدٌ مِن بَعيدٍ أَو قَريبٍ أَتَت بِهِ * شَآمِيَّةٌ غَبَراءُ ذاتُ قَتامِ
 	RENT	1	0	whether the hand of a stranger or one of near kin * brought to you by a violent north-wind that blows the dust along.
 	RENT	1	0	{who} is amazed by the poet's liberality in offering hospitality to strangers and offers ${cost} to {owner}!
-	HOUSE	1	1	أبو تمّام حبيب بن أوس الطائي
-	HOUSE	1	1	Abū Tammām Ḥabīb b. Aws aṭ-Ṭā'ī of Abbasid Syria
-	BUY	1	1	{owner} invites Abū Tammām to {prop}!
-	BUY	1	1	السَّيْفُ أَصْدَقُ إِنْبَاءً مِنَ الكُتُبِ * في حدهِ الحدُّ بينَ الجدِّ واللَّعبِ
-	BUY	1	1	The sword is more veracious than the writings of the astrologers * its cutting edge splits earnestness from sport!
-	BUY	1	1	بيضُ الصَّفائحِ لاَ سودُ الصَّحائفِ في * مُتُونِهنَّ جلاءُ الشَّك والريَبِ
-	BUY	1	1	The white of the blade, not the black of the page * its broadsides clarify uncertainty and doubt!
-	BUY	1	1	والعِلْمُ في شُهُبِ الأَرْمَاحِ لاَمِعَة ً * بَيْنَ الخَمِيسَيْنِ لافي السَّبْعَة ِ الشُّهُبِ
-	BUY	1	1	Knowledge lies in the bright spears gleaming between two armies * not in the seven gleaming stars!
-	BUY	1	1	أَيْنَ الروايَة ُ بَلْ أَيْنَ النُّجُومُ وَمَا * صَاغُوه مِنْ زُخْرُفٍ فيها ومنْ كَذِبِ
-	BUY	1	1	Where now is their report? Where are the stars? Where the elaborate contrivances they forged?
-	RENT	1	1	{who} visits {owner}'s {prop}! Abū Tammām says:
-	RENT	1	1	لو بيَّنت قطّ أمراً قبل موقعه * لم تُخْفِ ماحلَّ بالأوثان والصلُبِ
-	RENT	1	1	If the stars could foretell events before their time, * the fate of idols and crosses would not have been kept hidden
-	RENT	1	1	فَتْحُ الفُتوحِ تَعَالَى أَنْ يُحيطَ بِهِ * نَظْمٌ مِن الشعْرِ أَوْ نَثْرٌ مِنَ الخُطَبِ
-	RENT	1	1	Conquest of conquests that is beyond what poets' measured verse * could ever encompass or orators' unbound prose!
-	RENT	1	1	Oh my! {who} fires their astrologer and smashes the Araboly dice!
-	RENT	1	1	Oops! {who} pays ${cost} to {owner} for behaving impulsively and smashing the Araboly dice!
+	HOUSE	1	1	مجمود درويش
+	HOUSE	1	1	Mahmūd Darwīsh of Occupied Palestine
+	BUY	1	1	{owner} invites Mahmūd Darwīsh to {prop}!
+	BUY	1	1	أَيُّها الواقفون على العَتَبات ادخُلُوا,
+	BUY	1	1	You who stand in the doorway, come in
+	BUY	1	1	واشربوا معنا القهوةَ العربيَّةَ
+	BUY	1	1	and drink with us / Arabic coffee,
+	BUY	1	1	فقد تشعرون بأنكمُ بَشَرٌ مثلنا.
+	BUY	1	1	so that perhaps you may sense:
+	BUY	1	1	You are a human being like us.
+	RENT	1	1	{who} visits {owner}'s {prop}! Mahmūd Darwīsh says:
+	RENT	1	1	أَيها الواقفون على عتبات البيوت!
+	RENT	1	1	You who stand in the doorways of the houses!
+	RENT	1	1	اُخرجوا من صباحاتنا,
+	RENT	1	1	Depart from the calamities of our mornings,
+	RENT	1	1	!نطمئنَّ إلى أَننا * بَشَرٌ مثلكُمْ
+	RENT	1	1	so that now we shall feel reassured to be: Human beings like you!
+	RENT	1	1	Oh no! {who} is stopped at an IDF Checkpoint on account of suspicion of Being Suspicious, Breathing Too Much Air, and Resisting Occupation!
+	RENT	1	1	Awfom! {owner} calls in a Targeted Prevention Missile Strike for {who} at only ${cost} and prevents the IDF from existing any further!
 	HOUSE	2	1	أبو عبدالله محمد بن عُبادة بن القزّاز من المرية بني تُجيب
 	HOUSE	2	1	Abū ʕabdillāh Muḥammad b. ʕubādah b. al-Qazzāz of Tujībid Almería
 	BUY	2	1	{owner} invites Muḥammad b. ʕubādah b. al-Qazzāz to {prop}!
