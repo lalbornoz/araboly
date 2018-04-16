@@ -27,8 +27,8 @@ class ArabolyRules(ArabolyTypeClass):
         params["newState"] = context.state
         if "newPlayerBankrupt" in params:
             params["newState"] = ArabolyGameState.ATTRACT
-        elif context.board[newField][0] == ArabolyGameField.PROPERTY  \
-        or context.board[newField][0] == ArabolyGameField.UTILITY:
+        elif context.board[newField]["type"] == ArabolyGameField.PROPERTY   \
+        or context.board[newField]["type"] == ArabolyGameField.UTILITY:
             if not newFieldOwned:
                 if not newFieldBuyable:
                     params["newState"] = ArabolyGameState.AUCTION

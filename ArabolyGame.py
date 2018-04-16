@@ -46,7 +46,7 @@ class ArabolyGame(object):
     #
     # __init__(self, **kwargs): initialisation method
     def __init__(self, **kwargs):
-        self.auctionProperty = []; self.auctionBidders = -1; self.auctionBids = {};
+        self.auctionProperty = {}; self.auctionBidders = -1; self.auctionBids = {};
         self.clientParams = {}; self.clientUaf = [];
         self.playerCur = -1; self.players = []; self.playersMax = -1;
         self.board = []; self.boardStrings = nested_dict(); self.boardTmp = [];
@@ -67,9 +67,8 @@ class ArabolyGame(object):
                         self.boardStrings[propIdx][propSubType][levelNum][houseNum] = []
                     self.boardStrings[propIdx][propSubType][levelNum][houseNum] += [msg]
                 else:
-                    lineType, linePrice, lineColour, lineTitle = fileFields[0], int(fileFields[1]), fileFields[2], *fileFields[3:]
-                    lineType = getattr(ArabolyGameField, lineType)
-                    self.board += [[lineType, linePrice, lineColour, lineTitle, 1, [-1, 0, 0, 0]]]
+                    lineType = getattr(ArabolyGameField, fileFields[0])
+                    self.board += [{"type":lineType, "price":int(fileFields[1]), "colour":fileFields[2], "title":fileFields[3], "level":1, "houses":[-1, 0, 0, 0]}]
         with open("assets/ArabolyBoard.irc", "r") as fileObject:
             self.boardTmp = fileObject.readlines()
         with open("assets/ArabolyAttract.irc", "r") as fileObject:
