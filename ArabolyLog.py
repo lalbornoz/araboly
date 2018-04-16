@@ -42,6 +42,8 @@ class ArabolyLog(ArabolyTypeClass):
     # }}}
     # {{{ _log(self, level=ArabolyLogLevel.LOG_INFO, isOutput=True, **kwargs): XXX
     def _log(self, level=ArabolyLogLevel.LOG_INFO, isOutput=True, **kwargs):
+        if kwargs["type"] == "timer":
+            return
         if "logLevel" in kwargs:
             level = kwargs["logLevel"]
         if level == ArabolyLogLevel.LOG_DEBUG:

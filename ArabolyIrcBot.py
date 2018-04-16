@@ -84,6 +84,8 @@ class ArabolyIrcBot(object):
                             else:
                                 delay = 0.100 if eventOut["delay"] == -1 else eventOut["delay"]
                                 events.concatTimers(expire=delay, unqueue=[msg])
+                        elif eventOut["type"] == "timer":
+                            events.concatTimers(**eventOut)
                     if unqueueFlag:
                         if not ircClient.unqueue():
                             events.concatSelect(wlist=[ircClient.clientSocket.fileno()])
