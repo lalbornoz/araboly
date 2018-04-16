@@ -31,20 +31,20 @@ class ArabolyLogic(ArabolyTypeClass):
         if status:
             status = False
             for playerProp in context.properties[src]:
-                if playerProp[-1] == field:
-                    if playerProp[4] == level:
-                        if context.wallets[src] >= playerProp[1]:
+                if playerProp["field"] == field:
+                    if playerProp["level"] == level:
+                        if context.wallets[src] >= playerProp["price"]:
                             status = True; targetField = playerProp; break;
             if status:
-                if targetField[0] != ArabolyGameField.PROPERTY:
+                if targetField["type"] != ArabolyGameField.PROPERTY:
                     status = False
         if status:
             newDevelopedProperties = []
             for boardPropNum in range(len(context.board)):
-                if context.board[boardPropNum][2] == playerProp[2]:
+                if context.board[boardPropNum]["colour"] == playerProp["colour"]:
                     found = False
                     for playerProp in context.properties[src]:
-                        if playerProp[-1] == boardPropNum:
+                        if playerProp["field"] == boardPropNum:
                             found = True; break;
                     if not found:
                         status = False; break;
@@ -54,9 +54,9 @@ class ArabolyLogic(ArabolyTypeClass):
             incrLevel = True
             for otherProp in newDevelopedProperties:
                 if otherProp != targetField:
-                    if otherProp[5][targetField[4]] != 1:
+                    if otherProp["houses"][targetField["level"]] != 1:
                         incrLevel = False; break;
-            if targetField[4] == 3:
+            if targetField["level"] == 3:
                 incrLevel = False
             if not incrLevel:
                 newDevelopedProperties = [targetField]
@@ -68,31 +68,31 @@ class ArabolyLogic(ArabolyTypeClass):
         newField = (context.fields[src] + dice[0] + dice[1]) % len(context.board)
         params["newFieldBuyable"] = False
         params["newFieldOwned"] = False; params["newFieldOwnedSelf"] = False;
-        if context.board[newField][0] == ArabolyGameField.PROPERTY  \
-        or context.board[newField][0] == ArabolyGameField.UTILITY:
+        if context.board[newField]["type"] == ArabolyGameField.PROPERTY \
+        or context.board[newField]["type"] == ArabolyGameField.UTILITY:
             for player in context.properties:
                 for playerProp in context.properties[player]:
-                    if playerProp[-1] == newField:
+                    if playerProp["field"] == newField:
                         if player == src:
                             params["newFieldOwned"] = True; params["newFieldOwnedSelf"] = True;
                         else:
-                            params["newFieldOwned"] = True; params["newPropRent"] = playerProp[1];
+                            params["newFieldOwned"] = True; params["newPropRent"] = playerProp["price"];
                             fullGroup = True
                             for boardPropNum in range(len(context.board)):
-                                if context.board[boardPropNum][2] == playerProp[2]:
+                                if context.board[boardPropNum]["colour"] == playerProp["colour"]:
                                     found = False
                                     for playerProp_ in context.properties[src]:
-                                        if playerProp_[-1] == boardPropNum:
+                                        if playerProp_["field"] == boardPropNum:
                                             found = True; break;
                                     if not found:
                                         fullGroup = False; break;
                             if fullGroup:
-                                if playerProp[5][playerProp[4]] > 0:
-                                    params["newPropRent"] *= 2 * playerProp[5][playerProp[4]]
+                                if playerProp["houses"][playerProp["level"]] > 0:
+                                    params["newPropRent"] *= 2 * playerProp["houses"][playerProp["level"]]
                                 else:
                                     params["newPropRent"] *= 2
             if  not params["newFieldOwned"]                         \
-            and context.wallets[src] > context.board[newField][1]:
+            and context.wallets[src] > context.board[newField]["price"]:
                 params["newFieldBuyable"] = True
         params["newFieldPastGo"] = True if newField < context.fields[src] else False
         params["newField"] = newField

@@ -28,18 +28,18 @@ class ArabolyState(ArabolyTypeClass):
     # {{{ dispatch_buy(self, context, src, **params): XXX
     def dispatch_buy(self, context, src, **params):
         params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
-        params["newProperties"] = {src:[*context.properties[src], [*context.board[context.fields[src]], context.fields[src]]]}
-        params["newWallets"] = {src:context.wallets[src] - context.board[context.fields[src]][1]}
+        params["newProperties"] = {src:[*context.properties[src], {"field":context.fields[src], **context.board[context.fields[src]]}]}
+        params["newWallets"] = {src:context.wallets[src] - context.board[context.fields[src]]["price"]}
         return {"context":context, "src":src, **params}
     # }}}
     # {{{ dispatch_develop(self, context, newDevelopedProperties, src, **params): XXX
     def dispatch_develop(self, context, newDevelopedProperties, src, **params):
         for newDevProp in newDevelopedProperties:
             if len(newDevelopedProperties) > 1:
-                newDevProp[5][newDevProp[4]] = 3
-                newDevProp[4] += 1
+                newDevProp["houses"][newDevProp["level"]] = 3
+                newDevProp["level"] += 1
             else:
-                newDevProp[5][newDevProp[4]] += 1
+                newDevProp["houses"][newDevProp["level"]] += 1
         return {"context":context, "newDevelopedProperties":newDevelopedProperties, "src":src, **params}
     # }}}
     # {{{ dispatch_dice(self, context, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, src, **params): XXX
@@ -48,26 +48,26 @@ class ArabolyState(ArabolyTypeClass):
         if newFieldPastGo:
             params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
             params["newWallets"] = {src:context.wallets[src] + 200}
-        if context.board[newField][0] == ArabolyGameField.PROPERTY  \
-        or context.board[newField][0] == ArabolyGameField.UTILITY:
+        if context.board[newField]["type"] == ArabolyGameField.PROPERTY \
+        or context.board[newField]["type"] == ArabolyGameField.UTILITY:
             if not newFieldOwned:
                 if not newFieldBuyable:
                     params["newAuctionBidders"] = 0
-                    params["newAuctionProperty"] = [*context.board[newField], newField]
+                    params["newAuctionProperty"] = {"field":newField, **context.board[newField]}
             else:
                 params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
                 if not params["newFieldOwnedSelf"]:
                     for player in context.properties:
                         for playerProp in context.properties[player]:
-                            if playerProp[-1] == newField:
+                            if playerProp["field"] == newField:
                                 propOwner = player
                     params["newWallets"] = {src:context.wallets[src] - params["newPropRent"], propOwner:context.wallets[propOwner] + params["newPropRent"]}
                     if params["newWallets"][src] <= 0:
                         params["newPlayerBankrupt"] = True
                         return self._dispatch_remove(**{"context":context, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "src":src, **params})
-        elif context.board[newField][0] == ArabolyGameField.TAX:
+        elif context.board[newField]["type"] == ArabolyGameField.TAX:
             params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
-            params["newWallets"] = {src:context.wallets[src] - context.board[newField][1]}
+            params["newWallets"] = {src:context.wallets[src] - context.board[newField]["price"]}
             if params["newWallets"][src] <= 0:
                 params["newPlayerBankrupt"] = True
                 return self._dispatch_remove(**{"context":context, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "src":src, **params})
@@ -95,7 +95,7 @@ class ArabolyState(ArabolyTypeClass):
     def dispatch_pass(self, context, src, **params):
         if context.state == ArabolyGameState.PROPERTY:
             params["newAuctionBidders"] = 0
-            params["newAuctionProperty"] = [*context.board[context.fields[src]], context.fields[src]]
+            params["newAuctionProperty"] = {"field":context.fields[src], **context.board[context.fields[src]]}
         elif context.state == ArabolyGameState.AUCTION:
             params["newAuctionBidders"] = context.auctionBidders + 1
             params["newAuctionBids"] = {src:0}
