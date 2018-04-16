@@ -9,11 +9,6 @@ import select, socket, ssl
 
 class ArabolyIrcClient(object):
     """Non-blocking abstraction over the IRC protocol"""
-    serverHname = serverPort = None;
-    clientNick = clientIdent = clientGecos = None;
-    clientSocket = clientQueue = None;
-    partialLine = ""
-    sslFlag = False
 
     # {{{ close(self): Close connection to server
     def close(self):
@@ -114,7 +109,8 @@ class ArabolyIrcClient(object):
     def __init__(self, hostname, nick, port, realname, user, ssl=False, **kwargs):
         self.serverHname = hostname; self.serverPort = port;
         self.clientNick = nick; self.clientIdent = user; self.clientGecos = realname;
-        self.sslFlag = ssl
+        self.clientSocket = self.clientQueue = None;
+        self.partialLine = ""; self.sslFlag = ssl;
     # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120

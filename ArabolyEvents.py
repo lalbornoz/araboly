@@ -10,8 +10,6 @@ from time import time
 
 class ArabolyEvents(object):
     """XXX"""
-    nextTimeout = None; timerList = [];
-    rlist = []; wlist = []; xlist = [];
 
     # {{{ concatSelect(self, rlist=[], wlist=[], xlist=[]): XXX
     def concatSelect(self, rlist=[], wlist=[], xlist=[]):
@@ -71,7 +69,8 @@ class ArabolyEvents(object):
     # }}}
     # {{{ __init__(self, **kwargs): initialisation method
     def __init__(self, **kwargs):
-        pass
+        self.nextTimeout = None; self.timerList = [];
+        self.rlist = []; self.wlist = []; self.xlist = [];
     # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120

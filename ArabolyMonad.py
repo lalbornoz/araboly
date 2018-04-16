@@ -10,7 +10,6 @@ import os, sys, traceback
 
 class ArabolyMonad(object):
     """ما أملح العساكر * وترتيب الصفوف"""
-    params = None
 
     # {{{ bind(self, other): XXX
     def bind(self, other):

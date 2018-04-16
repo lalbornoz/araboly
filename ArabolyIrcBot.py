@@ -28,7 +28,6 @@ class ArabolyIrcBot(object):
     optsDefault = {"channel":"#ARABOLY", "debug":False, "hostname":None, "nick":"ARABOLY", "port":"6667", "realname":"Araboly NT 3.1 Advanced Server", "ssl":False, "user":"ARABOLY"}
     optsMap = {"c":"channel", "d":"debug", "h":"help", "H":"hostname", "n":"nick", "p":"port", "r":"realname", "S":"ssl", "u":"user"}
     optsString = "c:dhH:n:p:r:Su:"
-    options = {}; typeDict = {};
     typeObjects = [ArabolyCommit, ArabolyDaʕat, ArabolyErrors, ArabolyEvents, ArabolyGame, ArabolyIrcClient, ArabolyIrcToCommandMap, ArabolyLog, ArabolyLogic, ArabolyOutput, ArabolyRules, ArabolyState, ArabolyValidate]
 
     #
@@ -121,7 +120,7 @@ class ArabolyIrcBot(object):
                 [print(line.rstrip("\n")) for line in fileObject.readlines()]
                 return None
         else:
-            self.options = opts
+            self.options = opts; self.typeDict = {};
             for typeObject in self.typeObjects:
                 self.typeDict[typeObject] = typeObject(**self.options)
             return self
