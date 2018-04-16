@@ -38,6 +38,12 @@ usage: ./ArabolyIrcBot.py [-c <channel name>] [-d] [-h] [-n <nick name>] [-p <po
          -r <IRC real name>:  defaults to `Araboly NT 3.1 Advanced Server'.
          -S ...............:  use SSL; disabled by default.
          -u <user name>....:  defaults to ARABOLY.
+
+WARNING: Do _not_ under any circumstances share, send, receive, download, etc. pp. the
+snapshot file created whenever an exception is raised during debugging (-d) mode, as the
+object {,de}serialisation Python module employed is `not intended to be secure against
+erroneous or maliciously constructed data. Never unpickle data received from an untrusted
+or unauthenticated source.' (The Python Standard Library » 11.1. pickle — Python object serialization)
 ```
 Requires Python >= v3.5.
 
