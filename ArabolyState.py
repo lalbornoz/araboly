@@ -19,6 +19,7 @@ class ArabolyState(ArabolyTypeClass):
         params["newHighestBid"] = highestBid; params["newHighestBidder"] = highestBidder;
         if newAuctionEnd:
             params["delAuctionBids"] = {**context.auctionBids, **params["newAuctionBids"]}.keys()
+            params["delAuctionProperty"] = context.auctionProperty.keys()
             params["newAuctionBidders"] = -1
             params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
             params["newProperties"] = {highestBidder:[*context.properties[highestBidder], context.auctionProperty]}
@@ -103,6 +104,7 @@ class ArabolyState(ArabolyTypeClass):
             params["newHighestBid"] = highestBid; params["newHighestBidder"] = highestBidder;
             if params["newAuctionEnd"]:
                 params["delAuctionBids"] = {**context.auctionBids, **params["newAuctionBids"]}.keys()
+                params["delAuctionProperty"] = context.auctionProperty.keys()
                 params["newAuctionBidders"] = -1
                 params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
                 if highestBid != 0:
