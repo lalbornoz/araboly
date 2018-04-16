@@ -7,6 +7,7 @@
 
 from ArabolyCommit import ArabolyCommit
 from ArabolyDaʕat import ArabolyDaʕat
+from ArabolyErrors import ArabolyErrors
 from ArabolyEvents import ArabolyEvents
 from ArabolyGame import ArabolyGame
 from ArabolyIrcClient import ArabolyIrcClient
@@ -28,7 +29,7 @@ class ArabolyIrcBot(object):
     optsMap = {"c":"channel", "d":"debug", "h":"help", "H":"hostname", "n":"nick", "p":"port", "r":"realname", "S":"ssl", "u":"user"}
     optsString = "c:dhH:n:p:r:Su:"
     options = {}; typeDict = {};
-    typeObjects = [ArabolyCommit, ArabolyDaʕat, ArabolyEvents, ArabolyGame, ArabolyIrcClient, ArabolyIrcToCommandMap, ArabolyLog, ArabolyLogic, ArabolyOutput, ArabolyRules, ArabolyState, ArabolyValidate]
+    typeObjects = [ArabolyCommit, ArabolyDaʕat, ArabolyErrors, ArabolyEvents, ArabolyGame, ArabolyIrcClient, ArabolyIrcToCommandMap, ArabolyLog, ArabolyLogic, ArabolyOutput, ArabolyRules, ArabolyState, ArabolyValidate]
 
     #
     # main(argv): XXX
@@ -74,7 +75,8 @@ class ArabolyIrcBot(object):
                                 >> ArabolyIrcBot.typeDict[ArabolyRules]             \
                                 >> ArabolyIrcBot.typeDict[ArabolyOutput]            \
                                 >> ArabolyIrcBot.typeDict[ArabolyLog]               \
-                                >> ArabolyIrcBot.typeDict[ArabolyCommit]
+                                >> ArabolyIrcBot.typeDict[ArabolyCommit]            \
+                                >> ArabolyIrcBot.typeDict[ArabolyErrors]
                         eventsOut += unit.params["output"]
                     for eventOut in eventsOut:
                         if eventOut["type"] == "message":
@@ -91,11 +93,11 @@ class ArabolyIrcBot(object):
                             events.concatSelect(wlist=[ircClient.clientSocket.fileno()])
                         else:
                             events.filterSelect(wlist=[ircClient.clientSocket.fileno()])
-                    if  arabolyIrcBot.options["debug"]                          \
-                    and "exc_obj" in unit.params:
-                        with open("./ArabolyIrcBot.snapshot", "wb+") as fileObject:
-                            print("Saving pre-exception game snapshot to ./ArabolyIrcBot.snapshot")
-                            pickle.dump(gameSnapshot, fileObject)
+                    if "exc_obj" in unit.params:
+                        if arabolyIrcBot.options["debug"]:
+                            with open("./ArabolyIrcBot.snapshot", "wb+") as fileObject:
+                                print("Saving pre-exception game snapshot to ./ArabolyIrcBot.snapshot")
+                                pickle.dump(gameSnapshot, fileObject)
                         return False
                 ircClient.close()
             else:

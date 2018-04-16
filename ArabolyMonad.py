@@ -19,7 +19,7 @@ class ArabolyMonad(object):
         elif isinstance(other, ArabolyTypeClass):
             select = ""
             if not self.params["status"]:
-                if "e" in self.params:
+                if "exc_obj" in self.params:
                     select = "dispatchException"
                 else:
                     select = "dispatchError"
@@ -41,15 +41,17 @@ class ArabolyMonad(object):
                     else:
                         self.params["failClass"] = str(other.__class__)
                         self.params["exc_obj"] = exc_obj; self.params["exc_type"] = exc_type;
-                        self.params["exc_fname"] = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-                        self.params["exc_lineno"] = exc_tb.tb_lineno
-                        self.params["exc_stack"] = "\n".join(traceback.format_stack()).split("\n")
+                        self.params["exc_fname"] = os.path.split(exc_tb.tb_next.tb_frame.f_code.co_filename)[1]
+                        self.params["exc_lineno"] = exc_tb.tb_next.tb_lineno
+                        self.params["exc_stack"] = "\n".join(traceback.format_tb(exc_tb)).split("\n")
+                        del exc_tb
                         self.params["status"] = False
                         if hasattr(other, "dispatchException"):
                             params = getattr(other, "dispatchException")(**self.params)
                         else:
                             params = self.params
-                if not params["status"]:
+                if  not params["status"]    \
+                and "failClass" not in params:
                     params["failClass"] = str(other.__class__)
             else:
                 params = self.params

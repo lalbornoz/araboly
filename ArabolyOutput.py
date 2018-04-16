@@ -225,26 +225,6 @@ class ArabolyOutput(ArabolyTypeClass):
         output += [{"type":"message", "delay":0.750, "cmd":"PRIVMSG", "args":[channel, "Stopping current Araboly game!"]}]
         return {"channel":channel, "output":output, **params}
     # }}}
-    # {{{ dispatchError(self, output, **params): XXX
-    def dispatchError(self, output, **params):
-        if params["type"] == "command":
-            if "channel" in params:
-                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "Oh no! arab can't be bothered to write error messages!"]}]
-                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "Monadic value: {}".format(str(params))]}]
-                return {"output":output, **params}
-        return {"output":output, **params}
-    # }}}
-    # {{{ dispatchException(self, exc_fname, exc_lineno, exc_obj, exc_type, exc_stack, output, **params): XXX
-    def dispatchException(self, exc_fname, exc_lineno, exc_obj, exc_type, exc_stack, output, **params):
-        if params["type"] == "command":
-            if "channel" in params:
-                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "Traceback (most recent call last):"]}]
-                for stackLine in exc_stack:
-                    output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], stackLine]}]
-                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "{} exception in {}:{}: {}".format(str(exc_type), exc_fname, exc_lineno, str(exc_obj))]}]
-                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[params["channel"], "Monadic value: {}".format(str(params))]}]
-        return {"exc_fname":exc_fname, "exc_lineno":exc_lineno, "exc_obj":exc_obj, "exc_type":exc_type, "exc_stack":exc_stack, "output":output, **params}
-    # }}}
     # {{{ __init__(self, **kwargs): initialisation method
     def __init__(self, **kwargs):
         with open("assets/ArabolyIrcBot.hlp", "r") as fileObject:
