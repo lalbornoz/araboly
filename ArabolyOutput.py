@@ -12,7 +12,6 @@ import random, time
 
 class ArabolyOutput(ArabolyTypeClass):
     """XXX"""
-    helpLines = []
 
     # {{{ dispatch_bid(self, channel, context, newAuctionBids, newHighestBid, newHighestBidder, output, price, src, **params): XXX
     def dispatch_bid(self, channel, context, newAuctionBids, newHighestBid, newHighestBidder, output, price, src, **params):

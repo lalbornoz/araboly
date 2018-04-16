@@ -12,7 +12,6 @@ import time
 
 class ArabolyIrcToCommandMap(ArabolyTypeClass):
     """XXX"""
-    clientChannel = None; clientChannelRejoin = False; clientNick = ""; nickMap = {};
 
     # {{{ dispatch001(self, output, **params): Dispatch single 001 (RPL_WELCOME)
     def dispatch001(self, output, **params):
@@ -94,7 +93,8 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
     # }}}
     # {{{ __init__(self, channel, nick, **kwargs): initialisation method
     def __init__(self, channel, nick, **kwargs):
-        self.clientChannel = channel; self.clientNick = nick;
+        self.clientChannel = channel; self.clientChannelRejoin = False;
+        self.clientNick = nick; self.nickMap = {};
     # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120
