@@ -33,7 +33,7 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
     def dispatch433(self, args, output, **params):
         self.clientNick += "_"
         output += [{"type":"message", "delay":0, "cmd":"NICK", "args":[self.clientNick]}]
-        return {"args":args, "src":src, **params}
+        return {"args":args, "output":output, **params}
     # }}}
     # {{{ dispatchJOIN(self, args, context, output, src, **params): Dispatch single JOIN message from server
     def dispatchJOIN(self, args, context, output, src, **params):
