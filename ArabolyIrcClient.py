@@ -39,8 +39,8 @@ class ArabolyIrcClient(object):
                 except ssl.SSLWantReadError:
                     readySet = select.select([], [self.clientSocket.fileno()], [], timeout)
         self.clientQueue = []
-        self.queue("NICK", self.clientNick)
-        self.queue("USER", self.clientIdent, "0", "0", self.clientGecos)
+        self.queue("NICK", [self.clientNick])
+        self.queue("USER", [self.clientIdent, "0", "0", self.clientGecos])
         return True
     # }}}
     # {{{ readlines(self): Read and parse lines from server into list of canonicalised lists
@@ -78,20 +78,34 @@ class ArabolyIrcClient(object):
                         msg = msg[0].split(" ")
                     elif len(msg) == 2:
                         msg = msg[0].split(" ") + [msg[1]]
+                    newLine = {"idFull":[self.clientNick, self.clientIdent, self.clientHost], "type":"message"}
                     if msg[0][0] == ':':
-                        lines += [{"type":"message", "src":msg[0][1:], "cmd":msg[1], "args":[*msg[2:]]}]
+                        newLine.update({"args":[*msg[2:]], "cmd":msg[1], "src":msg[0][1:]})
                     else:
-                        lines += [{"type":"message", "cmd":msg[0], "args":[*msg[1:]]}]
+                        newLine.update({"args":[*msg[1:]], "cmd":msg[0]})
+                    if self._clientHostHook(newLine):
+                        lines += [newLine]
         return lines
     # }}}
-    # {{{ queue(self, *args): Parse and queue single line to server from list
-    def queue(self, *args):
-        msg = ""; argNumMax = len(args);
-        for argNum in range(argNumMax):
-            if argNum == (argNumMax - 1):
-                msg += ":" + args[argNum]
+    # {{{ queue(self,cmd, args): Parse and queue single line to server from list
+    def queue(self, cmd, args):
+        msg = cmd; msg += " " + " ".join(args[:-1]) if len(args) > 1 else "";
+        if len(args):
+            if " " in args[-1]:
+                if cmd.upper() == "NOTICE" or cmd.upper() == "PRIVMSG":
+                    msgPfx = ":{}!{}@{} {} :".format(self.clientNick, self.clientIdent, self.clientHost, msg)
+                    msgPfxLen = len(msgPfx.encode())
+                    msgLen = msgPfxLen + len(args[-1].encode())
+                    if msgLen > 512:
+                        lastArgs = args[-1].encode()
+                        splitLen = 512 - len("\r\n") - msgPfxLen
+                        for idx in range(0, len(lastArgs), splitLen):
+                            lastArg = lastArgs[idx:idx+splitLen]
+                            self.queue(cmd, [*args[:-1], lastArg.decode()])
+                        return
+                msg += " :" + args[-1]
             else:
-                msg += args[argNum] + " "
+                msg += " " + args[-1]
         self.clientQueue.append((msg + "\r\n").encode())
     # }}}
     # {{{ unqueue(self): Send all queued lines to server and return interrupt bit
@@ -105,10 +119,29 @@ class ArabolyIrcClient(object):
                 del self.clientQueue[0]
         return True
     # }}}
+    # {{{ _clientHostHook(self, msg): XXX
+    def _clientHostHook(self, msg):
+        if   msg["cmd"] == "001":
+            self.queue("PRIVMSG", [self.clientNick, "\x01CLIENTHOSTHOOK\x01"])
+        elif msg["cmd"].upper() == "NICK":
+            prefix = "{}!{}@{}".format(self.clientNick, self.clientIdent, self.clientHost)
+            if msg["src"].lower() == prefix.lower():
+                self.clientNick = msg["args"][0].split("!")[0]
+        elif msg["cmd"].upper() == "PRIVMSG"                    \
+        and  msg["args"][0].lower() == self.clientNick.lower()  \
+        and  msg["args"][1] == "\x01CLIENTHOSTHOOK\x01":
+            self.clientNick = msg["src"]
+            if "!" in self.clientNick:
+                self.clientNick, self.clientIdent = self.clientNick.split("!")
+                if "@" in self.clientIdent:
+                    self.clientIdent, self.clientHost = self.clientIdent.split("@")
+            return False
+        return True
+    # }}}
     # {{{ __init__(self, hostname, nick, port, realname, user, ssl=False, **kwargs): initialisation method
     def __init__(self, hostname, nick, port, realname, user, ssl=False, **kwargs):
         self.serverHname = hostname; self.serverPort = port;
-        self.clientNick = nick; self.clientIdent = user; self.clientGecos = realname;
+        self.clientNick = nick; self.clientIdent = user; self.clientGecos = realname; self.clientHost = "";
         self.clientSocket = self.clientQueue = None;
         self.partialLine = ""; self.sslFlag = ssl;
     # }}}

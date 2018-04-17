@@ -18,50 +18,50 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
         output += [{"type":"message", "delay":0, "cmd":"JOIN", "args":[self.clientChannel]}]
         return {"output":output, **params}
     # }}}
-    # {{{ dispatch353(self, args, src, **params): Dispatch single 353 message from server
-    def dispatch353(self, args, src, **params):
+    # {{{ dispatch353(self, args, idFull, src, **params): Dispatch single 353 message from server
+    def dispatch353(self, args, idFull, src, **params):
         if  args[1] == "="  \
         and args[2].lower() == self.clientChannel.lower():
             for nickSpec in args[3].split(" "):
                 if nickSpec[0].lower() not in ascii_lowercase:
                     nickSpec = nickSpec[1:]
-                if nickSpec.lower() != self.clientNick.lower():
+                if nickSpec.lower() != idFull[0].lower():
                     self.nickMap[nickSpec] = nickSpec
-        return {"args":args, "src":src, **params}
+        return {"args":args, "idFull":idFull, "src":src, **params}
     # }}}
     # {{{ dispatch433(self, args, output, **params): Dispatch single 353 message from server
     def dispatch433(self, args, output, **params):
-        self.clientNick += "_"
-        output += [{"type":"message", "delay":0, "cmd":"NICK", "args":[self.clientNick]}]
+        output += [{"type":"message", "delay":0, "cmd":"NICK", "args":[args[1] + "_"]}]
         return {"args":args, "output":output, **params}
     # }}}
-    # {{{ dispatchJOIN(self, args, context, output, src, **params): Dispatch single JOIN message from server
-    def dispatchJOIN(self, args, context, output, src, **params):
+    # {{{ dispatchJOIN(self, args, context, idFull, output, src, **params): Dispatch single JOIN message from server
+    def dispatchJOIN(self, args, context, idFull, output, src, **params):
         if args[0].lower() == self.clientChannel.lower():
             nick = src.split("!")[0].lower()
-            if nick == self.clientNick.lower():
+            if nick == idFull[0].lower():
                 for logoLine in context.logoLines:
                     output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[args[0], logoLine.rstrip("\n")]}]
                 output += [{"type":"timer", "channel":args[0], "expire":60, "nextExpire":60, "subtype":"attract"}]
                 self.clientChannelRejoin = False
             elif nick not in self.nickMap:
                 self.nickMap[nick] = nick
-        return {"args":args, "context":context, "output":output, "src":src, **params}
+        return {"args":args, "context":context, "idFull":idFull, "output":output, "src":src, **params}
     # }}}
-    # {{{ dispatchKICK(self, args, output, **params): Dispatch single KICK message from server
-    def dispatchKICK(self, args, output, **params):
+    # {{{ dispatchKICK(self, args, idFull, output, **params): Dispatch single KICK message from server
+    def dispatchKICK(self, args, idFull, output, **params):
         if  args[0].lower() == self.clientChannel.lower() \
-        and args[1].lower() == self.clientNick.lower():
+        and args[1].lower() == idFull[0].lower():
             self.clientChannelRejoin = True
             output += [{"type":"message", "delay":time.time() + 15, "cmd":"JOIN", "args":[self.clientChannel]}]
-        return {"args":args, "output":output, **params}
+        return {"args":args, "idFull":idFull, "output":output, **params}
     # }}}
-    # {{{ dispatchNICK(self, args, src, **params): Dispatch single NICK message from server
-    def dispatchNICK(self, args, src, **params):
+    # {{{ dispatchNICK(self, args, idFull, src, **params): Dispatch single NICK message from server
+    def dispatchNICK(self, args, idFull, src, **params):
         nick = src.split("!")[0]
-        self.nickMap[args[0]] = self.nickMap[nick]
-        del self.nickMap[nick]
-        return {"args":args, "src":src, **params}
+        if nick.lower() != idFull[0].lower():
+            self.nickMap[args[0]] = self.nickMap[nick]
+            del self.nickMap[nick]
+        return {"args":args, "idFull":idFull, "src":src, **params}
     # }}}
     # {{{ dispatchPART(self, args, **params): Dispatch single PART message from server
     def dispatchPART(self, args, **params):
@@ -91,10 +91,9 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
             params["type"] = "command"
         return {"args":args, "context":context, "output":output, "src":src, **params}
     # }}}
-    # {{{ __init__(self, channel, nick, **kwargs): initialisation method
-    def __init__(self, channel, nick, **kwargs):
-        self.clientChannel = channel; self.clientChannelRejoin = False;
-        self.clientNick = nick; self.nickMap = {};
+    # {{{ __init__(self, channel, **kwargs): initialisation method
+    def __init__(self, channel, **kwargs):
+        self.clientChannel = channel; self.clientChannelRejoin = False; self.nickMap = {};
     # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120
