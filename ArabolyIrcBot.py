@@ -59,7 +59,7 @@ class ArabolyIrcBot(object):
                         if  eventIn["type"] == "timer"                              \
                         and "unqueue" in eventIn:
                             for unqueueLine in eventIn["unqueue"]:
-                                ircClient.queue(*unqueueLine); unqueueFlag = True;
+                                ircClient.queue(**unqueueLine); unqueueFlag = True;
                             continue
                         if arabolyIrcBot.options["debug"]:
                             gameSnapshot = copy.deepcopy(arabolyIrcBot.typeDict[ArabolyGame])
@@ -79,9 +79,9 @@ class ArabolyIrcBot(object):
                         eventsOut += unit.params["output"]
                     for eventOut in eventsOut:
                         if eventOut["type"] == "message":
-                            msg = [eventOut["cmd"], *eventOut["args"]]
+                            msg = {k:eventOut[k] for k in eventOut if k == "args" or k == "cmd"}
                             if eventOut["delay"] == 0:
-                                ircClient.queue(*msg); unqueueFlag = True;
+                                ircClient.queue(**msg); unqueueFlag = True;
                             else:
                                 delay = 0.100 if eventOut["delay"] == -1 else eventOut["delay"]
                                 events.concatTimers(expire=delay, unqueue=[msg])
