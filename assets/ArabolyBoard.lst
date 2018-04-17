@@ -656,11 +656,11 @@ PROPERTY	350	DARK_BLUE	House of Words
 	BUY	1	0	{owner} buys {prop}!
 	BUY	1	0	{owner} invites ʕamrū b. Qumī'ah to {prop}!
 	BUY	1	0	رمتني بنات الدهر من حيث لا ألرى * فكيف بمن يرمى وبليس برام
-	BUY	1	0	The daughters of time have shot me and from where, I do not see * and what is of him who is shot at when he is not shooting?
+	BUY	1	0	I am shot by the daughters of Time, from where I do not see * then what of him who is shot at / when he cannot shoot? 
 	BUY	1	0	وأفنى وما أفنى من الدهر ليلة * ولم يغن ما أفنيت سلك نظام
-	BUY	1	0	So I waste away and I do not waste even a single night of time * and yet of what I have wasted, it yields not but a single thread
-	BUY	1	0	وأهلكني تأميل يوم وليلة * وتأميل بعد ذاك وعام
-	BUY	1	0	I am slain by looking forward to day and night * and looking onward to year, thereafter, and to year
+	BUY	1	0	I waste away and I do not waste / of Time a single night * and it yields not of what I have spent / a singular thread
+	BUY	1	0	وأهلكني تأميل يوم وليلة * وتأميل عام بعد ذاك وعام
+	BUY	1	0	I am slain by looking forward / to day and night * and looking onward to year, thereafter, and to year
 	RENT	1	0	{who} visits {owner}'s {prop}! ʕamrū b. Qumī'ah says:
 	RENT	1	0	وَأَهوَنُ كَفٍّ لا تَضيرُكَ ضَيرَةً * يَدٌ بَينَ أَيدٍ في إِناءِ طَعامِ
 	RENT	1	0	And the lightest hand of all in estimation, that can never do you any harm * is the hand among other hands that is stretched into the vessel of food,
