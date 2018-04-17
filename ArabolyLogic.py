@@ -87,10 +87,7 @@ class ArabolyLogic(ArabolyTypeClass):
                                     if not found:
                                         fullGroup = False; break;
                             if fullGroup:
-                                if playerProp["level"] > 1:
-                                    params["newPropRent"] *= (playerProp["level"] + 1)
-                                else:
-                                    params["newPropRent"] *= 2
+                                params["newPropRent"] *= 1 + (0.5 * playerProp["level"])
             if  not params["newFieldOwned"]                         \
             and context.wallets[src] > context.board[newField]["price"]:
                 params["newFieldBuyable"] = True
