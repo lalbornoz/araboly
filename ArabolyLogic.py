@@ -87,8 +87,8 @@ class ArabolyLogic(ArabolyTypeClass):
                                     if not found:
                                         fullGroup = False; break;
                             if fullGroup:
-                                if playerProp["houses"][playerProp["level"]] > 0:
-                                    params["newPropRent"] *= 2 * playerProp["houses"][playerProp["level"]]
+                                if playerProp["level"] > 1:
+                                    params["newPropRent"] *= (playerProp["level"] + 1)
                                 else:
                                     params["newPropRent"] *= 2
             if  not params["newFieldOwned"]                         \
