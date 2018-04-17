@@ -690,13 +690,13 @@ PROPERTY	350	DARK_BLUE	House of Words
 	HOUSE	2	1	Abū ʕabdillāh Muḥammad b. ʕubādah b. al-Qazzāz of Tujībid Almería
 	BUY	2	1	{owner} invites Muḥammad b. ʕubādah b. al-Qazzāz to {prop}!
 	BUY	2	1	Oh dear! Tribe Tujīb takes over {prop}!
-	BUY	2	1	إذا سلّوا البواتر في الحَيْن والحتوف
-	BUY	2	1	When cutting swords are drawn * Splitting death and destruction
-	BUY	2	1	والنصر والفتوح وآية تلوح
-	BUY	2	1	From victory and triumph * And his verse and sign emerge!
-	BUY	2	1	ما أملحَ العساكر وترتيب الصفوف
-	BUY	2	1	How beautiful the armies * When arranged in ranks!
-	BUY	2	1	والأبطال تصيح الواثق يا مليح
+	BUY	2	1	إذا سلّوا البواتر * فالحَيْن والحتوف
+	BUY	2	1	When cutting swords are drawn * and death and trial draw near,
+	BUY	2	1	والنصر والفتوح * وراية تلوح
+	BUY	2	1	and conquests are delivered * and his banner brightly appears!
+	BUY	2	1	ما أملحَ العساكر * وترتيب الصفوف
+	BUY	2	1	How beautiful the armies * when arranged in ranks!
+	BUY	2	1	والأبطال تصيح * الواثق يا مليح
 	BUY	2	1	And when the champions declare: Long live al-Wāṯiq, the Handsome!
 	RENT	2	1	{who} visits {owner}'s {prop}! Muḥammad b. ʕubādah b. al-Qazzāz says:
 	RENT	2	1	رُحْ للراح وباكر * بالمُعَلم المشوف * غبوقا وصبوح * على الوتَر الفصيح
