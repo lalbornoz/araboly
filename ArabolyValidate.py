@@ -120,7 +120,8 @@ class ArabolyValidate(ArabolyTypeClass):
     # {{{ dispatch_start(self, args, context, src, status, **params): XXX
     def dispatch_start(self, args, context, src, status, **params):
         if context.state != ArabolyGameState.ATTRACT    \
-        or len(args) != 1 or not args[0].isdigit():
+        or len(args) != 1 or not args[0].isdigit()      \
+        or int(args[0]) < 2 or int(args[0]) > 6:
             status = False
         else:
             params["players"] = int(args[0])
