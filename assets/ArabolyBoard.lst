@@ -145,8 +145,8 @@ PROPERTY	140	DARK_GREEN	Schizophrenia
 	BUY	1	0	Oh no! {owner} has started to develop {prop}!
 	BUY	1	0	Oh dear! {owner} is developing Ideas of Reference!
 	BUY	1	0	Awfom! {owner} discovered {rands[0]} patterns in number plates, spoder webs, people that wear hats vs. people that wear chainsaws, and the order of hours in a {rands[1]} hour day!
-	RENT	1	0	Oh my! {owner} bumps into {who}!
-	RENT	1	0	Oops! {who} buys ${cost} worth of patterns from {who}!
+	RENT	1	0	Oh my! {who} bumps into {owner}!
+	RENT	1	0	Oops! {who} buys ${cost} worth of patterns from {owner}!
 	RENT	1	0	Awfom! {who} gains crazy points!
 	HOUSE	1	1	Negative Symptoms
 	BUY	1	1	{owner} buys Negative Symptoms on {prop}!
