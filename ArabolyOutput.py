@@ -25,6 +25,8 @@ class ArabolyOutput(ArabolyTypeClass):
         else:
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Current highest bid: ${}".format(newHighestBid)]}]
+            delay += 0.750
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Bidders remaining: {}".format(self.auctionBidders)]}]
         params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "newAuctionBids":newAuctionBids, "newHighestBid":newHighestBid, "newHighestBidder":newHighestBidder, "output":output, "price":price, "src":src, **params}
     # }}}
@@ -73,11 +75,11 @@ class ArabolyOutput(ArabolyTypeClass):
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} rolls {} and {}!".format(src, dice[0], dice[1])]}]
         for boardLine in context.boardTmp:
             output += [{"type":"message", "delay":0, "logLevel":ArabolyLogLevel.LOG_DEBUG, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
-        delay += 0.750
-        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} lands on {}!".format(src, context.board[newField]["title"])]}]
         if newFieldPastGo:
             delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} collects 200!".format(src)]}]
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Yay! {} passes past GO and collects $1500!".format(src)]}]
+        delay += 0.750
+        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} lands on {}!".format(src, context.board[newField]["title"])]}]
         if "newPlayerBankrupt" in params:
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! {} has gone bankrupt!".format(src)]}]
@@ -110,7 +112,7 @@ class ArabolyOutput(ArabolyTypeClass):
                     for rentString in context.boardStrings[newField][ArabolyPropSubType.RENT][playerProp["level"]][playerProp["houses"][playerProp["level"]]]:
                         rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
                         delay += 0.750
-                        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, rentString.format(cost=params["newPropRent"], owner=propOwner, rands=rands, who=src)]}]
+                        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, rentString.format(cost=params["newPropRent"], owner=propOwner, prop=context.board[context.fields[src]]["title"], rands=rands, who=src)]}]
         if newPlayerCur != context.playerCur:
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format(context.players[newPlayerCur])]}]
@@ -178,6 +180,8 @@ class ArabolyOutput(ArabolyTypeClass):
                 else:
                     delay += 0.750
                     output += [{"type":"message", "delay":0.750, "cmd":"PRIVMSG", "args":[channel, "Current highest bid: ${}".format(newHighestBid)]}]
+                    delay += 0.750
+                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Bidders remaining: {}".format(self.auctionBidders)]}]
             else:
                 if params["newAuctionEnd"]:
                     delay += 0.750

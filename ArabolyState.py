@@ -48,7 +48,7 @@ class ArabolyState(ArabolyTypeClass):
         params["newPlayerCur"] = context.playerCur; params["newWallets"] = {};
         if newFieldPastGo:
             params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
-            params["newWallets"] = {src:context.wallets[src] + 200}
+            params["newWallets"] = {src:context.wallets[src] + 1500}
         if context.board[newField]["type"] == ArabolyGameField.PROPERTY \
         or context.board[newField]["type"] == ArabolyGameField.UTILITY:
             if not newFieldOwned:
