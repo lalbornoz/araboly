@@ -119,7 +119,7 @@ class ArabolyOutput(ArabolyTypeClass):
                     for rentString in context.boardStrings[newField][ArabolyPropSubType.RENT][playerProp["level"]][playerProp["houses"][playerProp["level"]]]:
                         rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
                         delay += 0.750
-                        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, rentString.format(cost=params["newPropRent"], owner=propOwner, prop=context.board[context.fields[src]]["title"], rands=rands, who=src)]}]
+                        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, rentString.format(cost=params["newPropRent"], owner=propOwner, prop=context.board[newField]["title"], rands=rands, who=src)]}]
         if newPlayerCur != context.playerCur:
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format(context.players[newPlayerCur])]}]
