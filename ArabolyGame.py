@@ -46,7 +46,7 @@ class ArabolyGame(object):
     #
     # __init__(self, **kwargs): initialisation method
     def __init__(self, **kwargs):
-        self.auctionProperty = {}; self.auctionBidders = -1; self.auctionBids = {};
+        self.auctionBids = {}; self.auctionProperty = {};
         self.clientParams = {}; self.clientUaf = [];
         self.playerCur = -1; self.players = []; self.playersMax = -1;
         self.board = []; self.boardStrings = nested_dict(); self.boardTmp = [];

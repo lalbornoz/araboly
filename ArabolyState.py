@@ -13,16 +13,18 @@ class ArabolyState(ArabolyTypeClass):
 
     # {{{ dispatch_bid(self, context, newAuctionEnd, price, src, **params): XXX
     def dispatch_bid(self, context, newAuctionEnd, price, src, **params):
-        params["newAuctionBidders"] = context.auctionBidders + 1
+        params["delAuctionBids"] = []
+        for player in context.auctionBids:
+            if player != src and context.auctionBids[player] != 0:
+                params["delAuctionBids"] += [player]
         params["newAuctionBids"] = {src:price}
         highestBid, highestBidder = self._highestBid(context, params)
         params["newHighestBid"] = highestBid; params["newHighestBidder"] = highestBidder;
         if newAuctionEnd:
             params["delAuctionBids"] = {**context.auctionBids, **params["newAuctionBids"]}.keys()
             params["delAuctionProperty"] = context.auctionProperty.keys()
-            params["newAuctionBidders"] = -1
             params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
-            params["newProperties"] = {highestBidder:[*context.properties[highestBidder], context.auctionProperty]}
+            params["newProperties"] = {highestBidder:[*context.properties[highestBidder], context.auctionProperty.copy()]}
             params["newWallets"] = {highestBidder:context.wallets[highestBidder] - highestBid}
         return {"context":context, "price":price, "newAuctionEnd":newAuctionEnd, "src":src, **params}
     # }}}
@@ -53,7 +55,6 @@ class ArabolyState(ArabolyTypeClass):
         or context.board[newField]["type"] == ArabolyGameField.UTILITY:
             if not newFieldOwned:
                 if not newFieldBuyable:
-                    params["newAuctionBidders"] = 0
                     params["newAuctionProperty"] = {"field":newField, **context.board[newField]}
             else:
                 params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
@@ -95,20 +96,17 @@ class ArabolyState(ArabolyTypeClass):
     # {{{ dispatch_pass(self, context, src, **params): XXX
     def dispatch_pass(self, context, src, **params):
         if context.state == ArabolyGameState.PROPERTY:
-            params["newAuctionBidders"] = 0
             params["newAuctionProperty"] = {"field":context.fields[src], **context.board[context.fields[src]]}
         elif context.state == ArabolyGameState.AUCTION:
-            params["newAuctionBidders"] = context.auctionBidders + 1
             params["newAuctionBids"] = {src:0}
             highestBid, highestBidder = self._highestBid(context, params)
             params["newHighestBid"] = highestBid; params["newHighestBidder"] = highestBidder;
             if params["newAuctionEnd"]:
                 params["delAuctionBids"] = {**context.auctionBids, **params["newAuctionBids"]}.keys()
                 params["delAuctionProperty"] = context.auctionProperty.keys()
-                params["newAuctionBidders"] = -1
                 params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
                 if highestBid != 0:
-                    propField = context.auctionProperty
+                    propField = context.auctionProperty.copy()
                     params["newProperties"] = {highestBidder:[*context.properties[highestBidder], propField]}
                     params["newWallets"] = {highestBidder:context.wallets[highestBidder] - highestBid}
         return {"context":context, "src":src, **params}
