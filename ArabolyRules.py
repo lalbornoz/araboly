@@ -26,7 +26,8 @@ class ArabolyRules(ArabolyTypeClass):
     def dispatch_dice(self, context, newField, newFieldBuyable, newFieldOwned, src, **params):
         params["newState"] = context.state
         if "newPlayerBankrupt" in params:
-            params["newState"] = ArabolyGameState.ATTRACT
+            if "newPlayers" in params and params["newPlayers"] == []:
+                params["newState"] = ArabolyGameState.ATTRACT
         elif context.board[newField]["type"] == ArabolyGameField.PROPERTY   \
         or context.board[newField]["type"] == ArabolyGameField.UTILITY:
             if not newFieldOwned:
