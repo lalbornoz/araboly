@@ -13,16 +13,15 @@ class ArabolyLogic(ArabolyTypeClass):
 
     # {{{ dispatch_bid(self, context, price, src, status, **params): XXX
     def dispatch_bid(self, context, price, src, status, **params):
-        params["newAuctionEnd"] = False
-        if  src in context.auctionBids  \
-        and context.auctionBids[src] == 0:
-            status = False
-        elif context.wallets[src] <= price:
+        if context.wallets[src] <= price:
             status = False
         else:
             for player in context.auctionBids:
                 if context.auctionBids[player] >= price:
                     status = False
+            if status:
+                auctionBids = {k:context.auctionBids[k] for k in context.auctionBids if context.auctionBids[k] == 0}
+                params["newAuctionEnd"] = (sorted(context.players) == sorted({src:price, **auctionBids}))
         return {"context":context, "price":price, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_develop(self, context, field, level, src, status, **params): XXX
@@ -99,16 +98,10 @@ class ArabolyLogic(ArabolyTypeClass):
     # {{{ dispatch_pass(self, context, src, status, **params): XXX
     def dispatch_pass(self, context, src, status, **params):
         if context.state == ArabolyGameState.AUCTION:
-            params["newAuctionEnd"] = False
-            if  src in context.auctionBids      \
-            and context.auctionBids[src] == 0:
+            if src in context.auctionBids:
                 status = False
-            elif context.auctionBidders <= 2:
-                auctionBidders = list(context.auctionBids)
-                if src not in auctionBidders:
-                    auctionBidders += [src]
-                if sorted(context.players) == sorted(auctionBidders):
-                    params["newAuctionEnd"] = True
+            else:
+                params["newAuctionEnd"] = (sorted(context.players) == sorted({src:0, **context.auctionBids}))
         return {"context":context, "src":src, "status":status, **params}
     # }}}
 

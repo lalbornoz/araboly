@@ -16,7 +16,7 @@ class ArabolyValidate(ArabolyTypeClass):
     def dispatch_bid(self, args, context, status, **params):
         if context.state != ArabolyGameState.AUCTION    \
         or len(args) != 1 or not args[0].isdigit()      \
-        or int(args[0]) <= 0:
+        or int(args[0]) == 0:
             status = False
         else:
             params["price"] = int(args[0])

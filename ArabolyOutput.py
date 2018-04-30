@@ -19,14 +19,21 @@ class ArabolyOutput(ArabolyTypeClass):
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} bids ${} on {}!".format(src, price, context.board[context.auctionProperty["field"]]["title"])]}]
         if params["newAuctionEnd"]:
             delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} buys {} for ${}!".format(newHighestBidder, context.board[context.auctionProperty["field"]]["title"], newHighestBid)]}]
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Awfom! {} wins the auction and buys {} for ${}!".format(newHighestBidder, context.board[context.auctionProperty["field"]]["title"], newHighestBid)]}]
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format(context.players[params["newPlayerCur"]])]}]
         else:
+            for player in params["delAuctionBids"] if "delAuctionBids" in params else []:
+                delay += 0.750
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: you have been outbid by {}! Place bid above ${} or pass!".format(player, src, newHighestBid)]}]
             delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Current highest bid: ${}".format(newHighestBid)]}]
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Current highest bid: {} at ${}".format(newHighestBidder, newHighestBid)]}]
+            auctionBids = {**newAuctionBids, **context.auctionBids}
+            if "delAuctionBids" in params:
+                auctionBids = {k:auctionBids[k] for k in auctionBids if k not in params["delAuctionBids"]}
+            auctionBidsLeft = [player for player in context.players if player not in auctionBids]
             delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Bidders remaining: {}".format(self.auctionBidders)]}]
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Potential bidders remaining: {}".format(auctionBidsLeft)]}]
         params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "newAuctionBids":newAuctionBids, "newHighestBid":newHighestBid, "newHighestBidder":newHighestBidder, "output":output, "price":price, "src":src, **params}
     # }}}
@@ -162,11 +169,9 @@ class ArabolyOutput(ArabolyTypeClass):
         delay = 0.750
         if context.state == ArabolyGameState.PROPERTY:
             delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} passes on {} for ${}!".format(src, context.board[context.fields[src]]["title"], context.board[context.fields[src]]["price"])]}]
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "The bank auctions off {} (market price: ${})!".format(context.board[context.fields[src]]["title"], context.board[context.fields[src]]["price"])]}]
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Entering auction mode!"]}]
-            delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Current highest bid: $0"]}]
         elif context.state == ArabolyGameState.AUCTION:
             newHighestBid = params["newHighestBid"]; newHighestBidder = params["newHighestBidder"];
             delay += 0.750
@@ -179,9 +184,13 @@ class ArabolyOutput(ArabolyTypeClass):
                     output += [{"type":"message", "delay":0.750, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format(context.players[params["newPlayerCur"]])]}]
                 else:
                     delay += 0.750
-                    output += [{"type":"message", "delay":0.750, "cmd":"PRIVMSG", "args":[channel, "Current highest bid: ${}".format(newHighestBid)]}]
+                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Current highest bid: {} at ${}".format(newHighestBidder, newHighestBid)]}]
+                    auctionBids = {**params["newAuctionBids"], **context.auctionBids}
+                    if "delAuctionBids" in params:
+                        auctionBids = {k:auctionBids[k] for k in auctionBids if k not in params["delAuctionBids"]}
+                    auctionBidsLeft = [player for player in context.players if player not in auctionBids]
                     delay += 0.750
-                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Bidders remaining: {}".format(self.auctionBidders)]}]
+                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Potential bidders remaining: {}".format(auctionBidsLeft)]}]
             else:
                 if params["newAuctionEnd"]:
                     delay += 0.750
@@ -190,7 +199,7 @@ class ArabolyOutput(ArabolyTypeClass):
                     output += [{"type":"message", "delay":0.750, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format(context.players[params["newPlayerCur"]])]}]
                 else:
                     delay += 0.750
-                    output += [{"type":"message", "delay":0.750, "cmd":"PRIVMSG", "args":[channel, "Current highest bid: $0"]}]
+                    output += [{"type":"message", "delay":0.750, "cmd":"PRIVMSG", "args":[channel, "No bids have been placed yet!"]}]
         params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}
