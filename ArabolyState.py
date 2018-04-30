@@ -54,6 +54,7 @@ class ArabolyState(ArabolyTypeClass):
         if context.board[newField]["type"] == ArabolyGameField.PROPERTY \
         or context.board[newField]["type"] == ArabolyGameField.UTILITY:
             if not newFieldOwned:
+                params["newPlayerCur"] = context.playerCur
                 if not newFieldBuyable:
                     params["newAuctionProperty"] = {"field":newField, **context.board[newField]}
             else:
