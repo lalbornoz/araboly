@@ -67,6 +67,7 @@ class ArabolyLogic(ArabolyTypeClass):
         newField = (context.fields[src] + dice[0] + dice[1]) % len(context.board)
         params["newFieldBuyable"] = False
         params["newFieldOwned"] = False; params["newFieldOwnedSelf"] = False;
+        params["newFieldPastGo"] = True if newField < context.fields[src] else False
         if context.board[newField]["type"] == ArabolyGameField.PROPERTY \
         or context.board[newField]["type"] == ArabolyGameField.UTILITY:
             for player in context.properties:
@@ -87,10 +88,12 @@ class ArabolyLogic(ArabolyTypeClass):
                                         fullGroup = False; break;
                             if fullGroup:
                                 params["newPropRent"] *= 1 + (0.5 * playerProp["level"])
-            if  not params["newFieldOwned"]                         \
-            and context.wallets[src] > context.board[newField]["price"]:
-                params["newFieldBuyable"] = True
-        params["newFieldPastGo"] = True if newField < context.fields[src] else False
+            if not params["newFieldOwned"]:
+                srcWallet = context.wallets[src]
+                if params["newFieldPastGo"]:
+                    srcWallet += 1500
+                if srcWallet > context.board[newField]["price"]:
+                    params["newFieldBuyable"] = True
         params["newField"] = newField
         params["newFields"] = {src:newField}
         return {"context":context, "dice":dice, "src":src, **params}
