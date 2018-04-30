@@ -21,13 +21,13 @@ from ArabolyState import ArabolyState
 from ArabolyValidate import ArabolyValidate
 from getopt import getopt
 from sys import argv, stderr
-import copy, pickle, os
+import copy, os, pickle, time
 
 class ArabolyIrcBot(object):
     """XXX"""
-    optsDefault = {"channel":"#ARABOLY", "debug":False, "hostname":None, "nick":"ARABOLY", "port":"6667", "realname":"Araboly NT 3.1 Advanced Server", "ssl":False, "user":"ARABOLY"}
-    optsMap = {"c":"channel", "d":"debug", "h":"help", "H":"hostname", "n":"nick", "p":"port", "r":"realname", "S":"ssl", "u":"user"}
-    optsString = "c:dhH:n:p:r:Su:"
+    optsDefault = {"channel":"#ARABOLY", "debug":False, "flood_delay":0, "hostname":None, "nick":"ARABOLY", "port":"6667", "realname":"Araboly NT 3.1 Advanced Server", "ssl":False, "user":"ARABOLY"}
+    optsMap = {"c":"channel", "d":"debug", "f":"flood_delay", "h":"help", "H":"hostname", "n":"nick", "p":"port", "r":"realname", "S":"ssl", "u":"user"}
+    optsString = "c:df:hH:n:p:r:Su:"
     typeObjects = [ArabolyCommit, ArabolyDaʕat, ArabolyErrors, ArabolyEvents, ArabolyGame, ArabolyIrcClient, ArabolyIrcToCommandMap, ArabolyLog, ArabolyLogic, ArabolyOutput, ArabolyRules, ArabolyState, ArabolyValidate]
 
     #
@@ -77,16 +77,27 @@ class ArabolyIrcBot(object):
                                 >> ArabolyIrcBot.typeDict[ArabolyCommit]            \
                                 >> ArabolyIrcBot.typeDict[ArabolyErrors]
                         eventsOut += unit.params["output"]
+                    floodDelay = 0
                     for eventOut in eventsOut:
                         if eventOut["type"] == "message":
                             msg = {k:eventOut[k] for k in eventOut if k == "args" or k == "cmd"}
                             if eventOut["delay"] == 0:
-                                ircClient.queue(**msg); unqueueFlag = True;
+                                if arabolyIrcBot.options["flood_delay"] > 0:
+                                    events.concatTimers(expire=floodDelay, unqueue=[msg])
+                                    floodDelay += arabolyIrcBot.options["flood_delay"]
+                                else:
+                                    ircClient.queue(**msg); unqueueFlag = True;
                             else:
-                                delay = 0.100 if eventOut["delay"] == -1 else eventOut["delay"]
+                                if arabolyIrcBot.options["flood_delay"] > 0:
+                                    delay = floodDelay
+                                else:
+                                    delay = 0.100 if eventOut["delay"] == -1 else eventOut["delay"]
                                 events.concatTimers(expire=delay, unqueue=[msg])
+                                floodDelay += arabolyIrcBot.options["flood_delay"]
                         elif eventOut["type"] == "timer":
                             events.concatTimers(**eventOut)
+                    if floodDelay > 0:
+                        game.inhibitUntil = time.time() + floodDelay
                     if unqueueFlag:
                         if not ircClient.unqueue():
                             events.concatSelect(wlist=[ircClient.clientSocket.fileno()])
@@ -109,6 +120,10 @@ class ArabolyIrcBot(object):
         optsList, args = getopt(argv[1:], self.optsString)
         optsDict = {self.optsMap[a[1:]]:b for a,b in optsList}
         optsDict["debug"] = True if "debug" in optsDict else False
+        if "flood_delay" in optsDict:
+            optsDict["flood_delay"] = float(optsDict["flood_delay"])/1000.0
+        else:
+            optsDict["flood_delay"] = 0
         optsDict["ssl"] = True if "ssl" in optsDict else False
         if optsDict["ssl"] and "port" not in optsDict:
             optsDict["port"] = "6697"
