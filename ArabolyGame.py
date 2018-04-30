@@ -72,7 +72,8 @@ class ArabolyGame(object):
         with open("assets/ArabolyBoard.irc", "r") as fileObject:
             self.boardTmp = fileObject.readlines()
         with open("assets/ArabolyAttract.irc", "r") as fileObject:
-            self.attractLinesList = [x.split("\n") for x in "".join(fileObject.readlines()).split("\n")]
+            self.attractLinesList = "".join(fileObject.readlines()).split("\n")
+            self.attractLinesList = [x[:-1].split("\n") for x in self.attractLinesList]
         with open("assets/ArabolyLogo.irc", "r") as fileObject:
             self.logoLines = fileObject.readlines()
         self.clientParams = kwargs.copy()
