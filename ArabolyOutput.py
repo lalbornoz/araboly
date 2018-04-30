@@ -94,6 +94,8 @@ class ArabolyOutput(ArabolyTypeClass):
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Player {} parts Araboly game!".format(src)]}]
             if "newPlayers" in params and params["newPlayers"] == []:
                 delay += 0.750
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! Someone won but arab can't be arsed to write corresponding message strings!"]}]
+                delay += 0.750
                 output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Stopping current Araboly game!"]}]
                 return {"channel":channel, "context":context, "dice":dice, "output":output, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "newPlayerCur":newPlayerCur, "src":src, **params}
         elif context.board[newField]["type"] == ArabolyGameField.TAX:
