@@ -264,7 +264,7 @@ class ArabolyState(ArabolyTypeClass):
             params["newPlayers"] = []
             params["newPlayersMax"] = -1
         else:
-            params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
+            params["newPlayerCur"] = (context.playerCur + 1) % (len(context.players) - 1)
         return {"args":args, "cmd":cmd, "context":context, "src":src, **params}
     # }}}
     # {{{ _highestBid(self, context, params): XXX
