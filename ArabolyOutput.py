@@ -17,11 +17,11 @@ class ArabolyOutput(ArabolyTypeClass):
     # {{{ dispatch_accept(self, channel, output, tradeState, **params): XXX
     def dispatch_accept(self, channel, output, tradeState, **params):
         if tradeState["counter"]:
-            delay = 0.900
+            delay = 0
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Yay! {} accepts your counter-offer to buy {} at ${}!".format(tradeState["src"], tradeState["to"], tradeState["title"], tradeState["price"])]}]
             propTo = tradeState["to"]
         else:
-            delay = 0.900
+            delay = 0
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Yay! {} accepts your offer to buy {} at ${}!".format(tradeState["src"], tradeState["to"], tradeState["title"], tradeState["price"])]}]
             propTo = tradeState["src"]
         delay += 0.900
@@ -30,7 +30,7 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_bid(self, channel, context, newAuctionBids, newHighestBid, newHighestBidder, output, price, src, **params): XXX
     def dispatch_bid(self, channel, context, newAuctionBids, newHighestBid, newHighestBidder, output, price, src, **params):
-        delay = 0.900
+        delay = 0
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} bids ${} on {}!".format(src, price, context.board[context.auctionProperty["field"]]["title"])]}]
         if params["newAuctionEnd"]:
             delay += 0.900
@@ -60,7 +60,7 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_buy(self, channel, context, output, src, **params): XXX
     def dispatch_buy(self, channel, context, output, src, **params):
-        delay = 0.900
+        delay = 0
         for buyString in context.boardStrings[context.fields[src]][ArabolyPropSubType.BUY][1][0]:
             rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
             delay += 0.900
@@ -72,7 +72,7 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_develop(self, channel, context, newDevelopedProperties, output, src, **params): XXX
     def dispatch_develop(self, channel, context, newDevelopedProperties, output, src, **params):
-        delay = 0.900
+        delay = 0
         for newDevProp in newDevelopedProperties:
             if len(newDevelopedProperties) > 1:
                 for developString in context.boardStrings[newDevProp["field"]][ArabolyPropSubType.BUY][newDevProp["level"] - 1][newDevProp["houses"][newDevProp["level"] - 1]]:
@@ -112,7 +112,7 @@ class ArabolyOutput(ArabolyTypeClass):
                 delay += 0.900
                 output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, msg]}]
         else:
-            delay = 0.900
+            delay = 0
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} rolls {} and {}!".format(src, dice[0], dice[1])]}]
         for boardLine in context.boardTmp:
             output += [{"type":"message", "delay":0, "logLevel":ArabolyLogLevel.LOG_DEBUG, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
@@ -177,7 +177,7 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_join(self, channel, context, output, src, **params): XXX
     def dispatch_join(self, channel, context, output, src, **params):
-        delay = 0.900
+        delay = 0
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Player {} joins Araboly game!".format(src)]}]
         if (len(context.players) + len(params["newPlayers"])) == context.playersMax:
             delay += 0.900
@@ -189,7 +189,7 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_kick(self, channel, context, otherPlayer, output, **params): XXX
     def dispatch_kick(self, channel, context, otherPlayer, output, **params):
-        delay = 0.900
+        delay = 0
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Kicking {} from current Araboly game!".format(otherPlayer)]}]
         if len(context.players) <= 1:
             delay += 0.900
@@ -200,16 +200,16 @@ class ArabolyOutput(ArabolyTypeClass):
     # {{{ dispatch_offer(self, channel, output, tradeState, **params): XXX
     def dispatch_offer(self, channel, output, tradeState, **params):
         if tradeState["counter"]:
-            delay = 0.900
+            delay = 0
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: {} counter-offers to sell {} to you at ${}! Accept, counter-offer, or reject?".format(tradeState["to"], tradeState["src"], tradeState["title"], tradeState["price"])]}]
         else:
-            delay = 0.900
+            delay = 0
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: {} offers to buy {} from you at ${}! Accept, counter-offer, or reject?".format(tradeState["to"], tradeState["src"], tradeState["title"], tradeState["price"])]}]
         return {"channel":channel, "output":output, "tradeState":tradeState, **params}
     # }}}
     # {{{ dispatch_lift(self, channel, context, field, output, src, **params): XXX
     def dispatch_lift(self, channel, context, field, output, src, **params):
-        delay = 0.900
+        delay = 0
         mortgageCost = int(context.board[field]["price"] / 2)
         mortgageCost = int(mortgageCost + (mortgageCost * 0.10))
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Awfom! {} lifts the mortgage on {} and pays ${} to the bank!".format(src, context.board[field]["title"], mortgageCost)]}]
@@ -219,7 +219,7 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_mortgage(self, channel, context, field, output, src, **params): XXX
     def dispatch_mortgage(self, channel, context, field, output, src, **params):
-        delay = 0.900
+        delay = 0
         mortgageCost = int(context.board[field]["price"] / 2)
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oops! {} mortgages {} and receives ${} from the bank!".format(src, context.board[field]["title"], mortgageCost)]}]
         delay += 0.900
@@ -228,7 +228,7 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_part(self, channel, context, output, src, **params): XXX
     def dispatch_part(self, channel, context, output, src, **params):
-        delay = 0.900
+        delay = 0
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Player {} parts Araboly game!".format(src)]}]
         if len(context.players) <= 1:
             delay += 0.900
@@ -238,7 +238,7 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_pass(self, channel, context, output, src, **params): XXX
     def dispatch_pass(self, channel, context, output, src, **params):
-        delay = 0.900
+        delay = 0
         if context.state == ArabolyGameState.PROPERTY:
             delay += 0.900
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "The bank auctions off {} (market price: ${})!".format(context.board[context.fields[src]]["title"], context.board[context.fields[src]]["price"])]}]
@@ -277,7 +277,7 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_reject(self, channel, output, tradeState, **params): XXX
     def dispatch_reject(self, channel, output, tradeState, **params):
-        delay = 0.900
+        delay = 0
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Oh no! {} rejects your offer to buy {} at ${}!".format(tradeState["src"], tradeState["to"], tradeState["title"], tradeState["price"])]}]
         return {"channel":channel, "output":output, "tradeState":tradeState, **params}
     # }}}
