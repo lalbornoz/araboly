@@ -43,6 +43,8 @@ class ArabolyMonad(object):
                         self.params["exc_fname"] = os.path.split(exc_tb.tb_next.tb_frame.f_code.co_filename)[1]
                         self.params["exc_lineno"] = exc_tb.tb_next.tb_lineno
                         self.params["exc_stack"] = "\n".join(traceback.format_tb(exc_tb)).split("\n")
+                        if self.params["debug"]:
+                            import pdb; pdb.post_mortem(exc_tb);
                         del exc_tb
                         self.params["status"] = False
                         if hasattr(other, "dispatchException"):
