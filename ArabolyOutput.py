@@ -84,7 +84,7 @@ class ArabolyOutput(ArabolyTypeClass):
             output += [{"type":"message", "delay":0, "logLevel":ArabolyLogLevel.LOG_DEBUG, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
         if newFieldPastGo:
             delay += 0.750
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Yay! {} passes past GO and collects $1500!".format(src)]}]
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Yay! {} passes past GO and collects $200!".format(src)]}]
         delay += 0.750
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} lands on {}!".format(src, context.board[newField]["title"])]}]
         if "newPlayerBankrupt" in params:
