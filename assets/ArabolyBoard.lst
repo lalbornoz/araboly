@@ -87,7 +87,7 @@ PROPERTY	100	RED		Rizon Towers
 	RENT	3	1	Oh my! {who} is racially analysed by The Free Army of #chimpire!
 	RENT	3	1	Oh shit! The Free Army of #chimpire confiscates ${cost} of {who}'s wealth for being racially inferior!
 CHANCE		-1	None		Chance
-PROPERTY	100	Red		EFrael Avenue
+PROPERTY	100	RED		EFrael Avenue
 	HOUSE	1	0	G-line silo
 	BUY	1	0	{owner} buys {prop}!
 	BUY	1	0	{owner} builds a G-line silo on {prop} for purposes of defence and recreation!
@@ -114,7 +114,7 @@ PROPERTY	100	Red		EFrael Avenue
 	RENT	3	1	Oops! {who} accidentally shoots {rands[0]} armed police officers!
 	RENT	3	1	Oh no! {who} is sent to gaol for {rands[0]} years, {rands[1]} days, {rands[2]} hours, {rands[3]} minutes, and {rands[4]} seconds!
 	RENT	3	1	Awfom! EFnet News smuggles {who} out of gaol for the nominal fee of ${cost} paid to {owner}!
-PROPERTY	120	Red		SandNET Oasis
+PROPERTY	120	RED		SandNET Oasis
 	HOUSE	1	0	Gigantic MOTD Carpet
 	BUY	1	0	{owner} buys {prop}!
 	BUY	1	0	{owner} buys a Gigantic MOTD Carpet for {prop}!
@@ -726,7 +726,7 @@ TAX		100	None		The Gov't Hates You (pay $100)
 PROPERTY	400	DARK_BLUE	World Trade Center
 	HOUSE	1	0	Who Won't See This Coming A Mile Away!
 	BUY	1	0	{owner} buys The {prop}!
-	BUY	1	0	Oh my! {owner} builds a Who Wont't See This A Mile Coming! on The {prop}!
+	BUY	1	0	Oh my! {owner} builds a Who Wont't See This Coming A Mile Away! on The {prop}!
 	RENT	1	0	Oops! {who} accidentally flies an aeroplane into The {prop}
 	RENT	1	0	{who} pays ${cost} to {owner} for picking low-hanging fruits!
 	HOUSE	1	1	Anti-Aeroplane Aeroplanes
