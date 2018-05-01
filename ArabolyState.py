@@ -138,7 +138,8 @@ class ArabolyState(ArabolyTypeClass):
                         params["newTradeDict"] = {tradeKeyNew:{"counter":True, "field":field, "price":price, "src":src, "to":otherPlayer, "title":context.board[field]["title"]}}
                         params["tradeState"] = params["newTradeDict"][tradeKeyNew]
             else:
-                if context.wallets[src] <= price:
+                if context.players[context.playerCur] != src    \
+                or context.wallets[src] <= price:
                     status = False
                 else:
                     propFound = False
