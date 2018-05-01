@@ -86,14 +86,18 @@ class ArabolyState(ArabolyTypeClass):
             else:
                 params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
                 if not params["newFieldOwnedSelf"]:
+                    propOwner = None
                     for player in context.properties:
                         for playerProp in context.properties[player]:
                             if playerProp["field"] == newField:
-                                propOwner = player
-                    params["newWallets"] = {src:context.wallets[src] - params["newPropRent"], propOwner:context.wallets[propOwner] + params["newPropRent"]}
-                    if params["newWallets"][src] <= 0:
-                        params["newPlayerBankrupt"] = True
-                        return self._dispatch_remove(**{"context":context, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "src":src, **params})
+                                propOwner = player; break;
+                        if propOwner != None:
+                            break
+                    if not playerProp["mortgaged"]:
+                        params["newWallets"] = {src:context.wallets[src] - params["newPropRent"], propOwner:context.wallets[propOwner] + params["newPropRent"]}
+                        if params["newWallets"][src] <= 0:
+                            params["newPlayerBankrupt"] = True
+                            return self._dispatch_remove(**{"context":context, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "src":src, **params})
         elif context.board[newField]["type"] == ArabolyGameField.TAX:
             params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
             params["newWallets"] = {src:context.wallets[src] - context.board[newField]["price"]}
@@ -115,6 +119,38 @@ class ArabolyState(ArabolyTypeClass):
     # {{{ dispatch_kick(self, **params): XXX
     def dispatch_kick(self, **params):
         return self._dispatch_remove(**params)
+    # }}}
+    # {{{ dispatch_lift(self, context, field, src, status, **params): XXX
+    def dispatch_lift(self, context, field, src, status, **params):
+        propFound = False
+        for srcProp in context.properties[src]:
+            if srcProp["field"] == field:
+                propFound = True; break;
+        if not propFound or not srcProp["mortgaged"]:
+            status = False
+        else:
+            mortgageCost = int(srcProp["price"] / 2)
+            mortgageCost = int(mortgageCost + (mortgageCost * 0.10))
+            if context.wallets[src] <= mortgageCost:
+                status = False
+            else:
+                params["newWallets"] = {src:context.wallets[src] - mortgageCost}
+                srcProp["mortgaged"] = False
+        return {"context":context, "field":field, "src":src, "status":status, **params}
+    # }}}
+    # {{{ dispatch_mortgage(self, context, field, src, status, **params): XXX
+    def dispatch_mortgage(self, context, field, src, status, **params):
+        propFound = False
+        for srcProp in context.properties[src]:
+            if srcProp["field"] == field:
+                propFound = True; break;
+        if not propFound or srcProp["mortgaged"]:
+            status = False
+        else:
+            mortgageCost = int(srcProp["price"] / 2)
+            params["newWallets"] = {src:context.wallets[src] + mortgageCost}
+            srcProp["mortgaged"] = True
+        return {"context":context, "field":field, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_offer(self, context, field, otherPlayer, price, src, status, **params): XXX
     def dispatch_offer(self, context, field, otherPlayer, price, src, status, **params):

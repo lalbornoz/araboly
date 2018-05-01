@@ -76,6 +76,8 @@ class ArabolyValidate(ArabolyTypeClass):
             elif context.board[field]["type"] != ArabolyGameField.PROPERTY  \
             and  context.board[field]["type"] != ArabolyGameField.UTILITY:
                 status = False
+            elif context.board[field]["mortgaged"]:
+                status = False
             else:
                 params.update({"field":field, "level":int(args[1])})
         return {"args":args, "context":context, "status":status, **params}
@@ -110,6 +112,40 @@ class ArabolyValidate(ArabolyTypeClass):
             params["otherPlayer"] = args[0]
             status = self._authorised(channel, context, srcFull)
         return {"args":args, "channel":channel, "context":context, "srcFull":srcFull, "status":status, **params}
+    # }}}
+    # {{{ dispatch_lift(self, args, context, status, **params): XXX
+    def dispatch_lift(self, args, context, status, **params):
+        if  context.state != ArabolyGameState.GAME      \
+        and context.state != ArabolyGameState.PROPERTY:
+            status = False
+        elif len(args) != 1 or not args[0].isdigit():
+            status = False
+        else:
+            field = int(args[0])
+            if field >= len(context.board):
+                status = False
+            elif context.board[field]["type"] != ArabolyGameField.PROPERTY:
+                status = False
+            else:
+                params.update({"field":field})
+        return {"args":args, "context":context, "status":status, **params}
+    # }}}
+    # {{{ dispatch_mortgage(self, args, context, status, **params): XXX
+    def dispatch_mortgage(self, args, context, status, **params):
+        if  context.state != ArabolyGameState.GAME      \
+        and context.state != ArabolyGameState.PROPERTY:
+            status = False
+        elif len(args) != 1 or not args[0].isdigit():
+            status = False
+        else:
+            field = int(args[0])
+            if field >= len(context.board):
+                status = False
+            elif context.board[field]["type"] != ArabolyGameField.PROPERTY:
+                status = False
+            else:
+                params.update({"field":field})
+        return {"args":args, "context":context, "status":status, **params}
     # }}}
     # {{{ dispatch_offer(self, args, context, src, status, **params): XXX
     def dispatch_offer(self, args, context, src, status, **params):

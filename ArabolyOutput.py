@@ -148,14 +148,21 @@ class ArabolyOutput(ArabolyTypeClass):
                     output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: buy property {}?".format(src, context.board[newField]["title"])]}]
             else:
                 if not params["newFieldOwnedSelf"]:
+                    propOwner = None
                     for player in context.properties:
                         for playerProp in context.properties[player]:
                             if playerProp["field"] == newField:
                                 propOwner = player; break;
-                    for rentString in context.boardStrings[newField][ArabolyPropSubType.RENT][playerProp["level"]][playerProp["houses"][playerProp["level"]]]:
-                        rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
+                        if propOwner != None:
+                            break
+                    if playerProp["mortgaged"]:
                         delay += 1.000
-                        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, rentString.format(cost=params["newPropRent"], owner=propOwner, prop=context.board[newField]["title"], rands=rands, who=src)]}]
+                        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oops! {} cannot collect rent on {} as it is mortgaged!".format(propOwner, context.board[newField]["title"])]}]
+                    else:
+                        for rentString in context.boardStrings[newField][ArabolyPropSubType.RENT][playerProp["level"]][playerProp["houses"][playerProp["level"]]]:
+                            rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
+                            delay += 1.000
+                            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, rentString.format(cost=params["newPropRent"], owner=propOwner, prop=context.board[newField]["title"], rands=rands, who=src)]}]
         if newPlayerCur != context.playerCur:
             delay += 1.000
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: roll the dice!".format(context.players[newPlayerCur])]}]
@@ -199,6 +206,25 @@ class ArabolyOutput(ArabolyTypeClass):
             delay = 1.000
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: {} offers to buy {} from you at ${}! Accept, counter-offer, or reject?".format(tradeState["to"], tradeState["src"], tradeState["title"], tradeState["price"])]}]
         return {"channel":channel, "output":output, "tradeState":tradeState, **params}
+    # }}}
+    # {{{ dispatch_lift(self, channel, context, field, output, src, **params): XXX
+    def dispatch_lift(self, channel, context, field, output, src, **params):
+        delay = 1.000
+        mortgageCost = int(context.board[field]["price"] / 2)
+        mortgageCost = int(mortgageCost + (mortgageCost * 0.10))
+        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Awfom! {} lifts the mortgage on {} and pays ${} to the bank!".format(src, context.board[field]["title"], mortgageCost)]}]
+        delay += 1.000
+        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Yay! {} is now able to collect rent from and develop on {}!".format(src, context.board[field]["title"])]}]
+        return {"channel":channel, "context":context, "field":field, "output":output, "src":src, **params}
+    # }}}
+    # {{{ dispatch_mortgage(self, channel, context, field, output, src, **params): XXX
+    def dispatch_mortgage(self, channel, context, field, output, src, **params):
+        delay = 1.000
+        mortgageCost = int(context.board[field]["price"] / 2)
+        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oops! {} mortgages {} and receives ${} from the bank!".format(src, context.board[field]["title"], mortgageCost)]}]
+        delay += 1.000
+        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! {} is no longer able to collect rent from or develop on {}!".format(src, context.board[field]["title"])]}]
+        return {"channel":channel, "context":context, "field":field, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatch_part(self, channel, context, output, src, **params): XXX
     def dispatch_part(self, channel, context, output, src, **params):
@@ -277,10 +303,16 @@ class ArabolyOutput(ArabolyTypeClass):
                         houseNumMin = 0 if prop["level"] < 2 else 1
                         for houseNum in range(houseNumMin, prop["houses"][prop["level"]]+1):
                             houses += context.boardStrings[prop["field"]][ArabolyPropSubType.HOUSE][houseLevel][houseNum]
-                    if len(houses):
-                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} (#{}) -- {}, developments: {}".format(prop["colourMiRC"], prop["price"], prop["field"], prop["title"], ", ".join(houses))]}]
+                    if prop["mortgaged"]:
+                        if len(houses):
+                            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} (\u001fMORTGAGED\u001f) (#{}) -- {}, developments: {}".format(prop["colourMiRC"], prop["price"], prop["field"], prop["title"], ", ".join(houses))]}]
+                        else:
+                            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} (\u001fMORTGAGED\u001f) (#{}) -- {}".format(prop["colourMiRC"], prop["price"], prop["field"], prop["title"])]}]
                     else:
-                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} (#{}) -- {}".format(prop["colourMiRC"], prop["price"], prop["field"], prop["title"])]}]
+                        if len(houses):
+                            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} (#{}) -- {}, developments: {}".format(prop["colourMiRC"], prop["price"], prop["field"], prop["title"], ", ".join(houses))]}]
+                        else:
+                            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} (#{}) -- {}".format(prop["colourMiRC"], prop["price"], prop["field"], prop["title"])]}]
             pendingBuyOffers = []; pendingSellOffers = [];
             for tradeKey in context.tradeDict:
                 tradeState = context.tradeDict[tradeKey]

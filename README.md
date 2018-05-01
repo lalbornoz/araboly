@@ -69,6 +69,8 @@ Requires Python >= v3.5.
 * **.mcheat** -- Instantly win the game and steal everyone else's everything
 * **.mdevelop** *field* *level* -- Develop property on *field* at level *level*
 * **.mdice** -- Roll dice, advance player, and process turn
+* **.mlift** *field* -- Lift mortgaged property *field* at the cost of 50% market value and 10% interest
+* **.mmortgage** *field* -- Mortgage *field* property at 50% market value and 10% interest
 * **.moffer** *player* *field* *price* -- Offer/counter-offer to buy/sell *field* from/to *player* at *price*
 * **.mreject** *player* -- Reject last trade offer from *player*
 
