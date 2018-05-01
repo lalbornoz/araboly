@@ -6,22 +6,22 @@
 #
 
 from ArabolyGame import ArabolyGameState
+from ArabolyRtl import ArabolyRandom
 from ArabolyTypeClass import ArabolyTypeClass
-from random import random
 
 class ArabolyDaʕat(ArabolyTypeClass):
     """رب صدفة خير من ألف ميعاد"""
 
     # {{{ dispatch_dice(self, **params): XXX
     def dispatch_dice(self, **params):
-        return {"dice":[int((random() * (6 - 1)) + 1), int((random() * (6 - 1)) + 1)], **params}
+        return {"dice":[ArabolyRandom(max=6, min=1), ArabolyRandom(max=6, min=1)], **params}
     # }}}
     # {{{ dispatchTimer(self, context, output, subtype, **params): XXX
     def dispatchTimer(self, context, output, subtype, **params):
         if subtype == "attract":
             channel = params["channel"]; nextExpire = params["nextExpire"];
             if context.state == ArabolyGameState.ATTRACT:
-                for attractLine in context.attractLinesList[int(random()*len(context.attractLinesList))]:
+                for attractLine in context.attractLinesList[ArabolyRandom(limit=len(context.attractLinesList))]:
                     output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, attractLine.rstrip("\n")]}]
             output += [{"type":"timer", "channel":channel, "expire":nextExpire, "nextExpire":nextExpire, "subtype":"attract"}]
         return {"context":context, "output":output, "subtype":subtype, **params}
