@@ -12,15 +12,15 @@ from fnmatch import fnmatch
 class ArabolyValidate(ArabolyTypeClass):
     """XXX"""
 
-    # {{{ dispatch_accept(self, args, context, status, **params): XXX
-    def dispatch_accept(self, args, context, status, **params):
+    # {{{ dispatch_accept(self, args, context, src, status, **params): XXX
+    def dispatch_accept(self, args, context, src, status, **params):
         if context.state != ArabolyGameState.GAME       \
         or len(args) != 1                               \
-        or not args[0] in context.players:
+        or args[0] == src or not args[0] in context.players:
             status = False
         else:
             params["otherPlayer"] = args[0]
-        return {"args":args, "context":context, "status":status, **params}
+        return {"args":args, "context":context, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_bid(self, args, context, status, **params): XXX
     def dispatch_bid(self, args, context, status, **params):
@@ -111,11 +111,11 @@ class ArabolyValidate(ArabolyTypeClass):
             status = self._authorised(channel, context, srcFull)
         return {"args":args, "channel":channel, "context":context, "srcFull":srcFull, "status":status, **params}
     # }}}
-    # {{{ dispatch_offer(self, args, context, status, **params): XXX
-    def dispatch_offer(self, args, context, status, **params):
+    # {{{ dispatch_offer(self, args, context, src, status, **params): XXX
+    def dispatch_offer(self, args, context, src, status, **params):
         if context.state != ArabolyGameState.GAME                           \
         or len(args) != 3                                                   \
-        or not args[0] in context.players                                   \
+        or args[0] == src or not args[0] in context.players                 \
         or not args[1].isdigit() or not args[2].isdigit():
             status = False
         else:
@@ -127,7 +127,7 @@ class ArabolyValidate(ArabolyTypeClass):
                 status = False
             else:
                 params.update({"otherPlayer":args[0], "field":field, "price":int(args[2])})
-        return {"args":args, "context":context, "status":status, **params}
+        return {"args":args, "context":context, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_part(self, args, context, src, status, **params): XXX
     def dispatch_part(self, args, context, src, status, **params):
@@ -152,15 +152,15 @@ class ArabolyValidate(ArabolyTypeClass):
             status = False
         return {"args":args, "context":context, "src":src, "status":status, **params}
     # }}}
-    # {{{ dispatch_reject(self, args, context, status, **params): XXX
-    def dispatch_reject(self, args, context, status, **params):
+    # {{{ dispatch_reject(self, args, context, src, status, **params): XXX
+    def dispatch_reject(self, args, context, src, status, **params):
         if context.state != ArabolyGameState.GAME       \
         or len(args) != 1                               \
-        or not args[0] in context.players:
+        or args[0] == src or not args[0] in context.players:
             status = False
         else:
             params["otherPlayer"] = args[0]
-        return {"args":args, "context":context, "status":status, **params}
+        return {"args":args, "context":context, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_start(self, args, context, src, status, **params): XXX
     def dispatch_start(self, args, context, src, status, **params):
