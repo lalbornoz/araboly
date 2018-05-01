@@ -58,7 +58,9 @@ class ArabolyOutput(ArabolyTypeClass):
             field = params["newField"]
         else:
             field = context.fields[src]
-        if field >= 0 and field <= 10:
+        if field in context.boardFields:
+            boardLines = context.boardFields[field]
+        elif field >= 0 and field <= 10:
             boardLines = context.boardSouth
         elif field >= 11 and field <= 19:
             boardLines = context.boardWest

@@ -80,6 +80,9 @@ class ArabolyGame(object):
                 else:
                     lineType = getattr(ArabolyGameField, fileFields[0])
                     self.board += [{"type":lineType, "price":int(fileFields[1]), "colour":fileFields[2], "colourMiRC":ArabolyColourMiRCMap[fileFields[2]], "mortgaged":False, "title":fileFields[3], "level":1, "houses":[-1, 0, 0, 0]}]
+        self.boardFields = {}
+        with open("assets/ArabolyBoardField25.irc", "r") as fileObject:
+            self.boardFields[25] = fileObject.readlines()
         with open("assets/ArabolyBoardSouth.irc", "r") as fileObject:
             self.boardSouth = fileObject.readlines()
         with open("assets/ArabolyBoardWest.irc", "r") as fileObject:
