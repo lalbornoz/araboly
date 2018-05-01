@@ -124,26 +124,32 @@ class ArabolyState(ArabolyTypeClass):
         else:
             tradeKeyOld = otherPlayer + "\0" + src
             if tradeKeyOld in context.tradeDict:
-                propFound = False
-                for srcProp in context.properties[src]:
-                    if srcProp["field"] == field:
-                        propFound = True; break;
-                if not propFound:
+                if context.wallets[otherPlayer] <= price:
                     status = False
                 else:
-                    params["delTradeDict"] = [tradeKeyOld]
-                    params["newTradeDict"] = {tradeKeyNew:{"counter":True, "field":field, "price":price, "src":src, "to":otherPlayer, "title":context.board[field]["title"]}}
-                    params["tradeState"] = params["newTradeDict"][tradeKeyNew]
+                    propFound = False
+                    for srcProp in context.properties[src]:
+                        if srcProp["field"] == field:
+                            propFound = True; break;
+                    if not propFound:
+                        status = False
+                    else:
+                        params["delTradeDict"] = [tradeKeyOld]
+                        params["newTradeDict"] = {tradeKeyNew:{"counter":True, "field":field, "price":price, "src":src, "to":otherPlayer, "title":context.board[field]["title"]}}
+                        params["tradeState"] = params["newTradeDict"][tradeKeyNew]
             else:
-                propFound = False
-                for otherProp in context.properties[otherPlayer]:
-                    if otherProp["field"] == field:
-                        propFound = True; break;
-                if not propFound:
+                if context.wallets[src] <= price:
                     status = False
                 else:
-                    params["newTradeDict"] = {tradeKeyNew:{"counter":False, "field":field, "price":price, "src":src, "to":otherPlayer, "title":context.board[field]["title"]}}
-                    params["tradeState"] = params["newTradeDict"][tradeKeyNew]
+                    propFound = False
+                    for otherProp in context.properties[otherPlayer]:
+                        if otherProp["field"] == field:
+                            propFound = True; break;
+                    if not propFound:
+                        status = False
+                    else:
+                        params["newTradeDict"] = {tradeKeyNew:{"counter":False, "field":field, "price":price, "src":src, "to":otherPlayer, "title":context.board[field]["title"]}}
+                        params["tradeState"] = params["newTradeDict"][tradeKeyNew]
         return {"context":context, "field":field, "otherPlayer":otherPlayer, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_part(self, **params): XXX
