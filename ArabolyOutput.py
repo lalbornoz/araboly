@@ -48,7 +48,7 @@ class ArabolyOutput(ArabolyTypeClass):
                 auctionBids = {k:auctionBids[k] for k in auctionBids if k not in params["delAuctionBids"]}
             auctionBidsLeft = [player for player in context.players if player not in auctionBids]
             delay += 1.000
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Potential bidders remaining: {}".format(auctionBidsLeft)]}]
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Potential bidders remaining: {}".format(", ".join(auctionBidsLeft))]}]
         params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "newAuctionBids":newAuctionBids, "newHighestBid":newHighestBid, "newHighestBidder":newHighestBidder, "output":output, "price":price, "src":src, **params}
     # }}}
@@ -236,7 +236,7 @@ class ArabolyOutput(ArabolyTypeClass):
                         auctionBids = {k:auctionBids[k] for k in auctionBids if k not in params["delAuctionBids"]}
                     auctionBidsLeft = [player for player in context.players if player not in auctionBids]
                     delay += 1.000
-                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Potential bidders remaining: {}".format(auctionBidsLeft)]}]
+                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Potential bidders remaining: {}".format(", ".join(auctionBidsLeft))]}]
             else:
                 if params["newAuctionEnd"]:
                     delay += 1.000
