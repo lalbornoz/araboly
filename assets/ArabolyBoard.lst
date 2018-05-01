@@ -430,7 +430,7 @@ PROPERTY	260	PINK		Cave of the Knubbze
 	BUY	1	0	Oh dear! The Knubbze is Hungry :]
 	RENT	1	0	{who} walks past {owner}'s {prop}!
 	RENT	1	0	Oh dear! The Knubbze is Hungry :]
-	RENT	1	0	Oh no! The Knubbze demands ${cost} from {who} for {rands[0}} giraffe meat and {rands[1]} hippopotami!
+	RENT	1	0	Oh no! The Knubbze demands ${cost} from {who} for {rands[0]} giraffe meat and {rands[1]} hippopotami!
 	HOUSE	1	1	The Knubbze is Fat :[
 	BUY	1	1	{owner} feeds The Knubbze {rands[0]} ephelants, {rands[1]} cocodriles, and {rands[2]} mountain goats!
 	BUY	1	1	Oh my! The Knubbze is Fat :[
