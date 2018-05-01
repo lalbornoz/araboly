@@ -83,7 +83,10 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
                     context.inhibitUntil = 0
                 else:
                     return {"args":args, "context":context, "output":output, "src":src, **params}
-            params["cmd"] = args[1].split(" ")[0][2:]
+            if args[1].startswith(".melp?"):    # FUCK YOU PYTHON
+                params["cmd"] = "melp"          # ARAB <- WON; ARAB <- WINNER
+            else:
+                params["cmd"] = args[1].split(" ")[0][2:]
             params["channel"] = args[0].lower()
             params["srcFull"] = src
             src = self.nickMap[src.split("!")[0]]

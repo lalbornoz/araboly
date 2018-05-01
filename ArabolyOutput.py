@@ -70,6 +70,15 @@ class ArabolyOutput(ArabolyTypeClass):
         params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}
+    # {{{ dispatch_cheat(self, channel, cheatChance, cheatFlag, context, output, src, **params): XXX
+    def dispatch_cheat(self, channel, cheatChance, cheatFlag, context, output, src, **params):
+        delay = 0
+        if cheatFlag:
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "AWFOM! {} cheats the system and gains ${}!".format(src, int(cheatChance * 66.666))]}]
+        else:
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "OH NO! {} tried to cheat, got caught, and loses ${}!".format(src, int(cheatChance * 6.666))]}]
+        return {"channel":channel, "cheatChance":cheatChance, "cheatFlag":cheatFlag, "context":context, "output":output, "src":src, **params}
+    # }}}
     # {{{ dispatch_develop(self, channel, context, newDevelopedProperties, output, src, **params): XXX
     def dispatch_develop(self, channel, context, newDevelopedProperties, output, src, **params):
         delay = 0
@@ -216,6 +225,12 @@ class ArabolyOutput(ArabolyTypeClass):
         delay += 0.900
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Yay! {} is now able to collect rent from and develop on {}!".format(src, context.board[field]["title"])]}]
         return {"channel":channel, "context":context, "field":field, "output":output, "src":src, **params}
+    # }}}
+    # {{{ dispatch_melp(self, channel, output, **params): XXX
+    def dispatch_melp(self, channel, output, **params):
+        delay = 0.900
+        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "\u0001ACTION explodes.\u0001"]}]
+        return {"channel":channel, "output":output, **params}
     # }}}
     # {{{ dispatch_mortgage(self, channel, context, field, output, src, **params): XXX
     def dispatch_mortgage(self, channel, context, field, output, src, **params):

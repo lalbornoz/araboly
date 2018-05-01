@@ -6,6 +6,7 @@
 #
 
 from ArabolyGame import ArabolyGameField, ArabolyGameState
+from ArabolyRtl import ArabolyRandom
 from ArabolyTypeClass import ArabolyTypeClass
 
 class ArabolyState(ArabolyTypeClass):
@@ -52,6 +53,16 @@ class ArabolyState(ArabolyTypeClass):
         params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
         params["newProperties"] = {src:[*context.properties[src], {"field":context.fields[src], **context.board[context.fields[src]]}]}
         params["newWallets"] = {src:context.wallets[src] - context.board[context.fields[src]]["price"]}
+        return {"context":context, "src":src, **params}
+    # }}}
+    # {{{ dispatch_cheat(self, context, src, **params): XXX
+    def dispatch_cheat(self, context, src, **params):
+        params["cheatChance"] = ArabolyRandom(limit=100, min=0)
+        params["cheatFlag"] = params["cheatChance"] < 5
+        if params["cheatFlag"]:
+            params["newWallets"] = {src:context.wallets[src] + (int(params["cheatChance"] * 66.666))}
+        else:
+            params["newWallets"] = {src:context.wallets[src] - (int(params["cheatChance"] * 6.666))}
         return {"context":context, "src":src, **params}
     # }}}
     # {{{ dispatch_develop(self, context, newDevelopedProperties, src, **params): XXX
