@@ -10,10 +10,11 @@ import os, sys
 def ArabolyRandom(limit=None, max=None, min=0):
     randomInt = int.from_bytes(os.urandom(1), byteorder=sys.byteorder)
     if max != None:
-        return (randomInt + min) % (max + 1)
+        limit = max + 1
     elif limit != None:
-        return (randomInt + min) % limit
+        limit = limit
     else:
         raise ValueError
+    return (randomInt % (limit - min)) + min
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=120
