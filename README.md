@@ -26,6 +26,7 @@
 **Everyone's favourite board game... with IRC support and fancy colours! (WORK IN PROGRESS)**  
 Copyright (c) 2018 Lucía Andrea Illanes Albornoz <<lucia@luciaillanes.de>>  
 This project is licensed under the terms of the MIT licence.
+![Screenshot](https://raw.githubusercontent.com/lalbornoz/araboly/master/assets/ArabolyBoardSouth.png "Screenshot")
 
 ### How to run:
 ```
