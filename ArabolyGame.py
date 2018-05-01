@@ -60,7 +60,7 @@ class ArabolyGame(object):
         self.auctionBids = {}; self.auctionProperty = {};
         self.clientParams = {}; self.clientUaf = [];
         self.playerCur = -1; self.players = []; self.playersMax = -1; self.tradeDict = {};
-        self.board = []; self.boardStrings = nested_dict(); self.boardTmp = [];
+        self.board = []; self.boardStrings = nested_dict();
         self.fields = {}; self.properties = {}; self.state = ArabolyGameState.ATTRACT; self.wallets = {};
         self.inhibitUntil = 0
         self.board.clear()
@@ -80,8 +80,14 @@ class ArabolyGame(object):
                 else:
                     lineType = getattr(ArabolyGameField, fileFields[0])
                     self.board += [{"type":lineType, "price":int(fileFields[1]), "colour":fileFields[2], "colourMiRC":ArabolyColourMiRCMap[fileFields[2]], "mortgaged":False, "title":fileFields[3], "level":1, "houses":[-1, 0, 0, 0]}]
-        with open("assets/ArabolyBoard.irc", "r") as fileObject:
-            self.boardTmp = fileObject.readlines()
+        with open("assets/ArabolyBoardSouth.irc", "r") as fileObject:
+            self.boardSouth = fileObject.readlines()
+        with open("assets/ArabolyBoardWest.irc", "r") as fileObject:
+            self.boardWest = fileObject.readlines()
+        with open("assets/ArabolyBoardNorth.irc", "r") as fileObject:
+            self.boardNorth = fileObject.readlines()
+        with open("assets/ArabolyBoardEast.irc", "r") as fileObject:
+            self.boardEast = fileObject.readlines()
         with open("assets/ArabolyAttract.irc", "r") as fileObject:
             self.attractLinesList = "".join(fileObject.readlines()).split("\n")
             self.attractLinesList = [x[:-1].split("\n") for x in self.attractLinesList]

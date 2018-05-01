@@ -52,11 +52,23 @@ class ArabolyOutput(ArabolyTypeClass):
         params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "newAuctionBids":newAuctionBids, "newHighestBid":newHighestBid, "newHighestBidder":newHighestBidder, "output":output, "price":price, "src":src, **params}
     # }}}
-    # {{{ dispatch_board(self, channel, context, output, **params): XXX
-    def dispatch_board(self, channel, context, output, **params):
-        for boardLine in context.boardTmp:
+    # {{{ dispatch_board(self, channel, context, src, output, **params): XXX
+    def dispatch_board(self, channel, context, src, output, **params):
+        if "newField" in params:
+            field = params["newField"]
+        else:
+            field = context.fields[src]
+        if field >= 0 and field <= 10:
+            boardLines = context.boardSouth
+        elif field >= 11 and field <= 19:
+            boardLines = context.boardWest
+        elif field >= 20 and field <= 30:
+            boardLines = context.boardNorth
+        elif field >= 31 and field <= 39:
+            boardLines = context.boardEast
+        for boardLine in boardLines:
             output += [{"type":"message", "delay":0, "logLevel":ArabolyLogLevel.LOG_DEBUG, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
-        return {"channel":channel, "context":context, "output":output, **params}
+        return {"channel":channel, "context":context, "src":src, "output":output, **params}
     # }}}
     # {{{ dispatch_buy(self, channel, context, output, src, **params): XXX
     def dispatch_buy(self, channel, context, output, src, **params):
@@ -123,8 +135,7 @@ class ArabolyOutput(ArabolyTypeClass):
         else:
             delay = 0
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} rolls {} and {}!".format(src, dice[0], dice[1])]}]
-        for boardLine in context.boardTmp:
-            output += [{"type":"message", "delay":0, "logLevel":ArabolyLogLevel.LOG_DEBUG, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
+        params = self.dispatch_board(channel, context, output, **{"newField":newField, **params})
         if newFieldPastGo:
             delay += 0.900
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Yay! {} passes past GO and collects $200!".format(src)]}]
