@@ -64,7 +64,9 @@ class ArabolyIrcBot(object):
                         if arabolyIrcBot.options["debug"]:
                             gameSnapshot = copy.deepcopy(arabolyIrcBot.typeDict[ArabolyGame])
                         game = arabolyIrcBot.typeDict[ArabolyGame]
-                        unit = ArabolyMonad(context=game, output=[], status=True, **eventIn)
+                        unit = ArabolyMonad(context=game,                           \
+                                debug=arabolyIrcBot.options["debug"],               \
+                                output=[], status=True, **eventIn)
                         unit = unit                                                 \
                                 >> ArabolyIrcBot.typeDict[ArabolyIrcToCommandMap]   \
                                 >> ArabolyIrcBot.typeDict[ArabolyValidate]          \
