@@ -91,7 +91,7 @@ class ArabolyLogic(ArabolyTypeClass):
             if not params["newFieldOwned"]:
                 srcWallet = context.wallets[src]
                 if params["newFieldPastGo"]:
-                    srcWallet += 1500
+                    srcWallet += 200
                 if srcWallet > context.board[newField]["price"]:
                     params["newFieldBuyable"] = True
         params["newField"] = newField
