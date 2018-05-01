@@ -298,6 +298,7 @@ class ArabolyOutput(ArabolyTypeClass):
                 output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Pending buy offers: {}".format(", ".join(pendingBuyOffers))]}]
             if len(pendingSellOffers):
                 output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Pending buy counter-offers: {}".format(", ".join(pendingSellOffers))]}]
+            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Current field for {}: {}".format(src, context.fields[src])]}]
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Current turn: {}".format(context.players[context.playerCur])]}]
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}
