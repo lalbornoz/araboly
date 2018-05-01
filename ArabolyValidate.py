@@ -5,13 +5,23 @@
 # This project is licensed under the terms of the MIT licence.
 #
 
-from ArabolyGame import ArabolyGameState
+from ArabolyGame import ArabolyGameField, ArabolyGameState
 from ArabolyTypeClass import ArabolyTypeClass
 from fnmatch import fnmatch
 
 class ArabolyValidate(ArabolyTypeClass):
     """XXX"""
 
+    # {{{ dispatch_accept(self, args, context, status, **params): XXX
+    def dispatch_accept(self, args, context, status, **params):
+        if context.state != ArabolyGameState.GAME       \
+        or len(args) != 1                               \
+        or not args[0] in context.players:
+            status = False
+        else:
+            params["otherPlayer"] = args[0]
+        return {"args":args, "context":context, "status":status, **params}
+    # }}}
     # {{{ dispatch_bid(self, args, context, status, **params): XXX
     def dispatch_bid(self, args, context, status, **params):
         if context.state != ArabolyGameState.AUCTION    \
@@ -53,14 +63,21 @@ class ArabolyValidate(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_develop(self, args, context, status, **params): XXX
     def dispatch_develop(self, args, context, status, **params):
-        if  context.state != ArabolyGameState.GAME      \
+        if  context.state != ArabolyGameState.GAME                          \
         and context.state != ArabolyGameState.PROPERTY:
             status = False
-        elif len(args) != 2                             \
+        elif len(args) != 2                                                 \
         or   not args[0].isdigit() or not args[1].isdigit():
             status = False
         else:
-            params.update({"field":int(args[0]), "level":int(args[1])})
+            field = int(args[0])
+            if field >= len(context.board):
+                status = False
+            elif context.board[field]["type"] != ArabolyGameField.PROPERTY  \
+            and  context.board[field]["type"] != ArabolyGameField.UTILITY:
+                status = False
+            else:
+                params.update({"field":field, "level":int(args[1])})
         return {"args":args, "context":context, "status":status, **params}
     # }}}
     # {{{ dispatch_dice(self, args, context, src, status, **params): XXX
@@ -94,6 +111,24 @@ class ArabolyValidate(ArabolyTypeClass):
             status = self._authorised(channel, context, srcFull)
         return {"args":args, "channel":channel, "context":context, "srcFull":srcFull, "status":status, **params}
     # }}}
+    # {{{ dispatch_offer(self, args, context, status, **params): XXX
+    def dispatch_offer(self, args, context, status, **params):
+        if context.state != ArabolyGameState.GAME                           \
+        or len(args) != 3                                                   \
+        or not args[0] in context.players                                   \
+        or not args[1].isdigit() or not args[2].isdigit():
+            status = False
+        else:
+            field = int(args[1])
+            if field >= len(context.board):
+                status = False
+            elif context.board[field]["type"] != ArabolyGameField.PROPERTY  \
+            and  context.board[field]["type"] != ArabolyGameField.UTILITY:
+                status = False
+            else:
+                params.update({"otherPlayer":args[0], "field":field, "price":int(args[2])})
+        return {"args":args, "context":context, "status":status, **params}
+    # }}}
     # {{{ dispatch_part(self, args, context, src, status, **params): XXX
     def dispatch_part(self, args, context, src, status, **params):
         if  context.state != ArabolyGameState.SETUP     \
@@ -116,6 +151,16 @@ class ArabolyValidate(ArabolyTypeClass):
         elif len(args):
             status = False
         return {"args":args, "context":context, "src":src, "status":status, **params}
+    # }}}
+    # {{{ dispatch_reject(self, args, context, status, **params): XXX
+    def dispatch_reject(self, args, context, status, **params):
+        if context.state != ArabolyGameState.GAME       \
+        or len(args) != 1                               \
+        or not args[0] in context.players:
+            status = False
+        else:
+            params["otherPlayer"] = args[0]
+        return {"args":args, "context":context, "status":status, **params}
     # }}}
     # {{{ dispatch_start(self, args, context, src, status, **params): XXX
     def dispatch_start(self, args, context, src, status, **params):

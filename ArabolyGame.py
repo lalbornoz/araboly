@@ -59,7 +59,7 @@ class ArabolyGame(object):
     def __init__(self, **kwargs):
         self.auctionBids = {}; self.auctionProperty = {};
         self.clientParams = {}; self.clientUaf = [];
-        self.playerCur = -1; self.players = []; self.playersMax = -1;
+        self.playerCur = -1; self.players = []; self.playersMax = -1; self.tradeDict = {};
         self.board = []; self.boardStrings = nested_dict(); self.boardTmp = [];
         self.fields = {}; self.properties = {}; self.state = ArabolyGameState.ATTRACT; self.wallets = {};
         self.inhibitUntil = 0
