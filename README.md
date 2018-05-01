@@ -64,10 +64,13 @@ Requires Python >= v3.5.
 * **.mjoin** -- Join current game
 
 ### In-game IRC commands:
+* **.maccept** *player* -- Accept last trade offer from *player*
 * **.mboard** -- Display game board
 * **.mcheat** -- Instantly win the game and steal everyone else's everything
 * **.mdevelop** *field* *level* -- Develop property on *field* at level *level*
 * **.mdice** -- Roll dice, advance player, and process turn
+* **.moffer** *player* *field* *price* -- Offer/counter-offer to buy/sell *field* from/to *player* at *price*
+* **.mreject** *player* -- Reject last trade offer from *player*
 
 ### Property mode IRC commands:
 * **.mbuy** -- Buy offered property

@@ -14,6 +14,20 @@ import time
 class ArabolyOutput(ArabolyTypeClass):
     """XXX"""
 
+    # {{{ dispatch_accept(self, channel, output, tradeState, **params): XXX
+    def dispatch_accept(self, channel, output, tradeState, **params):
+        if tradeState["counter"]:
+            delay = 0.750
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Yay! {} accepts your counter-offer to buy {} at ${}!".format(tradeState["src"], tradeState["to"], tradeState["title"], tradeState["price"])]}]
+            propTo = tradeState["to"]
+        else:
+            delay = 0.750
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Yay! {} accepts your offer to buy {} at ${}!".format(tradeState["src"], tradeState["to"], tradeState["title"], tradeState["price"])]}]
+            propTo = tradeState["src"]
+        delay += 0.750
+        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Awfom! {} buys {} for ${}!".format(propTo, tradeState["title"], tradeState["price"])]}]
+        return {"channel":channel, "output":output, "tradeState":tradeState, **params}
+    # }}}
     # {{{ dispatch_bid(self, channel, context, newAuctionBids, newHighestBid, newHighestBidder, output, price, src, **params): XXX
     def dispatch_bid(self, channel, context, newAuctionBids, newHighestBid, newHighestBidder, output, price, src, **params):
         delay = 0.750
@@ -79,7 +93,26 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_dice(self, channel, context, dice, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, newPlayerCur, output, src, **params): XXX
     def dispatch_dice(self, channel, context, dice, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, newPlayerCur, output, src, **params):
-        delay = 0.750
+        cancelTradeOutput = []
+        for tradeKey in context.tradeDict:
+            tradeState = context.tradeDict[tradeKey]
+            if tradeKey.startswith(src + "\0"):
+                if tradeState["counter"]:
+                    cancelTradeOutput += ["{}: cancelling outstanding buy counter-offer of {} to {} for {}!".format(src, tradeState["title"], tradeState["to"], tradeState["price"])]
+                else:
+                    cancelTradeOutput += ["{}: cancelling outstanding buy offer of {} from {} for {}!".format(src, tradeState["title"], tradeState["to"], tradeState["price"])]
+            elif tradeKey.endswith("\0" + src):
+                if tradeState["counter"]:
+                    cancelTradeOutput += ["{}: cancelling outstanding buy counter-offer of {} from {} for {}!".format(src, tradeState["title"], tradeState["src"], tradeState["price"])]
+                else:
+                    cancelTradeOutput += ["{}: cancelling outstanding buy offer of {} to {} for {}!".format(src, tradeState["title"], tradeState["src"], tradeState["price"])]
+        if len(cancelTradeOutput):
+            delay = 0
+            for msg in cancelTradeOutput:
+                delay += 0.750
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, msg]}]
+        else:
+            delay = 0.750
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} rolls {} and {}!".format(src, dice[0], dice[1])]}]
         for boardLine in context.boardTmp:
             output += [{"type":"message", "delay":0, "logLevel":ArabolyLogLevel.LOG_DEBUG, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
@@ -157,6 +190,16 @@ class ArabolyOutput(ArabolyTypeClass):
         params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "otherPlayer":otherPlayer, "output":output, **params}
     # }}}
+    # {{{ dispatch_offer(self, channel, output, tradeState, **params): XXX
+    def dispatch_offer(self, channel, output, tradeState, **params):
+        if tradeState["counter"]:
+            delay = 0.750
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: {} counter-offers to sell {} to you at ${}! Accept, counter-offer, or reject?".format(tradeState["to"], tradeState["src"], tradeState["title"], tradeState["price"])]}]
+        else:
+            delay = 0.750
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: {} offers to buy {} from you at ${}! Accept, counter-offer, or reject?".format(tradeState["to"], tradeState["src"], tradeState["title"], tradeState["price"])]}]
+        return {"channel":channel, "output":output, "tradeState":tradeState, **params}
+    # }}}
     # {{{ dispatch_part(self, channel, context, output, src, **params): XXX
     def dispatch_part(self, channel, context, output, src, **params):
         delay = 0.750
@@ -206,6 +249,12 @@ class ArabolyOutput(ArabolyTypeClass):
         params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}
+    # {{{ dispatch_reject(self, channel, output, tradeState, **params): XXX
+    def dispatch_reject(self, channel, output, tradeState, **params):
+        delay = 0.750
+        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Oh no! {} rejects your offer to buy {} at ${}!".format(tradeState["src"], tradeState["to"], tradeState["title"], tradeState["price"])]}]
+        return {"channel":channel, "output":output, "tradeState":tradeState, **params}
+    # }}}
     # {{{ dispatch_start(self, channel, context, output, players, src, **params): XXX
     def dispatch_start(self, channel, context, output, players, src, **params):
         output += [{"type":"message", "delay":0.750, "cmd":"PRIVMSG", "args":[channel, "Starting Araboly game with {} players!".format(players)]}]
@@ -232,6 +281,23 @@ class ArabolyOutput(ArabolyTypeClass):
                         output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} -- {}, developments: {}".format(prop["colourMiRC"], prop["price"], prop["title"], ", ".join(houses))]}]
                     else:
                         output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} -- {}".format(prop["colourMiRC"], prop["price"], prop["title"])]}]
+            pendingBuyOffers = []; pendingSellOffers = [];
+            for tradeKey in context.tradeDict:
+                tradeState = context.tradeDict[tradeKey]
+                if tradeKey.startswith(src + "\0"):
+                    if tradeState["counter"]:
+                        pendingSellOffers += ["{} to {} for {}".format(tradeState["title"], tradeState["to"], tradeState["price"])]
+                    else:
+                        pendingBuyOffers += ["{} from {} for {}".format(tradeState["title"], tradeState["to"], tradeState["price"])]
+                elif tradeKey.endswith("\0" + src):
+                    if tradeState["counter"]:
+                        pendingSellOffers += ["{} from {} for {}".format(tradeState["title"], tradeState["src"], tradeState["price"])]
+                    else:
+                        pendingBuyOffers += ["{} to {} for {}".format(tradeState["title"], tradeState["src"], tradeState["price"])]
+            if len(pendingBuyOffers):
+                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Pending buy offers: {}".format(", ".join(pendingBuyOffers))]}]
+            if len(pendingSellOffers):
+                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Pending buy counter-offers: {}".format(", ".join(pendingSellOffers))]}]
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Current turn: {}".format(context.players[context.playerCur])]}]
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}

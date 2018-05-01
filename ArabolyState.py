@@ -11,6 +11,25 @@ from ArabolyTypeClass import ArabolyTypeClass
 class ArabolyState(ArabolyTypeClass):
     """XXX"""
 
+    # {{{ dispatch_accept(self, context, otherPlayer, src, status, **params): XXX
+    def dispatch_accept(self, context, otherPlayer, src, status, **params):
+        tradeKey = otherPlayer + "\0" + src
+        if tradeKey not in context.tradeDict:
+            status = False
+        else:
+            params["delTradeDict"] = [tradeKey]
+            tradeState = context.tradeDict[tradeKey]; params["tradeState"] = tradeState;
+            if tradeState["counter"]:
+                propSrc = tradeState["src"]; propTo = tradeState["to"];
+            else:
+                propSrc = tradeState["to"]; propTo = tradeState["src"];
+            params["newProperties"] = {}; params["newWallets"] = {};
+            params["newProperties"][propSrc] = [p for p in context.properties[propSrc] if p["field"] != tradeState["field"]]
+            params["newProperties"][propTo] = [*context.properties[propTo], {"field":tradeState["field"], **context.board[tradeState["field"]]}]
+            params["newWallets"][propSrc] = context.wallets[propSrc] + context.tradeDict[tradeKey]["price"]
+            params["newWallets"][propTo] = context.wallets[propTo] - context.tradeDict[tradeKey]["price"]
+        return {"context":context, "otherPlayer":otherPlayer, "src":src, "status":status, **params}
+    # }}}
     # {{{ dispatch_bid(self, context, newAuctionEnd, price, src, **params): XXX
     def dispatch_bid(self, context, newAuctionEnd, price, src, **params):
         params["delAuctionBids"] = []
@@ -47,6 +66,13 @@ class ArabolyState(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_dice(self, context, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, src, **params): XXX
     def dispatch_dice(self, context, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, src, **params):
+        params["delTradeDict"] = []
+        for tradeKey in context.tradeDict:
+            tradeState = context.tradeDict[tradeKey]
+            if tradeKey.startswith(src + "\0"):
+                params["delTradeDict"] += [tradeKey]
+            elif tradeKey.endswith("\0" + src):
+                params["delTradeDict"] += [tradeKey]
         params["newPlayerCur"] = context.playerCur; params["newWallets"] = {};
         if newFieldPastGo:
             params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
@@ -90,6 +116,36 @@ class ArabolyState(ArabolyTypeClass):
     def dispatch_kick(self, **params):
         return self._dispatch_remove(**params)
     # }}}
+    # {{{ dispatch_offer(self, context, field, otherPlayer, price, src, status, **params): XXX
+    def dispatch_offer(self, context, field, otherPlayer, price, src, status, **params):
+        tradeKeyNew = src + "\0" + otherPlayer
+        if tradeKeyNew in context.tradeDict:
+            status = False
+        else:
+            tradeKeyOld = otherPlayer + "\0" + src
+            if tradeKeyOld in context.tradeDict:
+                propFound = False
+                for srcProp in context.properties[src]:
+                    if srcProp["field"] == field:
+                        propFound = True; break;
+                if not propFound:
+                    status = False
+                else:
+                    params["delTradeDict"] = [tradeKeyOld]
+                    params["newTradeDict"] = {tradeKeyNew:{"counter":True, "field":field, "price":price, "src":src, "to":otherPlayer, "title":context.board[field]["title"]}}
+                    params["tradeState"] = params["newTradeDict"][tradeKeyNew]
+            else:
+                propFound = False
+                for otherProp in context.properties[otherPlayer]:
+                    if otherProp["field"] == field:
+                        propFound = True; break;
+                if not propFound:
+                    status = False
+                else:
+                    params["newTradeDict"] = {tradeKeyNew:{"counter":False, "field":field, "price":price, "src":src, "to":otherPlayer, "title":context.board[field]["title"]}}
+                    params["tradeState"] = params["newTradeDict"][tradeKeyNew]
+        return {"context":context, "field":field, "otherPlayer":otherPlayer, "src":src, "status":status, **params}
+    # }}}
     # {{{ dispatch_part(self, **params): XXX
     def dispatch_part(self, **params):
         return self._dispatch_remove(**params)
@@ -111,6 +167,16 @@ class ArabolyState(ArabolyTypeClass):
                     params["newProperties"] = {highestBidder:[*context.properties[highestBidder], propField]}
                     params["newWallets"] = {highestBidder:context.wallets[highestBidder] - highestBid}
         return {"context":context, "src":src, **params}
+    # }}}
+    # {{{ dispatch_reject(self, context, otherPlayer, src, **params): XXX
+    def dispatch_reject(self, context, otherPlayer, src, status, **params):
+        tradeKey = otherPlayer + "\0" + src
+        if tradeKey not in context.tradeDict:
+            status = False
+        else:
+            params["delTradeDict"] = [tradeKey]
+            params["tradeState"] = context.tradeDict[tradeKey]
+        return {"context":context, "otherPlayer":otherPlayer, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_start(self, context, players, **params): XXX
     def dispatch_start(self, context, players, **params):
