@@ -79,7 +79,7 @@ class ArabolyGame(object):
                     self.boardStrings[propIdx][propSubType][levelNum][houseNum] += [msg]
                 else:
                     lineType = getattr(ArabolyGameField, fileFields[0])
-                    self.board += [{"type":lineType, "price":int(fileFields[1]), "colour":fileFields[2], "colourMiRC":ArabolyColourMiRCMap[fileFields[2]], "title":fileFields[3], "level":1, "houses":[-1, 0, 0, 0]}]
+                    self.board += [{"type":lineType, "price":int(fileFields[1]), "colour":fileFields[2], "colourMiRC":ArabolyColourMiRCMap[fileFields[2]], "mortgaged":False, "title":fileFields[3], "level":1, "houses":[-1, 0, 0, 0]}]
         with open("assets/ArabolyBoard.irc", "r") as fileObject:
             self.boardTmp = fileObject.readlines()
         with open("assets/ArabolyAttract.irc", "r") as fileObject:
