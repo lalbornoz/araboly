@@ -228,9 +228,9 @@ class ArabolyOutput(ArabolyTypeClass):
                         for houseNum in range(houseNumMin, prop["houses"][prop["level"]]+1):
                             houses += context.boardStrings[prop["field"]][ArabolyPropSubType.HOUSE][houseLevel][houseNum]
                     if len(houses):
-                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "${} -- {}, developments: {}".format(prop["price"], prop["title"], ", ".join(houses))]}]
+                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} -- {}, developments: {}".format(prop["colourMiRC"], prop["price"], prop["title"], ", ".join(houses))]}]
                     else:
-                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "${} -- {}".format(prop["price"], prop["title"])]}]
+                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} -- {}".format(prop["colourMiRC"], prop["price"], prop["title"])]}]
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Current turn: {}".format(context.players[context.playerCur])]}]
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
     # }}}
