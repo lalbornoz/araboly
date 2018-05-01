@@ -278,9 +278,9 @@ class ArabolyOutput(ArabolyTypeClass):
                         for houseNum in range(houseNumMin, prop["houses"][prop["level"]]+1):
                             houses += context.boardStrings[prop["field"]][ArabolyPropSubType.HOUSE][houseLevel][houseNum]
                     if len(houses):
-                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} -- {}, developments: {}".format(prop["colourMiRC"], prop["price"], prop["title"], ", ".join(houses))]}]
+                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} (#{}) -- {}, developments: {}".format(prop["colourMiRC"], prop["price"], prop["field"], prop["title"], ", ".join(houses))]}]
                     else:
-                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} -- {}".format(prop["colourMiRC"], prop["price"], prop["title"])]}]
+                        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} (#{}) -- {}".format(prop["colourMiRC"], prop["price"], prop["field"], prop["title"])]}]
             pendingBuyOffers = []; pendingSellOffers = [];
             for tradeKey in context.tradeDict:
                 tradeState = context.tradeDict[tradeKey]
