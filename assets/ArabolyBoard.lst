@@ -152,7 +152,7 @@ PROPERTY	140	DARK_GREEN	Schizophrenia
 	BUY	1	1	{owner} buys Negative Symptoms on {prop}!
 	BUY	1	1	Oh my! {owner}'s Schizophrenia is starting!
 	BUY	1	1	Oh no! {owner} can't be arsed to finish the rest of this sente
-	BUY	1	1	{owner} ${cost} {prop} whatever
+	BUY	1	1	{owner} whatever {prop} wnt2die
 	RENT	1	1	Oops! {who} is sucked into {owner}'s black hole of Negative Symptoms!
 	RENT	1	1	Oh my! {who} can't be arsed to finish the rest of thi
 	RENT	1	1	${cost} {who} cba {owner}
