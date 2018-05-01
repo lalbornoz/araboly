@@ -1,4 +1,5 @@
 General IRC commands:
+* .melp? -- explodes.
 * .mhelp -- Display help screen
 * .mpart -- Leave current game
 * .mstatus -- Display game and player status

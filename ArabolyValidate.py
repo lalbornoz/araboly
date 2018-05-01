@@ -50,16 +50,15 @@ class ArabolyValidate(ArabolyTypeClass):
             status = False
         return {"args":args, "context":context, "src":src, "status":status, **params}
     # }}}
-    # {{{ dispatch_cheat(self, args, context, status, **params): XXX
-    def dispatch_cheat(self, args, context, status, **params):
+    # {{{ dispatch_cheat(self, args, context, src, status, **params): XXX
+    def dispatch_cheat(self, args, context, src, status, **params):
         if  context.state != ArabolyGameState.GAME          \
         and context.state != ArabolyGameState.PROPERTY      \
         and context.state != ArabolyGameState.AUCTION:
             status = False
-        elif context.players[context.playerCur] != player   \
-        or   len(args):
+        elif context.players[context.playerCur] != src:
             status = False
-        return {"args":args, "context":context, "status":status, **params}
+        return {"args":args, "context":context, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_develop(self, args, context, status, **params): XXX
     def dispatch_develop(self, args, context, status, **params):
