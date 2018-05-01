@@ -7,8 +7,9 @@
 
 from ArabolyGame import ArabolyGameField, ArabolyPropSubType, ArabolyGameState
 from ArabolyLog import ArabolyLogLevel
+from ArabolyRtl import ArabolyRandom
 from ArabolyTypeClass import ArabolyTypeClass
-import random, time
+import time
 
 class ArabolyOutput(ArabolyTypeClass):
     """XXX"""
@@ -47,7 +48,7 @@ class ArabolyOutput(ArabolyTypeClass):
     def dispatch_buy(self, channel, context, output, src, **params):
         delay = 0.750
         for buyString in context.boardStrings[context.fields[src]][ArabolyPropSubType.BUY][1][0]:
-            rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
+            rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
             delay += 0.750
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, buyString.format(owner=src, prop=context.board[context.fields[src]]["title"], rands=rands)]}]
         delay += 0.750
@@ -61,16 +62,16 @@ class ArabolyOutput(ArabolyTypeClass):
         for newDevProp in newDevelopedProperties:
             if len(newDevelopedProperties) > 1:
                 for developString in context.boardStrings[newDevProp["field"]][ArabolyPropSubType.BUY][newDevProp["level"] - 1][newDevProp["houses"][newDevProp["level"] - 1]]:
-                    rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
+                    rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                     delay += 0.750
                     output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, developString.format(owner=src, prop=context.board[newDevProp["field"]]["title"], rands=rands)]}]
                 for levelString in context.boardStrings[newDevProp["field"]][ArabolyPropSubType.LEVEL][newDevProp["level"] - 1][newDevProp["houses"][newDevProp["level"] - 1]]:
-                    rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
+                    rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                     delay += 0.750
                     output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, levelString.format(owner=src, rands=rands)]}]
             else:
                 for developString in context.boardStrings[newDevProp["field"]][ArabolyPropSubType.BUY][newDevProp["level"]][newDevProp["houses"][newDevProp["level"]]]:
-                    rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
+                    rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                     delay += 0.750
                     output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, developString.format(owner=src, prop=context.board[newDevProp["field"]]["title"], rands=rands)]}]
         params["newInhibitUntil"] = time.time() + delay
@@ -119,7 +120,7 @@ class ArabolyOutput(ArabolyTypeClass):
                             if playerProp["field"] == newField:
                                 propOwner = player; break;
                     for rentString in context.boardStrings[newField][ArabolyPropSubType.RENT][playerProp["level"]][playerProp["houses"][playerProp["level"]]]:
-                        rands = [int((random.random() * (150 - 5)) + 5) for x in range(10)]
+                        rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                         delay += 0.750
                         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, rentString.format(cost=params["newPropRent"], owner=propOwner, prop=context.board[newField]["title"], rands=rands, who=src)]}]
         if newPlayerCur != context.playerCur:
