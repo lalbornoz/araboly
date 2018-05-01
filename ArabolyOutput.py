@@ -91,6 +91,17 @@ class ArabolyOutput(ArabolyTypeClass):
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "AWFOM! {} cheats the system and gains ${}!".format(src, int(cheatChance * 66.666))]}]
         else:
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "OH NO! {} tried to cheat, got caught, and loses ${}!".format(src, int(cheatChance * 6.666))]}]
+            if "newPlayerBankrupt" in params:
+                delay += 0.900
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! {} has gone bankrupt!".format(src)]}]
+                delay += 0.900
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Player {} parts Araboly game!".format(src)]}]
+                if "newPlayers" in params and params["newPlayers"] == []:
+                    delay += 0.900
+                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! Someone won but arab can't be arsed to write corresponding message strings!"]}]
+                    delay += 0.900
+                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Stopping current Araboly game!"]}]
+                    return {"channel":channel, "cheatChance":cheatChance, "cheatFlag":cheatFlag, "context":context, "output":output, "src":src, **params}
         return {"channel":channel, "cheatChance":cheatChance, "cheatFlag":cheatFlag, "context":context, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatch_develop(self, channel, context, newDevelopedProperties, output, src, **params): XXX

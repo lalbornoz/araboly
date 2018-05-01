@@ -63,6 +63,9 @@ class ArabolyState(ArabolyTypeClass):
             params["newWallets"] = {src:context.wallets[src] + (int(params["cheatChance"] * 66.666))}
         else:
             params["newWallets"] = {src:context.wallets[src] - (int(params["cheatChance"] * 6.666))}
+        if params["newWallets"][src] <= 0:
+            params["newPlayerBankrupt"] = True
+            return self._dispatch_remove(**{"context":context, "src":src, **params})
         return {"context":context, "src":src, **params}
     # }}}
     # {{{ dispatch_develop(self, context, newDevelopedProperties, src, **params): XXX
