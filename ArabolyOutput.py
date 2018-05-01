@@ -135,7 +135,7 @@ class ArabolyOutput(ArabolyTypeClass):
         else:
             delay = 0
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} rolls {} and {}!".format(src, dice[0], dice[1])]}]
-        params = self.dispatch_board(channel, context, output, **{"newField":newField, **params})
+        params = self.dispatch_board(channel, context, src, output, **{"newField":newField, **params})
         if newFieldPastGo:
             delay += 0.900
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Yay! {} passes past GO and collects $200!".format(src)]}]
