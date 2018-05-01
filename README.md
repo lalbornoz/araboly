@@ -62,7 +62,9 @@ Requires Python >= v3.5.
 
 ### Attract mode IRC commands:
 * **.mstart** *players* -- Start new game with *players* players
-* **.mjoin** -- Join current game
+
+### Game setup mode IRC commands:
+* **.mjoin** -- Join game
 
 ### In-game IRC commands:
 * **.maccept** *player* -- Accept last trade offer from *player*
