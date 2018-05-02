@@ -220,12 +220,6 @@ class ArabolyOutput(ArabolyTypeClass):
         params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "dice":dice, "output":output, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "newPlayerCur":newPlayerCur, "src":src, **params}
     # }}}
-    # {{{ dispatch_explosion(self, context, channel, output, **params): XXX
-    def dispatch_explosion(self, context, channel, output, **params):
-        for explosionLine in context.explosion:
-            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, explosionLine]}]
-        return {"context":context, "channel":channel, "output":output, **params}
-    # }}}
     # {{{ dispatch_help(self, channel, output, **params): XXX
     def dispatch_help(self, channel, output, **params):
         for helpLine in self.helpLines:
@@ -279,11 +273,12 @@ class ArabolyOutput(ArabolyTypeClass):
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Yay! {} is now able to collect rent from and develop on {}!".format(src, context.board[field]["title"])]}]
         return {"channel":channel, "context":context, "field":field, "output":output, "src":src, **params}
     # }}}
-    # {{{ dispatch_melp(self, channel, output, **params): XXX
-    def dispatch_melp(self, channel, output, **params):
-        delay = 0.900
-        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "\u0001ACTION explodes.\u0001"]}]
-        return {"channel":channel, "output":output, **params}
+    # {{{ dispatch_melp(self, context, channel, output, **params): XXX
+    def dispatch_melp(self, context, channel, output, **params):
+        for explosionLine in context.explosion:
+            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, explosionLine]}]
+        output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0001ACTION explodes.\u0001"]}]
+        return {"context":context, "channel":channel, "output":output, **params}
     # }}}
     # {{{ dispatch_mortgage(self, channel, context, field, output, src, **params): XXX
     def dispatch_mortgage(self, channel, context, field, output, src, **params):
