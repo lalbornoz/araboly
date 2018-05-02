@@ -84,3 +84,6 @@ Requires Python >= v3.5.
 ### Auction mode IRC commands:
 * **.mbid** *price* -- Bid on property at *price*
 * **.mpass** -- Pass on property
+
+### Bankruptcy mode IRC commands:
+* **.mmortgage** *field* -- Mortgage *field* property at 50% market value and 10% interest

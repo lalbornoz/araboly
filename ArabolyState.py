@@ -60,7 +60,7 @@ class ArabolyState(ArabolyTypeClass):
             params["newWallets"] = {src:context.wallets[src] - (int(params["cheatChance"] * 6.666))}
         if params["newWallets"][src] <= 0:
             params["newPlayerBankrupt"] = True
-            return self._dispatch_remove(**{"context":context, "src":src, **params})
+            return self._dispatch_bankrupt(**{"context":context, "src":src, **params})
         return {"context":context, "src":src, **params}
     # }}}
     # {{{ dispatch_develop(self, context, newDevelopedProperties, src, **params): XXX
@@ -108,13 +108,13 @@ class ArabolyState(ArabolyTypeClass):
                         params["newWallets"] = {src:context.wallets[src] - params["newPropRent"], propOwner:context.wallets[propOwner] + params["newPropRent"]}
                         if params["newWallets"][src] <= 0:
                             params["newPlayerBankrupt"] = True
-                            return self._dispatch_remove(**{"context":context, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "src":src, **params})
+                            return self._dispatch_bankrupt(**{"context":context, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "src":src, **params})
         elif context.board[newField]["type"] == ArabolyGameField.TAX:
             params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
             params["newWallets"] = {src:context.wallets[src] - context.board[newField]["price"]}
             if params["newWallets"][src] <= 0:
                 params["newPlayerBankrupt"] = True
-                return self._dispatch_remove(**{"context":context, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "src":src, **params})
+                return self._dispatch_bankrupt(**{"context":context, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "src":src, **params})
         else:
             params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
         return {"context":context, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "src":src, **params}
@@ -161,6 +161,10 @@ class ArabolyState(ArabolyTypeClass):
             mortgageCost = int(srcProp["price"] / 2)
             params["newWallets"] = {src:context.wallets[src] + mortgageCost}
             srcProp["mortgaged"] = True
+            if  context.state == ArabolyGameState.BANKRUPTCY    \
+            and params["newWallets"][src] >= 200:
+                params["newPlayerCur"] = (context.playerCur + 1) % len(context.players)
+                params["newState"] = ArabolyGameState.GAME
         return {"context":context, "field":field, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_offer(self, context, field, offerType, otherPlayer, price, src, status, tradeKey, **params): XXX
@@ -233,6 +237,22 @@ class ArabolyState(ArabolyTypeClass):
         params["newProperties"] = {}
         params["newWallets"] = {}
         return {"context":context, **params}
+    # }}}
+    # {{{ _dispatch_bankrupt(self, context, src, **params): XXX
+    def _dispatch_bankrupt(self, context, src, **params):
+        collateralSum = 0
+        if  "newWallets" in params  \
+        and src in params["newWallets"]:
+            srcWallet = params["newWallets"][src]
+        else:
+            srcWallet = context.wallets[src]
+        for playerProp in [p for p in context.properties[src] if not p["mortgaged"]]:
+            collateralSum += int(playerProp["price"] / 2)
+        if (srcWallet + collateralSum) >= 200:
+            params["newState"] = ArabolyGameState.BANKRUPTCY
+            return {"context":context, "src":src, **params}
+        else:
+            return self._dispatch_remove(**{"context":context, "src":src, **params})
     # }}}
     # {{{ _dispatch_remove(self, args, cmd, context, src, **params): XXX
     def _dispatch_remove(self, args, cmd, context, src, **params):
