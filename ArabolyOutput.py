@@ -16,14 +16,21 @@ class ArabolyOutput(ArabolyTypeClass):
 
     # {{{ dispatch_accept(self, channel, output, tradeState, **params): XXX
     def dispatch_accept(self, channel, output, tradeState, **params):
-        if tradeState["counter"]:
-            delay = 0
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Yay! {} accepts your counter-offer to buy {} at ${}!".format(tradeState["src"], tradeState["to"], tradeState["title"], tradeState["price"])]}]
-            propTo = tradeState["to"]
-        else:
-            delay = 0
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Yay! {} accepts your offer to buy {} at ${}!".format(tradeState["src"], tradeState["to"], tradeState["title"], tradeState["price"])]}]
-            propTo = tradeState["src"]
+        delay = 0
+        if tradeState["offerType"] == "buy":
+            if tradeState["counter"]:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Yay! {} accepts your counter-offer to sell {} at ${}!".format(tradeState["src"], tradeState["otherPlayer"], tradeState["title"], tradeState["price"])]}]
+                propTo = tradeState["otherPlayer"]
+            else:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Yay! {} accepts your offer to buy {} at ${}!".format(tradeState["src"], tradeState["otherPlayer"], tradeState["title"], tradeState["price"])]}]
+                propTo = tradeState["src"]
+        elif tradeState["offerType"] == "sell":
+            if tradeState["counter"]:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Yay! {} accepts your counter-offer to buy {} at ${}!".format(tradeState["src"], tradeState["otherPlayer"], tradeState["title"], tradeState["price"])]}]
+                propTo = tradeState["src"]
+            else:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Yay! {} accepts your offer to sell {} at ${}!".format(tradeState["src"], tradeState["otherPlayer"], tradeState["title"], tradeState["price"])]}]
+                propTo = tradeState["otherPlayer"]
         delay += 0.900
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Awfom! {} buys {} for ${}!".format(propTo, tradeState["title"], tradeState["price"])]}]
         return {"channel":channel, "output":output, "tradeState":tradeState, **params}
@@ -123,19 +130,25 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_dice(self, channel, context, dice, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, newPlayerCur, output, src, **params): XXX
     def dispatch_dice(self, channel, context, dice, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, newPlayerCur, output, src, **params):
-        cancelTradeOutput = []
+        cancelTradeOutput = []; pendingBuyOffers = []; pendingSellOffers = [];
         for tradeKey in context.tradeDict:
             tradeState = context.tradeDict[tradeKey]
-            if tradeKey.startswith(src + "\0"):
-                if tradeState["counter"]:
-                    cancelTradeOutput += ["{}: cancelling outstanding buy counter-offer of {} to {} for {}!".format(src, tradeState["title"], tradeState["to"], tradeState["price"])]
-                else:
-                    cancelTradeOutput += ["{}: cancelling outstanding buy offer of {} from {} for {}!".format(src, tradeState["title"], tradeState["to"], tradeState["price"])]
-            elif tradeKey.endswith("\0" + src):
-                if tradeState["counter"]:
-                    cancelTradeOutput += ["{}: cancelling outstanding buy counter-offer of {} from {} for {}!".format(src, tradeState["title"], tradeState["src"], tradeState["price"])]
-                else:
-                    cancelTradeOutput += ["{}: cancelling outstanding buy offer of {} to {} for {}!".format(src, tradeState["title"], tradeState["src"], tradeState["price"])]
+            if tradeKey.startswith(src + "\0")                              \
+            or tradeKey.endswith("\0" + src):
+                if tradeState["offerType"] == "buy":
+                    if tradeState["counter"]:
+                        pendingBuyOffers += ["{} (counter) from {} to {} for ${}".format(tradeState["title"], tradeState["src"], tradeState["otherPlayer"], tradeState["price"])]
+                    else:
+                        pendingBuyOffers += ["{} from {} to {} for ${}".format(tradeState["title"], tradeState["src"], tradeState["otherPlayer"], tradeState["price"])]
+                elif tradeState["offerType"] == "sell":
+                    if tradeState["counter"]:
+                        pendingSellOffers += ["{} (counter) from {} to {} for ${}".format(tradeState["title"], tradeState["src"], tradeState["otherPlayer"], tradeState["price"])]
+                    else:
+                        pendingSellOffers += ["{} from {} to {} for ${}".format(tradeState["title"], tradeState["src"], tradeState["otherPlayer"], tradeState["price"])]
+        if len(pendingBuyOffers):
+            cancelTradeOutput += ["Cancelling outstanding buy offers: {}".format(", ".join(pendingBuyOffers))]
+        if len(pendingSellOffers):
+            cancelTradeOutput += ["Cancelling outstanding sell offers: {}".format(", ".join(pendingBuyOffers))]
         if len(cancelTradeOutput):
             delay = 0
             for msg in cancelTradeOutput:
@@ -228,12 +241,17 @@ class ArabolyOutput(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_offer(self, channel, output, tradeState, **params): XXX
     def dispatch_offer(self, channel, output, tradeState, **params):
-        if tradeState["counter"]:
-            delay = 0
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: {} counter-offers to sell {} to you at ${}! Accept, counter-offer, or reject?".format(tradeState["to"], tradeState["src"], tradeState["title"], tradeState["price"])]}]
-        else:
-            delay = 0
-            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: {} offers to buy {} from you at ${}! Accept, counter-offer, or reject?".format(tradeState["to"], tradeState["src"], tradeState["title"], tradeState["price"])]}]
+        delay = 0
+        if tradeState["offerType"] == "buy":
+            if tradeState["counter"]:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: {} counter-offers to sell {} to you at ${}! Accept, counter-offer, or reject?".format(tradeState["otherPlayer"], tradeState["src"], tradeState["title"], tradeState["price"])]}]
+            else:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: {} offers to buy {} from you at ${}! Accept, counter-offer, or reject?".format(tradeState["otherPlayer"], tradeState["src"], tradeState["title"], tradeState["price"])]}]
+        elif tradeState["offerType"] == "sell":
+            if tradeState["counter"]:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: {} counter-offers to buy {} from you at ${}! Accept, counter-offer, or reject?".format(tradeState["otherPlayer"], tradeState["src"], tradeState["title"], tradeState["price"])]}]
+            else:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: {} offers to sell {} to you at ${}! Accept, counter-offer, or reject?".format(tradeState["otherPlayer"], tradeState["src"], tradeState["title"], tradeState["price"])]}]
         return {"channel":channel, "output":output, "tradeState":tradeState, **params}
     # }}}
     # {{{ dispatch_lift(self, channel, context, field, output, src, **params): XXX
@@ -313,7 +331,16 @@ class ArabolyOutput(ArabolyTypeClass):
     # {{{ dispatch_reject(self, channel, output, tradeState, **params): XXX
     def dispatch_reject(self, channel, output, tradeState, **params):
         delay = 0
-        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Oh no! {} rejects your offer to buy {} at ${}!".format(tradeState["src"], tradeState["to"], tradeState["title"], tradeState["price"])]}]
+        if tradeState["offerType"] == "buy":
+            if tradeState["counter"]:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Oh no! {} rejects your counter-offer to sell {} at ${}!".format(tradeState["src"], tradeState["otherPlayer"], tradeState["title"], tradeState["price"])]}]
+            else:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Oh no! {} rejects your offer to buy {} at ${}!".format(tradeState["src"], tradeState["otherPlayer"], tradeState["title"], tradeState["price"])]}]
+        elif tradeState["offerType"] == "sell":
+            if tradeState["counter"]:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Oh no! {} rejects your counter-offer to buy {} at ${}!".format(tradeState["src"], tradeState["otherPlayer"], tradeState["title"], tradeState["price"])]}]
+            else:
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: Oh no! {} rejects your offer to sell {} at ${}!".format(tradeState["src"], tradeState["otherPlayer"], tradeState["title"], tradeState["price"])]}]
         return {"channel":channel, "output":output, "tradeState":tradeState, **params}
     # }}}
     # {{{ dispatch_start(self, channel, context, output, players, src, **params): XXX
@@ -348,23 +375,46 @@ class ArabolyOutput(ArabolyTypeClass):
                             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} (#{}) -- {}, developments: {}".format(prop["colourMiRC"], prop["price"], prop["field"], prop["title"], ", ".join(houses))]}]
                         else:
                             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "\u0003{:02d}${} (#{}) -- {}".format(prop["colourMiRC"], prop["price"], prop["field"], prop["title"])]}]
-            pendingBuyOffers = []; pendingSellOffers = [];
+            myPendingBuyOffers = []; myPendingSellOffers = [];
+            otherPendingBuyOffers = []; otherPendingSellOffers = [];
             for tradeKey in context.tradeDict:
                 tradeState = context.tradeDict[tradeKey]
                 if tradeKey.startswith(src + "\0"):
-                    if tradeState["counter"]:
-                        pendingSellOffers += ["{} to {} for {}".format(tradeState["title"], tradeState["to"], tradeState["price"])]
-                    else:
-                        pendingBuyOffers += ["{} from {} for {}".format(tradeState["title"], tradeState["to"], tradeState["price"])]
+                    fromSrc = True
                 elif tradeKey.endswith("\0" + src):
+                    fromSrc = False
+                else:
+                    continue
+                if tradeState["offerType"] == "buy":
                     if tradeState["counter"]:
-                        pendingSellOffers += ["{} from {} for {}".format(tradeState["title"], tradeState["src"], tradeState["price"])]
+                        if fromSrc:
+                            myPendingBuyOffers += ["{} (counter) from {} for ${}".format(tradeState["title"], tradeState["otherPlayer"], tradeState["price"])]
+                        else:
+                            otherPendingBuyOffers += ["{} (counter) from {} for ${}".format(tradeState["title"], tradeState["src"], tradeState["price"])]
                     else:
-                        pendingBuyOffers += ["{} to {} for {}".format(tradeState["title"], tradeState["src"], tradeState["price"])]
-            if len(pendingBuyOffers):
-                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Pending buy offers: {}".format(", ".join(pendingBuyOffers))]}]
-            if len(pendingSellOffers):
-                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Pending buy counter-offers: {}".format(", ".join(pendingSellOffers))]}]
+                        if fromSrc:
+                            myPendingBuyOffers += ["{} from {} for ${}".format(tradeState["title"], tradeState["otherPlayer"], tradeState["price"])]
+                        else:
+                            otherPendingBuyOffers += ["{} from {} for ${}".format(tradeState["title"], tradeState["src"], tradeState["price"])]
+                elif tradeState["offerType"] == "sell":
+                    if tradeState["counter"]:
+                        if fromSrc:
+                            myPendingSellOffers += ["{} (counter) to {} for ${}".format(tradeState["title"], tradeState["otherPlayer"], tradeState["price"])]
+                        else:
+                            otherPendingSellOffers += ["{} (counter) from {} for ${}".format(tradeState["title"], tradeState["src"], tradeState["price"])]
+                    else:
+                        if fromSrc:
+                            myPendingSellOffers += ["{} to {} for ${}".format(tradeState["title"], tradeState["otherPlayer"], tradeState["price"])]
+                        else:
+                            otherPendingSellOffers += ["{} from {} for ${}".format(tradeState["title"], tradeState["src"], tradeState["price"])]
+            if len(myPendingBuyOffers):
+                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "My pending buy offers: {}".format(", ".join(myPendingBuyOffers))]}]
+            if len(myPendingSellOffers):
+                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "My pending sell offers: {}".format(", ".join(myPendingSellOffers))]}]
+            if len(otherPendingBuyOffers):
+                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Pending buy offers to me: {}".format(", ".join(otherPendingBuyOffers))]}]
+            if len(otherPendingSellOffers):
+                output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Pending sell offers to me: {}".format(", ".join(otherPendingSellOffers))]}]
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Current field for {}: {}".format(src, context.fields[src])]}]
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Current turn: {}".format(context.players[context.playerCur])]}]
         return {"channel":channel, "context":context, "output":output, "src":src, **params}
