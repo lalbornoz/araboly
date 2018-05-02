@@ -6,7 +6,7 @@ usage: ./ArabolyIrcBot.py [-c <channel name>] [-d] [-f <delay in ms>]  [-h]
          -f <delay in ms>..:  defaults to 0 (disabled.)
          -n <nick name>....:  defaults to ARABOLY.
          -p <port>.........:  defaults to 6667 or 6697 if using SSL.
-         -r <IRC real name>:  defaults to `Araboly NT 3.1 Advanced Server'.
+         -r <IRC real name>:  defaults to `Araboly NT 4.0 Advanced Server'.
          -S ...............:  use SSL; disabled by default.
          -u <user name>....:  defaults to ARABOLY.
 

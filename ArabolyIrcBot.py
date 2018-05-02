@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Araboly NT 3.1 Advanced Server -- everyone's favourite board game... with IRC support and fancy colours!
+# Araboly NT 4.0 Advanced Server -- everyone's favourite board game... with IRC support and fancy colours!
 # Copyright (c) 2018 Lucía Andrea Illanes Albornoz <lucia@luciaillanes.de>
 # This project is licensed under the terms of the MIT licence.
 #
@@ -25,7 +25,7 @@ import copy, os, pickle, time
 
 class ArabolyIrcBot(object):
     """XXX"""
-    optsDefault = {"channel":"#ARABOLY", "debug":False, "flood_delay":0, "hostname":None, "nick":"ARABOLY", "port":"6667", "realname":"Araboly NT 3.1 Advanced Server", "ssl":False, "user":"ARABOLY"}
+    optsDefault = {"channel":"#ARABOLY", "debug":False, "flood_delay":0, "hostname":None, "nick":"ARABOLY", "port":"6667", "realname":"Araboly NT 4.0 Advanced Server", "ssl":False, "user":"ARABOLY"}
     optsMap = {"c":"channel", "d":"debug", "f":"flood_delay", "h":"help", "H":"hostname", "n":"nick", "p":"port", "r":"realname", "S":"ssl", "u":"user"}
     optsString = "c:df:hH:n:p:r:Su:"
     typeObjects = [ArabolyCommit, ArabolyDaʕat, ArabolyErrors, ArabolyEvents, ArabolyGame, ArabolyIrcClient, ArabolyIrcToCommandMap, ArabolyLog, ArabolyLogic, ArabolyOutput, ArabolyRules, ArabolyState, ArabolyValidate]

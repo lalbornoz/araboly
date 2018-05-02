@@ -1,15 +1,15 @@
 ```
-       Cat-powered!     _ Supports IPX/_SPX out of _ the box!  Multiplayer on Windows 3.x, RISC OS,    100% vegan!
-         _     _,      / \   _ __ __ _| |__   ___ | |_   _          _   _ _____   _____  __             ,_     _        
-         \~-,_//|     / _ \ | '__/ _` | '_ \ / _ \| | | | |  Only  | \ | |_   _| |___ / / |   Only      |\\_,-~/        
- .--,    | _  _ \    / ___ \| | | (_| | |_) | (_) | | |_| |  uses  |  \| | | |     |_ \ | | $1495 w/    / _  _ |    ,--.
- '-, \   ( @  @  )  /_/   \_\_|  \__,_|_.__/ \___/|_|\__, |  16 MB | |\  | | |    ___) || | 6 months   (  @  @ )   / ,-'
-    ) )_.-\_T_  /   Immaculately crafted 32-bit code!|___/  RAM on |_| \_| |_|   |____(_)_|  phone      \  _T_/-._( (   
-   / .'         \    Exquisite 256 colour SVGA graphics!   average!       and VAX/VMS!      support!   /         `. \  
-  | /   _BANKCAT |                _   _   _   _   _   _   _   _     _   _   _   _   _   _             | DICECAT_   \ | 
-  |      \  , / /   More than 92 / \ / \ / \ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \ Not at all  \ \ ,  /      | 
-   \   __/_-| ||       hidden   ( A | d | v | a | n | c | e | d ) ( S | e | r | v | e | r )  stolen     || |-_\__   /  
-    '-,____)'\_))   cheat codes! \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/  from DEC!  ((_/`(____,-'   
+       Cat-powered!     _ Supports IPX/_SPX out of _ the box!  Multiplayer on Windows 3.x, RISC OS,     100% vegan!
+         _     _,      / \   _ __ __ _| |__   ___ | |_   _          _   _ _____   _  _    ___              ,_     _
+         \~-,_//|     / _ \ | '__/ _` | '_ \ / _ \| | | | |  Only  | \ | |_   _| | || |  / _ \    Only     |\\_,-~/
+ .--,    | _  _ \    / ___ \| | | (_| | |_) | (_) | | |_| |  uses  |  \| | | |   | || |_| | | | $1495 w/   / _  _ |    ,--.
+ '-, \   ( @  @  )  /_/   \_\_|  \__,_|_.__/ \___/|_|\__, |  16 MB | |\  | | |   |__   _| |_| | 6 month   (  @  @ )   / ,-'
+    ) )_.-\_T_  /   Immaculately crafted 32-bit code!|___/  RAM on |_| \_| |_|      |_|(_)___/   phone     \  _T_/-._( (
+   / .'         \    Exquisite 256 colour SVGA graphics!   average!       and VAX/VMS!          support!  /         `. \
+  | /   _BANKCAT |                _   _   _   _   _   _   _   _     _   _   _   _   _   _                | DICECAT_   \ |
+  |      \  , / /   More than 92 / \ / \ / \ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \ Not at all     \ \ ,  /      |
+   \   __/_-| ||       hidden   ( A | d | v | a | n | c | e | d ) ( S | e | r | v | e | r )  stolen        || |-_\__   /
+    '-,____)'\_))   cheat codes! \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/  from DEC!     ((_/`(____,-'
     
        **WARNING**:  All characters and events in this IRC board game -- especially those based on real people --
        are entirely fictional. The game contains coarse language, politically incorrect and universally offensive
@@ -22,7 +22,7 @@
                                               should you feel like suing us.
 ```
 
-# Araboly NT 3.1 Advanced Server
+# Araboly NT 4.0 Advanced Server
 **Everyone's favourite board game... with IRC support and fancy colours! (WORK IN PROGRESS)**  
 Copyright (c) 2018 Lucía Andrea Illanes Albornoz <<lucia@luciaillanes.de>>  
 This project is licensed under the terms of the MIT licence.
@@ -38,7 +38,7 @@ usage: ./ArabolyIrcBot.py [-c <channel name>] [-d] [-f <delay in ms>]  [-h]
          -f <delay in ms>..:  defaults to 0 (disabled.)
          -n <nick name>....:  defaults to ARABOLY.
          -p <port>.........:  defaults to 6667 or 6697 if using SSL.
-         -r <IRC real name>:  defaults to `Araboly NT 3.1 Advanced Server'.
+         -r <IRC real name>:  defaults to `Araboly NT 4.0 Advanced Server'.
          -S ...............:  use SSL; disabled by default.
          -u <user name>....:  defaults to ARABOLY.
 
