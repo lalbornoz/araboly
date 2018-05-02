@@ -240,9 +240,10 @@ class ArabolyState(ArabolyTypeClass):
         params["delPlayers"] = [removePlayer]
         if removePlayer in context.fields:
             params["delPlayerFields"] = [removePlayer]
+        if removePlayer in context.properties:
+            params["delProperties"] = [removePlayer]
         if removePlayer in context.wallets:
             params["delWallets"] = [removePlayer]
-        params["delProperties"] = [removePlayer]
         if len(context.players) <= 2:
             params["newPlayerCur"] = -1
             params["newPlayers"] = []

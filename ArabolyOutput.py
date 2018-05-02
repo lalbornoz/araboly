@@ -98,6 +98,9 @@ class ArabolyOutput(ArabolyTypeClass):
             if "newPlayerBankrupt" in params:
                 delay += 0.900
                 output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! {} has gone bankrupt!".format(src)]}]
+                for playerProp in context.properties[src]:
+                    delay += 0.900
+                    output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oops! {} is returned to the bank!".format(playerProp["title"])]}]
                 delay += 0.900
                 output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Player {} parts Araboly game!".format(src)]}]
                 if "newPlayers" in params and params["newPlayers"] == []:
@@ -169,6 +172,9 @@ class ArabolyOutput(ArabolyTypeClass):
         if "newPlayerBankrupt" in params:
             delay += 0.900
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! {} has gone bankrupt!".format(src)]}]
+            for playerProp in context.properties[src]:
+                delay += 0.900
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oops! {} is returned to the bank!".format(playerProp["title"])]}]
             delay += 0.900
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Player {} parts Araboly game!".format(src)]}]
             if "newPlayers" in params and params["newPlayers"] == []:
