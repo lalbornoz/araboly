@@ -7,7 +7,7 @@
 
 from ArabolyGame import ArabolyGameField, ArabolyPropSubType, ArabolyGameState
 from ArabolyLog import ArabolyLogLevel
-from ArabolyRtl import ArabolyRandom
+from ArabolyRtl import ArabolyAlignedReplace, ArabolyRandom
 from ArabolyTypeClass import ArabolyTypeClass
 import time
 
@@ -58,6 +58,10 @@ class ArabolyOutput(ArabolyTypeClass):
         for fieldMin, fieldMax, fieldBoardLines in context.boardFields:
             if field >= fieldMin and field <= fieldMax:
                 for boardLine in fieldBoardLines:
+                    boardPatterns = ["< CURRENT FIELD TITLE1 >", "< CURRENT FIELD TITLE2 >"]
+                    if  boardLine.find(boardPatterns[0])    \
+                    and boardLine.find(boardPatterns[1]):
+                        boardLine = ArabolyAlignedReplace(boardLine, boardPatterns, context.board[field]["title"])
                     output += [{"type":"message", "delay":0, "logLevel":ArabolyLogLevel.LOG_DEBUG, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
                 return {"channel":channel, "context":context, "src":src, "output":output, **params}
         raise ValueError
