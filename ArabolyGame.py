@@ -6,6 +6,7 @@
 #
 
 from collections import defaultdict
+import os
 
 def nested_dict():
     return defaultdict(nested_dict)
@@ -80,19 +81,17 @@ class ArabolyGame(object):
                 else:
                     lineType = getattr(ArabolyGameField, fileFields[0])
                     self.board += [{"type":lineType, "price":int(fileFields[1]), "colour":fileFields[2], "colourMiRC":ArabolyColourMiRCMap[fileFields[2]], "mortgaged":False, "title":fileFields[3], "level":1, "houses":[-1, 0, 0, 0]}]
-        self.boardFields = {}
-        with open("assets/ArabolyBoardField25.irc", "r") as fileObject:
-            self.boardFields[25] = fileObject.readlines()
-        with open("assets/ArabolyBoardSouth.irc", "r") as fileObject:
-            self.boardSouth = fileObject.readlines()
-        with open("assets/ArabolyBoardWest.irc", "r") as fileObject:
-            self.boardWest = fileObject.readlines()
-        with open("assets/ArabolyBoardNorth.irc", "r") as fileObject:
-            self.boardNorth = fileObject.readlines()
-        with open("assets/ArabolyBoardNorthEast.irc", "r") as fileObject:
-            self.boardNorthEast = fileObject.readlines()
-        with open("assets/ArabolyBoardSouthEast.irc", "r") as fileObject:
-            self.boardSouthEast = fileObject.readlines()
+        self.boardFields = []
+        for fieldMin, fieldMax, fieldBoardFileName in [
+                    [0,  10, "ArabolyBoardSouth.irc"],
+                    [11, 19, "ArabolyBoardWest.irc"],
+                    [20, 24, "ArabolyBoardNorth.irc"],
+                    [25, 25, "ArabolyBoardField25.irc"],
+                    [26, 29, "ArabolyBoardNorth.irc"],
+                    [30, 35, "ArabolyBoardNorthEast.irc"],
+                    [36, 39, "ArabolyBoardSouthEast.irc"]]:
+            with open(os.path.join("assets", fieldBoardFileName), "r") as fileObject:
+                self.boardFields += [[fieldMin, fieldMax, fileObject.readlines()]]
         with open("assets/ArabolyAttract.irc", "r") as fileObject:
             self.attractLinesList = "".join(fileObject.readlines()).split("\n")
             self.attractLinesList = [x[:-1].split("\n") for x in self.attractLinesList]
