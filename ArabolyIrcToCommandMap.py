@@ -40,7 +40,7 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
             if nick == idFull[0].lower():
                 for logoLine in context.logoLines:
                     output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[args[0], logoLine.rstrip("\n")]}]
-                output += [{"type":"timer", "channel":args[0], "expire":60, "nextExpire":60, "subtype":"attract"}]
+                output += [{"type":"timer", "channel":args[0], "expire":900, "nextExpire":900, "subtype":"attract"}]
                 self.clientChannelRejoin = False
             elif nick not in self.nickMap:
                 self.nickMap[nick] = nick
