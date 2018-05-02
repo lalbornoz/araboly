@@ -64,10 +64,12 @@ class ArabolyOutput(ArabolyTypeClass):
             boardLines = context.boardSouth
         elif field >= 11 and field <= 19:
             boardLines = context.boardWest
-        elif field >= 20 and field <= 30:
+        elif field >= 20 and field <= 29:
             boardLines = context.boardNorth
-        elif field >= 31 and field <= 39:
-            boardLines = context.boardEast
+        elif field >= 30 and field <= 35:
+            boardLines = context.boardNorthEast
+        elif field >= 36 and field <= 39:
+            boardLines = context.boardSouthEast
         for boardLine in boardLines:
             output += [{"type":"message", "delay":0, "logLevel":ArabolyLogLevel.LOG_DEBUG, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
         return {"channel":channel, "context":context, "src":src, "output":output, **params}
