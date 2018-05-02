@@ -76,7 +76,7 @@ class ArabolyLogic(ArabolyTypeClass):
                         if player == src:
                             params["newFieldOwned"] = True; params["newFieldOwnedSelf"] = True;
                         else:
-                            params["newFieldOwned"] = True; params["newPropRent"] = playerProp["price"];
+                            params["newFieldOwned"] = True
                             fullGroup = True
                             for boardPropNum in range(len(context.board)):
                                 if context.board[boardPropNum]["colour"] == playerProp["colour"]:
@@ -86,8 +86,12 @@ class ArabolyLogic(ArabolyTypeClass):
                                             found = True; break;
                                     if not found:
                                         fullGroup = False; break;
+                            params["newPropRent"] = int(playerProp["price"] * 0.10)
                             if fullGroup:
-                                params["newPropRent"] *= 1 + (0.5 * playerProp["level"])
+                                if playerProp["houses"][playerProp["level"]] != 0:
+                                    params["newPropRent"] = int(params["newPropRent"] * (2 + (0.5 * playerProp["level"])))
+                                else:
+                                    params["newPropRent"] *= 2
             if not params["newFieldOwned"]:
                 srcWallet = context.wallets[src]
                 if params["newFieldPastGo"]:
