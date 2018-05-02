@@ -94,8 +94,8 @@ class ArabolyOutput(ArabolyTypeClass):
                     return {"channel":channel, "cheatChance":cheatChance, "cheatFlag":cheatFlag, "context":context, "output":output, "src":src, **params}
         return {"channel":channel, "cheatChance":cheatChance, "cheatFlag":cheatFlag, "context":context, "output":output, "src":src, **params}
     # }}}
-    # {{{ dispatch_develop(self, channel, context, newDevelopedProperties, output, src, **params): XXX
-    def dispatch_develop(self, channel, context, newDevelopedProperties, output, src, **params):
+    # {{{ dispatch_develop(self, channel, context, devCost, newDevelopedProperties, output, src, **params): XXX
+    def dispatch_develop(self, channel, context, devCost, newDevelopedProperties, output, src, **params):
         delay = 0
         for newDevProp in newDevelopedProperties:
             if len(newDevelopedProperties) > 1:
@@ -112,8 +112,10 @@ class ArabolyOutput(ArabolyTypeClass):
                     rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                     delay += 0.900
                     output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, developString.format(owner=src, prop=context.board[newDevProp["field"]]["title"], rands=rands)]}]
+        delay += 0.900
+        output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} pays ${} to the bank for development costs!".format(src, devCost)]}]
         params["newInhibitUntil"] = time.time() + delay
-        return {"channel":channel, "context":context, "newDevelopedProperties":newDevelopedProperties, "output":output, "src":src, **params}
+        return {"channel":channel, "context":context, "devCost":devCost, "newDevelopedProperties":newDevelopedProperties, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatch_dice(self, channel, context, dice, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, newPlayerCur, output, src, **params): XXX
     def dispatch_dice(self, channel, context, dice, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, newPlayerCur, output, src, **params):

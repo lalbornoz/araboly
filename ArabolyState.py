@@ -70,12 +70,14 @@ class ArabolyState(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_develop(self, context, newDevelopedProperties, src, **params): XXX
     def dispatch_develop(self, context, newDevelopedProperties, src, **params):
+        params["devCost"] = 0
         for newDevProp in newDevelopedProperties:
             if len(newDevelopedProperties) > 1:
                 newDevProp["houses"][newDevProp["level"]] = 3
                 newDevProp["level"] += 1
             else:
                 newDevProp["houses"][newDevProp["level"]] += 1
+            params["devCost"] += int(newDevProp["price"] / 2)
         return {"context":context, "newDevelopedProperties":newDevelopedProperties, "src":src, **params}
     # }}}
     # {{{ dispatch_dice(self, context, newField, newFieldBuyable, newFieldOwned, newFieldPastGo, src, **params): XXX
