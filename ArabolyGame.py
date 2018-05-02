@@ -51,6 +51,7 @@ class ArabolyGameState():
     GAME = 3
     PROPERTY = 4
     AUCTION = 5
+    BANKRUPTCY = 6
 
 class ArabolyGame(object):
     """XXX"""

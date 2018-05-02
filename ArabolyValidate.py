@@ -136,7 +136,8 @@ class ArabolyValidate(ArabolyTypeClass):
     # {{{ dispatch_mortgage(self, args, context, status, **params): XXX
     def dispatch_mortgage(self, args, context, status, **params):
         if  context.state != ArabolyGameState.GAME      \
-        and context.state != ArabolyGameState.PROPERTY:
+        and context.state != ArabolyGameState.PROPERTY  \
+        and context.state != ArabolyGameState.BANKRUPTCY:
             status = False
         elif len(args) != 1 or not args[0].isdigit():
             status = False

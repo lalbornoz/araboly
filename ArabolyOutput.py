@@ -95,7 +95,15 @@ class ArabolyOutput(ArabolyTypeClass):
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "AWFOM! {} cheats the system and gains ${}!".format(src, int(cheatChance * 66.666))]}]
         else:
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "OH NO! {} tried to cheat, got caught, and loses ${}!".format(src, int(cheatChance * 6.666))]}]
-            if "newPlayerBankrupt" in params:
+            if  "newState" in params \
+            and params["newState"] == ArabolyGameState.BANKRUPTCY:
+                delay += 0.900
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! {} has gone bankrupt!".format(src)]}]
+                delay += 0.900
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Entering bankruptcy mode!"]}]
+                delay += 0.900
+                output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: select and mortgage properties until you've gained at least $200!".format(src)]}]
+            elif "newPlayerBankrupt" in params:
                 delay += 0.900
                 output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! {} has gone bankrupt!".format(src)]}]
                 for playerProp in context.properties[src]:
@@ -169,7 +177,15 @@ class ArabolyOutput(ArabolyTypeClass):
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Yay! {} passes past GO and collects $200!".format(src)]}]
         delay += 0.900
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{} lands on {}!".format(src, context.board[newField]["title"])]}]
-        if "newPlayerBankrupt" in params:
+        if  "newState" in params \
+        and params["newState"] == ArabolyGameState.BANKRUPTCY:
+            delay += 0.900
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! {} has gone bankrupt!".format(src)]}]
+            delay += 0.900
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Entering bankruptcy mode!"]}]
+            delay += 0.900
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "{}: select and mortgage properties until you've gained at least $200!".format(src)]}]
+        elif "newPlayerBankrupt" in params:
             delay += 0.900
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! {} has gone bankrupt!".format(src)]}]
             for playerProp in context.properties[src]:
@@ -287,6 +303,10 @@ class ArabolyOutput(ArabolyTypeClass):
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oops! {} mortgages {} and receives ${} from the bank!".format(src, context.board[field]["title"], mortgageCost)]}]
         delay += 0.900
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Oh no! {} is no longer able to collect rent from or develop on {}!".format(src, context.board[field]["title"])]}]
+        if  context.state == ArabolyGameState.BANKRUPTCY    \
+        and params["newWallets"][src] >= 200:
+            delay += 0.900
+            output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Awfom! {} is no longer bankrupt at ${}!".format(src, params["newWallets"][src])]}]
         return {"channel":channel, "context":context, "field":field, "output":output, "src":src, **params}
     # }}}
     # {{{ dispatch_part(self, channel, context, output, src, **params): XXX
