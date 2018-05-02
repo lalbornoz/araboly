@@ -69,6 +69,9 @@ class ArabolyOutput(ArabolyTypeClass):
                     if  boardLine.find(boardPatterns[0])    \
                     and boardLine.find(boardPatterns[1]):
                         boardLine = ArabolyAlignedReplace(boardLine, boardPatterns, context.board[field]["title"])
+                    boardPatterns = ["< PLAYER NAME HERE >"]
+                    if  boardLine.find(boardPatterns[0]):
+                        boardLine = ArabolyAlignedReplace(boardLine, boardPatterns, src)
                     output += [{"type":"message", "delay":0, "logLevel":ArabolyLogLevel.LOG_DEBUG, "cmd":"PRIVMSG", "args":[channel, boardLine]}]
                 return {"channel":channel, "context":context, "src":src, "output":output, **params}
         raise ValueError
