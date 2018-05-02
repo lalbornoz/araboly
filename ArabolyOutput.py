@@ -220,6 +220,12 @@ class ArabolyOutput(ArabolyTypeClass):
         params["newInhibitUntil"] = time.time() + delay
         return {"channel":channel, "context":context, "dice":dice, "output":output, "newField":newField, "newFieldBuyable":newFieldBuyable, "newFieldOwned":newFieldOwned, "newFieldPastGo":newFieldPastGo, "newPlayerCur":newPlayerCur, "src":src, **params}
     # }}}
+    # {{{ dispatch_explosion(self, context, channel, output, **params): XXX
+    def dispatch_explosion(self, context, channel, output, **params):
+        for explosionLine in context.explosion:
+            output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, explosionLine]}]
+        return {"context":context, "channel":channel, "output":output, **params}
+    # }}}
     # {{{ dispatch_help(self, channel, output, **params): XXX
     def dispatch_help(self, channel, output, **params):
         for helpLine in self.helpLines:

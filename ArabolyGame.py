@@ -81,6 +81,8 @@ class ArabolyGame(object):
                 else:
                     lineType = getattr(ArabolyGameField, fileFields[0])
                     self.board += [{"type":lineType, "price":int(fileFields[1]), "colour":fileFields[2], "colourMiRC":ArabolyColourMiRCMap[fileFields[2]], "mortgaged":False, "title":fileFields[3], "level":1, "houses":[-1, 0, 0, 0]}]
+        with open(os.path.join("assets", "explosion.irc"), "r") as fileObject:
+            self.explosion = fileObject.readlines()
         self.boardFields = []
         for fieldMin, fieldMax, fieldBoardFileName in [
                     [0,  10, "ArabolyBoardSouth.irc"],
