@@ -19,7 +19,11 @@ class ArabolyValidate(ArabolyTypeClass):
         or args[0] == src or not args[0] in context.players:
             status = False
         else:
-            params["otherPlayer"] = args[0]
+            otherPlayer = args[0]; tradeKey = otherPlayer + "\0" + src;
+            if tradeKey not in context.tradeDict:
+                status = False
+            else:
+                params.update({"otherPlayer":otherPlayer, "tradeKey":tradeKey, "tradeState":context.tradeDict[tradeKey]})
         return {"args":args, "context":context, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_bid(self, args, context, status, **params): XXX
@@ -149,19 +153,35 @@ class ArabolyValidate(ArabolyTypeClass):
     # {{{ dispatch_offer(self, args, context, src, status, **params): XXX
     def dispatch_offer(self, args, context, src, status, **params):
         if context.state != ArabolyGameState.GAME                           \
-        or len(args) != 3                                                   \
-        or args[0] == src or not args[0] in context.players                 \
-        or not args[1].isdigit() or not args[2].isdigit():
+        or len(args) != 4                                                   \
+        or args[0] not in ["buy", "sell"]                                   \
+        or args[1] == src or not args[1] in context.players                 \
+        or not args[2].isdigit() or not args[3].isdigit():
             status = False
         else:
-            field = int(args[1])
+            offerType = args[0]; field = int(args[2]);
             if field >= len(context.board):
                 status = False
             elif context.board[field]["type"] != ArabolyGameField.PROPERTY  \
             and  context.board[field]["type"] != ArabolyGameField.UTILITY:
                 status = False
             else:
-                params.update({"otherPlayer":args[0], "field":field, "price":int(args[2])})
+                otherPlayer = args[1]
+                tradeKeyOld = otherPlayer + "\0" + src; tradeKey = src + "\0" + otherPlayer;
+                if tradeKeyOld in context.tradeDict:
+                    oldOfferType = context.tradeDict[tradeKeyOld]["offerType"]
+                    if offerType == "buy" and oldOfferType != "sell":
+                        status = False
+                    elif offerType == "sell" and oldOfferType != "buy":
+                        status = False
+                    else:
+                        params.update({"field":field, "offerType":offerType, "otherPlayer":otherPlayer, "price":int(args[3]), "tradeKey":tradeKey, "tradeKeyOld":tradeKeyOld})
+                else:
+                    if context.players[context.playerCur] != src            \
+                    or tradeKey in context.tradeDict:
+                        status = False
+                    else:
+                        params.update({"field":field, "offerType":offerType, "otherPlayer":otherPlayer, "price":int(args[3]), "tradeKey":tradeKey})
         return {"args":args, "context":context, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_part(self, args, context, src, status, **params): XXX
@@ -194,7 +214,11 @@ class ArabolyValidate(ArabolyTypeClass):
         or args[0] == src or not args[0] in context.players:
             status = False
         else:
-            params["otherPlayer"] = args[0]
+            otherPlayer = args[0]; tradeKey = otherPlayer + "\0" + src;
+            if tradeKey not in context.tradeDict:
+                status = False
+            else:
+                params.update({"otherPlayer":otherPlayer, "tradeKey":tradeKey, "tradeState":context.tradeDict[tradeKey]})
         return {"args":args, "context":context, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_start(self, args, context, src, status, **params): XXX

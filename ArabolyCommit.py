@@ -33,7 +33,7 @@ class ArabolyCommit(ArabolyTypeClass):
                     [paramVar.pop(param_) for param_ in list(params[param])]
                 elif (type(paramVar) == int or type(paramVar) == str):
                     raise TypeError
-                elif type(paramVar) == list: 
+                elif type(paramVar) == list:
                     [paramVar.remove(param_) for param_ in params[param]]
                 else:
                     raise TypeError

@@ -59,7 +59,7 @@ class ArabolyLogic(ArabolyTypeClass):
                 incrLevel = False
             if not incrLevel:
                 newDevelopedProperties = [targetField]
-            params["newDevelopedProperties"] = newDevelopedProperties 
+            params["newDevelopedProperties"] = newDevelopedProperties
         return {"context":context, "field":field, "level":level, "src":src, "status":status, **params}
     # }}}
     # {{{ dispatch_dice(self, context, dice, src, **params): XXX
