@@ -20,8 +20,7 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
     # }}}
     # {{{ dispatch353(self, args, idFull, src, **params): Dispatch single 353 message from server
     def dispatch353(self, args, idFull, src, **params):
-        if  args[1] == "="  \
-        and args[2].lower() == self.clientChannel.lower():
+        if args[2].lower() == self.clientChannel.lower():
             for nickSpec in args[3].split(" "):
                 if nickSpec[0].lower() not in ascii_lowercase:
                     nickSpec = nickSpec[1:]
