@@ -54,8 +54,8 @@ UTILITY		150	None		Welfare Office
 	HOUSE	1	0	Welfare Office
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
-UTILITY		200	None		Chrono Camel Company
-	HOUSE	1	0	Chrono Camel Company
+UTILITY		200	None		Chrono's Camel Company
+	HOUSE	1	0	Chrono's Camel Company
 	BUY	1	0	{owner} buys {prop}!
 	RENT	1	0	{who} pays ${cost} to {owner}!
 PROPERTY	100	RED		Rizon Towers
