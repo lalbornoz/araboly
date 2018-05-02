@@ -89,8 +89,10 @@ class ArabolyGame(object):
             self.boardWest = fileObject.readlines()
         with open("assets/ArabolyBoardNorth.irc", "r") as fileObject:
             self.boardNorth = fileObject.readlines()
-        with open("assets/ArabolyBoardEast.irc", "r") as fileObject:
-            self.boardEast = fileObject.readlines()
+        with open("assets/ArabolyBoardNorthEast.irc", "r") as fileObject:
+            self.boardNorthEast = fileObject.readlines()
+        with open("assets/ArabolyBoardSouthEast.irc", "r") as fileObject:
+            self.boardSouthEast = fileObject.readlines()
         with open("assets/ArabolyAttract.irc", "r") as fileObject:
             self.attractLinesList = "".join(fileObject.readlines()).split("\n")
             self.attractLinesList = [x[:-1].split("\n") for x in self.attractLinesList]
