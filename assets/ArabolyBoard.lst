@@ -203,7 +203,7 @@ PROPERTY	140	DARK_GREEN	Spoke Forest
 	BUY	3	1	Oops! The Spoke Forest is now covering half of the known universe!
 	RENT	3	1	{who} enters the Hall of Spokes in the {prop}!
 	RENT	3	1	Oh dear! {owner} clones {who} into {who}!
-	RENT	3	1	Oops! {owner} claims ${cost} for from {who} for neutrino-related expenses!
+	RENT	3	1	Oops! {owner} claims ${cost} from {who} for neutrino-related expenses!
 PROPERTY	160	DARK_GREEN	Nadia Hospital
 	HOUSE	1	0	Hidden Cave of Health Mushrooms
 	BUY	1	0	{owner} buys {prop}!
