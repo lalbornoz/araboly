@@ -86,7 +86,8 @@ class ArabolyGame(object):
             self.explosion = fileObject.readlines()
         self.boardFields = []
         for fieldMin, fieldMax, fieldBoardFileName in [
-                    [0,  10, "ArabolyBoardSouth.irc"],
+                    [0,  0,  "ArabolyBoardField00.irc"],
+                    [1,  10, "ArabolyBoardSouth.irc"],
                     [11, 19, "ArabolyBoardWest.irc"],
                     [20, 24, "ArabolyBoardNorth.irc"],
                     [25, 25, "ArabolyBoardField25.irc"],
