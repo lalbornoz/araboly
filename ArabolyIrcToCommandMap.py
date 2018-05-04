@@ -75,6 +75,9 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
     # }}}
     # {{{ dispatchPRIVMSG(self, args, context, output, src, **params): Dispatch single PRIVMSG message from server
     def dispatchPRIVMSG(self, args, context, output, src, **params):
+        srcList = src.split("!")
+        if len(srcList) == 2:
+            srcList = [srcList[0], *srcList[1].split("@")]
         if  args[0].lower() == self.clientChannel.lower()   \
         and args[1].startswith(".m"):
             if context.inhibitUntil > 0:
@@ -88,7 +91,9 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
                 params["cmd"] = args[1].split(" ")[0][2:]
             params["channel"] = args[0].lower()
             params["srcFull"] = src
-            src = self.nickMap[src.split("!")[0]]
+            if srcList[0] not in self.nickMap:
+                self.nickMap[srcList[0]] = srcList[0]
+            src = self.nickMap[srcList[0]]
             args = args[1].split(" ")[1:]
             params["type"] = "command"
         return {"args":args, "context":context, "output":output, "src":src, **params}
