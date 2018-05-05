@@ -57,7 +57,9 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
     # {{{ dispatchNICK(self, args, idFull, src, **params): Dispatch single NICK message from server
     def dispatchNICK(self, args, idFull, src, **params):
         nick = src.split("!")[0]
-        if nick.lower() != idFull[0].lower():
+        if nick not in self.nickMap:
+            self.nickMap[nick] = nick
+        elif nick.lower() != idFull[0].lower():
             self.nickMap[args[0]] = self.nickMap[nick]
             del self.nickMap[nick]
         return {"args":args, "idFull":idFull, "src":src, **params}
