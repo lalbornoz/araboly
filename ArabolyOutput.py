@@ -383,10 +383,14 @@ class ArabolyOutput(ArabolyTypeClass):
     def dispatch_status(self, channel, context, output, src, **params):
         if context.state == ArabolyGameState.ATTRACT:
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "{}: no game is in progress or has been started!".format(src)]}]
+            return {"channel":channel, "context":context, "output":output, "src":src, **params}
         elif context.state == ArabolyGameState.SETUP:
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Current Araboly status:"]}]
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Max. players: {}".format(context.playersMax)]}]
             output += [{"type":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, "Players.....: {}".format(", ".join(context.players))]}]
+            return {"channel":channel, "context":context, "output":output, "src":src, **params}
+        if src not in context.players: 
+            return {"channel":channel, "context":context, "output":output, "src":src, **params}
         elif context.state == ArabolyGameState.GAME     \
         or context.state == ArabolyGameState.PROPERTY   \
         or context.state == ArabolyGameState.AUCTION:
