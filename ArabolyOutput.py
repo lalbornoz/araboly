@@ -313,7 +313,10 @@ class ArabolyOutput(ArabolyTypeClass):
     def dispatch_part(self, channel, context, output, src, **params):
         delay = 0
         output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Player {} parts Araboly game!".format(src)]}]
-        players = len(params["newPlayers"]) if "newPlayers" in params else len(context.players);
+        if "delPlayers" in params:
+            players = len([x for x in context.players if x not in params["delPlayers"]])
+        else:
+            players = len(context.players)
         if players <= 1:
             delay += 0.900
             output += [{"type":"message", "delay":delay, "cmd":"PRIVMSG", "args":[channel, "Stopping current Araboly game!"]}]
