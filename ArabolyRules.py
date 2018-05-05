@@ -55,7 +55,10 @@ class ArabolyRules(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_part(self, context, **params): XXX
     def dispatch_part(self, context, **params):
-        players = len(params["newPlayers"]) if "newPlayers" in params else len(context.players);
+        if "delPlayers" in params:
+            players = len([x for x in context.players if x not in params["delPlayers"]])
+        else:
+            players = len(context.players)
         if players <= 1:
             params["newState"] = ArabolyGameState.ATTRACT
         else:

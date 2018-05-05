@@ -231,6 +231,7 @@ class ArabolyState(ArabolyTypeClass):
     # }}}
     # {{{ dispatch_stop(self, context, **params): XXX
     def dispatch_stop(self, context, **params):
+        params["delPlayers"] = context.players.copy()
         params["newPlayerCur"] = -1
         params["newFields"] = []
         params["newPlayersMax"] = -1
@@ -266,7 +267,7 @@ class ArabolyState(ArabolyTypeClass):
             params["delWallets"] = [removePlayer]
         if len(context.players) <= 2:
             params["newPlayerCur"] = -1
-            params["newPlayers"] = []
+            params["delPlayers"] = context.players.copy()
             params["newPlayersMax"] = -1
         else:
             params["newPlayerCur"] = (context.playerCur + 1) % (len(context.players) - 1)
