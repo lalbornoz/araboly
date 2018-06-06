@@ -57,8 +57,8 @@ class ArabolyIrcBot(Araboly):
                     gameSnapshot = copy.deepcopy(self.typeObjects[ArabolyState])
                     status, newEventsOut, paramsOut = self.unit(event, debug=True)
                     if not status:
-                        with open(self.optionsDefault["snapshot_path"], "w") as fileObject:
-                            print("Saving pre-exception game snapshot to {}!".format(self.optionsDefault["snapshot_path"]))
+                        with open(self.options["snapshot_path"], "w") as fileObject:
+                            print("Saving pre-exception game snapshot to {}!".format(self.options["snapshot_path"]))
                             yaml.dump(gameSnapshot, fileObject)
                             exit(1)
                 else:
@@ -187,11 +187,13 @@ class ArabolyIrcBot(Araboly):
         if "ssl" in options and "port" not in options:
             options["port"] = "6697"
         super().__init__(options)
-        if "debug" in options   \
-        and os.path.exists(self.optionsDefault["snapshot_path"]):
-            with open(self.optionsDefault["snapshot_path"], "r") as fileObject:
-                print("Loading game snapshot from {}!".format(self.optionsDefault["snapshot_path"]))
-                self.typeObjects[ArabolyState] = yaml.load(fileObject)
+        if "debug" in options:
+            self.options["snapshot_path"] = self.optionsDefault["snapshot_path"]
+            self.options["snapshot_path"] += "." + self.options["hostname"]
+            if os.path.exists(self.options["snapshot_path"]):
+                with open(self.options["snapshot_path"], "r") as fileObject:
+                    print("Loading game snapshot from {}!".format(self.options["snapshot_path"]))
+                    self.typeObjects[ArabolyState] = yaml.load(fileObject)
     # }}}
 
 if __name__ == "__main__":
