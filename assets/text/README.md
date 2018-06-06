@@ -26,7 +26,7 @@
 **Everyone's favourite board game... with IRC support and fancy colours! (WORK IN PROGRESS)**  
 Copyright (c) 2018 Lucía Andrea Illanes Albornoz <<lucia@luciaillanes.de>>  
 This project is licensed under the terms of the MIT licence.
-![Screenshot](https://raw.githubusercontent.com/lalbornoz/araboly/master/images/ArabolyBoardSouth.png "Screenshot")
+![Screenshot](https://raw.githubusercontent.com/lalbornoz/araboly/master/assets/images/ArabolyBoardSouth.png "Screenshot")
 
 ### How to run:
 ```
@@ -46,7 +46,7 @@ usage: ./ArabolyIrcBot.py [-c <channel name>] [-d] [-C <connect timeout>]
          -S ...................:  use SSL; disabled by default.
          -u <user name>........:  defaults to ARABOLY.
 ```
-Requires Python >= v3.5.
+Requires Python >= v3.5 and YAML.
 
 ### General IRC commands:
 * **.melp?** -- explodes.
