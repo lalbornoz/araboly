@@ -28,7 +28,7 @@ class ArabolyFree(ArabolyTypeClass):
         or   src not in context.players["byName"]:
             status = False
         else:
-            output, status = ArabolyFree._board(args, channel, context, src, status)
+            output = ArabolyFree._board(channel, context, output, src)
         return args, channel, context, output, src, status
     # }}}
     # {{{ dispatch_help(channel, context): XXX
