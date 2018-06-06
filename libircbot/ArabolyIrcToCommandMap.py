@@ -7,6 +7,7 @@
 
 from ArabolyAttractMode import ArabolyAttractMode
 from ArabolyMonad import ArabolyDecorator
+from ArabolyState import ArabolyGameState
 from ArabolyTypeClass import ArabolyTypeClass
 from string import ascii_lowercase
 import time
@@ -49,7 +50,8 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
             nick = src.split("!")[0].lower()
             if nick == idFull[0].lower():
                 context.clientParams["channelRejoin"] = False
-                output = ArabolyAttractMode._enter(args[0], context, output)
+                if context.state == ArabolyGameState.ATTRACT:
+                    output = ArabolyAttractMode._enter(args[0], context, output)
             elif nick not in context.clientParams["nickMap"]:
                 context.clientParams["nickMap"][nick] = nick
         return args, context, idFull, output, src
