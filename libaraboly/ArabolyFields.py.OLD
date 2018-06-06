@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+#
+# Araboly 2000 Advanced Server -- everyone's favourite board game... with IRC support and fancy colours!
+# Copyright (c) 2018 Lucía Andrea Illanes Albornoz <lucia@luciaillanes.de>
+# This project is licensed under the terms of the MIT licence.
+#
+# TODO list:
+# 1)  Araboly field: random chance of (fake) game crash for <n> turns w/ decay; Windows 10 field; mosque field; narration of khalawayh 
+# 2)  Chance: randomly chosen from {{Chrono,Community} *,Free LSD,{Gaol,Loony bin},Tax} fields
+# 3)  Chrono *: allow a player to swap places with another placers piece
+# 4)  Chrono *: allow travel for fee w/ chance of random travel
+# 5)  Community brr: split into Community {asshurt,brr,opal,rachel}, player control as premise
+# 6)  Community *: allow control over taxes for <n> turns, vary tax types
+# 7)  Community *: cards from <http://monopoly.wikia.com/wiki/Community_Chest>
+# 8)  Community *: rob another player
+# 9)  Community *: start curse (mortgage something) of the <n>th player mode for <n> turns
+# 10) Community *: start slumlord mode for <n> turns
+# 11) Community *: turn another players currency into 100 VXP == 100 ODB == 100 RZA == 100 GZA (+ BTC, ETH, ...)
+# 12) Free LSD: board {graphics,strings} filters
+# 13) Free LSD: Drug addictions
+# 14) Free LSD: embed efukts ascii/ghost of araboly/spoders
+# 15) Free LSD: enter for rand(range(1, 10)) turns w/ random decay
+# 16) Free LSD: randomly refuse to work & blog botquote/kadequote/...
+# 17) {Gaol,Loony bin}: enter on rolling doubles
+# 18) {Gaol,Loony bin}: stay for <n> turns
+# 19) {Gaol,Loony bin}: visit {acid,npk} in gaol/visit ? in loony bin
+# 20) IRC housing projects: don't collect rent at random, squatting
+# 22) Utility fields: write strings
+#
+
+from ArabolyGame import ArabolyGameField, ArabolyGameState
+from ArabolyRtl import ArabolyPack
+from ArabolyTypeClass import ArabolyTypeClass
+
+class ArabolyFields(ArabolyTypeClass):
+    """XXX"""
+
+    # {{{ dispatch_chance(self, **params): XXX
+    def dispatch_chance(self, **params):
+        return params
+    # }}}
+    # {{{ dispatch_chest(self, **params): XXX
+    def dispatch_chest(self, **params):
+        return params
+    # }}}
+    # {{{ dispatch_chrono(self, **params): XXX
+    def dispatch_chrono(self, **params):
+        return params
+    # }}}
+    # {{{ dispatch_drugs(self, **params): XXX
+    def dispatch_drugs(self, **params):
+        return params
+    # }}}
+    # {{{ dispatch_gaol(self, **params): XXX
+    def dispatch_gaol(self, **params):
+        return params
+    # }}}
+    # {{{ dispatch_loony(self, **params): XXX
+    def dispatch_loony(self, **params):
+        return params
+    # }}}
+    # {{{ dispatch_utility(self, **params): XXX
+    def dispatch_utility(self, **params):
+        return params
+    # }}}
+
+    # {{{ dispatchTimer(self, **params): XXX
+    def dispatchTimer(self, **params):
+        return params
+    # }}}
+
+# vim:expandtab foldmethod=marker sw=4 ts=4 tw=0

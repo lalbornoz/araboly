@@ -1,5 +1,0 @@
-# Hostname		Channel		Client
-10.128.0.2		*		*!arab@127.0.0.1
-irc.underworld.no	*		*!*@abbad-vpn00.sandngz.net
-
-# vim:filetype=sh

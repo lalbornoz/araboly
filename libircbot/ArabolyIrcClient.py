@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Araboly NT 4.0 Advanced Server -- everyone's favourite board game... with IRC support and fancy colours!
+# Araboly 2000 Advanced Server -- everyone's favourite board game... with IRC support and fancy colours!
 # Copyright (c) 2018 Lucía Andrea Illanes Albornoz <lucia@luciaillanes.de>
 # This project is licensed under the terms of the MIT licence.
 #
@@ -78,7 +78,7 @@ class ArabolyIrcClient(object):
                         msg = msg[0].split(" ")
                     elif len(msg) == 2:
                         msg = msg[0].split(" ") + [msg[1]]
-                    newLine = {"idFull":[self.clientNick, self.clientIdent, self.clientHost], "type":"message"}
+                    newLine = {"idFull":[self.clientNick, self.clientIdent, self.clientHost], "eventType":"message"}
                     if msg[0][0] == ':':
                         newLine.update({"args":[*msg[2:]], "cmd":msg[1], "src":msg[0][1:]})
                     else:
@@ -87,7 +87,7 @@ class ArabolyIrcClient(object):
                         lines += [newLine]
         return lines
     # }}}
-    # {{{ queue(self,cmd, args): Parse and queue single line to server from list
+    # {{{ queue(self, cmd, args): Parse and queue single line to server from list
     def queue(self, cmd, args):
         msg = cmd; msg += " " + " ".join(args[:-1]) if len(args) > 1 else "";
         if len(args):
@@ -146,4 +146,4 @@ class ArabolyIrcClient(object):
         self.partialLine = ""; self.sslFlag = ssl;
     # }}}
 
-# vim:expandtab foldmethod=marker sw=4 ts=4 tw=120
+# vim:expandtab foldmethod=marker sw=4 ts=4 tw=0

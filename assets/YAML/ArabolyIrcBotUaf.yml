@@ -1,0 +1,4 @@
+- {channelMask: '*', clientMask: '*!arab@127.0.0.1', hostnameMask: 10.128.0.2}
+- {channelMask: '*', clientMask: '*!arab@127.0.0.1', hostnameMask: 127.0.0.1}
+- {channelMask: '*', clientMask: '*!*@abbad-vpn00.sandngz.net', hostnameMask: irc.underworld.no}
+- {channelMask: '*', clientMask: '*!*@arabs.ps', hostnameMask: 127.0.0.1}

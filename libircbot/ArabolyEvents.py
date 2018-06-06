@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Araboly NT 4.0 Advanced Server -- everyone's favourite board game... with IRC support and fancy colours!
+# Araboly 2000 Advanced Server -- everyone's favourite board game... with IRC support and fancy colours!
 # Copyright (c) 2018 Lucía Andrea Illanes Albornoz <lucia@luciaillanes.de>
 # This project is licensed under the terms of the MIT licence.
 #
@@ -18,7 +18,7 @@ class ArabolyEvents(object):
     # {{{ concatTimers(self, **timer): XXX
     def concatTimers(self, **timer):
         timer_ = timer.copy(); timer_["expire"] += time();
-        self.timerList = sorted(self.timerList + [{"type":"timer", **timer_}], key=lambda x: x["expire"])
+        self.timerList = sorted(self.timerList + [{"eventType":"timer", **timer_}], key=lambda x: x["expire"])
         if len(self.timerList):
             self.nextTimeout = self.timerList[0]["expire"]
         else:
@@ -73,4 +73,4 @@ class ArabolyEvents(object):
         self.rlist = []; self.wlist = []; self.xlist = [];
     # }}}
 
-# vim:expandtab foldmethod=marker sw=4 ts=4 tw=120
+# vim:expandtab foldmethod=marker sw=4 ts=4 tw=0

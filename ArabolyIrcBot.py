@@ -1,148 +1,199 @@
 #!/usr/bin/env python3
 #
-# Araboly NT 4.0 Advanced Server -- everyone's favourite board game... with IRC support and fancy colours!
+# Araboly 2000 Advanced Server -- everyone's favourite board game... with IRC support and fancy colours!
 # Copyright (c) 2018 Lucía Andrea Illanes Albornoz <lucia@luciaillanes.de>
 # This project is licensed under the terms of the MIT licence.
 #
 
-from ArabolyCommit import ArabolyCommit
-from ArabolyDaʕat import ArabolyDaʕat
-from ArabolyErrors import ArabolyErrors
+from Araboly import Araboly
 from ArabolyEvents import ArabolyEvents
-from ArabolyGame import ArabolyGame
 from ArabolyIrcClient import ArabolyIrcClient
-from ArabolyIrcToCommandMap import ArabolyIrcToCommandMap
-from ArabolyLog import ArabolyLog
-from ArabolyLogic import ArabolyLogic
-from ArabolyMonad import ArabolyMonad
-from ArabolyOutput import ArabolyOutput
-from ArabolyRules import ArabolyRules
-from ArabolyState import ArabolyState
-from ArabolyValidate import ArabolyValidate
+from ArabolyState import ArabolyOutputLevel, ArabolyState
+from datetime import datetime
 from getopt import getopt
-from sys import argv, stderr
-import copy, os, pickle, time
+from time import strftime
+import copy, os, sys, time, yaml
 
-class ArabolyIrcBot(object):
+class ArabolyIrcBot(Araboly):
     """XXX"""
-    optsDefault = {"channel":"#ARABOLY", "debug":False, "flood_delay":0, "hostname":None, "nick":"ARABOLY", "port":"6667", "realname":"Araboly NT 4.0 Advanced Server", "ssl":False, "user":"ARABOLY"}
-    optsMap = {"c":"channel", "d":"debug", "f":"flood_delay", "h":"help", "H":"hostname", "n":"nick", "p":"port", "r":"realname", "S":"ssl", "u":"user"}
-    optsString = "c:df:hH:n:p:r:Su:"
-    typeObjects = [ArabolyCommit, ArabolyDaʕat, ArabolyErrors, ArabolyEvents, ArabolyGame, ArabolyIrcClient, ArabolyIrcToCommandMap, ArabolyLog, ArabolyLogic, ArabolyOutput, ArabolyRules, ArabolyState, ArabolyValidate]
+    optionsDefault = {**Araboly.optionsDefault,
+        "channel":"#ARABOLY", "connect_timeout":15, "debug":False,
+        "flood_delay":0, "help":None, "hostname":None, "nick":"ARABOLY",
+        "port":"6667", "realname":"Araboly 2000 Advanced Server",
+        "snapshot_path":"savefiles/snapshot.dmp", "ssl":False, "user":"ARABOLY"}
+    optionsString = "b:c:C:df:hH:n:p:r:St:u:"
+    optionsStringMap = {
+        "c":"channel", "C":"connect_timeout", "d":"debug",
+        "f":"flood_delay", "h":"help", "H":"hostname", "n":"nick",
+        "p":"port", "r":"realname", "S":"ssl", "u":"user"}
+    typeObjects = [*Araboly.typeObjects, ArabolyEvents, ArabolyIrcClient]
 
-    #
-    # main(argv): XXX
-    def main(argv):
-        arabolyIrcBot = ArabolyIrcBot(argv)
-        if arabolyIrcBot == None:
-            return 0
-        while True:
-            events = arabolyIrcBot.typeDict[ArabolyEvents]
-            ircClient = arabolyIrcBot.typeDict[ArabolyIrcClient]
-            if ircClient.connect(15):
-                wlist = [] if ircClient.unqueue() else [ircClient.clientSocket.fileno()]
-                events.concatSelect(rlist=[ircClient.clientSocket.fileno()], wlist=wlist)
-                if len(wlist):
-                    events.concatSelect(wlist=[ircClient.clientSocket.fileno()])
-                if  arabolyIrcBot.options["debug"]                                   \
-                and os.path.isfile("./ArabolyIrcBot.snapshot"):
-                    with open("./ArabolyIrcBot.snapshot", "rb") as fileObject:
-                        print("Loading game snapshot from ./ArabolyIrcBot.snapshot")
-                        arabolyIrcBot.typeDict[ArabolyGame] = pickle.load(fileObject)
-                while True:
-                    eventsIn = []; eventsOut = []; unqueueFlag = False; wlistFlag = False;
-                    readySet = events.select()
-                    if len(readySet[0]) != 0:
-                        eventsIn += ircClient.readlines()
-                    eventsIn += events.timers()
-                    for eventIn in eventsIn:
-                        if  eventIn["type"] == "timer"                              \
-                        and "unqueue" in eventIn:
-                            for unqueueLine in eventIn["unqueue"]:
-                                ircClient.queue(**unqueueLine); unqueueFlag = True;
-                            continue
-                        if arabolyIrcBot.options["debug"]:
-                            gameSnapshot = copy.deepcopy(arabolyIrcBot.typeDict[ArabolyGame])
-                        game = arabolyIrcBot.typeDict[ArabolyGame]
-                        unit = ArabolyMonad(context=game,                           \
-                                debug=arabolyIrcBot.options["debug"],               \
-                                output=[], status=True, **eventIn)
-                        unit = unit                                                 \
-                                >> ArabolyIrcBot.typeDict[ArabolyIrcToCommandMap]   \
-                                >> ArabolyIrcBot.typeDict[ArabolyValidate]          \
-                                >> ArabolyIrcBot.typeDict[ArabolyDaʕat]             \
-                                >> ArabolyIrcBot.typeDict[ArabolyLogic]             \
-                                >> ArabolyIrcBot.typeDict[ArabolyState]             \
-                                >> ArabolyIrcBot.typeDict[ArabolyRules]             \
-                                >> ArabolyIrcBot.typeDict[ArabolyOutput]            \
-                                >> ArabolyIrcBot.typeDict[ArabolyLog]               \
-                                >> ArabolyIrcBot.typeDict[ArabolyCommit]            \
-                                >> ArabolyIrcBot.typeDict[ArabolyErrors]
-                        eventsOut += unit.params["output"]
-                    floodDelay = 0
-                    for eventOut in eventsOut:
-                        if eventOut["type"] == "message":
-                            msg = {k:eventOut[k] for k in eventOut if k == "args" or k == "cmd"}
-                            if eventOut["delay"] == 0:
-                                if arabolyIrcBot.options["flood_delay"] > 0:
-                                    events.concatTimers(expire=floodDelay, unqueue=[msg])
-                                    floodDelay += arabolyIrcBot.options["flood_delay"]
-                                else:
-                                    ircClient.queue(**msg); unqueueFlag = True;
-                            else:
-                                if arabolyIrcBot.options["flood_delay"] > 0:
-                                    delay = floodDelay
-                                else:
-                                    delay = 0.100 if eventOut["delay"] == -1 else eventOut["delay"]
-                                events.concatTimers(expire=delay, unqueue=[msg])
-                                floodDelay += arabolyIrcBot.options["flood_delay"]
-                        elif eventOut["type"] == "timer":
-                            events.concatTimers(**eventOut)
-                    if floodDelay > 0:
-                        game.inhibitUntil = time.time() + floodDelay
-                    if unqueueFlag:
-                        if not ircClient.unqueue():
-                            events.concatSelect(wlist=[ircClient.clientSocket.fileno()])
-                        else:
-                            events.filterSelect(wlist=[ircClient.clientSocket.fileno()])
-                    if "exc_obj" in unit.params:
-                        if arabolyIrcBot.options["debug"]:
-                            with open("./ArabolyIrcBot.snapshot", "wb+") as fileObject:
-                                print("Saving pre-exception game snapshot to ./ArabolyIrcBot.snapshot")
-                                pickle.dump(gameSnapshot, fileObject)
-                        return False
-                ircClient.close()
+    # {{{ _errorRoutine(self, eventsOut, paramsOut, status): XXX
+    def _errorRoutine(self, eventsOut, paramsOut, status):
+        if not status:
+            eventsOut += [{"eventType":"message", "delay":0, "cmd":"PRIVMSG", "args":[paramsOut["context"].clientParams["channel"], "Traceback (most recent call last):"]}]
+            for stackLine in paramsOut["exc_stack"]:
+                eventsOut += [{"eventType":"message", "delay":0, "cmd":"PRIVMSG", "args":[paramsOut["context"].clientParams["channel"], stackLine]}]
+            eventsOut += [{"eventType":"message", "delay":0, "cmd":"PRIVMSG", "args":[paramsOut["context"].clientParams["channel"], "{} exception in {}:{}: {}".format(str(paramsOut["exc_type"]), paramsOut["exc_fname"], paramsOut["exc_lineno"], str(paramsOut["exc_obj"]))]}]
+            eventsOut += [{"eventType":"message", "delay":0, "cmd":"PRIVMSG", "args":[paramsOut["context"].clientParams["channel"], "Monadic value: {}".format({k:v for k,v in paramsOut.items() if k != "output"})]}]
+            status = True
+        elif not paramsOut["status"]:
+            eventsOut += [{"eventType":"message", "delay":0, "cmd":"PRIVMSG", "args":[paramsOut["context"].clientParams["channel"], "Oh no! arab can't be bothered to write error messages!"]}]
+            eventsOut += [{"eventType":"message", "delay":0, "cmd":"PRIVMSG", "args":[paramsOut["context"].clientParams["channel"], "Monadic value: {}".format({k:v for k,v in paramsOut.items() if k != "output"})]}]
+            status = True
+        return eventsOut, status
+    # }}}
+    # {{{ _inputRoutine(self, ircClientObject, events): XXX
+    def _inputRoutine(self, ircClientObject, events):
+        eventsOut, unqueueFlag, paramsOut, status = [], False, None, True
+        for event in events:
+            if event["eventType"] == "timer" and "unqueue" in event:
+                for unqueueLine in event["unqueue"]:
+                    eventsOut += event["unqueue"]; unqueueFlag = True;
+                continue
             else:
-                return False
-        return True
+                self._logRoutine(isOutput=False, **event)
+                if self.options["debug"]:
+                    gameSnapshot = copy.deepcopy(self.typeObjects[ArabolyState])
+                    status, newEventsOut, paramsOut = self.unit(event, debug=True)
+                    if not status:
+                        with open(self.optionsDefault["snapshot_path"], "w") as fileObject:
+                            print("Saving pre-exception game snapshot to {}!".format(self.optionsDefault["snapshot_path"]))
+                            yaml.dump(gameSnapshot, fileObject)
+                            exit(1)
+                else:
+                    status, newEventsOut, paramsOut = self.unit(event)
+                eventsOut += newEventsOut
+        return eventsOut, paramsOut, unqueueFlag, status
+    # }}}
+    # {{{ _logRoutine(self, isOutput, **event): XXX
+    def _logRoutine(self, isOutput, **event):
+        eventLevel = event["outputLevel"] if "outputLevel" in event else None;
+        if event["eventType"] == "timer" \
+        or eventLevel == ArabolyOutputLevel.LEVEL_GRAPHICS:
+            return
+        elif event["eventType"] == "command":
+            ts = datetime.now().strftime("%d-%b-%Y %H:%M:%S").upper()
+            cmd = event["cmd"]; msg = " ".join(event["args"]).rstrip("\n");
+            channel = event["channel"]; msg = ": " + msg if len(msg) else "";
+            if isOutput:
+                print("{} {} Command {} output {} to {}{}".format(ts, ">>>", cmd, channel, msg))
+            else:
+                src = event["src"]
+                print("{} {} Command {} from {} on {}{}".format(ts, "<<<", cmd, src, channel, msg))
+        elif event["eventType"] == "message":
+            ts = datetime.now().strftime("%d-%b-%Y %H:%M:%S").upper()
+            destType = "channel " + event["args"][0] if event["args"][0][0] == "#" else "server"
+            cmdType = event["cmd"].upper() + " command"
+            msg = " ".join(event["args"][1:]).rstrip("\n")
+            msg = ": " + msg if len(msg) else ""
+            if isOutput:
+                dest = " to " + event["args"][0] if "args" in event else ""
+                print("{} {} {} {}{}{}".format(ts, ">>>", destType.title(), cmdType, dest, msg))
+            else:
+                src = " from " + event["src"] if "src" in event else ""
+                print("{} {} {} {}{}{}".format(ts, "<<<", destType.title(), cmdType, src, msg))
+    # }}}
+    # {{{ _outputRoutine(self, eventsObject, ircClientObject, events, unqueueFlag): XXX
+    def _outputRoutine(self, eventsObject, ircClientObject, events, unqueueFlag):
+        floodDelay = 0; queueList = [];
+        for event in events:
+            self._logRoutine(isOutput=True, **event)
+            if event["eventType"] == "message":
+                msg = {k:event[k] for k in event if k in ["args", "cmd"]}
+                if self.options["flood_delay"] > 0:
+                    eventsObject.concatTimers(expire=floodDelay, unqueue=[{**msg, "eventType":"message"}])
+                    floodDelay += self.options["flood_delay"]
+                elif not "delay" in event   \
+                or   event["delay"] > 0:
+                    eventLevel = event["outputLevel"] if "outputLevel" in event else None;
+                    if eventLevel == ArabolyOutputLevel.LEVEL_GRAPHICS:
+                        queueList += [msg]; unqueueFlag = True;
+                    else:
+                        if floodDelay == 0:
+                            queueList += [msg]; unqueueFlag = True;
+                        else:
+                            eventsObject.concatTimers(expire=floodDelay, unqueue=[{**msg, "eventType":"message"}])
+                        floodDelay += 0.750 if "delay" not in event else event["delay"]
+                else:
+                    queueList += [msg]; unqueueFlag = True;
+            elif event["eventType"] == "timer":
+                eventsObject.concatTimers(**event)
+        return floodDelay, queueList
+    # }}}
 
-    #
-    # __new__(self, argv): creation method
-    def __new__(self, argv):
-        optsList, args = getopt(argv[1:], self.optsString)
-        optsDict = {self.optsMap[a[1:]]:b for a,b in optsList}
-        optsDict["debug"] = True if "debug" in optsDict else False
-        if "flood_delay" in optsDict:
-            optsDict["flood_delay"] = float(optsDict["flood_delay"])/1000.0
-        else:
-            optsDict["flood_delay"] = 0
-        optsDict["ssl"] = True if "ssl" in optsDict else False
-        if optsDict["ssl"] and "port" not in optsDict:
-            optsDict["port"] = "6697"
-        opts = self.optsDefault.copy(); opts.update(optsDict);
-        if "help" in opts or opts["hostname"] == None:
-            if opts["hostname"] == None:
-                print("error: missing hostname", file=stderr)
-            with open("./assets/ArabolyIrcBot.usage", "r") as fileObject:
-                [print(line.rstrip("\n")) for line in fileObject.readlines()]
-                return None
-        else:
-            self.options = opts; self.typeDict = {};
-            for typeObject in self.typeObjects:
-                self.typeDict[typeObject] = typeObject(**self.options)
-            return self
+    # {{{ synchronise(self): XXX
+    def synchronise(self):
+        eventsObject = self.typeObjects[ArabolyEvents]
+        ircClientObject = self.typeObjects[ArabolyIrcClient]
+        status = True
+        while status:
+            if ircClientObject.connect(self.options["connect_timeout"]):
+                clientSocket = ircClientObject.clientSocket.fileno()
+                eventsObject.concatSelect(rlist=[clientSocket])
+                if ircClientObject.unqueue() != []:
+                    eventsObject.concatSelect(wlist=[clientSocket])
+                while status:
+                    eventsIn, eventsOut, readySet = [], [], eventsObject.select()
+                    expiredTimers = eventsObject.timers()
+                    if len(readySet[0]) != 0:
+                        eventsIn += ircClientObject.readlines()
+                    if len(expiredTimers):
+                        eventsIn += expiredTimers
+                    if len(eventsIn):
+                        eventsOut, paramsOut, unqueueFlag, status = self._inputRoutine(ircClientObject, eventsIn)
+                        if paramsOut != None:
+                            if not status   \
+                            or not paramsOut["status"]:
+                                eventsOut, status = self._errorRoutine(eventsOut, paramsOut, status)
+                    if len(eventsOut):
+                        floodDelay, queueList = self._outputRoutine(eventsObject, ircClientObject, eventsOut, unqueueFlag)
+                        if len(queueList):
+                            for msg in queueList:
+                                ircClientObject.queue(**msg)
+                            if not ircClientObject.unqueue():
+                                eventsObject.concatSelect(wlist=[ircClientObject.clientSocket.fileno()])
+                            else:
+                                eventsObject.filterSelect(wlist=[ircClientObject.clientSocket.fileno()])
+                        if floodDelay > 0:
+                            self.typeObjects[ArabolyState].clientParams["inhibitUntil"] = time.time() + floodDelay
+                ircClientObject.close()
+            else:
+                status = False
+        return status
+    # }}}
+    # {{{ __init__(self, argv): initialisation method
+    def __init__(self, argv):
+        options = {}
+        optionsList, args = getopt(argv[1:], self.optionsString)
+        for optionChar, optionArg in optionsList:
+            optionName = self.optionsStringMap[optionChar[1:]]
+            if type(self.optionsDefault[optionName]) == bool:
+                options[optionName] = True
+            else:
+                options[optionName] = optionArg
+        if "help" in options or "hostname" not in options:
+            if "hostname" not in options:
+                print("error: missing hostname\n", file=sys.stderr); rc = 1;
+            else:
+                rc = 0
+            with open(os.path.join("assets", "text", "ArabolyIrcBotUsage.txt"), "r") as fileObject:
+                for usageLine in fileObject.readlines():
+                    print(usageLine.rstrip("\n"), file=sys.stderr)
+            exit(rc)
+        if "flood_delay" in options:
+            options["flood_delay"] = float(options["flood_delay"]) / 1000.0
+        if "ssl" in options and "port" not in options:
+            options["port"] = "6697"
+        super().__init__(options)
+        if "debug" in options   \
+        and os.path.exists(self.optionsDefault["snapshot_path"]):
+            with open(self.optionsDefault["snapshot_path"], "r") as fileObject:
+                print("Loading game snapshot from {}!".format(self.optionsDefault["snapshot_path"]))
+                self.typeObjects[ArabolyState] = yaml.load(fileObject)
+    # }}}
 
 if __name__ == "__main__":
-    exit(ArabolyIrcBot.main(argv))
+    exit(ArabolyIrcBot(sys.argv).synchronise())
 
-# vim:expandtab foldmethod=marker sw=4 ts=4 tw=120
+# vim:expandtab foldmethod=marker sw=4 ts=4 tw=0
