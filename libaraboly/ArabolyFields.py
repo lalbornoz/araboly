@@ -69,21 +69,29 @@ class ArabolyFields(ArabolyTypeClass):
     # {{{ _land_chance(channel, context, output, src, srcField, srcPlayer): XXX
     @staticmethod
     def _land_chance(channel, context, output, src, srcField, srcPlayer):
+        for kadeLine in context.kades[ArabolyRandom(limit=len(context.kades))]:
+            output = ArabolyGenerals._push_output(channel, context, output, kadeLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
         return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_chest(channel, context, output, src, srcField, srcPlayer): XXX
     @staticmethod
     def _land_chest(channel, context, output, src, srcField, srcPlayer):
+        for kadeLine in context.kades[ArabolyRandom(limit=len(context.kades))]:
+            output = ArabolyGenerals._push_output(channel, context, output, kadeLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
         return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_free_lsd(channel, context, output, src, srcField, srcPlayer): XXX
     @staticmethod
     def _land_free_lsd(channel, context, output, src, srcField, srcPlayer):
+        for kadeLine in context.kades[ArabolyRandom(limit=len(context.kades))]:
+            output = ArabolyGenerals._push_output(channel, context, output, kadeLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
         return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_loony_bin(channel, context, output, src, srcField, srcPlayer): XXX
     @staticmethod
     def _land_loony_bin(channel, context, output, src, srcField, srcPlayer):
+        for kadeLine in context.kades[ArabolyRandom(limit=len(context.kades))]:
+            output = ArabolyGenerals._push_output(channel, context, output, kadeLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
         return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_property_utility(channel, context, output, src, srcField, srcPlayer): XXX
@@ -110,6 +118,8 @@ class ArabolyFields(ArabolyTypeClass):
     # {{{ _land_sectioned(channel, context, output, src, srcField, srcPlayer): XXX
     @staticmethod
     def _land_sectioned(channel, context, output, src, srcField, srcPlayer):
+        for kadeLine in context.kades[ArabolyRandom(limit=len(context.kades))]:
+            output = ArabolyGenerals._push_output(channel, context, output, kadeLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
         return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_tax(channel, context, output, src, srcField, srcPlayer): XXX
