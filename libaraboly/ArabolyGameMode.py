@@ -93,6 +93,7 @@ class ArabolyGameMode(ArabolyTypeClass):
                     for rentString in srcField["strings"][ArabolyStringType.LAND][srcField["level"]]:
                         rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                         output = ArabolyFree._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src))
+                    context.players["byName"][srcField["owner"]]["wallet"] += srcPropRent
                     srcPlayer["wallet"] -= srcPropRent
             elif srcField["type"] == ArabolyGameField.TAX:
                 output = ArabolyFree._push_output(channel, context, output, "Oh no! {src} must pay ${srcField[price]}!".format(**locals()))
