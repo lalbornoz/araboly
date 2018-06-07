@@ -2074,7 +2074,7 @@
         'args': [*id001]
         'dictitems':
           0:
-          - 'Oops! {who} accidentally flies an aeroplane into The {prop}'
+          - 'Oops! {who} accidentally flies an aeroplane into The {prop}!'
           - '{who} pays ${cost} to {owner} for picking low-hanging fruits!'
           1:
           - 'Oops! {who} accidentally flies an aeroplane into The {prop}!'
