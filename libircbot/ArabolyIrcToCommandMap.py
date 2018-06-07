@@ -112,7 +112,7 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
                 if srcList[0] not in context.clientParams["nickMap"]:
                     context.clientParams["nickMap"][srcList[0]] = srcList[0]
                 src = context.clientParams["nickMap"][srcList[0]]
-                args = args[1].split(" ")[1:]
+                args = [a for a in args[1].split(" ")[1:] if len(a)]
                 eventType = "command"
             else:
                 status = False
