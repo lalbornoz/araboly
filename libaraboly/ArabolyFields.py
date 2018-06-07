@@ -48,11 +48,42 @@ class ArabolyFields(ArabolyTypeClass):
             srcPlayer["wallet"] += 200
             output = ArabolyGenerals._push_output(channel, context, output, "Yay! {src} passes past GO and collects $200!".format(**locals()))
         output = ArabolyGenerals._push_output(channel, context, output, "{src} lands on {srcField[title]}!".format(**locals()))
-        if srcField["type"] == ArabolyGameField.PROPERTY    \
-        or srcField["type"] == ArabolyGameField.UTILITY:
+        if srcField["type"] == ArabolyGameField.CHANCE:
+            context, output, srcField, srcPlayer = ArabolyFields._land_chance(channel, context, output, src, srcField, srcPlayer)
+        elif srcField["type"] == ArabolyGameField.CHEST:
+            context, output, srcField, srcPlayer = ArabolyFields._land_chest(channel, context, output, src, srcField, srcPlayer)
+        elif srcField["type"] == ArabolyGameField.FREE_LSD:
+            context, output, srcField, srcPlayer = ArabolyFields._land_free_lsd(channel, context, output, src, srcField, srcPlayer)
+        elif srcField["type"] == ArabolyGameField.LOONY_BIN:
+            context, output, srcField, srcPlayer = ArabolyFields._land_loony_bin(channel, context, output, src, srcField, srcPlayer)
+        elif srcField["type"] == ArabolyGameField.PROPERTY  \
+        or   srcField["type"] == ArabolyGameField.UTILITY:
             context, output, srcField, srcPlayer = ArabolyFields._land_property_utility(channel, context, output, src, srcField, srcPlayer)
+        elif srcField["type"] == ArabolyGameField.SECTIONED:
+            context, output, srcField, srcPlayer = ArabolyFields._land_sectioned(channel, context, output, src, srcField, srcPlayer)
         elif srcField["type"] == ArabolyGameField.TAX:
             context, output, srcField, srcPlayer = ArabolyFields._land_tax(channel, context, output, src, srcField, srcPlayer)
+        return context, output, srcField, srcPlayer
+    # }}}
+
+    # {{{ _land_chance(channel, context, output, src, srcField, srcPlayer): XXX
+    @staticmethod
+    def _land_chance(channel, context, output, src, srcField, srcPlayer):
+        return context, output, srcField, srcPlayer
+    # }}}
+    # {{{ _land_chest(channel, context, output, src, srcField, srcPlayer): XXX
+    @staticmethod
+    def _land_chest(channel, context, output, src, srcField, srcPlayer):
+        return context, output, srcField, srcPlayer
+    # }}}
+    # {{{ _land_free_lsd(channel, context, output, src, srcField, srcPlayer): XXX
+    @staticmethod
+    def _land_free_lsd(channel, context, output, src, srcField, srcPlayer):
+        return context, output, srcField, srcPlayer
+    # }}}
+    # {{{ _land_loony_bin(channel, context, output, src, srcField, srcPlayer): XXX
+    @staticmethod
+    def _land_loony_bin(channel, context, output, src, srcField, srcPlayer):
         return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_property_utility(channel, context, output, src, srcField, srcPlayer): XXX
@@ -74,6 +105,11 @@ class ArabolyFields(ArabolyTypeClass):
                     output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src), ArabolyOutputLevel.LEVEL_NODELAY)
                 context.players["byName"][srcField["owner"]]["wallet"] += srcPropRent
                 srcPlayer["wallet"] -= srcPropRent
+        return context, output, srcField, srcPlayer
+    # }}}
+    # {{{ _land_sectioned(channel, context, output, src, srcField, srcPlayer): XXX
+    @staticmethod
+    def _land_sectioned(channel, context, output, src, srcField, srcPlayer):
         return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_tax(channel, context, output, src, srcField, srcPlayer): XXX
