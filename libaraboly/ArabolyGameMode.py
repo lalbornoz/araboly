@@ -86,13 +86,10 @@ class ArabolyGameMode(ArabolyTypeClass):
                     if srcField["mortgaged"]:
                         output = ArabolyFree._push_output(channel, context, output, "Oops! {srcField[owner]} cannot collect rent on {srcField[title]} as it is mortgaged!".format(**locals()))
                     else:
-                        if srcField["type"] == ArabolyGameField.PROPERTY:
-                            srcPropRent = srcField["strings"][ArabolyStringType.RENT][srcField["level"]][0]
-                            if  srcField["level"] == 0              \
-                            and srcField["ownerHasGroup"]:
-                                srcPropRent *= 2
-                        else:
-                            srcPropRent = srcField["price"]
+                        srcPropRent = srcField["strings"][ArabolyStringType.RENT][srcField["level"]][0]
+                        if  srcField["level"] == 0                  \
+                        and srcField["ownerHasGroup"]:
+                            srcPropRent *= 2
                         for rentString in srcField["strings"][ArabolyStringType.LAND][srcField["level"]]:
                             rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                             output = ArabolyFree._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src))
