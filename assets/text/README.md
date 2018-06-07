@@ -1,13 +1,13 @@
 ```
-       Cat-powered!     _ActiveAraboly _  support  _  out of the box!   Built on NT technology!   100% vegan!
+       Cat-powered!     _ActiveAraboly _  support  _  out of the box!  Built on NT technology!    100% vegan!
          _     _,      / \   _ __ __ _| |__   ___ | |_   _            ___  ___  ___  ___           ,_     _
          \~-,_//|     / _ \ | '__/ _` | '_ \ / _ \| | | | |  Only    |_  |/ _ \/ _ \/ _ \  Only    |\\_,-~/
  .--,    | _  _ \    / ___ \| | | (_| | |_) | (_) | | |_| |  uses   / __// // / // / // / $3999   / _  _ |    ,--.
  '-, \   ( $  $  )  /_/   \_\_|  \__,_|_.__/ \___/|_|\__, | 128 MB /____/\___/\___/\___/   for   (  %  % )   / ,-'
-    ) )_.-\_T_  /   Immaculately crafted 64-bit code!|___/  RAM on    Definitely not    25 users! \  _T_/-._( (
-   / .'         \   Exquisite 24-bit True Colour graphics! average!  stolen from DEC!             /         `. \
+    ) )_.-\_T_  /   Immaculately crafted 64-bit code!|___/  RAM on                      25 users! \  _T_/-._( (
+   / .'         \   Exquisite 24-bit True Colour graphics! average!    Service Pack 1             /         `. \
   | /   _BANKCAT |              _   _   _   _   _   _   _   _     _   _   _   _   _   _          | DICECAT_   \ |
-  |      \  , / /  Most secure / \ / \ / \ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \ Almost   \ \ ,  /      |
+  |      \  , / /  Most secure / \ / \ / \ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \  Almost  \ \ ,  /      |
    \   __/_-| ||   version of ( A | d | v | a | n | c | e | d ) ( S | e | r | v | e | r ) supports || |-_\__   /
     '-,____)'\_)) Araboly yet! \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/ Alpha!   ((_/`(____,-'
 
@@ -22,7 +22,7 @@
                                               should you feel like suing us.
 ```
 
-# Araboly 2000 Advanced Server
+# Araboly 2000 Advanced Server SP1
 **Everyone's favourite board game... with IRC support and fancy colours! (WORK IN PROGRESS)**  
 Copyright (c) 2018 Lucía Andrea Illanes Albornoz <<lucia@luciaillanes.de>>  
 This project is licensed under the terms of the MIT licence.
@@ -42,7 +42,7 @@ usage: ./ArabolyIrcBot.py [-c <channel name>] [-d] [-C <connect timeout>]
          -H <hostname>.........:  no default, must always be specified.
          -n <nick name>........:  defaults to ARABOLY.
          -p <port>.............:  defaults to 6667 or 6697 if using SSL.
-         -r <IRC real name>....:  defaults to `Araboly 2000 Advanced Server'.
+         -r <IRC real name>....:  defaults to `Araboly 2000 Advanced Server SP1'.
          -S ...................:  use SSL; disabled by default.
          -u <user name>........:  defaults to ARABOLY.
 ```

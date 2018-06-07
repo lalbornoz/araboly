@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Araboly 2000 Advanced Server -- everyone's favourite board game... with IRC support and fancy colours!
+# Araboly 2000 Advanced Server SP1 -- everyone's favourite board game... with IRC support and fancy colours!
 # Copyright (c) 2018 Lucía Andrea Illanes Albornoz <lucia@luciaillanes.de>
 # This project is licensed under the terms of the MIT licence.
 #
@@ -19,7 +19,7 @@ class ArabolyIrcBot(Araboly):
     optionsDefault = {**Araboly.optionsDefault,
         "channel":"#ARABOLY", "connect_timeout":15, "debug":False,
         "flood_delay":0, "help":None, "hostname":None, "nick":"ARABOLY",
-        "port":"6667", "realname":"Araboly 2000 Advanced Server",
+        "port":"6667", "realname":"Araboly 2000 Advanced Server SP1",
         "snapshot_path":"savefiles/snapshot.dmp", "ssl":False, "user":"ARABOLY"}
     optionsString = "b:c:C:df:hH:n:p:r:St:u:"
     optionsStringMap = {
