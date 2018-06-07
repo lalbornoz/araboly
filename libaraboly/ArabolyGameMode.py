@@ -55,8 +55,8 @@ class ArabolyGameMode(ArabolyTypeClass):
         if context.players["numMap"][context.players["curNum"]] != src:
             status = False
         elif len(args):
-            if  len(args) == 2                                          \
-            and ArabolyFree._authorised(channel, context, srcFull)      \
+            if  len(args) == 2                                      \
+            and ArabolyFree._authorised(channel, context, srcFull)  \
             or  context.clientParams["testing"]:
                 dice = [int(args[0]), int(args[1])]
             else:
@@ -77,24 +77,27 @@ class ArabolyGameMode(ArabolyTypeClass):
                 output = ArabolyFree._push_output(channel, context, output, "Yay! {src} passes past GO and collects $200!".format(**locals()))
             output = ArabolyFree._push_output(channel, context, output, "{src} lands on {srcField[title]}!".format(**locals()))
 
-            if srcField["type"] == ArabolyGameField.PROPERTY            \
+            if srcField["type"] == ArabolyGameField.PROPERTY        \
             or srcField["type"] == ArabolyGameField.UTILITY:
                 if  srcField["owner"] == -1:
                     context, output = ArabolyPropertyMode._enter(channel, context, output, src, srcField, srcPlayer)
-                elif srcField["owner"] != -1                            \
+                elif srcField["owner"] != -1                        \
                 and  srcField["owner"] != src:
-                    if srcField["type"] == ArabolyGameField.PROPERTY:
-                        srcPropRent = srcField["strings"][ArabolyStringType.RENT][srcField["level"]][0]
-                        if  srcField["level"] == 0                      \
-                        and srcField["ownerHasGroup"]:
-                            srcPropRent *= 2
+                    if srcField["mortgaged"]:
+                        output = ArabolyFree._push_output(channel, context, output, "Oops! {srcField[owner]} cannot collect rent on {srcField[title]} as it is mortgaged!".format(**locals()))
                     else:
-                        srcPropRent = srcField["price"]
-                    for rentString in srcField["strings"][ArabolyStringType.LAND][srcField["level"]]:
-                        rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
-                        output = ArabolyFree._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src))
-                    context.players["byName"][srcField["owner"]]["wallet"] += srcPropRent
-                    srcPlayer["wallet"] -= srcPropRent
+                        if srcField["type"] == ArabolyGameField.PROPERTY:
+                            srcPropRent = srcField["strings"][ArabolyStringType.RENT][srcField["level"]][0]
+                            if  srcField["level"] == 0              \
+                            and srcField["ownerHasGroup"]:
+                                srcPropRent *= 2
+                        else:
+                            srcPropRent = srcField["price"]
+                        for rentString in srcField["strings"][ArabolyStringType.LAND][srcField["level"]]:
+                            rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
+                            output = ArabolyFree._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src))
+                        context.players["byName"][srcField["owner"]]["wallet"] += srcPropRent
+                        srcPlayer["wallet"] -= srcPropRent
             elif srcField["type"] == ArabolyGameField.TAX:
                 output = ArabolyFree._push_output(channel, context, output, "Oh no! {src} must pay ${srcField[price]}!".format(**locals()))
                 srcPlayer["wallet"] -= srcField["price"]
@@ -102,7 +105,7 @@ class ArabolyGameMode(ArabolyTypeClass):
             if context.state == ArabolyGameState.GAME:
                 if srcPlayer["wallet"] <= 0:
                     context, output = ArabolyBankruptcyMode._enter(channel, context, output, src, srcPlayer)
-                if  context.state == ArabolyGameState.GAME              \
+                if  context.state == ArabolyGameState.GAME          \
                 and len(context.players["numMap"]) > 1:
                     context, output = ArabolyFree._next_player(channel, context, output, src)
         return args, channel, context, output, src, srcFull, status
