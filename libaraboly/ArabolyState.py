@@ -23,9 +23,9 @@ class ArabolyState(object):
     """XXX"""
     initDictsClear = ["auctionState", "board", "clientParams", "graphics", "players", "tradeState"]
     initFunctions = ["board", "clientParams", "graphics"]
-    initVariables = {                                       \
-        "auctionState":{"bids":{}, "field":None},           \
-        "players":{"byName":{}, "curNum":-1, "numMap":[]},  \
+    initVariables = {                                           \
+        "auctionState":{"bids":{}, "field":None, "minBid":-1},  \
+        "players":{"byName":{}, "curNum":-1, "numMap":[]},      \
         "state":ArabolyGameState.ATTRACT}
 
     # {{{ _initBoard(self, boardPathName=os.path.join("assets", "YAML", "ArabolyBoard.yml"), fieldsDirName=os.path.join("assets", "MiRCart"), fieldsPatterns=["ArabolyBoardFields([0-9][0-9])_([0-9][0-9]).irc", "ArabolyBoardField([0-9][0-9]?).irc"], **kwargs):
