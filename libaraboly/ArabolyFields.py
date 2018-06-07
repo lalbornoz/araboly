@@ -110,7 +110,7 @@ class ArabolyFields(ArabolyTypeClass):
                     srcPropRent *= 2
                 for rentString in srcField["strings"][ArabolyStringType.LAND][srcField["level"]]:
                     rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
-                    output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src), ArabolyOutputLevel.LEVEL_NODELAY)
+                    output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src))
                 context.players["byName"][srcField["owner"]]["wallet"] += srcPropRent
                 srcPlayer["wallet"] -= srcPropRent
         return context, output, srcField, srcPlayer
