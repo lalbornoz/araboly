@@ -107,15 +107,24 @@ class ArabolyGenerals(ArabolyTypeClass):
     @staticmethod
     def _status_final(channel, context, output):
         if len(context.players["byName"]) > 1:
-            output = ArabolyGenerals._push_output(channel, context, output, "List of players:", outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+            finalPlayers = {}
+            for playerName, player in context.players["byName"].items():
+                finalPlayers[playerName] = {"name":player["name"], "netWorth":player["wallet"], "properties":player["properties"], "wallet":player["wallet"]}
+                for playerPropNum in player["properties"]:
+                    playerProp = context.board[playerPropNum]
+                    if playerProp["mortgaged"]:
+                        finalPlayers[playerName]["netWorth"] += int(playerProp["price"] / 2)
+                    else:
+                        finalPlayers[playerName]["netWorth"] += playerProp["price"]
+            output = ArabolyGenerals._push_output(channel, context, output, "List of players:")
             playerWinner, sortedNum = None, 0
-            for playerItem in sorted(context.players["byName"].items(), key=lambda i: i[1]["wallet"], reverse=True):
-                playerItem, sortedNum = playerItem[1], sortedNum + 1
+            for player in sorted(finalPlayers.items(), key=lambda i: i[1]["netWorth"], reverse=True):
+                playerName, player, sortedNum = player[0], player[1], sortedNum + 1
                 if sortedNum == 1:
-                    playerWinner = playerItem
-                if len(playerItem["properties"]):
-                    output = ArabolyGenerals._push_output(channel, context, output, "{sortedNum: 2d}: {playerItem[name]} at ${playerItem[wallet]}, properties owned:".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
-                    for playerPropNum in playerItem["properties"]:
+                    playerWinner = player
+                if len(player["properties"]):
+                    output = ArabolyGenerals._push_output(channel, context, output, "{sortedNum: 2d}: {player[name]} at ${player[netWorth]} (wallet: ${player[wallet]},) properties owned:".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+                    for playerPropNum in player["properties"]:
                         playerProp = context.board[playerPropNum]
                         mortgagedString = " (\u001fMORTGAGED\u001f)" if playerProp["mortgaged"] else ""
                         developmentsList = []
@@ -124,10 +133,10 @@ class ArabolyGenerals(ArabolyTypeClass):
                         developmentsString = " developments: {}".format(", ".join(developmentsList))
                         output = ArabolyGenerals._push_output(channel, context, output, "    \u0003{:02d}${}{} (#{}) -- {},{}".format(playerProp["colourMiRC"], playerProp["price"], mortgagedString, playerProp["field"], playerProp["title"], developmentsString), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
                 else:
-                    output = ArabolyGenerals._push_output(channel, context, output, "{sortedNum: 2d}: {playerItem[name]} at ${playerItem[wallet]}, no properties owned!".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
-            output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {playerWinner[name]} has won the game at ${playerWinner[wallet]}!".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+                    output = ArabolyGenerals._push_output(channel, context, output, "{sortedNum: 2d}: {player[name]} at ${player[wallet]}, no properties owned!".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+            output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {playerWinner[name]} has won the game at ${playerWinner[netWorth]} (wallet: ${player[wallet]})!".format(**locals()))
         else:
-            output = ArabolyGenerals._push_output(channel, context, output, "Oops! Nobody has won the game!", outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+            output = ArabolyGenerals._push_output(channel, context, output, "Oops! Nobody has won the game!")
         return output
     # }}}
 
