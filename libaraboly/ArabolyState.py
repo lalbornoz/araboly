@@ -21,8 +21,8 @@ class ArabolyStringType(object):
 
 class ArabolyState(object):
     """XXX"""
-    initDictsClear = ["auctionState", "board", "clientParams", "graphics", "players", "tradeState"]
-    initFunctions = ["board", "clientParams", "graphics"]
+    initDictsClear = ["auctionState", "board", "clientParams", "graphics", "kades", "players", "tradeState"]
+    initFunctions = ["board", "clientParams", "graphics", "kades"]
     initVariables = {                                           \
         "auctionState":{"bids":{}, "field":None, "minBid":-1},  \
         "players":{"byName":{}, "curNum":-1, "numMap":[]},      \
@@ -64,6 +64,13 @@ class ArabolyState(object):
             self.graphics["logo"] = fileObject.readlines()
         with open(os.path.join(dirName, "explosion.irc"), "r") as fileObject:
             self.graphics["explosion"] = fileObject.readlines()
+    # }}}
+    # {{{ _initKades(self, kadesDirName=os.path.join("assets", "kades"), kadesPatterns=["kade([0-9]+)\.irc"], **kwargs):
+    def _initKades(self, kadesDirName=os.path.join("assets", "kades"), kadesPatterns=["kade([0-9]+)\.irc"], **kwargs):
+        for fileInfo in ArabolyGlob(kadesDirName, kadesPatterns):
+            kadeIdx = fileInfo["matches"][0]
+            with open(fileInfo["pathName"], "r") as fileObject:
+                self.kades[kadeIdx] = fileObject.readlines()
     # }}}
     # {{{ __init__(self, **kwargs): initialisation method
     def __init__(self, **kwargs):
