@@ -5,7 +5,7 @@
 # This project is licensed under the terms of the MIT licence.
 #
 
-from ArabolyFree import ArabolyFree
+from ArabolyGenerals import ArabolyGenerals
 from ArabolyMonad import ArabolyDecorator
 from ArabolyState import ArabolyGameState
 from ArabolyTypeClass import ArabolyTypeClass
@@ -34,21 +34,21 @@ class ArabolyAuctionMode(ArabolyTypeClass):
         if status:
             flagAuctionEnd, highestBid, highestBidder, potentialBidders = ArabolyAuctionMode._process_auction(context, price, src)
             srcField = context.board[context.auctionState["field"]]
-            output = ArabolyFree._push_output(channel, context, output, "{src} bids ${price} on {srcField[title]}!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "{src} bids ${price} on {srcField[title]}!".format(**locals()))
             if flagAuctionEnd:
-                output = ArabolyFree._push_output(channel, context, output, "Awfom! {highestBidder} wins the auction and buys {srcField[title]} for ${highestBid}!".format(**locals()))
-                context, _, output = ArabolyFree._prop_recv(channel, context, context.board[context.auctionState["field"]], output, highestBidder, highestBid)
+                output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {highestBidder} wins the auction and buys {srcField[title]} for ${highestBid}!".format(**locals()))
+                context, _, output = ArabolyGenerals._prop_recv(channel, context, context.board[context.auctionState["field"]], output, highestBidder, highestBid)
                 context.auctionState["bids"].clear()
                 context.auctionState["field"] = None
                 context.state = ArabolyGameState.GAME
-                context, output = ArabolyFree._next_player(channel, context, output, src)
+                context, output = ArabolyGenerals._next_player(channel, context, output, src)
             else:
                 for player in [k for k,v in context.auctionState["bids"].items() if k != highestBidder and v > 0]:
-                    output = ArabolyFree._push_output(channel, context, output, "{player}: you have been outbid by {highestBidder}! Place bid above ${price} or pass!".format(**locals()))
+                    output = ArabolyGenerals._push_output(channel, context, output, "{player}: you have been outbid by {highestBidder}! Place bid above ${price} or pass!".format(**locals()))
                     potentialBidders += [player]
                     del context.auctionState["bids"][player]
-                output = ArabolyFree._push_output(channel, context, output, "Current highest bid: {highestBidder} at ${highestBid}".format(**locals()))
-                output = ArabolyFree._push_output(channel, context, output, "Potential bidders remaining: {}".format(", ".join(potentialBidders)))
+                output = ArabolyGenerals._push_output(channel, context, output, "Current highest bid: {highestBidder} at ${highestBid}".format(**locals()))
+                output = ArabolyGenerals._push_output(channel, context, output, "Potential bidders remaining: {}".format(", ".join(potentialBidders)))
         return args, channel, context, output, src, status
     # }}}
     # {{{ dispatch_pass(args, channel, context, output, src, status): XXX
@@ -63,31 +63,31 @@ class ArabolyAuctionMode(ArabolyTypeClass):
         if status:
             flagAuctionEnd, highestBid, highestBidder, potentialBidders = ArabolyAuctionMode._process_auction(context, 0, src)
             srcField = context.board[context.auctionState["field"]]
-            output = ArabolyFree._push_output(channel, context, output, "{src} leaves auction for {srcField[title]}!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "{src} leaves auction for {srcField[title]}!".format(**locals()))
             if flagAuctionEnd:
                 if highestBid > 0:
-                    output = ArabolyFree._push_output(channel, context, output, "Awfom! {highestBidder} wins the auction and buys {srcField[title]} for ${highestBid}!".format(**locals()))
-                    context, _, output = ArabolyFree._prop_recv(channel, context, context.board[context.auctionState["field"]], output, highestBidder, highestBid)
+                    output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {highestBidder} wins the auction and buys {srcField[title]} for ${highestBid}!".format(**locals()))
+                    context, _, output = ArabolyGenerals._prop_recv(channel, context, context.board[context.auctionState["field"]], output, highestBidder, highestBid)
                     context.auctionState["bids"].clear()
                     context.auctionState["field"] = None
                 else:
-                    output = ArabolyFree._push_output(channel, context, output, "The bank retains {srcField[title]}!".format(**locals()))
+                    output = ArabolyGenerals._push_output(channel, context, output, "The bank retains {srcField[title]}!".format(**locals()))
                 context.state = ArabolyGameState.GAME
-                context, output = ArabolyFree._next_player(channel, context, output, src)
+                context, output = ArabolyGenerals._next_player(channel, context, output, src)
             else:
                 if highestBid != 0:
-                    output = ArabolyFree._push_output(channel, context, output, "Current highest bid: {highestBidder} at ${highestBid}".format(**locals()))
+                    output = ArabolyGenerals._push_output(channel, context, output, "Current highest bid: {highestBidder} at ${highestBid}".format(**locals()))
                 else:
-                    output = ArabolyFree._push_output(channel, context, output, "No bids have been placed yet!")
-                output = ArabolyFree._push_output(channel, context, output, "Potential bidders remaining: {}".format(", ".join(potentialBidders)))
+                    output = ArabolyGenerals._push_output(channel, context, output, "No bids have been placed yet!")
+                output = ArabolyGenerals._push_output(channel, context, output, "Potential bidders remaining: {}".format(", ".join(potentialBidders)))
         return args, channel, context, output, src, status
     # }}}
 
     # {{{ _enter(channel, context, output, srcField): XXX
     @staticmethod
     def _enter(channel, context, output, srcField):
-        output = ArabolyFree._push_output(channel, context, output, "The bank auctions off {srcField[title]} (market price: ${srcField[price]})!".format(**locals()))
-        output = ArabolyFree._push_output(channel, context, output, "Entering auction mode!")
+        output = ArabolyGenerals._push_output(channel, context, output, "The bank auctions off {srcField[title]} (market price: ${srcField[price]})!".format(**locals()))
+        output = ArabolyGenerals._push_output(channel, context, output, "Entering auction mode!")
         context.auctionState["bids"].clear()
         context.auctionState["field"] = srcField["field"]
         context.state = ArabolyGameState.AUCTION

@@ -5,7 +5,7 @@
 # This project is licensed under the terms of the MIT licence.
 #
 
-from ArabolyFree import ArabolyFree
+from ArabolyGenerals import ArabolyGenerals
 from ArabolyMonad import ArabolyDecorator
 from ArabolyState import ArabolyGameState, ArabolyOutputLevel
 from ArabolyTypeClass import ArabolyTypeClass
@@ -24,10 +24,10 @@ class ArabolySetupMode(ArabolyTypeClass):
             context.players["curNum"] += 1
             context.players["byName"][src] = {"field":0, "name":src, "num":context.players["curNum"], "properties":[], "wallet":1500}
             context.players["numMap"][context.players["curNum"]] = src
-            output = ArabolyFree._push_output(channel, context, output, "Player {src} joins Araboly game!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "Player {src} joins Araboly game!".format(**locals()))
             if (context.players["curNum"] + 1) == len(context.players["numMap"]):
-                output = ArabolyFree._push_output(channel, context, output, "Araboly game with {} players has started!".format(len(context.players["numMap"])))
-                output = ArabolyFree._push_output(channel, context, output, "{numMap[0]}: roll the dice!".format(**context.players))
+                output = ArabolyGenerals._push_output(channel, context, output, "Araboly game with {} players has started!".format(len(context.players["numMap"])))
+                output = ArabolyGenerals._push_output(channel, context, output, "{numMap[0]}: roll the dice!".format(**context.players))
                 context.players["curNum"] = 0
                 context.state = ArabolyGameState.GAME
         return args, channel, context, output, src, status
@@ -38,9 +38,9 @@ class ArabolySetupMode(ArabolyTypeClass):
         if len(args):
             status = False
         else:
-            output = ArabolyFree._push_output(channel, context, output, "Current Araboly status:", outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
-            output = ArabolyFree._push_output(channel, context, output, "Max. players: {}".format(len(context.players["numMap"])), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
-            output = ArabolyFree._push_output(channel, context, output, "Players.....: {}".format(", ".join(context.players["byName"].keys())), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+            output = ArabolyGenerals._push_output(channel, context, output, "Current Araboly status:", outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+            output = ArabolyGenerals._push_output(channel, context, output, "Max. players: {}".format(len(context.players["numMap"])), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+            output = ArabolyGenerals._push_output(channel, context, output, "Players.....: {}".format(", ".join(context.players["byName"].keys())), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
         return args, channel, context, output, status
     # }}}
 

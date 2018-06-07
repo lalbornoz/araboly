@@ -6,7 +6,7 @@
 #
 
 from ArabolyAuctionMode import ArabolyAuctionMode
-from ArabolyFree import ArabolyFree
+from ArabolyGenerals import ArabolyGenerals
 from ArabolyMonad import ArabolyDecorator
 from ArabolyState import ArabolyGameState
 from ArabolyTypeClass import ArabolyTypeClass
@@ -24,10 +24,10 @@ class ArabolyPropertyMode(ArabolyTypeClass):
         else:
             srcPlayer = context.players["byName"][src]
             srcField = context.board[srcPlayer["field"]]
-            output = ArabolyFree._push_output(channel, context, output, "{src} pays ${srcField[price]} to the bank!".format(**locals()))
-            context, _, output = ArabolyFree._prop_recv(channel, context, srcField, output, src, srcField["price"])
+            output = ArabolyGenerals._push_output(channel, context, output, "{src} pays ${srcField[price]} to the bank!".format(**locals()))
+            context, _, output = ArabolyGenerals._prop_recv(channel, context, srcField, output, src, srcField["price"])
             context.state = ArabolyGameState.GAME
-            context, output = ArabolyFree._next_player(channel, context, output, src)
+            context, output = ArabolyGenerals._next_player(channel, context, output, src)
         return args, channel, context, output, src, status
     # }}}
     # {{{ dispatch_pass(args, channel, context, output, src, status): XXX
@@ -46,10 +46,10 @@ class ArabolyPropertyMode(ArabolyTypeClass):
     @staticmethod
     def _enter(channel, context, output, src, srcField, srcPlayer):
         if srcField["price"] >= srcPlayer["wallet"]:
-            output = ArabolyFree._push_output(channel, context, output, "{src}: you don't have enough money to buy property {srcField[title]}!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "{src}: you don't have enough money to buy property {srcField[title]}!".format(**locals()))
             context, output = ArabolyAuctionMode._enter(channel, context, output, srcField)
         else:
-            output = ArabolyFree._push_output(channel, context, output, "{src}: buy property {srcField[title]}?".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "{src}: buy property {srcField[title]}?".format(**locals()))
             context.state = ArabolyGameState.PROPERTY
         return context, output
     # }}}

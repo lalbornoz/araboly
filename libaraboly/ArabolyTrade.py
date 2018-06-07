@@ -5,7 +5,7 @@
 # This project is licensed under the terms of the MIT licence.
 #
 
-import ArabolyFree
+from ArabolyGenerals import ArabolyGenerals
 from ArabolyMonad import ArabolyDecorator
 from ArabolyState import ArabolyGameField, ArabolyGameState, ArabolyStringType
 from ArabolyTypeClass import ArabolyTypeClass
@@ -47,7 +47,7 @@ class ArabolyTrade(ArabolyTypeClass):
                     typeString = tradeState["type"] + "counter-offer"
                 else:
                     typeString = tradeState["type"] + " offer"
-                output = ArabolyFree.ArabolyFree._push_output(channel, context, output, "Cancelling outstanding {} from {} to {} for {}!".format(typeString, tradeState["from"], tradeState["to"], tradeState["title"]))
+                output = ArabolyGenerals._push_output(channel, context, output, "Cancelling outstanding {} from {} to {} for {}!".format(typeString, tradeState["from"], tradeState["to"], tradeState["title"]))
                 del context.tradeState[tradeKey]
         return channel, context, output
     # }}}
@@ -96,9 +96,9 @@ class ArabolyTrade(ArabolyTypeClass):
                     tradeState = {"counter":counterOffer, "field":field["field"], "offerType":offerType, "otherPlayer":otherPlayer, "price":price, "src":src, "title":field["title"]}
                     offerString = "counter-offers" if counterOffer else "offers"
                     if offerType == "buy":
-                        output = ArabolyFree.ArabolyFree._push_output(channel, context, output, "{otherPlayer}: {src} {offerString} to buy {title} from you at ${price}! Accept, counter-offer, or reject?".format(**{"offerString":offerString, **tradeState}))
+                        output = ArabolyGenerals._push_output(channel, context, output, "{otherPlayer}: {src} {offerString} to buy {title} from you at ${price}! Accept, counter-offer, or reject?".format(**{"offerString":offerString, **tradeState}))
                     elif offerType == "sell":
-                        output = ArabolyFree.ArabolyFree._push_output(channel, context, output, "{otherPlayer}: {src} {offerString} to sell {title} to you at ${price}! Accept, counter-offer, or reject?".format(**{"offerString":offerString, **tradeState}))
+                        output = ArabolyGenerals._push_output(channel, context, output, "{otherPlayer}: {src} {offerString} to sell {title} to you at ${price}! Accept, counter-offer, or reject?".format(**{"offerString":offerString, **tradeState}))
                     if counterOffer:
                         del context.tradeState[tradeKeyOld]
                     context.tradeState[tradeKey] = tradeState
@@ -129,14 +129,14 @@ class ArabolyTrade(ArabolyTypeClass):
                         tradeState["offerType"] = "buy"
                 tradeState["replyTypeString"] = "Yay" if replyType == "accept" else "Oh no"
                 if tradeState["counter"]:
-                    output = ArabolyFree.ArabolyFree._push_output(channel, context, output, "{src}: {replyTypeString}! {otherPlayer} {replyType}s your counter-offer to {offerType} {title} at ${price}!".format(**tradeState))
+                    output = ArabolyGenerals._push_output(channel, context, output, "{src}: {replyTypeString}! {otherPlayer} {replyType}s your counter-offer to {offerType} {title} at ${price}!".format(**tradeState))
                 else:
-                    output = ArabolyFree.ArabolyFree._push_output(channel, context, output, "{src}: {replyTypeString}! {otherPlayer} {replyType}s your offer to {offerType} {title} at ${price}!".format(**tradeState))
+                    output = ArabolyGenerals._push_output(channel, context, output, "{src}: {replyTypeString}! {otherPlayer} {replyType}s your offer to {offerType} {title} at ${price}!".format(**tradeState))
                 if replyType == "accept":
-                    output = ArabolyFree.ArabolyFree._push_output(channel, context, output, "Awfom! {} buys {} for ${}!".format(tradePropTo, tradeState["title"], tradeState["price"]), 0.900)
+                    output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {} buys {} for ${}!".format(tradePropTo, tradeState["title"], tradeState["price"]), 0.900)
                     context.players["byName"][tradePropFrom]["properties"].remove(tradeState["field"])
                     context.players["byName"][tradePropFrom]["wallet"] += tradeState["price"]
-                    context, _, output = ArabolyFree.ArabolyFree._prop_recv(channel, context, context.board[tradeState["field"]], output, tradePropTo, tradeState["price"])
+                    context, _, output = ArabolyGenerals._prop_recv(channel, context, context.board[tradeState["field"]], output, tradePropTo, tradeState["price"])
         return args, channel, cmd, context, output, src, status
     # }}}
     # {{{ _status(channel, context, output, statusPlayer): XXX
@@ -168,9 +168,9 @@ class ArabolyTrade(ArabolyTypeClass):
                 else:
                     tradesTo += ["{offerType} {title} from {src} for ${price}".format(**tradeState)]
         if len(tradesFrom):
-            output = ArabolyFree.ArabolyFree._push_output(channel, context, output, "Pending offers from {}: {}".format(statusPlayer, ", ".join(tradesFrom)))
+            output = ArabolyGenerals._push_output(channel, context, output, "Pending offers from {}: {}".format(statusPlayer, ", ".join(tradesFrom)))
         if len(tradesTo):
-            output = ArabolyFree.ArabolyFree._push_output(channel, context, output, "Pending offers to {}: {}".format(statusPlayer, ", ".join(tradesTo)))
+            output = ArabolyGenerals._push_output(channel, context, output, "Pending offers to {}: {}".format(statusPlayer, ", ".join(tradesTo)))
         return output
     # }}}
 

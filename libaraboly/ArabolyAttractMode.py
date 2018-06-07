@@ -5,7 +5,7 @@
 # This project is licensed under the terms of the MIT licence.
 #
 
-from ArabolyFree import ArabolyFree
+from ArabolyGenerals import ArabolyGenerals
 from ArabolyMonad import ArabolyDecorator
 from ArabolyRtl import ArabolyRandom
 from ArabolyState import ArabolyGameState, ArabolyOutputLevel
@@ -29,8 +29,8 @@ class ArabolyAttractMode(ArabolyTypeClass):
             context.players["numMap"] = [None] * players
             context.players["numMap"][0] = src
             context.state = ArabolyGameState.SETUP
-            output = ArabolyFree._push_output(channel, context, output, "Starting Araboly game with {players} players!".format(**locals()))
-            output = ArabolyFree._push_output(channel, context, output, "Player {src} joins Araboly game!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "Starting Araboly game with {players} players!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "Player {src} joins Araboly game!".format(**locals()))
         return args, channel, context, output, src, status
     # }}}
     # {{{ dispatch_status(args, channel, context, output, src, status): XXX
@@ -39,7 +39,7 @@ class ArabolyAttractMode(ArabolyTypeClass):
         if len(args) != 0:
             status = False
         else:
-            output = ArabolyFree._push_output(channel, context, output, "{src}: no game is in progress or has been started!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "{src}: no game is in progress or has been started!".format(**locals()))
         return args, channel, context, output, src, status
     # }}}
     # {{{ dispatchTimer(channel, context, nextExpire, output, subtype): XXX
@@ -47,7 +47,7 @@ class ArabolyAttractMode(ArabolyTypeClass):
     def dispatchTimer(channel, context, nextExpire, output, subtype):
         if subtype == "attract":
             for attractLine in context.graphics["attract"][ArabolyRandom(limit=len(context.graphics["attract"]))]:
-                output = ArabolyFree._push_output(channel, context, output, attractLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+                output = ArabolyGenerals._push_output(channel, context, output, attractLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
             output += [{"eventType":"timer", "channel":channel, "expire":nextExpire, "nextExpire":nextExpire, "subtype":"attract"}]
         return channel, context, nextExpire, output, subtype
     # }}}
