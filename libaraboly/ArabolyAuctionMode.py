@@ -17,8 +17,10 @@ class ArabolyAuctionMode(ArabolyTypeClass):
     # {{{ dispatch_bid(args, channel, context, output, src, status): XXX
     @staticmethod
     def dispatch_bid(args, channel, context, output, src, status):
-        if (len(args) != 1 or not args[0].isdigit()     \
-        or  int(args[0]) == 0):
+        if len(args) != 1                               \
+        or not args[0].isdigit():
+            status = False
+        elif int(args[0]) <= context.auctionState["minBid"]:
             status = False
         else:
             price, srcPlayer = int(args[0]), context.players["byName"][src]
@@ -40,6 +42,7 @@ class ArabolyAuctionMode(ArabolyTypeClass):
                 context, _, output = ArabolyGenerals._prop_recv(channel, context, context.board[context.auctionState["field"]], output, highestBidder, highestBid)
                 context.auctionState["bids"].clear()
                 context.auctionState["field"] = None
+                context.auctionState["minBid"] = -1
                 context.state = ArabolyGameState.GAME
                 context, output = ArabolyGenerals._next_player(channel, context, output, src)
             else:
@@ -48,6 +51,7 @@ class ArabolyAuctionMode(ArabolyTypeClass):
                     potentialBidders += [player]
                     del context.auctionState["bids"][player]
                 output = ArabolyGenerals._push_output(channel, context, output, "Current highest bid: {highestBidder} at ${highestBid}".format(**locals()))
+                output = ArabolyGenerals._push_output(channel, context, output, "Current minimum bid: ${minBid}".format(**context.auctionState))
                 output = ArabolyGenerals._push_output(channel, context, output, "Potential bidders remaining: {}".format(", ".join(potentialBidders)))
         return args, channel, context, output, src, status
     # }}}
@@ -77,8 +81,10 @@ class ArabolyAuctionMode(ArabolyTypeClass):
             else:
                 if highestBid != 0:
                     output = ArabolyGenerals._push_output(channel, context, output, "Current highest bid: {highestBidder} at ${highestBid}".format(**locals()))
+                    output = ArabolyGenerals._push_output(channel, context, output, "Current minimum bid: ${minBid}".format(**context.auctionState))
                 else:
                     output = ArabolyGenerals._push_output(channel, context, output, "No bids have been placed yet!")
+                    output = ArabolyGenerals._push_output(channel, context, output, "Current minimum bid: ${minBid}".format(**context.auctionState))
                 output = ArabolyGenerals._push_output(channel, context, output, "Potential bidders remaining: {}".format(", ".join(potentialBidders)))
         return args, channel, context, output, src, status
     # }}}
@@ -90,6 +96,7 @@ class ArabolyAuctionMode(ArabolyTypeClass):
         output = ArabolyGenerals._push_output(channel, context, output, "Entering auction mode!")
         context.auctionState["bids"].clear()
         context.auctionState["field"] = srcField["field"]
+        context.auctionState["minBid"] = 1
         context.state = ArabolyGameState.AUCTION
         return context, output
     # }}}
@@ -97,6 +104,8 @@ class ArabolyAuctionMode(ArabolyTypeClass):
     @staticmethod
     def _process_auction(context, price, src):
         context.auctionState["bids"][src] = price
+        if price > 0:
+            context.auctionState["minBid"] = price
         sortedBids = sorted(context.auctionState["bids"], key=context.auctionState["bids"].get)
         highestBid, highestBidder = context.auctionState["bids"][sortedBids[-1]], sortedBids[-1]
         numPositiveBids, potentialBidders = 0, list(set(context.players["byName"].keys()) - set(context.auctionState["bids"].keys()))
