@@ -75,8 +75,10 @@ class ArabolyDebugger(Araboly):
     # {{{ _outputRoutine(self, events, gameOld, params, statusExc, testNum, testsLen): XXX
     def _outputRoutine(self, events, gameOld, params, statusExc, testNum, testsLen):
         for event in events:
-            if not "outputLevel" in event                               \
-            or event["outputLevel"] != ArabolyOutputLevel.LEVEL_GRAPHICS:
+            if event["eventType"] != "command":
+                continue
+            elif not "outputLevel" in event \
+            or   event["outputLevel"] != ArabolyOutputLevel.LEVEL_GRAPHICS:
                 if not statusExc or not params["status"]:
                     printColour = "91"
                 else:
