@@ -130,7 +130,7 @@ class ArabolyGameMode(ArabolyTypeClass):
                     developmentsList = []
                     for levelNum in range(playerProp["level"] + 1):
                         developmentsList += playerProp["strings"][ArabolyStringType.NAME][levelNum]
-                    developmentsString = " developments: {}".format(",".join(developmentsList))
+                    developmentsString = " developments: {}".format(", ".join(developmentsList))
                     output = ArabolyFree._push_output(channel, context, output, "\u0003{:02d}${}{} (#{}) -- {},{}".format(playerProp["colourMiRC"], playerProp["price"], mortgagedString, playerProp["field"], playerProp["title"], developmentsString), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
             output = ArabolyTrade._status(channel, context, output, statusPlayer)
             output = ArabolyFree._push_output(channel, context, output, "Current turn: {}".format(context.players["numMap"][context.players["curNum"]]), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
