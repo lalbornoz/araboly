@@ -198,7 +198,7 @@ class ArabolyFree(ArabolyTypeClass):
                         developmentsList = []
                         for levelNum in range(playerProp["level"] + 1):
                             developmentsList += playerProp["strings"][ArabolyStringType.NAME][levelNum]
-                        developmentsString = " developments: {}".format(",".join(developmentsList))
+                        developmentsString = " developments: {}".format(", ".join(developmentsList))
                         output = ArabolyFree._push_output(channel, context, output, "    \u0003{:02d}${}{} (#{}) -- {},{}".format(playerProp["colourMiRC"], playerProp["price"], mortgagedString, playerProp["field"], playerProp["title"], developmentsString), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
                 else:
                     output = ArabolyFree._push_output(channel, context, output, "{sortedNum: 2d}: {playerItem[name]} at ${playerItem[wallet]}, no properties owned!".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)

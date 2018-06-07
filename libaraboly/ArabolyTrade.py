@@ -168,9 +168,9 @@ class ArabolyTrade(ArabolyTypeClass):
                 else:
                     tradesTo += ["{offerType} {title} from {src} for ${price}".format(**tradeState)]
         if len(tradesFrom):
-            output = ArabolyFree._push_output(channel, context, output, "Pending offers from {}: {}".format(statusPlayer, ",".join(tradesFrom)))
+            output = ArabolyFree._push_output(channel, context, output, "Pending offers from {}: {}".format(statusPlayer, ", ".join(tradesFrom)))
         if len(tradesTo):
-            output = ArabolyFree._push_output(channel, context, output, "Pending offers to {}: {}".format(statusPlayer, ",".join(tradesTo)))
+            output = ArabolyFree._push_output(channel, context, output, "Pending offers to {}: {}".format(statusPlayer, ", ".join(tradesTo)))
         return output
     # }}}
 
