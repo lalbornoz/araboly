@@ -114,7 +114,10 @@ class ArabolyFree(ArabolyTypeClass):
     # {{{ dispatch_stop(args, channel, context, output, src, srcFull, status): XXX
     @staticmethod
     def dispatch_stop(args, channel, context, output, src, srcFull, status):
-        if context.state == ArabolyGameState.GAME   \
+        if context.state == ArabolyGameState.AUCTION    \
+        or context.state == ArabolyGameState.BANKRUPTCY \
+        or context.state == ArabolyGameState.GAME       \
+        or context.state == ArabolyGameState.PROPERTY   \
         or context.state == ArabolyGameState.SETUP:
             if len(args) > 0:
                 status = False
