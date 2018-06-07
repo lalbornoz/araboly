@@ -74,8 +74,12 @@ class ArabolyAuctionMode(ArabolyTypeClass):
                     context, _, output = ArabolyGenerals._prop_recv(channel, context, context.board[context.auctionState["field"]], output, highestBidder, highestBid)
                     context.auctionState["bids"].clear()
                     context.auctionState["field"] = None
+                    context.auctionState["minBid"] = -1
                 else:
                     output = ArabolyGenerals._push_output(channel, context, output, "The bank retains {srcField[title]}!".format(**locals()))
+                    context.auctionState["bids"].clear()
+                    context.auctionState["field"] = None
+                    context.auctionState["minBid"] = -1
                 context.state = ArabolyGameState.GAME
                 context, output = ArabolyGenerals._next_player(channel, context, output, src)
             else:
