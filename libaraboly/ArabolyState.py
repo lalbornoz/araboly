@@ -70,7 +70,7 @@ class ArabolyState(object):
         for fileInfo in ArabolyGlob(kadesDirName, kadesPatterns):
             kadeIdx = fileInfo["matches"][0]
             with open(fileInfo["pathName"], "r") as fileObject:
-                self.kades[kadeIdx] = fileObject.readlines()
+                self.kades[int(kadeIdx)] = fileObject.readlines()
     # }}}
     # {{{ __init__(self, **kwargs): initialisation method
     def __init__(self, **kwargs):
