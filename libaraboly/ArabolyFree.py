@@ -105,8 +105,8 @@ class ArabolyFree(ArabolyTypeClass):
                     developmentsList = []
                     for levelNum in range(playerProp["level"] + 1):
                         developmentsList += playerProp["strings"][ArabolyStringType.NAME][levelNum]
-                    developmentsString = " developments: {}".format(", ".join(developmentsList))
-                    output = ArabolyGenerals._push_output(channel, context, output, "\u0003{:02d}${}{} (#{}) -- {},{}".format(playerProp["colourMiRC"], playerProp["price"], mortgagedString, playerProp["field"], playerProp["title"], developmentsString), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
+                    developmentsString = ", level {}, developments: {}".format(playerProp["level"], ", ".join(developmentsList))
+                    output = ArabolyGenerals._push_output(channel, context, output, "\u0003{:02d}${}{} (#{}) -- {}{}".format(playerProp["colourMiRC"], playerProp["price"], mortgagedString, playerProp["field"], playerProp["title"], developmentsString), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
             output = ArabolyTrade._status(channel, context, output, statusPlayer)
             output = ArabolyGenerals._push_output(channel, context, output, "Current turn: {}".format(context.players["numMap"][context.players["curNum"]]), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
         return args, channel, context, output, src, status
