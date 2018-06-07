@@ -154,7 +154,12 @@ class ArabolyTrade(ArabolyTypeClass):
                         tradeState["offerType"] = "buy"
                     tradesFrom += ["{offerType} {title} {direction} {otherPlayer} for ${price} (counter)".format(**tradeState)]
                 else:
-                    tradesFrom += ["{offerType} {title} to {otherPlayer} for ${price}".format(**tradeState)]
+                    tradeState = tradeState.copy()
+                    if tradeState["offerType"] == "buy":
+                        tradeState["direction"] = "to"
+                    elif tradeState["offerType"] == "sell":
+                        tradeState["direction"] = "from"
+                    tradesFrom += ["{offerType} {title} {direction} {otherPlayer} for ${price}".format(**tradeState)]
             elif tradeKey.endswith("\0" + statusPlayer):
                 if tradeState["counter"]:
                     tradeState = tradeState.copy()
@@ -166,7 +171,12 @@ class ArabolyTrade(ArabolyTypeClass):
                         tradeState["offerType"] = "buy"
                     tradesTo += ["{offerType} {title} {direction} {src} for ${price} (counter)".format(**tradeState)]
                 else:
-                    tradesTo += ["{offerType} {title} from {src} for ${price}".format(**tradeState)]
+                    tradeState = tradeState.copy()
+                    if tradeState["offerType"] == "buy":
+                        tradeState["direction"] = "to"
+                    elif tradeState["offerType"] == "sell":
+                        tradeState["direction"] = "from"
+                    tradesTo += ["{offerType} {title} {direction} {src} for ${price}".format(**tradeState)]
         if len(tradesFrom):
             output = ArabolyGenerals._push_output(channel, context, output, "Pending offers from {}: {}".format(statusPlayer, ", ".join(tradesFrom)))
         if len(tradesTo):
