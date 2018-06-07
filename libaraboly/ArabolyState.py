@@ -15,7 +15,7 @@ class ArabolyGameField(object):
 class ArabolyGameState(object):
     DISABLED = 0; ATTRACT = 1; SETUP = 2; GAME = 3; PROPERTY = 4; AUCTION = 5; BANKRUPTCY = 6
 class ArabolyOutputLevel():
-    LEVEL_INFO = 0; LEVEL_ERROR = 1; LEVEL_WARNING = 2; LEVEL_EXCEPTION = 3; LEVEL_DEBUG = 4; LEVEL_GRAPHICS = 5;
+    LEVEL_GRAPHICS = 1; LEVEL_NODELAY = 2;
 class ArabolyStringType(object):
     DEVELOP = 1; LAND = 2; NAME = 3; RENT = 4
 
