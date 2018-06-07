@@ -101,14 +101,15 @@ class ArabolyIrcBot(Araboly):
             self._logRoutine(isOutput=True, **event)
             if event["eventType"] == "message":
                 msg = {k:event[k] for k in event if k in ["args", "cmd"]}
-                if self.options["flood_delay"] > 0  \
+                if self.options["flood_delay"] > 0                      \
                 and not "delayed" in event:
                     eventsObject.concatTimers(expire=floodDelay, unqueue=[{**msg, "eventType":"message", "delayed":True}])
                     floodDelay += self.options["flood_delay"]
-                elif not "delay" in event           \
+                elif not "delay" in event                               \
                 or   event["delay"] > 0:
                     eventLevel = event["outputLevel"] if "outputLevel" in event else None;
-                    if eventLevel == ArabolyOutputLevel.LEVEL_GRAPHICS:
+                    if eventLevel == ArabolyOutputLevel.LEVEL_GRAPHICS  \
+                    or eventLevel == ArabolyOutputLevel.LEVEL_NODELAY:
                         queueList += [msg]; unqueueFlag = True;
                     else:
                         if floodDelay == 0:
