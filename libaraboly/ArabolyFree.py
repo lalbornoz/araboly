@@ -10,6 +10,7 @@ from ArabolyMonad import ArabolyDecorator
 from ArabolyRtl import ArabolyAlignedReplace, ArabolyRandom
 from ArabolyTypeClass import ArabolyTypeClass
 from ArabolyState import ArabolyGameField, ArabolyGameState, ArabolyOutputLevel, ArabolyStringType
+from ArabolyTrade import ArabolyTrade
 from fnmatch import fnmatch
 import time
 
@@ -76,6 +77,41 @@ class ArabolyFree(ArabolyTypeClass):
                 context, output = ArabolyFree._remove_players(channel, context, output, otherPlayers)
         else:
             status = False
+        return args, channel, context, output, src, status
+    # }}}
+    # {{{ dispatch_status(args, channel, context, output, src, status): XXX
+    def dispatch_status(args, channel, context, output, src, status):
+        if  context.state != ArabolyGameState.AUCTION       \
+        and context.state != ArabolyGameState.BANKRUPTCY    \
+        and context.state != ArabolyGameState.GAME          \
+        and context.state != ArabolyGameState.PROPERTY:
+            status = False
+        elif len(args) == 0:
+            statusPlayer = src
+        elif len(args) == 1:
+            if not args[0] in context.players["byName"]:
+                status = False
+            else:
+                statusPlayer = args[0]
+        if status:
+            playerField = context.board[context.players["byName"][statusPlayer]["field"]]
+            playerProps = context.players["byName"][statusPlayer]["properties"]
+            playerWallet = context.players["byName"][statusPlayer]["wallet"]
+            output = ArabolyFree._push_output(channel, context, output, "Araboly status for player {statusPlayer}:".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+            output = ArabolyFree._push_output(channel, context, output, "Field....: {playerField[title]}".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+            output = ArabolyFree._push_output(channel, context, output, "Wallet...: ${playerWallet}".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+            if len(playerProps):
+                output = ArabolyFree._push_output(channel, context, output, "Properties owned:", outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+                for playerPropNum in playerProps:
+                    playerProp = context.board[playerPropNum]
+                    mortgagedString = " (\u001fMORTGAGED\u001f)" if playerProp["mortgaged"] else ""
+                    developmentsList = []
+                    for levelNum in range(playerProp["level"] + 1):
+                        developmentsList += playerProp["strings"][ArabolyStringType.NAME][levelNum]
+                    developmentsString = " developments: {}".format(", ".join(developmentsList))
+                    output = ArabolyFree._push_output(channel, context, output, "\u0003{:02d}${}{} (#{}) -- {},{}".format(playerProp["colourMiRC"], playerProp["price"], mortgagedString, playerProp["field"], playerProp["title"], developmentsString), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+            output = ArabolyTrade._status(channel, context, output, statusPlayer)
+            output = ArabolyFree._push_output(channel, context, output, "Current turn: {}".format(context.players["numMap"][context.players["curNum"]]), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
         return args, channel, context, output, src, status
     # }}}
     # {{{ dispatch_stop(args, channel, context, output, src, srcFull, status): XXX
