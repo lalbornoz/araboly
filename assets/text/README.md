@@ -9,7 +9,7 @@
   | /   _BANKCAT |              _   _   _   _   _   _   _   _     _   _   _   _   _   _          | DICECAT_   \ |
   |      \  , / /  Most secure / \ / \ / \ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \  Almost  \ \ ,  /      |
    \   __/_-| ||   version of ( A | d | v | a | n | c | e | d ) ( S | e | r | v | e | r ) supports || |-_\__   /
-    '-,____)'\_)) Araboly yet! \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/ Alpha!   ((_/`(____,-'
+    '-,____)'\_)) Araboly yet! \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/   Alpha! ((_/`(____,-'
 
        **WARNING**:  All characters and events in this IRC board game -- especially those based on real people --
        are entirely fictional. The game contains coarse language, politically incorrect and universally offensive
