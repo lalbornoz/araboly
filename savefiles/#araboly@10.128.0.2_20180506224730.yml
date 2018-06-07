@@ -1384,34 +1384,6 @@
   srcFull: v!arab@127.0.0.1
   time: 1525641342
   eventType: command
-- args: ['5', '2']
-  channel: '#ARABOLY'
-  cmd: dice
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1525641371
-  eventType: command
-- args: ['1', '6']
-  channel: '#ARABOLY'
-  cmd: dice
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1525641375
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1525641388
-  eventType: command
-- args: ['5', '5']
-  channel: '#ARABOLY'
-  cmd: dice
-  src: spoke
-  srcFull: spoke!she@arabs.ps
-  time: 1525641401
-  eventType: command
 - args: []
   channel: '#ARABOLY'
   cmd: stop
