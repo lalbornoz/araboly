@@ -11,6 +11,7 @@ from ArabolyRtl import ArabolyAlignedReplace, ArabolyRandom
 from ArabolyTypeClass import ArabolyTypeClass
 from ArabolyState import ArabolyGameField, ArabolyOutputLevel, ArabolyStringType
 from fnmatch import fnmatch
+import re
 
 @ArabolyDecorator()
 class ArabolyGenerals(ArabolyTypeClass):
@@ -36,7 +37,9 @@ class ArabolyGenerals(ArabolyTypeClass):
         field = context.players["byName"][src]["field"]
         for fieldMin, fieldMax, fieldBoardLines in context.graphics["fields"]:
             if field >= fieldMin and field <= fieldMax:
-                for boardLine in fieldBoardLines:
+                fieldBoardLines = fieldBoardLines.copy()
+                for lineNum in range(len(fieldBoardLines)):
+                    boardLine = fieldBoardLines[lineNum]
                     boardPatterns = ["< CURRENT FIELD TITLE1 >", "< CURRENT FIELD TITLE2 >"]
                     if  boardLine.find(boardPatterns[0])    \
                     and boardLine.find(boardPatterns[1]):
@@ -44,8 +47,43 @@ class ArabolyGenerals(ArabolyTypeClass):
                     boardPatterns = ["< PLAYER NAME HERE >"]
                     if  boardLine.find(boardPatterns[0]):
                         boardLine = ArabolyAlignedReplace(boardLine, boardPatterns, src)
+                    fieldBoardLines[lineNum] = boardLine
+                if "hie" in context.players["byName"][src]:
+                    fieldBoardLines = ArabolyGenerals._board_hie(fieldBoardLines)
+                for boardLine in fieldBoardLines:
                     output = ArabolyGenerals._push_output(channel, context, output, boardLine, outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+                if "hie" in context.players["byName"][src]:
+                    output = ArabolyGenerals._push_output(channel, context, output, "Oh shit! {src} is hie as fuck!".format(**locals()), delay=1.5)
         return output
+    # }}}
+    # {{{ _board_hie(fieldBoardLines): XXX
+    @staticmethod
+    def _board_hie(fieldBoardLines):
+        hieDecision = ArabolyRandom(max=3, min=1)
+        if hieDecision == 1:
+            fieldBoardLines.reverse()
+        elif hieDecision == 2:
+            for lineNum in range(len(fieldBoardLines)):
+                newLine = fieldBoardLines[lineNum]
+                for match in re.finditer("[a-zA-Z]{2,}", newLine):
+                    newString = "G" + ("R" * (len(match.group(0)) - 1))
+                    newLine = newLine[:match.start()] + newString + newLine[match.end():]
+                fieldBoardLines[lineNum] = newLine
+        elif hieDecision == 3:
+            for lineNum in range(len(fieldBoardLines)):
+                newLine = fieldBoardLines[lineNum]
+                for match in re.finditer("\u0003(1[0-5]|0?[0-9]),(1[0-5]|0?[0-9])", newLine):
+                    if len(match.group(1)) == 1:
+                        newColours = "\u0003" + str(ArabolyRandom(max=9, min=0))
+                    elif len(match.group(1)) == 2:
+                        newColours = "\u0003{:02d}".format(ArabolyRandom(max=15, min=0))
+                    if len(match.group(2)) == 1:
+                        newColours += "," + str(ArabolyRandom(max=9, min=0))
+                    elif len(match.group(2)) == 2:
+                        newColours += ",{:02d}".format(ArabolyRandom(max=15, min=0))
+                    newLine = newLine[:match.start()] + newColours + newLine[match.end():]
+                fieldBoardLines[lineNum] = newLine
+        return fieldBoardLines
     # }}}
     # {{{ _next_player(channel, context, output, src): XXX
     @staticmethod
