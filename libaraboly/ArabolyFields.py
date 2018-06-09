@@ -115,6 +115,18 @@ class ArabolyFields(ArabolyTypeClass):
     def _land_free_lsd(channel, context, output, src, srcField, srcPlayer):
         for kadeLine in context.kades[ArabolyRandom(limit=len(context.kades))]:
             output = ArabolyGenerals._push_output(channel, context, output, kadeLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+        srcPlayer = context.players["byName"][src]
+        if not "hie" in srcPlayer:
+            hieAmount = ArabolyRandom(limit=8000, min=200)
+            output = ArabolyGenerals._push_output(channel, context, output, "Yay! Kade gives {src} {hieAmount}ug LSD!".format(**locals()), delay=1)
+            output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {src} is tripping balls!".format(**locals()), delay=1.5)
+            output = ArabolyGenerals._push_output(channel, context, output, "{src} looks at the board!".format(**locals()), delay=2)
+            srcPlayer["hie"] = True
+            output = ArabolyGenerals._board(channel, context, output, src)
+        elif "hie" in srcPlayer:
+            output = ArabolyGenerals._push_output(channel, context, output, "Oh no! Kade takes away {src}'s LSD trip!".format(**locals()), delay=1)
+            output = ArabolyGenerals._push_output(channel, context, output, "Oops! {src} is no longer hie!".format(**locals()), delay=1.5)
+            del srcPlayer["hie"]
         return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_loony_bin(channel, context, output, src, srcField, srcPlayer): XXX
