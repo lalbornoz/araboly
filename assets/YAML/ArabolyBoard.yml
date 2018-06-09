@@ -294,6 +294,7 @@
           1:
           - 'Oops! {who} buys a pinku (that''s Japanese for pink) box with {rands[0]} kotoba (that''s Japanese for {rands[0]} compartments) from {owner}!'
           - 'Oh my! It''s really chibi (small) sized and really kawaii (cute) and only costs ${cost} bux!'
+          - 'Oh no! {who} loses ${cost} to {owner}!'
           2:
           - 'Oops! {who} is assaulted by a very angry Mob of Tranny Sects!'
           - 'Oh no! {who} is accused of transphobia, gender-normative fascism, hate crimes, and perpetuating patriarchialism!'
@@ -301,6 +302,7 @@
           3:
           - 'Oh my! {who} is racially analysed by The Free Army of #chimpire!'
           - 'Oh shit! The Free Army of #chimpire confiscates ${cost} of {who}''s wealth for being racially inferior!'
+          - 'Oops! {who} loses ${cost} to {owner}!'
       3: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
