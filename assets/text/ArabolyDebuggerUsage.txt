@@ -1,5 +1,5 @@
-usage: ./ArabolyDebugger.py [-b <breakpoint>] [-v] -f <savefile pathname>
+usage: ./ArabolyDebugger.py [-b <breakpoint>] [-f <savefile pathname>] [-v]
 
          -b <breakpoint>.......:  as <class name>:<command>[:<test seq>].
-         -f <savefile pathname>:  pathname to savefile to reply; must be specified.
+         -f <savefile pathname>:  pathname to savefile to reply; defaults to savefiles/last.yml.
          -v ...................:  increase verbosity; disabled by default.

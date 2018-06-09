@@ -126,14 +126,14 @@ class ArabolyDebugger(Araboly):
                 options["breakpoint"] = breakpoint
             else:
                 print("error: invalid breakpoint\n", file=sys.stderr); rc = 1;
-        if rc != 0 or "help" in options or "savefile" not in options:
-            if "savefile" not in options:
-                print("error: missing savefile\n", file=sys.stderr); rc = 1;
+        if rc != 0 or "help" in options:
             with open(os.path.join("assets", "text", "ArabolyDebuggerUsage.txt"), "r") as fileObject:
                 for usageLine in fileObject.readlines():
                     print(usageLine.rstrip("\n"), file=sys.stderr)
             exit(rc)
         else:
+            if "savefile" not in options:
+                options["savefile"] = os.path.join("savefiles", "last.yml")
             with open(options["savefile"], "r") as fileObject:
                 options["savefile"] = yaml.load(fileObject)
             super().__init__({**options, "channel":"#arab", "debug":True, "testing":True})
