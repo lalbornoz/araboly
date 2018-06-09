@@ -390,20 +390,6 @@
   srcFull: wr34k!ayy@arabs.ps
   time: 1528577343
   eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: pass
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528577347
-  eventType: command
-- args: ['5']
-  channel: '#ARABOLY'
-  cmd: bid
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528577348
-  eventType: command
 - args: ['10']
   channel: '#ARABOLY'
   cmd: bid
@@ -550,13 +536,6 @@
   src: she
   srcFull: she!she@arabs.ps
   time: 1528577489
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: pass
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528577494
   eventType: command
 - args: ['90']
   channel: '#ARABOLY'
@@ -735,24 +714,10 @@
   eventType: command
 - args: []
   channel: '#ARABOLY'
-  cmd: pass
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528577658
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
   cmd: status
   src: alghazi
   srcFull: alghazi!alghazi@127.0.0.1
   time: 1528577658
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: pass
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528577659
   eventType: command
 - args: []
   channel: '#ARABOLY'
@@ -767,20 +732,6 @@
   src: she
   srcFull: she!she@arabs.ps
   time: 1528577668
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: pass
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528577672
-  eventType: command
-- args: ['310']
-  channel: '#ARABOLY'
-  cmd: bid
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528577682
   eventType: command
 - args: []
   channel: '#ARABOLY'
@@ -838,13 +789,6 @@
   srcFull: she!she@arabs.ps
   time: 1528577743
   eventType: command
-- args: ['120']
-  channel: '#ARABOLY'
-  cmd: bid
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528577751
-  eventType: command
 - args: []
   channel: '#ARABOLY'
   cmd: pass
@@ -858,20 +802,6 @@
   src: v
   srcFull: v!arab@127.0.0.1
   time: 1528577754
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: pass
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528577755
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: pass
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528577758
   eventType: command
 - args: ['140']
   channel: '#ARABOLY'
@@ -879,27 +809,6 @@
   src: wr34k
   srcFull: wr34k!ayy@arabs.ps
   time: 1528577759
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: pass
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528577759
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: pass
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528577762
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: pass
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528577763
   eventType: command
 - args: ['160']
   channel: '#ARABOLY'
@@ -1005,13 +914,6 @@
   src: wr34k
   srcFull: wr34k!ayy@arabs.ps
   time: 1528577930
-  eventType: command
-- args: ['30']
-  channel: '#ARABOLY'
-  cmd: bid
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528577934
   eventType: command
 - args: ['50']
   channel: '#ARABOLY'
@@ -1160,26 +1062,12 @@
   srcFull: she!she@arabs.ps
   time: 1528578068
   eventType: command
-- args: ['80']
-  channel: '#ARABOLY'
-  cmd: bid
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528578070
-  eventType: command
 - args: ['100']
   channel: '#ARABOLY'
   cmd: bid
   src: wr34k
   srcFull: wr34k!ayy@arabs.ps
   time: 1528578076
-  eventType: command
-- args: ['1054']
-  channel: '#ARABOLY'
-  cmd: bid
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528578079
   eventType: command
 - args: []
   channel: '#ARABOLY'
@@ -1531,13 +1419,6 @@
   srcFull: v!arab@127.0.0.1
   time: 1528578435
   eventType: command
-- args: ['arab']
-  channel: '#ARABOLY'
-  cmd: accept
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528578463
-  eventType: command
 - args: ['v']
   channel: '#ARABOLY'
   cmd: accept
@@ -1558,13 +1439,6 @@
   src: v
   srcFull: v!arab@127.0.0.1
   time: 1528578491
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: dice
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528578501
   eventType: command
 - args: ['14', '1']
   channel: '#ARABOLY'
@@ -1600,13 +1474,6 @@
   src: wr34k
   srcFull: wr34k!ayy@arabs.ps
   time: 1528578533
-  eventType: command
-- args: ['v', '5', '200']
-  channel: '#ARABOLY'
-  cmd: offer
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528578541
   eventType: command
 - args: ['v', '5', '200']
   channel: '#ARABOLY'
@@ -1671,13 +1538,6 @@
   srcFull: v!arab@127.0.0.1
   time: 1528578626
   eventType: command
-- args: ['23', '220']
-  channel: '#ARABOLY'
-  cmd: buy
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528578632
-  eventType: command
 - args: ['v', '23', '220']
   channel: '#ARABOLY'
   cmd: buy
@@ -1705,13 +1565,6 @@
   src: v
   srcFull: v!arab@127.0.0.1
   time: 1528578662
-  eventType: command
-- args: ['23', '1']
-  channel: '#ARABOLY'
-  cmd: develop
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528578671
   eventType: command
 - args: ['wr34k']
   channel: '#ARABOLY'
@@ -1762,13 +1615,6 @@
   srcFull: alghazi!alghazi@127.0.0.1
   time: 1528578764
   eventType: command
-- args: ['21', '220']
-  channel: '#ARABOLY'
-  cmd: buy
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528578775
-  eventType: command
 - args: ['wr34k', '8', '150']
   channel: '#ARABOLY'
   cmd: buy
@@ -1782,13 +1628,6 @@
   src: wr34k
   srcFull: wr34k!ayy@arabs.ps
   time: 1528578791
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: sell
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528578826
   eventType: command
 - args: ['alghazi']
   channel: '#ARABOLY'
@@ -1930,20 +1769,6 @@
   srcFull: v!arab@127.0.0.1
   time: 1528578947
   eventType: command
-- args: ['21', '220']
-  channel: '#ARABOLY'
-  cmd: buy
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528578959
-  eventType: command
-- args: ['alghazi', '21', '220']
-  channel: '#ARABOLY'
-  cmd: buy
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528578965
-  eventType: command
 - args: []
   channel: '#ARABOLY'
   cmd: status
@@ -2014,13 +1839,6 @@
   srcFull: she!she@arabs.ps
   time: 1528579111
   eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: reject
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528579124
-  eventType: command
 - args: ['wr34k']
   channel: '#ARABOLY'
   cmd: reject
@@ -2041,13 +1859,6 @@
   src: alghazi
   srcFull: alghazi!alghazi@127.0.0.1
   time: 1528579157
-  eventType: command
-- args: ['6', '4']
-  channel: '#ARABOLY'
-  cmd: develop
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528579161
   eventType: command
 - args: ['2', '4']
   channel: '#ARABOLY'
@@ -2175,13 +1986,6 @@
   srcFull: v!arab@127.0.0.1
   time: 1528579354
   eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: reject
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528579363
-  eventType: command
 - args: ['wr34k']
   channel: '#ARABOLY'
   cmd: reject
@@ -2252,13 +2056,6 @@
   srcFull: wr34k!ayy@arabs.ps
   time: 1528579419
   eventType: command
-- args: ['wr34k', '1', '40']
-  channel: '#ARABOLY'
-  cmd: buy
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528579424
-  eventType: command
 - args: ['she', '1', '60']
   channel: '#ARABOLY'
   cmd: sell
@@ -2280,13 +2077,6 @@
   srcFull: she!she@arabs.ps
   time: 1528579454
   eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: accept
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528579458
-  eventType: command
 - args: ['she']
   channel: '#ARABOLY'
   cmd: accept
@@ -2300,13 +2090,6 @@
   src: wr34k
   srcFull: wr34k!ayy@arabs.ps
   time: 1528579468
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: accept
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528579471
   eventType: command
 - args: ['wr34k']
   channel: '#ARABOLY'
@@ -2728,76 +2511,6 @@
   srcFull: alghazi!alghazi@127.0.0.1
   time: 1528579916
   eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528579921
-  eventType: command
-- args: ['she']
-  channel: '#ARABOLY'
-  cmd: status
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528579927
-  eventType: command
-- args: ['alghazi']
-  channel: '#ARABOLY'
-  cmd: status
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528579930
-  eventType: command
-- args: ['wr34k']
-  channel: '#ARABOLY'
-  cmd: status
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528579934
-  eventType: command
-- args: ['wr34k', '32', '200']
-  channel: '#ARABOLY'
-  cmd: offer
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528579947
-  eventType: command
-- args: ['wr34k', '32', '200']
-  channel: '#ARABOLY'
-  cmd: buy
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528579950
-  eventType: command
-- args: ['v']
-  channel: '#ARABOLY'
-  cmd: accept
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528579966
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528579971
-  eventType: command
-- args: ['32']
-  channel: '#ARABOLY'
-  cmd: lift
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528579996
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528580000
-  eventType: command
 - args: ['1', '2']
   channel: '#ARABOLY'
   cmd: dice
@@ -2910,290 +2623,10 @@
   srcFull: she!she@arabs.ps
   time: 1528580120
   eventType: command
-- args: ['wr34k']
-  channel: '#ARABOLY'
-  cmd: status
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580126
-  eventType: command
 - args: ['3', '4']
   channel: '#ARABOLY'
   cmd: dice
   src: she
   srcFull: she!she@arabs.ps
   time: 1528580129
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528580133
-  eventType: command
-- args: ['2', '5']
-  channel: '#ARABOLY'
-  cmd: dice
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528580135
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528580140
-  eventType: command
-- args: ['31', '1']
-  channel: '#ARABOLY'
-  cmd: develop
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528580146
-  eventType: command
-- args: ['alghazi']
-  channel: '#ARABOLY'
-  cmd: status
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528580155
-  eventType: command
-- args: ['she']
-  channel: '#ARABOLY'
-  cmd: status
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528580156
-  eventType: command
-- args: ['2', '4']
-  channel: '#ARABOLY'
-  cmd: dice
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528580163
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580169
-  eventType: command
-- args: ['she', '4', '150']
-  channel: '#ARABOLY'
-  cmd: sell
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580175
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: accept
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528580191
-  eventType: command
-- args: ['wr34k']
-  channel: '#ARABOLY'
-  cmd: buy
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528580199
-  eventType: command
-- args: ['wr34k']
-  channel: '#ARABOLY'
-  cmd: accept
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528580211
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580215
-  eventType: command
-- args: ['23']
-  channel: '#ARABOLY'
-  cmd: lift
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580222
-  eventType: command
-- args: ['3', '6']
-  channel: '#ARABOLY'
-  cmd: dice
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580226
-  eventType: command
-- args: ['1', '5']
-  channel: '#ARABOLY'
-  cmd: dice
-  src: she
-  srcFull: she!she@arabs.ps
-  time: 1528580238
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528580257
-  eventType: command
-- args: ['26', '1']
-  channel: '#ARABOLY'
-  cmd: develop
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528580261
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528580266
-  eventType: command
-- args: ['29', '1']
-  channel: '#ARABOLY'
-  cmd: develop
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528580275
-  eventType: command
-- args: ['5', '6']
-  channel: '#ARABOLY'
-  cmd: dice
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528580278
-  eventType: command
-- args: ['2', '4']
-  channel: '#ARABOLY'
-  cmd: dice
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528580282
-  eventType: command
-- args: ['4', '2']
-  channel: '#ARABOLY'
-  cmd: dice
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580287
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580295
-  eventType: command
-- args: ['23']
-  channel: '#ARABOLY'
-  cmd: mortgage
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580304
-  eventType: command
-- args: ['24']
-  channel: '#ARABOLY'
-  cmd: mortgage
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580305
-  eventType: command
-- args: ['24']
-  channel: '#ARABOLY'
-  cmd: mortgage
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580307
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580314
-  eventType: command
-- args: ['wr34k', '16', '100']
-  channel: '#ARABOLY'
-  cmd: buy
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528580328
-  eventType: command
-- args: ['alghazi', '16', '100']
-  channel: '#ARABOLY'
-  cmd: sell
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580336
-  eventType: command
-- args: ['alghazi', '16', '100']
-  channel: '#ARABOLY'
-  cmd: sell
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580342
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580348
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: part
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580383
-  eventType: command
-- args: ['wr34k']
-  channel: '#ARABOLY'
-  cmd: kick
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528580395
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580404
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: dice
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580407
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: part
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1528580409
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: status
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1528580411
-  eventType: command
-- args: []
-  channel: '#ARABOLY'
-  cmd: stop
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1528580425
   eventType: command
