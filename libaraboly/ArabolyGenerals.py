@@ -74,12 +74,14 @@ class ArabolyGenerals(ArabolyTypeClass):
                     otherField["ownerHasGroup"] = True
         return context, field, output
     # }}}
-    # {{{ _push_output(channel, context, output, msg, outputLevel=None): XXX
+    # {{{ _push_output(channel, context, output, msg, outputLevel=None, delay=None): XXX
     @staticmethod
-    def _push_output(channel, context, output, msg, outputLevel=None):
+    def _push_output(channel, context, output, msg, outputLevel=None, delay=None):
         output += [{"eventType":"message", "cmd":"PRIVMSG", "args":[channel, msg]}]
         if outputLevel != None:
             output[-1]["outputLevel"] = outputLevel
+        if delay != None:
+            output[-1]["delay"] = delay
         return output
     # }}}
     # {{{ _remove_players(channel, context, output, otherPlayers=None): XXX

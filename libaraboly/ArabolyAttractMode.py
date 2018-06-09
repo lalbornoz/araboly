@@ -76,7 +76,7 @@ class ArabolyAttractMode(ArabolyTypeClass):
     @staticmethod
     def _enter(channel, context, output):
         for logoLine in context.graphics["logo"]:
-            output += [{"eventType":"message", "delay":0, "cmd":"PRIVMSG", "args":[channel, logoLine.rstrip("\n")]}]
+            output = ArabolyGenerals._push_output(channel, context, output, logoLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
         output += [{"eventType":"timer", "channel":channel, "expire":900, "nextExpire":900, "subtype":"attract"}]
         context.state = ArabolyGameState.ATTRACT
         return output
