@@ -47,9 +47,10 @@ class ArabolyIrcBot(Araboly):
     def _inputRoutine(self, ircClientObject, events):
         eventsOut, unqueueFlag, paramsOut, status = [], False, None, True
         for event in events:
-            if event["eventType"] == "timer" and "unqueue" in event:
+            if  event["eventType"] == "timer"   \
+            and "unqueue" in event:
                 for unqueueLine in event["unqueue"]:
-                    eventsOut += event["unqueue"]; unqueueFlag = True;
+                    eventsOut += [{**unqueueLine, "delayed":True}]; unqueueFlag = True;
                 continue
             else:
                 self._logRoutine(isOutput=False, **event)
@@ -96,29 +97,30 @@ class ArabolyIrcBot(Araboly):
     # }}}
     # {{{ _outputRoutine(self, eventsObject, ircClientObject, events, unqueueFlag): XXX
     def _outputRoutine(self, eventsObject, ircClientObject, events, unqueueFlag):
-        floodDelay = 0; queueList = [];
+        floodDelay, queueList = 0, []
         for event in events:
             self._logRoutine(isOutput=True, **event)
             if event["eventType"] == "message":
                 msg = {k:event[k] for k in event if k in ["args", "cmd"]}
-                if self.options["flood_delay"] > 0                      \
-                and not "delayed" in event:
-                    eventsObject.concatTimers(expire=floodDelay, unqueue=[{**msg, "eventType":"message", "delayed":True}])
-                    floodDelay += self.options["flood_delay"]
-                elif not "delay" in event                               \
-                or   event["delay"] > 0:
-                    eventLevel = event["outputLevel"] if "outputLevel" in event else None;
-                    if eventLevel == ArabolyOutputLevel.LEVEL_GRAPHICS  \
-                    or eventLevel == ArabolyOutputLevel.LEVEL_NODELAY:
-                        queueList += [msg]; unqueueFlag = True;
-                    else:
-                        if floodDelay == 0:
-                            queueList += [msg]; unqueueFlag = True;
-                        else:
-                            eventsObject.concatTimers(expire=floodDelay, unqueue=[{**msg, "eventType":"message"}])
-                        floodDelay += 0.750 if "delay" not in event else event["delay"]
-                else:
-                    queueList += [msg]; unqueueFlag = True;
+                eventLevel = event["outputLevel"] if "outputLevel" in event else None
+                if "delayed" in event:
+                    queueList, unqueueFlag = queueList + [msg], True
+                elif not "delayed" in event:
+                    if self.options["flood_delay"] > 0:
+                        floodDelay += self.options["flood_delay"]
+                        eventsObject.concatTimers(expire=floodDelay, unqueue=[{**msg, "eventType":"message", "delayed":True}])
+                    elif eventLevel == ArabolyOutputLevel.LEVEL_GRAPHICS    \
+                    or   eventLevel == ArabolyOutputLevel.LEVEL_NODELAY:
+                        if floodDelay > 0:
+                            eventsObject.concatTimers(expire=floodDelay, unqueue=[{**msg, "eventType":"message", "delayed":True}])
+                        else: 
+                            queueList, unqueueFlag = queueList + [msg], True
+                    elif "delay" in event:
+                        floodDelay += event["delay"]
+                        eventsObject.concatTimers(expire=floodDelay, unqueue=[{**msg, "eventType":"message", "delayed":True}])
+                    elif not "delay" in event:
+                        floodDelay += 0.750
+                        eventsObject.concatTimers(expire=floodDelay, unqueue=[{**msg, "eventType":"message", "delayed":True}])
             elif event["eventType"] == "timer":
                 eventsObject.concatTimers(**event)
         return floodDelay, queueList

@@ -7,7 +7,7 @@
 
 from ArabolyAttractMode import ArabolyAttractMode
 from ArabolyMonad import ArabolyDecorator
-from ArabolyState import ArabolyGameState
+from ArabolyState import ArabolyGameState, ArabolyOutputLevel
 from ArabolyTypeClass import ArabolyTypeClass
 from string import ascii_lowercase
 import time
@@ -24,7 +24,7 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
     # {{{ dispatch001(context, output): Dispatch single 001 (RPL_WELCOME)
     @staticmethod
     def dispatch001(context, output):
-        output += [{"eventType":"message", "delay":0, "cmd":"JOIN", "args":[context.clientParams["channel"]]}]
+        output += [{"eventType":"message", "cmd":"JOIN", "args":[context.clientParams["channel"]], "outputLevel":ArabolyOutputLevel.LEVEL_NODELAY}]
         return context, output
     # }}}
     # {{{ dispatch353(args, context, idFull): Dispatch single 353 message from server
@@ -41,7 +41,7 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
     # {{{ dispatch433(args, output): Dispatch single 353 message from server
     @staticmethod
     def dispatch433(args, output):
-        output += [{"eventType":"message", "delay":0, "cmd":"NICK", "args":[args[1] + "_"]}]
+        output += [{"eventType":"message", "cmd":"NICK", "args":[args[1] + "_"], "outputLevel":ArabolyOutputLevel.LEVEL_NODELAY}]
         return args, output
     # }}}
     # {{{ dispatchJOIN(args, context, idFull, output, src): Dispatch single JOIN message from server
@@ -87,7 +87,7 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
     # {{{ dispatchPING(args, output): Dispatch single PING message from server
     @staticmethod
     def dispatchPING(args, output):
-        output += [{"eventType":"message", "delay":0, "cmd":"PONG", "args":args}]
+        output += [{"eventType":"message", "cmd":"PONG", "args":args, "outputLevel":ArabolyOutputLevel.LEVEL_NODELAY}]
         return args, output
     # }}}
     # {{{ dispatchPRIVMSG(args, context, output, src, status, channel=None, cmd=None, eventType=None, srcFull=None): Dispatch single PRIVMSG message from server
