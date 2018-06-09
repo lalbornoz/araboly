@@ -10,6 +10,7 @@ from ArabolyMonad import ArabolyDecorator
 from ArabolyTypeClass import ArabolyTypeClass
 from ArabolyState import ArabolyGameState, ArabolyOutputLevel, ArabolyStringType
 from ArabolyTrade import ArabolyTrade
+import copy, os, yaml
 
 @ArabolyDecorator()
 class ArabolyFree(ArabolyTypeClass):
@@ -75,6 +76,28 @@ class ArabolyFree(ArabolyTypeClass):
         else:
             status = False
         return args, channel, context, output, src, status
+    # }}}
+    # {{{ dispatch_save(args, channel, context, output, srcFull, status): XXX
+    def dispatch_save(args, channel, context, output, srcFull, status):
+        if  context.state != ArabolyGameState.AUCTION       \
+        and context.state != ArabolyGameState.BANKRUPTCY    \
+        and context.state != ArabolyGameState.GAME          \
+        and context.state != ArabolyGameState.PROPERTY:
+            status = False
+        elif len(args) != 1                                 \
+        or not ArabolyGenerals._authorised(channel, context, srcFull):
+            status = False
+        else:
+            snapshotPath = os.path.join("savefiles", os.path.basename(args[0]))
+            output = ArabolyGenerals._push_output(channel, context, output, "Saving snapshot to {snapshotPath}!".format(**locals()))
+            with open(snapshotPath, "w") as fileObject:
+                gameSnapshot = copy.deepcopy(context)
+                delattr(gameSnapshot, "clientParams")
+                delattr(gameSnapshot, "graphics")
+                delattr(gameSnapshot, "kades")
+                yaml.dump(gameSnapshot, fileObject)
+            output = ArabolyGenerals._push_output(channel, context, output, "Saved snapshot to {snapshotPath}!".format(**locals()))
+        return args, channel, context, output, srcFull, status
     # }}}
     # {{{ dispatch_status(args, channel, context, output, src, status): XXX
     def dispatch_status(args, channel, context, output, src, status):
