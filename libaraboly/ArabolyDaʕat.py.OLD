@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Araboly 2000 Advanced Server SP1 -- everyone's favourite board game... with IRC support and fancy colours!
+# Araboly 2000 Advanced Server SP2 -- everyone's favourite board game... with IRC support and fancy colours!
 # Copyright (c) 2018 Lucía Andrea Illanes Albornoz <lucia@luciaillanes.de>
 # This project is licensed under the terms of the MIT licence.
 #
