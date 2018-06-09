@@ -71,6 +71,36 @@ class ArabolyFields(ArabolyTypeClass):
     def _land_chance(channel, context, output, src, srcField, srcPlayer):
         for kadeLine in context.kades[ArabolyRandom(limit=len(context.kades))]:
             output = ArabolyGenerals._push_output(channel, context, output, kadeLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+        output = ArabolyGenerals._push_output(channel, context, output, "Kade thinks!", delay=1)
+        output = ArabolyGenerals._push_output(channel, context, output, "Kade is thinking!", delay=2)
+        kadecision = ArabolyRandom(max=5, min=1)
+        srcPlayer = context.players["byName"][src]
+        if kadecision == 1:
+            targetPlayer = [p for p in context.players["byName"].keys() if p != src]
+            targetPlayer = context.players["byName"][targetPlayer[ArabolyRandom(limit=len(targetPlayer))]]
+            srcWealth = ArabolyRandom(limit=int(srcPlayer["wallet"] * 0.15), min=int(srcPlayer["wallet"] * 0.05))
+            srcPlayer["wallet"] -= srcWealth; targetPlayer["wallet"] += srcWealth;
+            output = ArabolyGenerals._push_output(channel, context, output, "Oh my! Kade redistributes ${srcWealth} of {src}'s wealth to {targetPlayer[name]}!".format(**locals()), delay=3)
+        elif kadecision == 2:
+            targetPlayer = [p for p in context.players["byName"].keys() if p != src]
+            targetPlayer = context.players["byName"][targetPlayer[ArabolyRandom(limit=len(targetPlayer))]]
+            srcPlayer["field"], targetPlayer["field"] = targetPlayer["field"], srcPlayer["field"]
+            output = ArabolyGenerals._push_output(channel, context, output, "Oops! Kade swaps {src} with {targetPlayer[name]}!".format(**locals()), delay=3)
+        elif kadecision == 3:
+            srcWealth = ArabolyRandom(limit=int(srcPlayer["wallet"] * 0.15), min=int(srcPlayer["wallet"] * 0.05))
+            srcPlayer["wallet"] -= srcWealth
+            output = ArabolyGenerals._push_output(channel, context, output, "Oh no! Kade gives ${srcWealth} of {src}'s wealth to the bank!".format(**locals()), delay=3)
+        elif kadecision == 4    \
+        and  len(srcPlayer["properties"]):
+            srcProp = context.board[srcPlayer["properties"][ArabolyRandom(limit=len(srcPlayer["properties"]))]]
+            if srcProp["mortgaged"]:
+                srcProp["mortgaged"] = False
+                output = ArabolyGenerals._push_output(channel, context, output, "Yay! Kade accidentally lifts the mortgage on {src}'s {srcProp[title]}!".format(**locals()), delay=3)
+            else:
+                srcProp["mortgaged"] = True
+                output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! Kade accidentally mortgages {src}'s {srcProp[title]}!".format(**locals()), delay=3)
+        else:
+            output = ArabolyGenerals._push_output(channel, context, output, "Hm! Kade feels stupid!", delay=3)
         return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_chest(channel, context, output, src, srcField, srcPlayer): XXX
