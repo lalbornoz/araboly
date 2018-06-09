@@ -59,6 +59,7 @@ Requires Python >= v3.5 and YAML.
 * **.mstop** -- Stop current game
 
 ### Attract mode IRC commands:
+* **.mload** *pathname* -- Load local snapshot from *pathname*
 * **.mstart** *players* -- Start new game with *players* players
 
 ### Game setup mode IRC commands:

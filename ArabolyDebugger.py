@@ -14,9 +14,9 @@ class ArabolyDebugger(Araboly):
     """XXX"""
     gameFieldsFilter = ["auctionState", "board", "clientParams", "players", "state", "tradeState"]
     optionsDefault = {**Araboly.optionsDefault,
-        "breakpoint":None, "help":None, "savefile":None, "verbose":False}
-    optionsString = "b:f:hv"
-    optionsStringMap = {"b":"breakpoint", "f":"savefile", "h":"help", "v":"verbose"}
+        "breakpoint":None, "help":None, "output":None, "savefile":None, "verbose":False}
+    optionsString = "b:f:o:hv"
+    optionsStringMap = {"b":"breakpoint", "f":"savefile", "o":"output", "h":"help", "v":"verbose"}
 
     # {{{ _diffDict(self, dictNow, dictOld): XXX
     def _diffDict(self, dictNow, dictOld):
@@ -108,7 +108,15 @@ class ArabolyDebugger(Araboly):
             eventsOut, paramsOut, unqueueFlag, statusExc = self._inputRoutine(event, testNum, testsLen, self.options["breakpoint"])
             if not self._outputRoutine(eventsOut, gameOld, paramsOut, statusExc, testNum, testsLen):
                 return False
-        return statusExc
+        if self.options["output"] != None:
+            with open(self.options["output"], "w") as fileObject:
+                print("Saving savefile snapshot to {}!".format(self.options["output"]))
+                gameSnapshot = copy.deepcopy(self.typeObjects[ArabolyState])
+                delattr(gameSnapshot, "clientParams")
+                delattr(gameSnapshot, "graphics")
+                delattr(gameSnapshot, "kades")
+                yaml.dump(gameSnapshot, fileObject)
+        return True
     # }}}
     # {{{ __init__(self, argv): initialisation method
     def __init__(self, argv):
