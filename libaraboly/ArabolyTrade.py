@@ -69,6 +69,8 @@ class ArabolyTrade(ArabolyTypeClass):
             if  field["type"] != ArabolyGameField.PROPERTY                      \
             and field["type"] != ArabolyGameField.UTILITY:
                 status = False
+            elif field["mortgaged"]:
+                status = False
             elif not tradeKeyOld in context.tradeState:
                 if context.players["numMap"][context.players["curNum"]] != src  \
                 or tradeKey in context.tradeState:
