@@ -51,7 +51,7 @@ class ArabolyAuctionMode(ArabolyTypeClass):
                     potentialBidders += [player]
                     del context.auctionState["bids"][player]
                 output = ArabolyGenerals._push_output(channel, context, output, "Current highest bid: {highestBidder} at ${highestBid}".format(**locals()))
-                output = ArabolyGenerals._push_output(channel, context, output, "Current minimum bid: ${minBid}".format(**context.auctionState))
+                output = ArabolyGenerals._push_output(channel, context, output, "Current minimum bid: ${}".format(context.auctionState["minBid"] + 1))
                 output = ArabolyGenerals._push_output(channel, context, output, "Potential bidders remaining: {}".format(", ".join(potentialBidders)))
         return args, channel, context, output, src, status
     # }}}
@@ -85,10 +85,10 @@ class ArabolyAuctionMode(ArabolyTypeClass):
             else:
                 if highestBid != 0:
                     output = ArabolyGenerals._push_output(channel, context, output, "Current highest bid: {highestBidder} at ${highestBid}".format(**locals()))
-                    output = ArabolyGenerals._push_output(channel, context, output, "Current minimum bid: ${minBid}".format(**context.auctionState))
+                    output = ArabolyGenerals._push_output(channel, context, output, "Current minimum bid: ${}".format(context.auctionState["minBid"] + 1))
                 else:
                     output = ArabolyGenerals._push_output(channel, context, output, "No bids have been placed yet!")
-                    output = ArabolyGenerals._push_output(channel, context, output, "Current minimum bid: ${minBid}".format(**context.auctionState))
+                    output = ArabolyGenerals._push_output(channel, context, output, "Current minimum bid: ${}".format(context.auctionState["minBid"] + 1))
                 output = ArabolyGenerals._push_output(channel, context, output, "Potential bidders remaining: {}".format(", ".join(potentialBidders)))
         return args, channel, context, output, src, status
     # }}}
