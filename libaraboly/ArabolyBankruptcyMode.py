@@ -83,7 +83,7 @@ class ArabolyBankruptcyMode(ArabolyTypeClass):
                     continue
                 else:
                     srcCollateral += int(srcProp["price"] / 2)
-            if srcCollateral == 0:
+            if (srcPlayer["wallet"] + srcCollateral) < 200:
                 output = ArabolyGenerals._push_output(channel, context, output, "Player {src} parts Araboly game!".format(**locals()))
                 context, output = ArabolyGenerals._remove_players(channel, context, output, otherPlayers)
                 if len(context.players["numMap"]) <= 1:
