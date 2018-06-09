@@ -34,6 +34,23 @@ class ArabolyAttractMode(ArabolyTypeClass):
                     setattr(context, newAttr, getattr(contextNew, newAttr))
                 context.clientParams["nickMap"].clear()
                 output = ArabolyGenerals._push_output(channel, context, output, "Loaded snapshot from {snapshotPath}!".format(**locals()))
+                if context.state == ArabolyGameState.ATTRACT:
+                    stateString = "attract mode"
+                elif context.state == ArabolyGameState.AUCTION:
+                    stateString = "auction mode"
+                elif context.state == ArabolyGameState.BANKRUPTCY:
+                    stateString = "bankruptcy mode"
+                elif context.state == ArabolyGameState.DISABLED:
+                    stateString = "(disabled)"
+                elif context.state == ArabolyGameState.GAME:
+                    stateString = "turn"
+                elif context.state == ArabolyGameState.PROPERTY:
+                    stateString = "property mode"
+                elif context.state == ArabolyGameState.SETUP:
+                    stateString = "setup mode"
+                else:
+                    stateString = "???"
+                output = ArabolyGenerals._push_output(channel, context, output, "New game state: {}".format(stateString))
         return args, channel, context, output, srcFull, status
     # }}}
     # {{{ dispatch_start(args, channel, context, output, src, status): XXX
