@@ -86,11 +86,10 @@ class ArabolyFree(ArabolyTypeClass):
         elif len(args) == 0:
             statusPlayer = src
         elif len(args) == 1:
-            if not args[0] in context.players["byName"]:
-                status = False
-            else:
-                statusPlayer = args[0]
-        if status:
+            statusPlayer = args[0]
+        if not statusPlayer in context.players["byName"].keys():
+            status = False
+        else:
             playerField = context.board[context.players["byName"][statusPlayer]["field"]]
             playerProps = context.players["byName"][statusPlayer]["properties"]
             playerWallet = context.players["byName"][statusPlayer]["wallet"]

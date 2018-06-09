@@ -10,12 +10,32 @@ from ArabolyMonad import ArabolyDecorator
 from ArabolyRtl import ArabolyRandom
 from ArabolyState import ArabolyGameState, ArabolyOutputLevel
 from ArabolyTypeClass import ArabolyTypeClass
-import time
+import os, yaml
 
 @ArabolyDecorator(context={"state":ArabolyGameState.ATTRACT})
 class ArabolyAttractMode(ArabolyTypeClass):
     """XXX"""
 
+    # {{{ dispatch_load(args, channel, context, output, srcFull, status): XXX
+    @staticmethod
+    def dispatch_load(args, channel, context, output, srcFull, status):
+        if len(args) != 1   \
+        or not ArabolyGenerals._authorised(channel, context, srcFull):
+            status = False
+        else:
+            snapshotPath = os.path.join("savefiles", args[0])
+            if not os.path.exists(snapshotPath):
+                status = False
+            else:
+                output = ArabolyGenerals._push_output(channel, context, output, "Loading snapshot from {snapshotPath}!".format(**locals()))
+                with open(snapshotPath, "r") as fileObject:
+                    contextNew = yaml.load(fileObject)
+                for newAttr in ["auctionState", "board", "players", "state", "tradeState"]:
+                    setattr(context, newAttr, getattr(contextNew, newAttr))
+                context.clientParams["nickMap"].clear()
+                output = ArabolyGenerals._push_output(channel, context, output, "Loaded snapshot from {snapshotPath}!".format(**locals()))
+        return args, channel, context, output, srcFull, status
+    # }}}
     # {{{ dispatch_start(args, channel, context, output, src, status): XXX
     @staticmethod
     def dispatch_start(args, channel, context, output, src, status):
