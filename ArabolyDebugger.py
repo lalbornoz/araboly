@@ -21,7 +21,7 @@ class ArabolyDebugger(Araboly):
     # {{{ _diffDict(self, dictNow, dictOld): XXX
     def _diffDict(self, dictNow, dictOld):
         diffString = "{"
-        for itemName in dictNow:
+        for itemName in dictNow.keys():
             if type(dictNow[itemName]) == dict:
                 if itemName not in dictOld:
                     diffString += "\x1b[92m+\x1b[0m" + str(itemName) + ": " + str(dictNow[itemName]) + ", "
@@ -33,6 +33,11 @@ class ArabolyDebugger(Araboly):
                 elif dictOld[itemName] != dictNow[itemName]:
                     diffString += "\x1b[91m-\x1b[0m" + str(itemName) + ": " + str(dictOld[itemName]) + ", "
                     diffString += "\x1b[92m+\x1b[0m" + str(itemName) + ": " + str(dictNow[itemName]) + ", "
+        for itemName in [k for k in dictOld.keys() if k not in dictNow.keys()]:
+            if type(dictOld[itemName]) == dict:
+                diffString += "\x1b[91m-\x1b[0m" + str(itemName) + ": " + str(dictOld[itemName]) + ", "
+            else:
+                diffString += "\x1b[91m-\x1b[0m" + str(itemName) + ": " + str(dictOld[itemName]) + ", "
         return diffString.rstrip(", ") + "}"
     # }}}
     # {{{ _diffState(self, gameNow, gameOld): XXX
