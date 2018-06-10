@@ -64,7 +64,7 @@ class ArabolyGameMode(ArabolyTypeClass):
         else:
             dice = [ArabolyRandom(max=6, min=1), ArabolyRandom(max=6, min=1)]
         if status:
-            channel, context, output = ArabolyTrade._leave(channel, context, output)
+            channel, context, src, output = ArabolyTrade._leave(channel, context, src, output)
             output = ArabolyGenerals._push_output(channel, context, output, "{src} rolls {dice[0]} and {dice[1]}!".format(**locals()))
             srcPlayer = context.players["byName"][src]
             srcField = context.board[(srcPlayer["field"] + dice[0] + dice[1]) % len(context.board)]
