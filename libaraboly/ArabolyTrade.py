@@ -35,21 +35,24 @@ class ArabolyTrade(ArabolyTypeClass):
         return ArabolyTrade._process_offer(args, channel, cmd, context, output, src, status)
     # }}}
 
-    # {{{ _leave(channel, context, output): XXX
+    # {{{ _leave(channel, context, src, output): XXX
     @staticmethod
-    def _leave(channel, context, output):
+    def _leave(channel, context, src, output):
+        delTradeKeys = []
         for tradeKey, tradeState in context.tradeState.items():
             if  not tradeKey.startswith(src + "\0") \
             and not tradeKey.endswith("\0" + src):
                 continue
             else:
                 if tradeState["counter"]:
-                    typeString = tradeState["type"] + "counter-offer"
+                    typeString = tradeState["offerType"] + "counter-offer"
                 else:
-                    typeString = tradeState["type"] + " offer"
-                output = ArabolyGenerals._push_output(channel, context, output, "Cancelling outstanding {} from {} to {} for {}!".format(typeString, tradeState["from"], tradeState["to"], tradeState["title"]))
-                del context.tradeState[tradeKey]
-        return channel, context, output
+                    typeString = tradeState["offerType"] + " offer"
+                output = ArabolyGenerals._push_output(channel, context, output, "Cancelling outstanding {} from {} to {} for {}!".format(typeString, tradeState["src"], tradeState["otherPlayer"], tradeState["title"]))
+                delTradeKeys += [tradeKey]
+        for tradeKey in delTradeKeys:
+            del context.tradeState[tradeKey]
+        return channel, context, src, output
     # }}}
     # {{{ _process_offer(args, channel, cmd, context, output, src, status): XXX
     @staticmethod
