@@ -52,6 +52,8 @@ class ArabolyFields(ArabolyTypeClass):
             context, output, srcField, srcPlayer = ArabolyFields._land_chance(channel, context, output, src, srcField, srcPlayer)
         elif srcField["type"] == ArabolyGameField.CHEST:
             context, output, srcField, srcPlayer = ArabolyFields._land_chest(channel, context, output, src, srcField, srcPlayer)
+        elif srcField["type"] == ArabolyGameField.CHRONO:
+            context, output, srcField, srcPlayer = ArabolyFields._land_chrono(channel, context, output, src, srcField, srcPlayer)
         elif srcField["type"] == ArabolyGameField.FREE_LSD:
             context, output, srcField, srcPlayer = ArabolyFields._land_free_lsd(channel, context, output, src, srcField, srcPlayer)
         elif srcField["type"] == ArabolyGameField.LOONY_BIN:
@@ -108,6 +110,29 @@ class ArabolyFields(ArabolyTypeClass):
     def _land_chest(channel, context, output, src, srcField, srcPlayer):
         for kadeLine in context.kades[ArabolyRandom(limit=len(context.kades))]:
             output = ArabolyGenerals._push_output(channel, context, output, kadeLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+        return context, output, srcField, srcPlayer
+    # }}}
+    # {{{ _land_chrono(channel, context, output, src, srcField, srcPlayer): XXX
+    @staticmethod
+    def _land_chrono(channel, context, output, src, srcField, srcPlayer):
+        if srcField["owner"] == -1:
+            context, output = ArabolyPropertyMode._enter(channel, context, output, src, srcField, srcPlayer)
+        elif srcField["owner"] != -1    \
+        and  srcField["owner"] != src:
+            if srcField["mortgaged"]:
+                output = ArabolyGenerals._push_output(channel, context, output, "Oops! {srcField[owner]} cannot collect rent on {srcField[title]} as it is mortgaged!".format(**locals()))
+            else:
+                otherChronos = 0
+                for srcPropNum in context.players["byName"][srcField["owner"]]["properties"]:
+                    srcProp = context.board[srcPropNum]
+                    if srcProp["type"] == ArabolyGameField.CHRONO:
+                        otherChronos += 1
+                srcPropRent = srcField["strings"][ArabolyStringType.RENT][otherChronos][0]
+                for rentString in srcField["strings"][ArabolyStringType.LAND][0]:
+                    rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
+                    output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src))
+                context.players["byName"][srcField["owner"]]["wallet"] += srcPropRent
+                srcPlayer["wallet"] -= srcPropRent
         return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_free_lsd(channel, context, output, src, srcField, srcPlayer): XXX

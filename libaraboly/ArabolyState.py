@@ -11,7 +11,7 @@ import yaml, os
 ArabolyColourMiRCMap = ArabolyDefaultDict(int, {
     "NONE":-1, "BLUE":12, "DARK_BLUE":2, "DARK_GREEN":3, "DARK_RED":5, "GREEN":9, "PINK":13, "RED":4, "YELLOW":8})
 class ArabolyGameField(object):
-    CHANCE = 1; CHEST = 2; FREE_LSD = 3; LOONY_BIN = 4; PROPERTY = 5; SECTIONED = 6; START = 7; TAX = 8; UTILITY = 9
+    CHANCE = 1; CHEST = 2; FREE_LSD = 3; LOONY_BIN = 4; PROPERTY = 5; SECTIONED = 6; START = 7; TAX = 8; UTILITY = 9; CHRONO = 10;
 class ArabolyGameState(object):
     DISABLED = 0; ATTRACT = 1; SETUP = 2; GAME = 3; PROPERTY = 4; AUCTION = 5; BANKRUPTCY = 6
 class ArabolyOutputLevel():
