@@ -212,7 +212,7 @@
 5:
   'colour': 'NONE'
   'colourMiRC': 15
-  'devCost': -1
+  'devCost': 100
   'field': 5
   'level': 0
   'mortgaged': false
@@ -756,7 +756,7 @@
 15:
   'colour': 'NONE'
   'colourMiRC': 15
-  'devCost': -1
+  'devCost': 100
   'field': 15
   'level': 0
   'mortgaged': false
@@ -1297,7 +1297,7 @@
 25:
   'colour': 'NONE'
   'colourMiRC': 15
-  'devCost': -1
+  'devCost': 100
   'field': 25
   'level': 0
   'mortgaged': false
@@ -1905,7 +1905,7 @@
 35:
   'colour': 'NONE'
   'colourMiRC': 15
-  'devCost': -1
+  'devCost': 100
   'field': 35
   'level': 0
   'mortgaged': false
