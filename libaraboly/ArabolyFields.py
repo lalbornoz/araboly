@@ -128,7 +128,9 @@ class ArabolyFields(ArabolyTypeClass):
                     if srcProp["type"] == ArabolyGameField.CHRONO:
                         otherChronos += 1
                 srcPropRent = srcField["strings"][ArabolyStringType.RENT][otherChronos][0]
-                for rentString in srcField["strings"][ArabolyStringType.LAND][0]:
+                if srcField["level"] == 1:
+                    srcPropRent *= 2
+                for rentString in srcField["strings"][ArabolyStringType.LAND][srcField["level"]]:
                     rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                     output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src))
                 context.players["byName"][srcField["owner"]]["wallet"] += srcPropRent
