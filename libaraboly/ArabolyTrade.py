@@ -69,7 +69,8 @@ class ArabolyTrade(ArabolyTypeClass):
             offerType = cmd
             otherPlayer, field, price = args[0], context.board[int(args[1])], int(args[2])
             tradeKey, tradeKeyOld = src + "\0" + otherPlayer, otherPlayer + "\0" + src
-            if  field["type"] != ArabolyGameField.PROPERTY                      \
+            if  field["type"] != ArabolyGameField.CHRONO                        \
+            and field["type"] != ArabolyGameField.PROPERTY                      \
             and field["type"] != ArabolyGameField.UTILITY:
                 status = False
             elif field["mortgaged"]:
