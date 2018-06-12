@@ -240,16 +240,16 @@
       4: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
-          0:
-          - 25
           1:
-          - 50
+          - 25
           2:
-          - 100
+          - 50
           3:
+          - 100
+          4:
           - 200
   'title': 'Chrono''s Camel Company'
-  'type': 9
+  'type': 10
 6:
   'colour': 'RED'
   'colourMiRC': 4
@@ -779,16 +779,16 @@
       4: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
-          0:
-          - 25
           1:
-          - 50
+          - 25
           2:
-          - 100
+          - 50
           3:
+          - 100
+          4:
           - 200
   'title': 'Winged Chrono Port'
-  'type': 9
+  'type': 10
 16:
   'colour': 'YELLOW'
   'colourMiRC': 8
@@ -1315,16 +1315,16 @@
       4: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
-          0:
-          - 25
           1:
-          - 50
+          - 25
           2:
-          - 100
+          - 50
           3:
+          - 100
+          4:
           - 200
   'title': 'Chrono''s Time Travel'
-  'type': 9
+  'type': 10
 26:
   'colour': 'PINK'
   'colourMiRC': 13
@@ -1918,16 +1918,16 @@
       4: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
-          0:
-          - 25
           1:
-          - 50
+          - 25
           2:
-          - 100
+          - 50
           3:
+          - 100
+          4:
           - 200
   'title': 'Chrono on Speed'
-  'type': 9
+  'type': 10
 36:
   'colour': 'NONE'
   'colourMiRC': 15
