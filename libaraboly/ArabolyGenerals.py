@@ -137,7 +137,8 @@ class ArabolyGenerals(ArabolyTypeClass):
                 otherProp["level"] = 0
                 otherProp["mortgaged"] = False
                 otherProp["owner"] = -1
-                otherProp["ownerHasGroup"] = False
+                if otherProp["type"] == ArabolyGameField.PROPERTY:
+                    otherProp["ownerHasGroup"] = False
             del context.players["byName"][otherPlayer["name"]]
             context.players["numMap"].remove(otherPlayer["name"])
             if context.players["curNum"] > 0:

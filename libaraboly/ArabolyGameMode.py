@@ -10,7 +10,7 @@ from ArabolyGenerals import ArabolyGenerals
 from ArabolyFields import ArabolyFields
 from ArabolyMonad import ArabolyDecorator
 from ArabolyRtl import ArabolyRandom
-from ArabolyState import ArabolyGameState, ArabolyStringType
+from ArabolyState import ArabolyGameField, ArabolyGameState, ArabolyStringType
 from ArabolyTrade import ArabolyTrade
 from ArabolyTypeClass import ArabolyTypeClass
 
@@ -30,23 +30,38 @@ class ArabolyGameMode(ArabolyTypeClass):
         else:
             fieldNum, newLevel = int(args[0]), int(args[1])
             field, srcPlayer = context.board[fieldNum], context.players["byName"][src]
-            if field["devCost"] >= srcPlayer["wallet"]                  \
-            or field["mortgaged"]                                       \
-            or field["owner"] != src                                    \
-            or not field["ownerHasGroup"]:
+            if  field["type"] != ArabolyGameField.CHRONO                \
+            and field["type"] != ArabolyGameField.PROPERTY              \
+            and field["type"] != ArabolyGameField.UTILITY:
                 status = False
-            else:
-                for otherFieldNum in field["groupFields"]:
-                    otherField = context.board[otherFieldNum]
-                    if  otherField["level"] != newLevel                 \
-                    and otherField["level"] != (newLevel - 1):
-                        status = False; break;
-                if status:
+            elif field["devCost"] >= srcPlayer["wallet"]                \
+            or   field["mortgaged"]                                     \
+            or   field["owner"] != src:
+                status = False
+            elif field["type"] == ArabolyGameField.CHRONO:
+                if not (field["level"] == 0 and newLevel == 1):
+                    status = False
+                else:
                     field["level"] = newLevel
                     for developString in field["strings"][ArabolyStringType.DEVELOP][newLevel]:
                         rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                         output = ArabolyGenerals._push_output(channel, context, output, developString.format(owner=src, prop=field["title"], rands=rands))
                     srcPlayer["wallet"] -= field["devCost"]
+            else:
+                if not field["ownerHasGroup"]:
+                    status = False
+                else:
+                    for otherFieldNum in field["groupFields"]:
+                        otherField = context.board[otherFieldNum]
+                        if  otherField["level"] != newLevel             \
+                        and otherField["level"] != (newLevel - 1):
+                            status = False; break;
+                    if status:
+                        field["level"] = newLevel
+                        for developString in field["strings"][ArabolyStringType.DEVELOP][newLevel]:
+                            rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
+                            output = ArabolyGenerals._push_output(channel, context, output, developString.format(owner=src, prop=field["title"], rands=rands))
+                        srcPlayer["wallet"] -= field["devCost"]
         return args, channel, context, output, src, status
     # }}}
     # {{{ dispatch_dice(args, channel, context, output, src, srcFull, status): XXX

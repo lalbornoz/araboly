@@ -217,7 +217,6 @@
   'level': 0
   'mortgaged': false
   'owner': -1
-  'ownerHasGroup': false
   'price': 200
   'strings': !!python/object/apply:collections.defaultdict
     'args': [*id001]
@@ -227,16 +226,22 @@
         'dictitems':
           0:
           - '{owner} buys {prop}!'
+          1:
+          - '{owner} builds a camel station on {prop}!'
       2: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
           0:
+          - '{who} pays ${cost} to {owner}!'
+          1:
           - '{who} pays ${cost} to {owner}!'
       3: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
           0:
           - 'Chrono''s Camel Company'
+          1:
+          - 'Camel Station'
       4: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
@@ -756,7 +761,6 @@
   'level': 0
   'mortgaged': false
   'owner': -1
-  'ownerHasGroup': false
   'price': 200
   'strings': !!python/object/apply:collections.defaultdict
     'args': [*id001]
@@ -766,16 +770,22 @@
         'dictitems':
           0:
           - '{owner} buys {prop}!'
+          1:
+          - '{owner} builds a Winged Chrono Tree on {prop}!'
       2: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
           0:
+          - '{who} pays ${cost} to {owner}!'
+          1:
           - '{who} pays ${cost} to {owner}!'
       3: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
           0:
           - 'Winged Chrono Port'
+          1:
+          - 'Winged Chrono Tree'
       4: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
@@ -1292,7 +1302,6 @@
   'level': 0
   'mortgaged': false
   'owner': -1
-  'ownerHasGroup': false
   'price': 200
   'strings': !!python/object/apply:collections.defaultdict
     'args': [*id001]
@@ -1302,16 +1311,22 @@
         'dictitems':
           0:
           - '{owner} buys {prop}!'
+          1:
+          - '{owner} builds a Time Portal on {prop}!'
       2: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
           0:
+          - '{who} pays ${cost} to {owner}!'
+          1:
           - '{who} pays ${cost} to {owner}!'
       3: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
           0:
           - 'Chrono''s Time Travel'
+          1:
+          - 'Time Portal'
       4: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
@@ -1895,7 +1910,6 @@
   'level': 0
   'mortgaged': false
   'owner': -1
-  'ownerHasGroup': false
   'price': 200
   'strings': !!python/object/apply:collections.defaultdict
     'args': [*id001]
@@ -1905,16 +1919,22 @@
         'dictitems':
           0:
           - '{owner} buys {prop}!'
+          1:
+          - '{owner} builds a Speed Railing Station on {prop}!'
       2: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
           0:
+          - '{who} pays ${cost} to {owner}!'
+          1:
           - '{who} pays ${cost} to {owner}!'
       3: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
           0:
           - 'Chrono on Speed'
+          1:
+          - 'Speed Railing Station'
       4: !!python/object/apply:collections.defaultdict
         'args': [*id001]
         'dictitems':
