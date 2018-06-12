@@ -134,6 +134,7 @@ class ArabolyGenerals(ArabolyTypeClass):
             otherPlayer = context.players["byName"][otherPlayerName]
             for propField in otherPlayer["properties"]:
                 otherProp = context.board[propField]
+                otherProp["level"] = 0
                 otherProp["mortgaged"] = False
                 otherProp["owner"] = -1
                 otherProp["ownerHasGroup"] = False
