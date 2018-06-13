@@ -50,6 +50,8 @@ class ArabolyGameMode(ArabolyTypeClass):
             else:
                 if not field["ownerHasGroup"]:
                     status = False
+                elif field["level"] == newLevel:
+                    status = False
                 else:
                     for otherFieldNum in field["groupFields"]:
                         otherField = context.board[otherFieldNum]
