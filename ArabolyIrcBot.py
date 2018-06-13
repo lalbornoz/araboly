@@ -80,6 +80,7 @@ class ArabolyIrcBot(Araboly):
                     self.typeObjects[ArabolyState].clientParams["channel"],                     \
                     self.typeObjects[ArabolyState].clientParams["hostname"],                    \
                     datetime.now().strftime("%Y%m%d%H%M%S")))
+            self.typeObjects[ArabolyState].clientParams["recordingXxxGameEnded"] = False
         if self.typeObjects[ArabolyState].clientParams["recording_path"] != "":
             with open(self.typeObjects[ArabolyState].clientParams["recording_path"], "a+") as fileObject:
                 if len(self.typeObjects[ArabolyState].clientParams["recordingXxxLastArgs"]) == 0:
