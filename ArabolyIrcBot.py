@@ -75,12 +75,13 @@ class ArabolyIrcBot(Araboly):
     # {{{ _inputRecordRoutine(self, event, paramsOut): XXX
     def _inputRecordRoutine(self, event, paramsOut):
         if paramsOut["cmd"] == "start":
-            self.options["recording_path"] = os.path.join("savefiles", "{}@{}_{}.yml".format(   \
+            self.typeObjects[ArabolyState].clientParams["recording_path"] =                     \
+                os.path.join("savefiles", "{}@{}_{}.yml".format(                                \
                     self.typeObjects[ArabolyState].clientParams["channel"],                     \
                     self.typeObjects[ArabolyState].clientParams["hostname"],                    \
                     datetime.now().strftime("%Y%m%d%H%M%S")))
-        if "recording_path" in self.options:
-            with open(self.options["recording_path"], "a+") as fileObject:
+        if self.typeObjects[ArabolyState].clientParams["recording_path"] != "":
+            with open(self.typeObjects[ArabolyState].clientParams["recording_path"], "a+") as fileObject:
                 if len(self.typeObjects[ArabolyState].clientParams["recordingXxxLastArgs"]) == 0:
                     newItemArgs = paramsOut["args"]
                 else:
@@ -96,7 +97,7 @@ class ArabolyIrcBot(Araboly):
                     "eventType":paramsOut["eventType"]}
                 fileObject.write(yaml.dump([newItem]))
             if self.typeObjects[ArabolyState].clientParams["recordingXxxGameEnded"]:
-                del self.options["recording_path"]
+                self.typeObjects[ArabolyState].clientParams["recording_path"] = ""
     # }}}
     # {{{ _logRoutine(self, isOutput, **event): XXX
     def _logRoutine(self, isOutput, **event):
