@@ -79,11 +79,13 @@ class ArabolyGameMode(ArabolyTypeClass):
         else:
             dice = [ArabolyRandom(max=6, min=1), ArabolyRandom(max=6, min=1)]
         if status:
+            if context.clientParams["recording"]:
+                context.clientParams["recordingXxxLastArgs"] = dice
             channel, context, src, output = ArabolyTrade._leave(channel, context, src, output)
             output = ArabolyGenerals._push_output(channel, context, output, "{src} rolls {dice[0]} and {dice[1]}!".format(**locals()))
             srcPlayer = context.players["byName"][src]
             srcField = context.board[srcPlayer["field"]]
-            if srcField["type"] == ArabolyGameField.LOONY_BIN:
+            if "loonyBinTurns" in srcPlayer:
                 context, output, srcPlayer = ArabolyGameMode._dice_loony_bin(channel, context, dice, output, src, srcPlayer)
             else:
                 srcField = context.board[(srcPlayer["field"] + dice[0] + dice[1]) % len(context.board)]
@@ -91,7 +93,7 @@ class ArabolyGameMode(ArabolyTypeClass):
                 srcPlayer["field"] = srcField["field"]
                 output = ArabolyGenerals._board(channel, context, output, src)
                 if dice[0] == dice[1]:
-                    srcField, srcPlayer["field"] = context.board[10], 10
+                    srcField, srcPlayer["field"] = context.board[30], 30
                     output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! {src} has rolled doubles and is sent to the loony bin!".format(**locals()))
                     context, output, srcField, srcPlayer, status = ArabolyFields._land_field(args[2:], channel, context, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status)
                 else:
@@ -102,8 +104,6 @@ class ArabolyGameMode(ArabolyTypeClass):
                 if  context.state == ArabolyGameState.GAME          \
                 and len(context.players["numMap"]) > 1:
                     context, output = ArabolyGenerals._next_player(channel, context, output, src)
-            if context.clientParams["recording"]:
-                context.clientParams["recordingXxxLastArgs"] = dice
         return args, channel, context, output, src, srcFull, status
     # }}}
 

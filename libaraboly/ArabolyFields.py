@@ -87,7 +87,7 @@ class ArabolyFields(ArabolyTypeClass):
         srcPlayer = context.players["byName"][src]
         kadecision = ArabolyRandom(max=5, min=1) if not randsFromArgs else int(args[0])
         if context.clientParams["recording"]:
-            context.clientParams["recordingXxxLastArgs"] = [kadecision]
+            context.clientParams["recordingXxxLastArgs"] += [kadecision]
         if kadecision == 1:
             context, output, srcPlayer = ArabolyFields._land_chance_bank(args, channel, context, output, randsFromArgs, src, srcPlayer)
         elif kadecision == 2:
@@ -105,10 +105,10 @@ class ArabolyFields(ArabolyTypeClass):
     def _land_chance_bank(args, channel, context, output, randsFromArgs, src, srcPlayer):
         if not randsFromArgs:
             srcWealth = ArabolyRandom(limit=int(srcPlayer["wallet"] * 0.15), min=int(srcPlayer["wallet"] * 0.05))
-            if context.clientParams["recording"]:
-                context.clientParams["recordingXxxLastArgs"] += [srcWealth]
         else:
             srcWealth = int(args[1])
+        if context.clientParams["recording"]:
+            context.clientParams["recordingXxxLastArgs"] += [srcWealth]
         srcPlayer["wallet"] -= srcWealth
         output = ArabolyGenerals._push_output(channel, context, output, "Oh no! Kade gives ${srcWealth} of {src}'s wealth to the bank!".format(**locals()), delay=3)
         return context, output, srcPlayer
@@ -119,10 +119,10 @@ class ArabolyFields(ArabolyTypeClass):
         if len(srcPlayer["properties"]):
             if not randsFromArgs:
                 srcPropNum = ArabolyRandom(limit=len(srcPlayer["properties"]))
-                if context.clientParams["recording"]:
-                    context.clientParams["recordingXxxLastArgs"] += [srcPropNum]
             else:
                 srcPropNum = int(args[1])
+            if context.clientParams["recording"]:
+                context.clientParams["recordingXxxLastArgs"] += [srcPropNum]
             srcProp = context.board[srcPlayer["properties"][srcPropNum]]
             if srcProp["mortgaged"]:
                 srcProp["mortgaged"] = False
@@ -141,10 +141,10 @@ class ArabolyFields(ArabolyTypeClass):
         if not randsFromArgs:
             srcWealth = ArabolyRandom(limit=int(srcPlayer["wallet"] * 0.15), min=int(srcPlayer["wallet"] * 0.05))
             targetPlayerNum = ArabolyRandom(limit=len(targetPlayer))
-            if context.clientParams["recording"]:
-                context.clientParams["recordingXxxLastArgs"] += [srcWealth, targetPlayerNum]
         else:
             srcWealth, targetPlayerNum = int(args[1]), int(args[2])
+        if context.clientParams["recording"]:
+            context.clientParams["recordingXxxLastArgs"] += [srcWealth, targetPlayerNum]
         targetPlayer = context.players["byName"][targetPlayer[targetPlayerNum]]
         srcPlayer["wallet"] -= srcWealth; targetPlayer["wallet"] += srcWealth;
         output = ArabolyGenerals._push_output(channel, context, output, "Oh my! Kade redistributes ${srcWealth} of {src}'s wealth to {targetPlayer[name]}!".format(**locals()), delay=3)
@@ -156,10 +156,10 @@ class ArabolyFields(ArabolyTypeClass):
         targetPlayer = [p for p in context.players["byName"].keys() if p != src]
         if not randsFromArgs:
             targetPlayerNum = ArabolyRandom(limit=len(targetPlayer))
-            if context.clientParams["recording"]:
-                context.clientParams["recordingXxxLastArgs"] += [targetPlayerNum]
         else:
             targetPlayerNum = int(args[1])
+        if context.clientParams["recording"]:
+            context.clientParams["recordingXxxLastArgs"] += [targetPlayerNum]
         targetPlayer = context.players["byName"][targetPlayer[targetPlayerNum]]
         srcPlayer["field"], targetPlayer["field"] = targetPlayer["field"], srcPlayer["field"]
         output = ArabolyGenerals._push_output(channel, context, output, "Oops! Kade swaps {src} with {targetPlayer[name]}!".format(**locals()), delay=3)
@@ -222,7 +222,7 @@ class ArabolyFields(ArabolyTypeClass):
     def _land_loony_bin(channel, context, output, src, srcField, srcPlayer):
         loonyBinPlayers = []
         for otherPlayerName, otherPlayer in context.players["byName"].items():
-            if context.board[otherPlayer["field"]]["type"] == ArabolyGameField.LOONY_BIN:
+            if "loonyBinTurns" in otherPlayer:
                 loonyBinPlayers += [otherPlayerName]
         if len(loonyBinPlayers):
             output = ArabolyGenerals._push_output(channel, context, output, "{} visits {} at the loony bin!".format(src, ", ".join(loonyBinPlayers)))
@@ -263,7 +263,7 @@ class ArabolyFields(ArabolyTypeClass):
         output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! Dr Kade diagnoses {src} with {illnessPrefix}{illnessType} and recommends immediate {illnessTherapy}!".format(**locals()), delay=2)
         output = ArabolyGenerals._push_output(channel, context, output, "Oh no! {src} is confined to the loony bin until having rolled doubles!".format(**locals()), delay=3)
         srcPlayer["loonyBinTurns"] = 0
-        return ArabolyFields._land_loony_bin(channel, context, output, src, srcField, srcPlayer)
+        return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_tax(channel, context, output, src, srcField, srcPlayer): XXX
     @staticmethod

@@ -130,6 +130,8 @@ class ArabolyGenerals(ArabolyTypeClass):
             output = ArabolyGenerals._push_output(channel, context, output, "Stopping current Araboly game!")
             otherPlayers = list(context.players["byName"].keys())
             output = ArabolyAttractMode.ArabolyAttractMode._enter(channel, context, output)
+            if context.clientParams["recording"]:
+                context.clientParams["recordingXxxGameEnded"] = True
         for otherPlayerName in otherPlayers:
             otherPlayer = context.players["byName"][otherPlayerName]
             for propField in otherPlayer["properties"]:

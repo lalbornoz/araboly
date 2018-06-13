@@ -20,12 +20,13 @@ class ArabolyIrcBot(Araboly):
         "channel":"#ARABOLY", "connect_timeout":15, "debug":False,
         "flood_delay":0, "help":None, "hostname":None, "nick":"ARABOLY",
         "port":"6667", "realname":"Araboly 2000 Advanced Server SP2",
-        "snapshot_path":"savefiles/snapshot.dmp", "ssl":False, "user":"ARABOLY"}
-    optionsString = "b:c:C:df:hH:n:p:r:St:u:"
+        "recording":False, "snapshot_path":"savefiles/snapshot.dmp",
+        "ssl":False, "user":"ARABOLY"}
+    optionsString = "b:c:C:df:hH:n:p:r:RSt:u:"
     optionsStringMap = {
         "c":"channel", "C":"connect_timeout", "d":"debug",
         "f":"flood_delay", "h":"help", "H":"hostname", "n":"nick",
-        "p":"port", "r":"realname", "S":"ssl", "u":"user"}
+        "p":"port", "r":"realname", "R":"recording", "S":"ssl", "u":"user"}
     typeObjects = [*Araboly.typeObjects, ArabolyEvents, ArabolyIrcClient]
 
     # {{{ _errorRoutine(self, eventsOut, paramsOut, status): XXX
@@ -47,7 +48,7 @@ class ArabolyIrcBot(Araboly):
     def _inputRoutine(self, ircClientObject, events):
         eventsOut, unqueueFlag, paramsOut, status = [], False, None, True
         for event in events:
-            if  event["eventType"] == "timer"   \
+            if  event["eventType"] == "timer"               \
             and "unqueue" in event:
                 for unqueueLine in event["unqueue"]:
                     eventsOut += [{**unqueueLine, "delayed":True}]; unqueueFlag = True;
@@ -57,15 +58,45 @@ class ArabolyIrcBot(Araboly):
                 if self.options["debug"]:
                     gameSnapshot = copy.deepcopy(self.typeObjects[ArabolyState])
                     status, newEventsOut, paramsOut = self.unit(event, debug=True)
-                    if not status:
-                        with open(self.options["snapshot_path"], "w") as fileObject:
-                            print("Saving pre-exception game snapshot to {}!".format(self.options["snapshot_path"]))
-                            yaml.dump(gameSnapshot, fileObject)
-                            exit(1)
                 else:
                     status, newEventsOut, paramsOut = self.unit(event)
+                if self.options["debug"] and not status:
+                    with open(self.options["snapshot_path"], "w") as fileObject:
+                        print("Saving pre-exception game snapshot to {}!".format(self.options["snapshot_path"]))
+                        yaml.dump(gameSnapshot, fileObject)
+                        exit(1)
+                if  self.options["recording"] and status    \
+                and paramsOut["eventType"] == "command"     \
+                and paramsOut["status"]:
+                    self._inputRecordRoutine(event, paramsOut)
                 eventsOut += newEventsOut
         return eventsOut, paramsOut, unqueueFlag, status
+    # }}}
+    # {{{ _inputRecordRoutine(self, event, paramsOut): XXX
+    def _inputRecordRoutine(self, event, paramsOut):
+        if paramsOut["cmd"] == "start":
+            self.options["recording_path"] = os.path.join("savefiles", "{}@{}_{}.yml".format(   \
+                    self.typeObjects[ArabolyState].clientParams["channel"],                     \
+                    self.typeObjects[ArabolyState].clientParams["hostname"],                    \
+                    datetime.now().strftime("%Y%m%d%H%M%S")))
+        if "recording_path" in self.options:
+            with open(self.options["recording_path"], "a+") as fileObject:
+                if len(self.typeObjects[ArabolyState].clientParams["recordingXxxLastArgs"]) == 0:
+                    newItemArgs = paramsOut["args"]
+                else:
+                    newItemArgs = self.typeObjects[ArabolyState].clientParams["recordingXxxLastArgs"]
+                    self.typeObjects[ArabolyState].clientParams["recordingXxxLastArgs"] = []
+                newItem = {
+                    "args":newItemArgs,
+                    "channel":self.typeObjects[ArabolyState].clientParams["channel"],
+                    "cmd":paramsOut["cmd"],
+                    "src":paramsOut["src"],
+                    "srcFull":paramsOut["srcFull"],
+                    "time":int(time.time()),
+                    "eventType":paramsOut["eventType"]}
+                fileObject.write(yaml.dump([newItem]))
+            if self.typeObjects[ArabolyState].clientParams["recordingXxxGameEnded"]:
+                del self.options["recording_path"]
     # }}}
     # {{{ _logRoutine(self, isOutput, **event): XXX
     def _logRoutine(self, isOutput, **event):
@@ -99,11 +130,11 @@ class ArabolyIrcBot(Araboly):
     def _outputRoutine(self, eventsObject, ircClientObject, events, unqueueFlag):
         floodDelay, queueList = 0, []
         for event in events:
-            self._logRoutine(isOutput=True, **event)
             if event["eventType"] == "message":
                 msg = {k:event[k] for k in event if k in ["args", "cmd"]}
                 eventLevel = event["outputLevel"] if "outputLevel" in event else None
                 if "delayed" in event:
+                    self._logRoutine(isOutput=True, **event)
                     queueList, unqueueFlag = queueList + [msg], True
                 elif not "delayed" in event:
                     if self.options["flood_delay"] > 0:
@@ -114,6 +145,7 @@ class ArabolyIrcBot(Araboly):
                         if floodDelay > 0:
                             eventsObject.concatTimers(expire=floodDelay, unqueue=[{**msg, "eventType":"message", "delayed":True}])
                         else: 
+                            self._logRoutine(isOutput=True, **event)
                             queueList, unqueueFlag = queueList + [msg], True
                     elif "delay" in event:
                         floodDelay += event["delay"]

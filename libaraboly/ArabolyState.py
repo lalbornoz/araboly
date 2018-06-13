@@ -49,7 +49,10 @@ class ArabolyState(object):
         self.clientParams["hostname"] = hostname
         self.clientParams["nickMap"] = {}
         self.clientParams["recording"] = recording
-        self.clientParams["recordingXxxLastArgs"] = []
+        if recording:
+            self.clientParams["recording_path"] = ""
+            self.clientParams["recordingXxxGameEnded"] = False
+            self.clientParams["recordingXxxLastArgs"] = []
         self.clientParams["testing"] = testing
         self.clientParams["inhibitUntil"] = 0; self.clientParams.update(kwargs);
         with open(uafPathName, "r") as fileObject:
