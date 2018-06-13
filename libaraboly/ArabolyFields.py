@@ -6,7 +6,7 @@
 #
 # List of ideas:
 # {{{
-# 1)  Araboly field: random chance of (fake) game crash for <n> turns w/ decay; Windows 10 field; mosque field; narration of khalawayh 
+# 1)  Araboly field: random chance of (fake) game crash for <n> turns w/ decay; Windows 10 field; mosque field; narration of khalawayh
 # 2)  Chance: randomly chosen from {{Chrono,Community} *,Free LSD,{Gaol,Loony bin},Tax} fields
 # 3)  Chrono *: allow a player to swap places with another placers piece
 # 4)  Chrono *: allow travel for fee w/ chance of random travel
@@ -41,15 +41,15 @@ from ArabolyTypeClass import ArabolyTypeClass
 class ArabolyFields(ArabolyTypeClass):
     """XXX"""
 
-    # {{{ _land_field(channel, context, output, src, srcField, srcFieldPastGo, srcPlayer): XXX
+    # {{{ _land_field(args, channel, context, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status): XXX
     @staticmethod
-    def _land_field(channel, context, output, src, srcField, srcFieldPastGo, srcPlayer):
+    def _land_field(args, channel, context, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status):
         if srcFieldPastGo:
             srcPlayer["wallet"] += 200
             output = ArabolyGenerals._push_output(channel, context, output, "Yay! {src} passes past GO and collects $200!".format(**locals()))
         output = ArabolyGenerals._push_output(channel, context, output, "{src} lands on {srcField[title]}!".format(**locals()))
         if srcField["type"] == ArabolyGameField.CHANCE:
-            context, output, srcField, srcPlayer = ArabolyFields._land_chance(channel, context, output, src, srcField, srcPlayer)
+            context, output, srcField, srcPlayer, status = ArabolyFields._land_chance(args, channel, context, output, src, srcField, srcFull, srcPlayer, status)
         elif srcField["type"] == ArabolyGameField.CHEST:
             context, output, srcField, srcPlayer = ArabolyFields._land_chest(channel, context, output, src, srcField, srcPlayer)
         elif srcField["type"] == ArabolyGameField.CHRONO:
@@ -65,36 +65,65 @@ class ArabolyFields(ArabolyTypeClass):
             context, output, srcField, srcPlayer = ArabolyFields._land_sectioned(channel, context, output, src, srcField, srcPlayer)
         elif srcField["type"] == ArabolyGameField.TAX:
             context, output, srcField, srcPlayer = ArabolyFields._land_tax(channel, context, output, src, srcField, srcPlayer)
-        return context, output, srcField, srcPlayer
+        return context, output, srcField, srcPlayer, status
     # }}}
 
-    # {{{ _land_chance(channel, context, output, src, srcField, srcPlayer): XXX
+    # {{{ _land_chance(args, channel, context, output, src, srcField, srcFull, srcPlayer, status): XXX
     @staticmethod
-    def _land_chance(channel, context, output, src, srcField, srcPlayer):
+    def _land_chance(args, channel, context, output, src, srcField, srcFull, srcPlayer, status):
+        if len(args):
+            if ArabolyGenerals._authorised(channel, context, srcFull)   \
+            or context.clientParams["testing"]:
+                randsFromArgs = True
+            else:
+                status = False
+                return context, output, srcField, srcPlayer, status
+        else:
+            randsFromArgs = False
         for kadeLine in context.kades[ArabolyRandom(limit=len(context.kades))]:
             output = ArabolyGenerals._push_output(channel, context, output, kadeLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
         output = ArabolyGenerals._push_output(channel, context, output, "Kade thinks!", delay=1)
         output = ArabolyGenerals._push_output(channel, context, output, "Kade is thinking!", delay=2)
-        kadecision = ArabolyRandom(max=5, min=1)
         srcPlayer = context.players["byName"][src]
+        kadecision = ArabolyRandom(max=5, min=1) if not randsFromArgs else int(args[0])
+        if context.clientParams["recording"]:
+            context.clientParams["recordingXxxLastArgs"] = [kadecision]
         if kadecision == 1:
-            targetPlayer = [p for p in context.players["byName"].keys() if p != src]
-            targetPlayer = context.players["byName"][targetPlayer[ArabolyRandom(limit=len(targetPlayer))]]
-            srcWealth = ArabolyRandom(limit=int(srcPlayer["wallet"] * 0.15), min=int(srcPlayer["wallet"] * 0.05))
-            srcPlayer["wallet"] -= srcWealth; targetPlayer["wallet"] += srcWealth;
-            output = ArabolyGenerals._push_output(channel, context, output, "Oh my! Kade redistributes ${srcWealth} of {src}'s wealth to {targetPlayer[name]}!".format(**locals()), delay=3)
+            context, output, srcPlayer = ArabolyFields._land_chance_bank(args, channel, context, output, randsFromArgs, src, srcPlayer)
         elif kadecision == 2:
-            targetPlayer = [p for p in context.players["byName"].keys() if p != src]
-            targetPlayer = context.players["byName"][targetPlayer[ArabolyRandom(limit=len(targetPlayer))]]
-            srcPlayer["field"], targetPlayer["field"] = targetPlayer["field"], srcPlayer["field"]
-            output = ArabolyGenerals._push_output(channel, context, output, "Oops! Kade swaps {src} with {targetPlayer[name]}!".format(**locals()), delay=3)
+            context, output, srcPlayer = ArabolyFields._land_chance_mortgage(args, channel, context, output, randsFromArgs, src, srcPlayer)
         elif kadecision == 3:
+            context, output, srcPlayer = ArabolyFields._land_chance_swap(args, channel, context, output, randsFromArgs, src, srcPlayer)
+        elif kadecision == 4:
+            context, output, srcPlayer = ArabolyFields._land_chance_redist(args, channel, context, output, randsFromArgs, src, srcPlayer)
+        else:
+            output = ArabolyGenerals._push_output(channel, context, output, "Hm! Kade feels stupid!", delay=3)
+        return context, output, srcField, srcPlayer, status
+    # }}}
+    # {{{ _land_chance_bank(args, channel, context, output, randsFromArgs, src, srcPlayer): XXX
+    @staticmethod
+    def _land_chance_bank(args, channel, context, output, randsFromArgs, src, srcPlayer):
+        if not randsFromArgs:
             srcWealth = ArabolyRandom(limit=int(srcPlayer["wallet"] * 0.15), min=int(srcPlayer["wallet"] * 0.05))
-            srcPlayer["wallet"] -= srcWealth
-            output = ArabolyGenerals._push_output(channel, context, output, "Oh no! Kade gives ${srcWealth} of {src}'s wealth to the bank!".format(**locals()), delay=3)
-        elif kadecision == 4    \
-        and  len(srcPlayer["properties"]):
-            srcProp = context.board[srcPlayer["properties"][ArabolyRandom(limit=len(srcPlayer["properties"]))]]
+            if context.clientParams["recording"]:
+                context.clientParams["recordingXxxLastArgs"] += [srcWealth]
+        else:
+            srcWealth = int(args[1])
+        srcPlayer["wallet"] -= srcWealth
+        output = ArabolyGenerals._push_output(channel, context, output, "Oh no! Kade gives ${srcWealth} of {src}'s wealth to the bank!".format(**locals()), delay=3)
+        return context, output, srcPlayer
+    # }}}
+    # {{{ _land_chance_mortgage(args, channel, context, output, randsFromArgs, src, srcPlayer): XXX
+    @staticmethod
+    def _land_chance_mortgage(args, channel, context, output, randsFromArgs, src, srcPlayer):
+        if len(srcPlayer["properties"]):
+            if not randsFromArgs:
+                srcPropNum = ArabolyRandom(limit=len(srcPlayer["properties"]))
+                if context.clientParams["recording"]:
+                    context.clientParams["recordingXxxLastArgs"] += [srcPropNum]
+            else:
+                srcPropNum = int(args[1])
+            srcProp = context.board[srcPlayer["properties"][srcPropNum]]
             if srcProp["mortgaged"]:
                 srcProp["mortgaged"] = False
                 output = ArabolyGenerals._push_output(channel, context, output, "Yay! Kade accidentally lifts the mortgage on {src}'s {srcProp[title]}!".format(**locals()), delay=3)
@@ -103,8 +132,40 @@ class ArabolyFields(ArabolyTypeClass):
                 output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! Kade accidentally mortgages {src}'s {srcProp[title]}!".format(**locals()), delay=3)
         else:
             output = ArabolyGenerals._push_output(channel, context, output, "Hm! Kade feels stupid!", delay=3)
-        return context, output, srcField, srcPlayer
+        return context, output, srcPlayer
     # }}}
+    # {{{ _land_chance_redist(args, channel, context, output, randsFromArgs, src, srcPlayer): XXX
+    @staticmethod
+    def _land_chance_redist(args, channel, context, output, randsFromArgs, src, srcPlayer):
+        targetPlayer = [p for p in context.players["byName"].keys() if p != src]
+        if not randsFromArgs:
+            srcWealth = ArabolyRandom(limit=int(srcPlayer["wallet"] * 0.15), min=int(srcPlayer["wallet"] * 0.05))
+            targetPlayerNum = ArabolyRandom(limit=len(targetPlayer))
+            if context.clientParams["recording"]:
+                context.clientParams["recordingXxxLastArgs"] += [srcWealth, targetPlayerNum]
+        else:
+            srcWealth, targetPlayerNum = int(args[1]), int(args[2])
+        targetPlayer = context.players["byName"][targetPlayer[targetPlayerNum]]
+        srcPlayer["wallet"] -= srcWealth; targetPlayer["wallet"] += srcWealth;
+        output = ArabolyGenerals._push_output(channel, context, output, "Oh my! Kade redistributes ${srcWealth} of {src}'s wealth to {targetPlayer[name]}!".format(**locals()), delay=3)
+        return context, output, srcPlayer
+    # }}}
+    # {{{ _land_chance_swap(args, channel, context, output, randsFromArgs, src, srcPlayer): XXX
+    @staticmethod
+    def _land_chance_swap(args, channel, context, output, randsFromArgs, src, srcPlayer):
+        targetPlayer = [p for p in context.players["byName"].keys() if p != src]
+        if not randsFromArgs:
+            targetPlayerNum = ArabolyRandom(limit=len(targetPlayer))
+            if context.clientParams["recording"]:
+                context.clientParams["recordingXxxLastArgs"] += [targetPlayerNum]
+        else:
+            targetPlayerNum = int(args[1])
+        targetPlayer = context.players["byName"][targetPlayer[targetPlayerNum]]
+        srcPlayer["field"], targetPlayer["field"] = targetPlayer["field"], srcPlayer["field"]
+        output = ArabolyGenerals._push_output(channel, context, output, "Oops! Kade swaps {src} with {targetPlayer[name]}!".format(**locals()), delay=3)
+        return context, output, srcPlayer
+    # }}}
+
     # {{{ _land_chest(channel, context, output, src, srcField, srcPlayer): XXX
     @staticmethod
     def _land_chest(channel, context, output, src, srcField, srcPlayer):

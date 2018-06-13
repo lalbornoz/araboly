@@ -41,13 +41,15 @@ class ArabolyState(object):
             with open(fileInfo["pathName"], "r") as fileObject:
                 self.graphics["fields"] += [[fieldMin, fieldMax, fileObject.readlines()]]
     # }}}
-    # {{{ _initClientParams(self, channel, debug=False, hostname=None, testing=False, uafPathName=os.path.join("assets", "YAML", "ArabolyIrcBotUaf.yml"), **kwargs): XXX
-    def _initClientParams(self, channel, debug=False, hostname=None, testing=False, uafPathName=os.path.join("assets", "YAML", "ArabolyIrcBotUaf.yml"), **kwargs):
+    # {{{ _initClientParams(self, channel, debug=False, hostname=None, recording=False, testing=False, uafPathName=os.path.join("assets", "YAML", "ArabolyIrcBotUaf.yml"), **kwargs): XXX
+    def _initClientParams(self, channel, debug=False, hostname=None, recording=False, testing=False, uafPathName=os.path.join("assets", "YAML", "ArabolyIrcBotUaf.yml"), **kwargs):
         self.clientParams["channel"] = channel
         self.clientParams["channelRejoin"] = False
         self.clientParams["debug"] = debug
         self.clientParams["hostname"] = hostname
         self.clientParams["nickMap"] = {}
+        self.clientParams["recording"] = recording
+        self.clientParams["recordingXxxLastArgs"] = []
         self.clientParams["testing"] = testing
         self.clientParams["inhibitUntil"] = 0; self.clientParams.update(kwargs);
         with open(uafPathName, "r") as fileObject:

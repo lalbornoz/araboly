@@ -70,7 +70,7 @@ class ArabolyGameMode(ArabolyTypeClass):
         if context.players["numMap"][context.players["curNum"]] != src:
             status = False
         elif len(args):
-            if  len(args) == 2                                          \
+            if  len(args) >= 2                                          \
             and ArabolyGenerals._authorised(channel, context, srcFull)  \
             or  context.clientParams["testing"]:
                 dice = [int(args[0]), int(args[1])]
@@ -93,15 +93,17 @@ class ArabolyGameMode(ArabolyTypeClass):
                 if dice[0] == dice[1]:
                     srcField, srcPlayer["field"] = context.board[10], 10
                     output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! {src} has rolled doubles and is sent to the loony bin!".format(**locals()))
-                    context, output, srcField, srcPlayer = ArabolyFields._land_field(channel, context, output, src, srcField, srcFieldPastGo, srcPlayer)
+                    context, output, srcField, srcPlayer, status = ArabolyFields._land_field(args[2:], channel, context, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status)
                 else:
-                    context, output, srcField, srcPlayer = ArabolyFields._land_field(channel, context, output, src, srcField, srcFieldPastGo, srcPlayer)
+                    context, output, srcField, srcPlayer, status = ArabolyFields._land_field(args[2:], channel, context, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status)
             if context.state == ArabolyGameState.GAME:
                 if srcPlayer["wallet"] <= 0:
                     context, output = ArabolyBankruptcyMode._enter(channel, context, output, src, srcPlayer)
                 if  context.state == ArabolyGameState.GAME          \
                 and len(context.players["numMap"]) > 1:
                     context, output = ArabolyGenerals._next_player(channel, context, output, src)
+            if context.clientParams["recording"]:
+                context.clientParams["recordingXxxLastArgs"] = dice
         return args, channel, context, output, src, srcFull, status
     # }}}
 
