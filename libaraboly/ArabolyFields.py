@@ -266,8 +266,9 @@ class ArabolyFields(ArabolyTypeClass):
         illnessTherapy = ["Antipsychotics Treatment", "Cat Room Therapy", "Electroconvulsive Therapy"][ArabolyRandom(limit=3)]
         illnessType = ["Bipolar", "Clinical Depression", "Lethally Severe Autism", "OCPD", "Schizophrenia"][ArabolyRandom(limit=5)]
         output = ArabolyGenerals._push_output(channel, context, output, "Dr Kade thinks!", delay=1)
-        output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! Dr Kade diagnoses {src} with {illnessPrefix}{illnessType} and recommends immediate {illnessTherapy}!".format(**locals()), delay=2)
-        output = ArabolyGenerals._push_output(channel, context, output, "Oh no! {src} is confined to the loony bin until having rolled doubles!".format(**locals()), delay=3)
+        output = ArabolyGenerals._push_output(channel, context, output, "Dr Kade is thinking!", delay=2)
+        output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! Dr Kade diagnoses {src} with {illnessPrefix}{illnessType} and recommends immediate {illnessTherapy}!".format(**locals()), delay=3)
+        output = ArabolyGenerals._push_output(channel, context, output, "Oh no! {src} is confined to the loony bin until having rolled doubles!".format(**locals()))
         srcPlayer["loonyBinTurns"] = 0
         return context, output, srcField, srcPlayer
     # }}}
