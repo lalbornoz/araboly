@@ -43,6 +43,7 @@ usage: ./ArabolyIrcBot.py [-c <channel name>] [-d] [-C <connect timeout>]
          -n <nick name>........:  defaults to ARABOLY.
          -p <port>.............:  defaults to 6667 or 6697 if using SSL.
          -r <IRC real name>....:  defaults to `Araboly 2000 Advanced Server SP2'.
+         -R ...................:  record games to savefiles; disabled by default.
          -S ...................:  use SSL; disabled by default.
          -u <user name>........:  defaults to ARABOLY.
 ```
