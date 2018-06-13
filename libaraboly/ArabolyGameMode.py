@@ -82,18 +82,44 @@ class ArabolyGameMode(ArabolyTypeClass):
             channel, context, src, output = ArabolyTrade._leave(channel, context, src, output)
             output = ArabolyGenerals._push_output(channel, context, output, "{src} rolls {dice[0]} and {dice[1]}!".format(**locals()))
             srcPlayer = context.players["byName"][src]
-            srcField = context.board[(srcPlayer["field"] + dice[0] + dice[1]) % len(context.board)]
-            srcFieldPastGo = srcField["field"] < srcPlayer["field"]
-            srcPlayer["field"] = srcField["field"]
-            output = ArabolyGenerals._board(channel, context, output, src)
-            context, output, srcField, srcPlayer = ArabolyFields._land_field(channel, context, output, src, srcField, srcFieldPastGo, srcPlayer)
+            srcField = context.board[srcPlayer["field"]]
+            if srcField["type"] == ArabolyGameField.LOONY_BIN:
+                context, output, srcPlayer = ArabolyGameMode._dice_loony_bin(channel, context, dice, output, src, srcPlayer)
+            else:
+                srcField = context.board[(srcPlayer["field"] + dice[0] + dice[1]) % len(context.board)]
+                srcFieldPastGo = srcField["field"] < srcPlayer["field"]
+                srcPlayer["field"] = srcField["field"]
+                output = ArabolyGenerals._board(channel, context, output, src)
+                if dice[0] == dice[1]:
+                    srcField, srcPlayer["field"] = context.board[10], 10
+                    output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! {src} has rolled doubles and is sent to the loony bin!".format(**locals()))
+                    context, output, srcField, srcPlayer = ArabolyFields._land_field(channel, context, output, src, srcField, srcFieldPastGo, srcPlayer)
+                else:
+                    context, output, srcField, srcPlayer = ArabolyFields._land_field(channel, context, output, src, srcField, srcFieldPastGo, srcPlayer)
             if context.state == ArabolyGameState.GAME:
                 if srcPlayer["wallet"] <= 0:
                     context, output = ArabolyBankruptcyMode._enter(channel, context, output, src, srcPlayer)
-                if  context.state == ArabolyGameState.GAME              \
+                if  context.state == ArabolyGameState.GAME          \
                 and len(context.players["numMap"]) > 1:
                     context, output = ArabolyGenerals._next_player(channel, context, output, src)
         return args, channel, context, output, src, srcFull, status
+    # }}}
+
+    # {{{ _dice_loony_bin(channel, context, dice, output, src, srcPlayer): XXX
+    @staticmethod
+    def _dice_loony_bin(channel, context, dice, output, src, srcPlayer):
+        srcPlayer["loonyBinTurns"] += 1
+        if dice[0] == dice[1]:
+            output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {src} has rolled doubles and is released from the loony bin!".format(**locals()))
+            del srcPlayer["loonyBinTurns"]
+        elif srcPlayer["loonyBinTurns"] == 3:
+            output = ArabolyGenerals._push_output(channel, context, output, "Yay! {src} is released from the loony bin after {srcPlayer[loonyBinTurns]} turns!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "Oops! {src} has not rolled doubles and must pay $100 to the loony bin!".format(**locals()))
+            srcPlayer["wallet"] -= 100
+            del srcPlayer["loonyBinTurns"]
+        else:
+            output = ArabolyGenerals._push_output(channel, context, output, "Oops! {src} has not rolled doubles and must stay in the loony bin!".format(**locals()))
+        return context, output, srcPlayer
     # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=0
