@@ -493,11 +493,6 @@
   'colour': 'NONE'
   'colourMiRC': 15
   'field': 10
-  'level': 0
-  'mortgaged': false
-  'owner': -1
-  'ownerHasGroup': false
-  'price': -1
   'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'In the loony bin/Just visiting'
   'type': 4
@@ -1654,11 +1649,6 @@
   'colour': 'NONE'
   'colourMiRC': 15
   'field': 30
-  'level': 0
-  'mortgaged': false
-  'owner': -1
-  'ownerHasGroup': false
-  'price': 300
   'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'You got sectioned! (Go to loony bin)'
   'type': 6

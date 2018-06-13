@@ -159,8 +159,14 @@ class ArabolyFields(ArabolyTypeClass):
     # {{{ _land_loony_bin(channel, context, output, src, srcField, srcPlayer): XXX
     @staticmethod
     def _land_loony_bin(channel, context, output, src, srcField, srcPlayer):
-        for kadeLine in context.kades[ArabolyRandom(limit=len(context.kades))]:
-            output = ArabolyGenerals._push_output(channel, context, output, kadeLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
+        loonyBinPlayers = []
+        for otherPlayerName, otherPlayer in context.players["byName"].items():
+            if context.board[otherPlayer["field"]]["type"] == ArabolyGameField.LOONY_BIN:
+                loonyBinPlayers += [otherPlayerName]
+        if len(loonyBinPlayers):
+            output = ArabolyGenerals._push_output(channel, context, output, "{} visits {} at the loony bin!".format(src, ", ".join(loonyBinPlayers)))
+        else:
+            output = ArabolyGenerals._push_output(channel, context, output, "{src} visits the loony bin!".format(**locals()))
         return context, output, srcField, srcPlayer
     # }}}
     # {{{ _land_property_utility(channel, context, output, src, srcField, srcPlayer): XXX
@@ -189,7 +195,14 @@ class ArabolyFields(ArabolyTypeClass):
     def _land_sectioned(channel, context, output, src, srcField, srcPlayer):
         for kadeLine in context.kades[ArabolyRandom(limit=len(context.kades))]:
             output = ArabolyGenerals._push_output(channel, context, output, kadeLine.rstrip("\n"), outputLevel=ArabolyOutputLevel.LEVEL_GRAPHICS)
-        return context, output, srcField, srcPlayer
+        illnessPrefix = ["acute ", "latent ", "therapy-resistant ", "undifferentiated ", ""][ArabolyRandom(limit=5)]
+        illnessTherapy = ["Antipsychotics Treatment", "Cat Room Therapy", "Electroconvulsive Therapy"][ArabolyRandom(limit=3)]
+        illnessType = ["Bipolar", "Clinical Depression", "Lethally Severe Autism", "OCPD", "Schizophrenia"][ArabolyRandom(limit=5)]
+        output = ArabolyGenerals._push_output(channel, context, output, "Dr Kade thinks!", delay=1)
+        output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! Dr Kade diagnoses {src} with {illnessPrefix}{illnessType} and recommends immediate {illnessTherapy}!".format(**locals()), delay=2)
+        output = ArabolyGenerals._push_output(channel, context, output, "Oh no! {src} is confined to the loony bin until having rolled doubles!".format(**locals()), delay=3)
+        srcPlayer["loonyBinTurns"] = 0
+        return ArabolyFields._land_loony_bin(channel, context, output, src, srcField, srcPlayer)
     # }}}
     # {{{ _land_tax(channel, context, output, src, srcField, srcPlayer): XXX
     @staticmethod
