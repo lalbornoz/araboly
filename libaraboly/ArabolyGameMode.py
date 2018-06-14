@@ -95,10 +95,10 @@ class ArabolyGameMode(ArabolyTypeClass):
                 srcPlayer["field"] = srcField["field"]
                 output = ArabolyGenerals._board(channel, context, output, src)
                 if dice[0] == dice[1]:
-                    srcField, srcPlayer["field"] = context.board[30], 30
-                    output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! {src} has rolled doubles and is sent to the loony bin!".format(**locals()))
-                    context, output, srcField, srcPlayer, status = ArabolyFields._land_field(args[2:], channel, context, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status)
+                    context, output, srcField, srcPlayer, status = ArabolyGameMode._dice_doubles(args, channel, context, dice, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status)
                 else:
+                    if "doubles" in srcPlayer:
+                        del srcPlayer["doubles"]
                     context, output, srcField, srcPlayer, status = ArabolyFields._land_field(args[2:], channel, context, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status)
             if context.state == ArabolyGameState.GAME:
                 if srcPlayer["wallet"] <= 0:
@@ -109,6 +109,22 @@ class ArabolyGameMode(ArabolyTypeClass):
         return args, channel, context, output, src, srcFull, status
     # }}}
 
+    # {{{ _dice_doubles(args, channel, context, dice, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status): XXX
+    @staticmethod
+    def _dice_doubles(args, channel, context, dice, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status):
+        if not "doubles" in srcPlayer:
+            srcPlayer["doubles"] = 1
+        else:
+            srcPlayer["doubles"] += 1
+        if srcPlayer["doubles"] == 3:
+            del srcPlayer["doubles"]
+            srcField, srcPlayer["field"] = context.board[30], 30
+            output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! {src} has rolled doubles three times in a row and is sent to the loony bin!".format(**locals()))
+        else:
+            output = ArabolyGenerals._push_output(channel, context, output, "Oops! {src} has rolled doubles!".format(**locals()))
+        context, output, srcField, srcPlayer, status = ArabolyFields._land_field(args[2:], channel, context, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status)
+        return context, output, srcField, srcPlayer, status
+    # }}}
     # {{{ _dice_loony_bin(channel, context, dice, output, src, srcPlayer): XXX
     @staticmethod
     def _dice_loony_bin(channel, context, dice, output, src, srcPlayer):
