@@ -88,7 +88,11 @@ class ArabolyGenerals(ArabolyTypeClass):
     # {{{ _next_player(channel, context, output, src): XXX
     @staticmethod
     def _next_player(channel, context, output, src):
-        context.players["curNum"] = (context.players["curNum"] + 1) % len(context.players["numMap"])
+        curPlayer = context.players["byName"][context.players["numMap"][context.players["curNum"]]]
+        if not "doubles" in curPlayer:
+            context.players["curNum"] = (context.players["curNum"] + 1) % len(context.players["numMap"])
+        else:
+            output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {curPlayer[name]} has rolled doubles and gets another turn!".format(**locals()))
         output = ArabolyGenerals._push_output(channel, context, output, "{}: roll the dice!".format(context.players["numMap"][context.players["curNum"]]))
         return context, output
     # }}}
