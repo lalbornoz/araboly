@@ -116,10 +116,10 @@ class ArabolyGameMode(ArabolyTypeClass):
             srcPlayer["doubles"] = 1
         else:
             srcPlayer["doubles"] += 1
-        if srcPlayer["doubles"] == 3:
+        if srcPlayer["doubles"] == 2:
             del srcPlayer["doubles"]
             srcField, srcPlayer["field"] = context.board[30], 30
-            output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! {src} has rolled doubles three times in a row and is sent to the loony bin!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "Oh dear! {src} has rolled doubles two times in a row and is sent to the loony bin!".format(**locals()))
         else:
             output = ArabolyGenerals._push_output(channel, context, output, "Oops! {src} has rolled doubles!".format(**locals()))
         context, output, srcField, srcPlayer, status = ArabolyFields._land_field(args[2:], channel, context, output, src, srcField, srcFieldPastGo, srcFull, srcPlayer, status)
