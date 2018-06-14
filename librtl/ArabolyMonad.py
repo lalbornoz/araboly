@@ -68,6 +68,8 @@ class ArabolyMonad(object):
         exc_type, exc_obj, exc_tb = sys.exc_info()
         if exc_type == KeyboardInterrupt:
             raise exc_obj
+        elif exc_type == SystemExit:
+            raise exc_obj
         elif exc_type == bdb.BdbQuit:
             exit(1)
         else:

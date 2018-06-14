@@ -10,7 +10,7 @@ from ArabolyMonad import ArabolyDecorator
 from ArabolyTypeClass import ArabolyTypeClass
 from ArabolyState import ArabolyGameState, ArabolyOutputLevel, ArabolyStringType
 from ArabolyTrade import ArabolyTrade
-import copy, os, yaml
+import copy, os, sys, yaml
 
 @ArabolyDecorator()
 class ArabolyFree(ArabolyTypeClass):
@@ -29,6 +29,19 @@ class ArabolyFree(ArabolyTypeClass):
         else:
             output = ArabolyGenerals._board(channel, context, output, src)
         return args, channel, context, output, src, status
+    # }}}
+    # {{{ dispatch_bugcheck(channel, context, srcFull, status): XXX
+    @staticmethod
+    def dispatch_bugcheck(channel, context, srcFull, status):
+        if not ArabolyGenerals._authorised(channel, context, srcFull):
+            status = False
+        else:
+            snapshotPath = os.path.join("savefiles", "snapshot.dmp.{}".format(context.clientParams["hostname"]))
+            print("Saving game snapshot to {}!".format(os.path.join("savefiles", snapshotPath)))
+            with open(snapshotPath, "w+") as fileObject:
+                yaml.dump(context, fileObject)
+            sys.exit(1)
+        return channel, context, srcFull, status
     # }}}
     # {{{ dispatch_help(channel, context): XXX
     @staticmethod

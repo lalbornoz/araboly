@@ -224,7 +224,7 @@ class ArabolyIrcBot(Araboly):
         if "ssl" in options and "port" not in options:
             options["port"] = "6697"
         super().__init__(options)
-        if "debug" in options:
+        if options["debug"]:
             self.options["snapshot_path"] = self.optionsDefault["snapshot_path"]
             self.options["snapshot_path"] += "." + self.options["hostname"]
             if os.path.exists(self.options["snapshot_path"]):
