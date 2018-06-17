@@ -137,15 +137,17 @@ class ArabolyFields(ArabolyTypeClass):
     # {{{ _land_chance_redist(args, channel, context, output, randsFromArgs, src, srcPlayer): XXX
     @staticmethod
     def _land_chance_redist(args, channel, context, output, randsFromArgs, src, srcPlayer):
-        targetPlayer = [p for p in context.players["byName"].keys() if p != src]
         if not randsFromArgs:
             srcWealth = ArabolyRandom(limit=int(srcPlayer["wallet"] * 0.15), min=int(srcPlayer["wallet"] * 0.05))
-            targetPlayerNum = ArabolyRandom(limit=len(targetPlayer))
+            while True:
+                targetPlayerNum = ArabolyRandom(limit=len(context.players["numMap"]))
+                if targetPlayerNum != srcPlayer["num"]:
+                    break
         else:
             srcWealth, targetPlayerNum = int(args[1]), int(args[2])
         if context.clientParams["recording"]:
             context.clientParams["recordingXxxLastArgs"] += [srcWealth, targetPlayerNum]
-        targetPlayer = context.players["byName"][targetPlayer[targetPlayerNum]]
+        targetPlayer = context.players["byName"][context.players["numMap"][targetPlayerNum]]
         srcPlayer["wallet"] -= srcWealth; targetPlayer["wallet"] += srcWealth;
         output = ArabolyGenerals._push_output(channel, context, output, "Oh my! Kade redistributes ${srcWealth} of {src}'s wealth to {targetPlayer[name]}!".format(**locals()), delay=3)
         return context, output, srcPlayer
@@ -153,14 +155,16 @@ class ArabolyFields(ArabolyTypeClass):
     # {{{ _land_chance_swap(args, channel, context, output, randsFromArgs, src, srcPlayer): XXX
     @staticmethod
     def _land_chance_swap(args, channel, context, output, randsFromArgs, src, srcPlayer):
-        targetPlayer = [p for p in context.players["byName"].keys() if p != src]
         if not randsFromArgs:
-            targetPlayerNum = ArabolyRandom(limit=len(targetPlayer))
+            while True:
+                targetPlayerNum = ArabolyRandom(limit=len(context.players["numMap"]))
+                if targetPlayerNum != srcPlayer["num"]:
+                    break
         else:
             targetPlayerNum = int(args[1])
         if context.clientParams["recording"]:
             context.clientParams["recordingXxxLastArgs"] += [targetPlayerNum]
-        targetPlayer = context.players["byName"][targetPlayer[targetPlayerNum]]
+        targetPlayer = context.players["byName"][context.players["numMap"][targetPlayerNum]]
         srcPlayer["field"], targetPlayer["field"] = targetPlayer["field"], srcPlayer["field"]
         output = ArabolyGenerals._push_output(channel, context, output, "Oops! Kade swaps {src} with {targetPlayer[name]}!".format(**locals()), delay=3)
         return context, output, srcPlayer
