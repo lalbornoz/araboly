@@ -103,8 +103,8 @@ class ArabolyGameMode(ArabolyTypeClass):
             if context.state == ArabolyGameState.GAME:
                 if srcPlayer["wallet"] <= 0:
                     context, output = ArabolyBankruptcyMode._enter(channel, context, output, src, srcPlayer)
-                if  context.state == ArabolyGameState.GAME          \
-                and len(context.players["numMap"]) > 1:
+                if  context.state == ArabolyGameState.GAME              \
+                and len([n for n in context.players["numMap"] if n != None]) > 1:
                     context, output = ArabolyGenerals._next_player(channel, context, output, src)
         return args, channel, context, output, src, srcFull, status
     # }}}

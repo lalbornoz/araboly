@@ -141,7 +141,8 @@ class ArabolyFields(ArabolyTypeClass):
             srcWealth = ArabolyRandom(limit=int(srcPlayer["wallet"] * 0.15), min=int(srcPlayer["wallet"] * 0.05))
             while True:
                 targetPlayerNum = ArabolyRandom(limit=len(context.players["numMap"]))
-                if targetPlayerNum != srcPlayer["num"]:
+                if  context.players["numMap"][targetPlayerNum] != None  \
+                and targetPlayerNum != srcPlayer["num"]:
                     break
         else:
             srcWealth, targetPlayerNum = int(args[1]), int(args[2])
@@ -157,8 +158,8 @@ class ArabolyFields(ArabolyTypeClass):
     def _land_chance_swap(args, channel, context, output, randsFromArgs, src, srcPlayer):
         if not randsFromArgs:
             while True:
-                targetPlayerNum = ArabolyRandom(limit=len(context.players["numMap"]))
-                if targetPlayerNum != srcPlayer["num"]:
+                if  context.players["numMap"][targetPlayerNum] != None  \
+                and targetPlayerNum != srcPlayer["num"]:
                     break
         else:
             targetPlayerNum = int(args[1])

@@ -88,10 +88,16 @@ class ArabolyGenerals(ArabolyTypeClass):
     # {{{ _next_player(channel, context, output, src): XXX
     @staticmethod
     def _next_player(channel, context, output, src):
-        curPlayer = context.players["byName"][context.players["numMap"][context.players["curNum"]]]
-        if not "doubles" in curPlayer:
-            context.players["curNum"] = (context.players["curNum"] + 1) % len(context.players["numMap"])
-        else:
+        curPlayer = context.players["numMap"][context.players["curNum"]]
+        if curPlayer != None:
+            curPlayer = context.players["byName"][curPlayer]
+        if curPlayer == None                                                                            \
+        or not "doubles" in curPlayer:
+            for newPlayerNum in [*range(context.players["curNum"] + 1, len(context.players["numMap"])), \
+                                *range(0, context.players["curNum"])]:
+                if context.players["numMap"][newPlayerNum] != None:
+                    context.players["curNum"] = newPlayerNum; break;
+        elif "doubles" in curPlayer:
             output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {curPlayer[name]} has rolled doubles and gets another turn!".format(**locals()))
         output = ArabolyGenerals._push_output(channel, context, output, "{}: roll the dice!".format(context.players["numMap"][context.players["curNum"]]))
         return context, output
@@ -129,7 +135,7 @@ class ArabolyGenerals(ArabolyTypeClass):
     # {{{ _remove_players(channel, context, output, otherPlayers=None): XXX
     @staticmethod
     def _remove_players(channel, context, output, otherPlayers=None):
-        if (len(context.players["numMap"]) - len(otherPlayers)) <= 1:
+        if len([n for n in context.players["numMap"] if n != None]) <= 2:
             output = ArabolyGenerals._status_final(channel, context, output)
             output = ArabolyGenerals._push_output(channel, context, output, "Stopping current Araboly game!")
             otherPlayers = list(context.players["byName"].keys())
@@ -146,45 +152,43 @@ class ArabolyGenerals(ArabolyTypeClass):
                 if otherProp["type"] == ArabolyGameField.PROPERTY:
                     otherProp["ownerHasGroup"] = False
             del context.players["byName"][otherPlayer["name"]]
-            context.players["numMap"].remove(otherPlayer["name"])
-            if context.players["curNum"] > 0:
-                context.players["curNum"] -= 1
+            context.players["numMap"][otherPlayer["num"]] = None
+        if len([n for n in context.players["numMap"] if n != None]) == 0:
+            context.players["curNum"] = -1
+            context.players["numMap"].clear()
         return context, output
     # }}}
     # {{{ _status_final(channel, context, output): XXX
     @staticmethod
     def _status_final(channel, context, output):
-        if len(context.players["byName"]) > 1:
-            finalPlayers = {}
-            for playerName, player in context.players["byName"].items():
-                finalPlayers[playerName] = {"name":player["name"], "netWorth":player["wallet"], "properties":player["properties"], "wallet":player["wallet"]}
+        finalPlayers = {}
+        for playerName, player in context.players["byName"].items():
+            finalPlayers[playerName] = {"name":player["name"], "netWorth":player["wallet"], "properties":player["properties"], "wallet":player["wallet"]}
+            for playerPropNum in player["properties"]:
+                playerProp = context.board[playerPropNum]
+                if playerProp["mortgaged"]:
+                    finalPlayers[playerName]["netWorth"] += int(playerProp["price"] / 2)
+                else:
+                    finalPlayers[playerName]["netWorth"] += playerProp["price"]
+        output = ArabolyGenerals._push_output(channel, context, output, "List of players:")
+        playerWinner, sortedNum = None, 0
+        for player in sorted(finalPlayers.items(), key=lambda i: i[1]["netWorth"], reverse=True):
+            playerName, player, sortedNum = player[0], player[1], sortedNum + 1
+            if sortedNum == 1:
+                playerWinner = player
+            if len(player["properties"]):
+                output = ArabolyGenerals._push_output(channel, context, output, "{sortedNum: 2d}: {player[name]} at ${player[netWorth]} (wallet: ${player[wallet]},) properties owned:".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
                 for playerPropNum in player["properties"]:
                     playerProp = context.board[playerPropNum]
-                    if playerProp["mortgaged"]:
-                        finalPlayers[playerName]["netWorth"] += int(playerProp["price"] / 2)
-                    else:
-                        finalPlayers[playerName]["netWorth"] += playerProp["price"]
-            output = ArabolyGenerals._push_output(channel, context, output, "List of players:")
-            playerWinner, sortedNum = None, 0
-            for player in sorted(finalPlayers.items(), key=lambda i: i[1]["netWorth"], reverse=True):
-                playerName, player, sortedNum = player[0], player[1], sortedNum + 1
-                if sortedNum == 1:
-                    playerWinner = player
-                if len(player["properties"]):
-                    output = ArabolyGenerals._push_output(channel, context, output, "{sortedNum: 2d}: {player[name]} at ${player[netWorth]} (wallet: ${player[wallet]},) properties owned:".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
-                    for playerPropNum in player["properties"]:
-                        playerProp = context.board[playerPropNum]
-                        mortgagedString = " (\u001fMORTGAGED\u001f)" if playerProp["mortgaged"] else ""
-                        developmentsList = []
-                        for levelNum in range(playerProp["level"] + 1):
-                            developmentsList += playerProp["strings"][ArabolyStringType.NAME][levelNum]
-                        developmentsString = " developments: {}".format(", ".join(developmentsList))
-                        output = ArabolyGenerals._push_output(channel, context, output, "    \u0003{:02d}${}{} (#{}) -- {},{}".format(playerProp["colourMiRC"], playerProp["price"], mortgagedString, playerProp["field"], playerProp["title"], developmentsString), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
-                else:
-                    output = ArabolyGenerals._push_output(channel, context, output, "{sortedNum: 2d}: {player[name]} at ${player[wallet]}, no properties owned!".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
-            output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {playerWinner[name]} has won the game at ${playerWinner[netWorth]} (wallet: ${player[wallet]})!".format(**locals()))
-        else:
-            output = ArabolyGenerals._push_output(channel, context, output, "Oops! Nobody has won the game!")
+                    mortgagedString = " (\u001fMORTGAGED\u001f)" if playerProp["mortgaged"] else ""
+                    developmentsList = []
+                    for levelNum in range(playerProp["level"] + 1):
+                        developmentsList += playerProp["strings"][ArabolyStringType.NAME][levelNum]
+                    developmentsString = " developments: {}".format(", ".join(developmentsList))
+                    output = ArabolyGenerals._push_output(channel, context, output, "    \u0003{:02d}${}{} (#{}) -- {},{}".format(playerProp["colourMiRC"], playerProp["price"], mortgagedString, playerProp["field"], playerProp["title"], developmentsString), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
+            else:
+                output = ArabolyGenerals._push_output(channel, context, output, "{sortedNum: 2d}: {player[name]} at ${player[wallet]}, no properties owned!".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
+        output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {playerWinner[name]} has won the game at ${playerWinner[netWorth]} (wallet: ${player[wallet]})!".format(**locals()))
         return output
     # }}}
 

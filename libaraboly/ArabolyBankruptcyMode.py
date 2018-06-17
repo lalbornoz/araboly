@@ -86,8 +86,6 @@ class ArabolyBankruptcyMode(ArabolyTypeClass):
             if (srcPlayer["wallet"] + srcCollateral) < 200:
                 output = ArabolyGenerals._push_output(channel, context, output, "Player {src} parts Araboly game!".format(**locals()))
                 context, output = ArabolyGenerals._remove_players(channel, context, output, otherPlayers)
-                if len(context.players["numMap"]) <= 1:
-                    output = ArabolyGenerals._status_final(channel, context, output)
             else:
                 output = ArabolyGenerals._push_output(channel, context, output, "Entering bankruptcy mode!")
                 output = ArabolyGenerals._push_output(channel, context, output, "{src}: mortgage properties until you've gained at least $200!".format(**locals()))
