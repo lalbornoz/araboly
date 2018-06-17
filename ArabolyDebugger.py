@@ -21,10 +21,13 @@ class ArabolyDebugger(Araboly):
     # {{{ _diffDict(self, dictNow, dictOld): XXX
     def _diffDict(self, dictNow, dictOld):
         diffString = "{"
-        for itemName in dictNow.keys():
+        for itemName in sorted(dictNow.keys()):
             if type(dictNow[itemName]) == dict:
                 if itemName not in dictOld:
-                    diffString += "\x1b[92m+\x1b[0m" + str(itemName) + ": " + str(dictNow[itemName]) + ", "
+                    dictStrList = []
+                    for dictKey in sorted(dictNow[itemName].keys()):
+                        dictStrList += ["'{}': {}".format(dictKey, dictNow[itemName][dictKey])]
+                    diffString += "\x1b[92m+\x1b[0m" + str(itemName) + ": " + "{" + ", ".join(dictStrList) + "}" + ", "
                 elif dictOld[itemName] != dictNow[itemName]:
                     diffString += str(itemName) + ": " + self._diffDict(dictNow[itemName], dictOld[itemName]) + ", "
             else:
@@ -33,9 +36,12 @@ class ArabolyDebugger(Araboly):
                 elif dictOld[itemName] != dictNow[itemName]:
                     diffString += "\x1b[91m-\x1b[0m" + str(itemName) + ": " + str(dictOld[itemName]) + ", "
                     diffString += "\x1b[92m+\x1b[0m" + str(itemName) + ": " + str(dictNow[itemName]) + ", "
-        for itemName in [k for k in dictOld.keys() if k not in dictNow.keys()]:
+        for itemName in [k for k in sorted(dictOld.keys()) if k not in sorted(dictNow.keys())]:
             if type(dictOld[itemName]) == dict:
-                diffString += "\x1b[91m-\x1b[0m" + str(itemName) + ": " + str(dictOld[itemName]) + ", "
+                dictStrList = []
+                for dictKey in sorted(dictOld[itemName].keys()):
+                    dictStrList += ["'{}': {}".format(dictKey, dictOld[itemName][dictKey])]
+                diffString += "\x1b[91m-\x1b[0m" + str(itemName) + ": " + "{" + ", ".join(dictStrList) + "}" + ", "
             else:
                 diffString += "\x1b[91m-\x1b[0m" + str(itemName) + ": " + str(dictOld[itemName]) + ", "
         return diffString.rstrip(", ") + "}"
@@ -63,8 +69,11 @@ class ArabolyDebugger(Araboly):
     def _inputRoutine(self, event, testNum, testsLen, breakpoint=None):
         eventsOut = []; unqueueFlag = False;
         print("------------------\n")
-        print("\x1b[96mINPUT #{}/{}\x1b[0m: <\x1b[4m{}\x1b[0m> {}, {}".format(  \
-            testNum, testsLen, event["src"], event["cmd"], str({k:event[k] for k in event if not k in ["cmd", "src"]})))
+        eventStrList = []
+        for eventKey in [k for k in sorted(event) if not k in ["cmd", "src"]]:
+            eventStrList += ["'{}': {}".format(eventKey, event[eventKey])]
+        print("\x1b[96mINPUT #{}/{}\x1b[0m: <\x1b[4m{}\x1b[0m> {}, {{{}}}".format(  \
+            testNum, testsLen, event["src"], event["cmd"], ", ".join(eventStrList)))
         if event["eventType"] == "command":
             extras = {"debug":True, "testing":True}
             if breakpoint != None:
