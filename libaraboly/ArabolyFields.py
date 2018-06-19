@@ -158,6 +158,7 @@ class ArabolyFields(ArabolyTypeClass):
     def _land_chance_swap(args, channel, context, output, randsFromArgs, src, srcPlayer):
         if not randsFromArgs:
             while True:
+                targetPlayerNum = ArabolyRandom(limit=len(context.players["numMap"]))
                 if  context.players["numMap"][targetPlayerNum] != None  \
                 and targetPlayerNum != srcPlayer["num"]:
                     break
