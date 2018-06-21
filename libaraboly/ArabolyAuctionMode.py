@@ -18,7 +18,8 @@ class ArabolyAuctionMode(ArabolyTypeClass):
     @staticmethod
     def dispatch_bid(args, channel, context, output, src, status):
         if len(args) != 1                               \
-        or not args[0].isdigit():
+        or not args[0].isdigit()                        \
+        or src not in context.players["byName"]:
             status = False
         elif int(args[0]) <= context.auctionState["minBid"]:
             status = False
@@ -58,7 +59,8 @@ class ArabolyAuctionMode(ArabolyTypeClass):
     # {{{ dispatch_pass(args, channel, context, output, src, status): XXX
     @staticmethod
     def dispatch_pass(args, channel, context, output, src, status):
-        if len(args):
+        if len(args)    \
+        or src not in context.players["byName"]:
             status = False
         else:
             if  src in context.auctionState["bids"] \
