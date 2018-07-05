@@ -56,23 +56,23 @@ class ArabolyIrcClient(object):
             except BlockingIOError:
                 return lines
             except ValueError:
-                self.partialLine = 0; continue;
+                self.partialLine = b""; continue;
             if newLines == None:
                 lines += [None]; break;
             elif len(newLines) == 0:
                 break
             else:
-                newLines = str(newLines, "utf-8")
-                if newLines[-2:] == "\r\n":
-                    msgs = (self.partialLine + newLines).split("\r\n")[0:-1]
-                    self.partialLine = ""
+                if newLines[-2:] == b"\r\n":
+                    msgs = (self.partialLine + newLines).split(b"\r\n")[0:-1]
+                    self.partialLine = b""
                 else:
-                    msgs = (self.partialLine + newLines).split("\r\n")
+                    msgs = (self.partialLine + newLines).split(b"\r\n")
                     if len(msgs) > 1:
                         self.partialLine = msgs[-1]; msgs = msgs[0:-1];
                     else:
                         self.partialLine += msgs[0]; msgs = [];
                 for msg in msgs:
+                    msg = str(msg, encoding="utf-8", errors="ignore")
                     msg = msg.split(" :", 1)
                     if len(msg) == 1:
                         msg = msg[0].split(" ")
@@ -143,7 +143,7 @@ class ArabolyIrcClient(object):
         self.serverHname = hostname; self.serverPort = port;
         self.clientNick = nick; self.clientIdent = user; self.clientGecos = realname; self.clientHost = "";
         self.clientSocket = self.clientQueue = None;
-        self.partialLine = ""; self.sslFlag = ssl;
+        self.partialLine = b""; self.sslFlag = ssl;
     # }}}
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=0
