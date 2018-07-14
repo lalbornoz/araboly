@@ -10,6 +10,7 @@ add .moffer: guess whether buy/sell is intended; same @ maccept/mreject
 allow >=2 players to conspire against another player @ loony bin field
 chrono fields: allow moving to other chrono fields on board on landing
 collateral check: exclude e.g. only 2 props left non-mortgaged after
+control of chrono fields: mess w/ players moving about the board
 ensure recording clientparams are stored/loaded @ .msave/.mload
 visualisations: wealth map, 3D map of effective structure, ...
 general effects functions/module (lsd, gaol, loony bin, ...)
