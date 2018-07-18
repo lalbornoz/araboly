@@ -2294,13 +2294,6 @@
   src: wrk
   srcFull: wrk!ayy@arabs.ps
   time: 1529615292
-- args: []
-  channel: '#ARABOLY'
-  cmd: join
-  eventType: command
-  src: vap0r
-  srcFull: vap0r!vap0r@127.0.0.1
-  time: 1529615301
 - args: ['29']
   channel: '#ARABOLY'
   cmd: mortgage

@@ -72,27 +72,6 @@
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
-  src: birf
-  srcFull: birf!rebirth@kgb.wackytobacky.farm
-  time: 1531159029
-- args: []
-  channel: '#ARABOLY'
-  cmd: join
-  eventType: command
-  src: incog
-  srcFull: incog!stillfree@arabs.ps
-  time: 1531159032
-- args: []
-  channel: '#ARABOLY'
-  cmd: join
-  eventType: command
-  src: birf
-  srcFull: birf!rebirth@kgb.wackytobacky.farm
-  time: 1531159036
-- args: []
-  channel: '#ARABOLY'
-  cmd: dice
-  eventType: command
   src: incog
   srcFull: incog!stillfree@arabs.ps
   time: 1531159037
@@ -348,13 +327,6 @@
   src: "\u0455\u029C\u1D07"
   srcFull: "\u0455\u029C\u1D07!she@arabs.ps"
   time: 1531159357
-- args: ['3']
-  channel: '#ARABOLY'
-  cmd: bid
-  eventType: command
-  src: birf
-  srcFull: birf!rebirth@kgb.wackytobacky.farm
-  time: 1531159363
 - args: [4, 2]
   channel: '#ARABOLY'
   cmd: dice
@@ -3064,13 +3036,6 @@
   src: "\u0455\u029C\u1D07"
   srcFull: "\u0455\u029C\u1D07!she@arabs.ps"
   time: 1531163594
-- args: []
-  channel: '#ARABOLY'
-  cmd: join
-  eventType: command
-  src: birf
-  srcFull: birf!rebirth@kgb.wackytobacky.farm
-  time: 1531163601
 - args: ['19', '3']
   channel: '#ARABOLY'
   cmd: develop
