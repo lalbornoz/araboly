@@ -188,7 +188,10 @@ class ArabolyGenerals(ArabolyTypeClass):
                     output = ArabolyGenerals._push_output(channel, context, output, "    \u0003{:02d}${}{} (#{}) -- {},{}".format(playerProp["colourMiRC"], playerProp["price"], mortgagedString, playerProp["field"], playerProp["title"], developmentsString), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
             else:
                 output = ArabolyGenerals._push_output(channel, context, output, "{sortedNum: 2d}: {player[name]} at ${player[wallet]}, no properties owned!".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
-        output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {playerWinner[name]} has won the game at ${playerWinner[netWorth]} (wallet: ${player[wallet]})!".format(**locals()))
+        if playerWinner != None:
+            output = ArabolyGenerals._push_output(channel, context, output, "Awfom! {playerWinner[name]} has won the game at ${playerWinner[netWorth]} (wallet: ${playerWinner[wallet]})!".format(**locals()))
+        else:
+            output = ArabolyGenerals._push_output(channel, context, output, "Oops! Nobody has won the game!")
         return output
     # }}}
 
