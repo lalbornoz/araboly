@@ -67,7 +67,8 @@ class ArabolyIrcBot(Araboly):
                         exit(1)
                 if  self.options["recording"] and status    \
                 and paramsOut["eventType"] == "command"     \
-                and paramsOut["status"]:
+                and paramsOut["status"]                     \
+                and "hasDispatch" in paramsOut:
                     self._inputRecordRoutine(event, paramsOut)
                 eventsOut += newEventsOut
         return eventsOut, paramsOut, unqueueFlag, status
