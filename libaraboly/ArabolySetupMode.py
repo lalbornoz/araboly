@@ -21,15 +21,21 @@ class ArabolySetupMode(ArabolyTypeClass):
         or len(args):
             status = False
         else:
-            context.players["curNum"] += 1
-            context.players["byName"][src] = {"field":0, "name":src, "num":context.players["curNum"], "properties":[], "wallet":1500}
-            context.players["numMap"][context.players["curNum"]] = src
-            output = ArabolyGenerals._push_output(channel, context, output, "Player {src} joins Araboly game!".format(**locals()))
-            if (context.players["curNum"] + 1) == len(context.players["numMap"]):
-                output = ArabolyGenerals._push_output(channel, context, output, "Araboly game with {} players has started!".format(len(context.players["numMap"])))
-                output = ArabolyGenerals._push_output(channel, context, output, "{numMap[0]}: roll the dice!".format(**context.players))
-                context.players["curNum"] = 0
-                context.state = ArabolyGameState.GAME
+            newNum = None
+            for otherNum in range(len(context.players["numMap"])):
+                if context.players["numMap"][otherNum] == None:
+                    newNum = otherNum; break;
+            if newNum == None:
+                status = False
+            else:
+                context.players["byName"][src] = {"field":0, "name":src, "num":newNum, "properties":[], "wallet":1500}
+                context.players["numMap"][newNum] = src
+                output = ArabolyGenerals._push_output(channel, context, output, "Player {src} joins Araboly game!".format(**locals()))
+                if len([n for n in context.players["numMap"] if n == None]) == 0:
+                    output = ArabolyGenerals._push_output(channel, context, output, "Araboly game with {} players has started!".format(len(context.players["numMap"])))
+                    output = ArabolyGenerals._push_output(channel, context, output, "{numMap[0]}: roll the dice!".format(**context.players))
+                    context.players["curNum"] = 0
+                    context.state = ArabolyGameState.GAME
         return args, channel, context, output, src, status
     # }}}
     # {{{ dispatch_status(args, channel, context, output, status): XXX
