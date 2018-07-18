@@ -162,6 +162,6 @@ class ArabolyDebugger(Araboly):
     # }}}
 
 if __name__ == "__main__":
-    exit(ArabolyDebugger(sys.argv).synchronise())
+    exit(0 if ArabolyDebugger(sys.argv).synchronise() else 1)
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=0
