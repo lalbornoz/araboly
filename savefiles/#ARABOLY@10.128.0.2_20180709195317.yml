@@ -2924,20 +2924,6 @@
   src: alghazi
   srcFull: alghazi!alghazi@127.0.0.1
   time: 1531163398
-- args: []
-  channel: '#ARABOLY'
-  cmd: cheat
-  eventType: command
-  src: alghazi
-  srcFull: alghazi!alghazi@127.0.0.1
-  time: 1531163449
-- args: [alghazi]
-  channel: '#ARABOLY'
-  cmd: cheat
-  eventType: command
-  src: "\u0455\u029C\u1D07"
-  srcFull: "\u0455\u029C\u1D07!she@arabs.ps"
-  time: 1531163461
 - args: [3, 4]
   channel: '#ARABOLY'
   cmd: dice
