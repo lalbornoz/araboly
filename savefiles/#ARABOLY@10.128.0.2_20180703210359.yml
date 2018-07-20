@@ -1722,13 +1722,6 @@
   time: 1530649481
 - args: []
   channel: '#ARABOLY'
-  cmd: cheat
-  eventType: command
-  src: wr34k
-  srcFull: wr34k!ayy@arabs.ps
-  time: 1530649496
-- args: []
-  channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: Ellis_D
