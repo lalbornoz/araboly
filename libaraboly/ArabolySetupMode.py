@@ -14,6 +14,24 @@ from ArabolyTypeClass import ArabolyTypeClass
 class ArabolySetupMode(ArabolyTypeClass):
     """XXX"""
 
+    # {{{ dispatch_start(args, channel, context, output, src, status): XXX
+    @staticmethod
+    def dispatch_start(args, channel, context, output, src, status):
+        if not src == context.players["numMap"][0]  \
+        or len(args):
+            status = False
+        else:
+            playerList = [n for n in context.players["numMap"] if n != None]
+            if len(playerList) <= 1:
+                status = False
+            else:
+                output = ArabolyGenerals._push_output(channel, context, output, "Araboly game with {} players has started!".format(len(playerList)))
+                output = ArabolyGenerals._push_output(channel, context, output, "Maximum player limit: {}".format(len(context.players["numMap"])))
+                output = ArabolyGenerals._push_output(channel, context, output, "{numMap[0]}: roll the dice!".format(**context.players))
+                context.players["curNum"] = 0
+                context.state = ArabolyGameState.GAME
+        return args, channel, context, output, src, status
+    # }}}
     # {{{ dispatch_status(args, channel, context, output, status): XXX
     @staticmethod
     def dispatch_status(args, channel, context, output, status):

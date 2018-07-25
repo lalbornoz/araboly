@@ -1,6 +1,6 @@
 - args: ['4']
   channel: '#ARABOLY'
-  cmd: start
+  cmd: setup
   eventType: command
   src: v
   srcFull: v!arab@127.0.0.1
@@ -40,6 +40,13 @@
   src: incog
   srcFull: incog!stillfree@arabs.ps
   time: 1531159000
+- args: []
+  channel: '#ARABOLY'
+  cmd: start
+  eventType: command
+  src: v
+  srcFull: v!arab@127.0.0.1
+  time: 1531159001
 - args: [1, 6, 3, 2]
   channel: '#ARABOLY'
   cmd: dice
