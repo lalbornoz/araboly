@@ -155,7 +155,7 @@ class ArabolyDebugger(Araboly):
             exit(rc)
         else:
             if "savefile" not in options:
-                options["savefile"] = os.path.join("savefiles", "last.yml")
+                options["savefile"] = os.path.join("assets", "savefiles", "last.yml")
             with open(options["savefile"], "r") as fileObject:
                 options["savefile"] = yaml.load(fileObject)
             super().__init__({**options, "channel":"#arab", "debug":True, "testing":True})

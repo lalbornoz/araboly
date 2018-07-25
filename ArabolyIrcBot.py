@@ -20,7 +20,7 @@ class ArabolyIrcBot(Araboly):
         "channel":"#ARABOLY", "connect_timeout":15, "debug":False,
         "flood_delay":0, "help":None, "hostname":None, "nick":"ARABOLY",
         "port":"6667", "realname":"Araboly 2000 Advanced Server SP4",
-        "recording":False, "snapshot_path":"savefiles/snapshot.dmp",
+        "recording":False, "snapshot_path":os.path.join("assets", "savefiles", "snapshot.dmp"),
         "ssl":False, "user":"ARABOLY"}
     optionsString = "b:c:C:df:hH:n:p:r:RSt:u:"
     optionsStringMap = {
@@ -77,7 +77,7 @@ class ArabolyIrcBot(Araboly):
     def _inputRecordRoutine(self, event, paramsOut):
         if paramsOut["cmd"] == "start":
             self.typeObjects[ArabolyState].clientParams["recording_path"] =                     \
-                os.path.join("savefiles", "{}@{}_{}.yml".format(                                \
+                os.path.join("assets", "savefiles", "{}@{}_{}.yml".format(                      \
                     self.typeObjects[ArabolyState].clientParams["channel"],                     \
                     self.typeObjects[ArabolyState].clientParams["hostname"],                    \
                     datetime.now().strftime("%Y%m%d%H%M%S")))

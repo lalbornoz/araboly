@@ -1,6 +1,6 @@
 usage: ./ArabolyDebugger.py [-b <breakpoint>] [-f <savefile pathname>] [-o <snapshot pathname>] [-v]
 
          -b <breakpoint>.......:  as <class name>:<command>[:<test seq>].
-         -f <savefile pathname>:  pathname to savefile to reply; defaults to savefiles/last.yml.
+         -f <savefile pathname>:  pathname to savefile to reply; defaults to assets/savefiles/last.yml.
          -o <snapshot pathname>:  pathname to snapshot file to output; disabled by default.
          -v ...................:  increase verbosity; disabled by default.
