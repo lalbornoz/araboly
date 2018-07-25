@@ -36,8 +36,8 @@ class ArabolyFree(ArabolyTypeClass):
         if not ArabolyGenerals._authorised(channel, context, srcFull):
             status = False
         else:
-            snapshotPath = os.path.join("savefiles", "snapshot.dmp.{}".format(context.clientParams["hostname"]))
-            print("Saving game snapshot to {}!".format(os.path.join("savefiles", snapshotPath)))
+            snapshotPath = os.path.join("assets", "savefiles", "snapshot.dmp.{}".format(context.clientParams["hostname"]))
+            print("Saving game snapshot to {}!".format(os.path.join("assets", "savefiles", snapshotPath)))
             with open(snapshotPath, "w+") as fileObject:
                 yaml.dump(context, fileObject)
             sys.exit(1)
@@ -129,7 +129,7 @@ class ArabolyFree(ArabolyTypeClass):
         or not ArabolyGenerals._authorised(channel, context, srcFull):
             status = False
         else:
-            snapshotPath = os.path.join("savefiles", os.path.basename(args[0]))
+            snapshotPath = os.path.join("assets", "savefiles", os.path.basename(args[0]))
             output = ArabolyGenerals._push_output(channel, context, output, "Saving snapshot to {snapshotPath}!".format(**locals()))
             with open(snapshotPath, "w") as fileObject:
                 gameSnapshot = copy.deepcopy(context)

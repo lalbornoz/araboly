@@ -53,7 +53,7 @@ Requires Python >= v3.5 and YAML.
 * **.melp?** -- explodes.
 * **.mhelp** -- Display help screen
 * **.mpart** -- Leave current game
-* **.msave** *filename* -- Saves local snapshot to savefiles/*filename*
+* **.msave** *filename* -- Saves local snapshot to assets/savefiles/*filename*
 * **.mstatus** -- Display game and player status
 
 ### Bot owner IRC commands:
@@ -61,7 +61,7 @@ Requires Python >= v3.5 and YAML.
 * **.mstop** -- Stop current game
 
 ### Attract mode IRC commands:
-* **.mload** *filename* -- Load local snapshot from savefiles/*filename*
+* **.mload** *filename* -- Load local snapshot from assets/savefiles/*filename*
 * **.mstart** *players* -- Start new game with *players* players
 
 ### Game setup mode IRC commands:
