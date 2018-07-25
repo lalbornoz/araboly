@@ -70,12 +70,6 @@ class ArabolyFree(ArabolyTypeClass):
                 context.players["byName"][src] = {"field":0, "name":src, "num":newNum, "properties":[], "wallet":1500}
                 context.players["numMap"][newNum] = src
                 output = ArabolyGenerals._push_output(channel, context, output, "Player {src} joins Araboly game!".format(**locals()))
-                if  context.state == ArabolyGameState.SETUP \
-                and len([n for n in context.players["numMap"] if n == None]) == 0:
-                    output = ArabolyGenerals._push_output(channel, context, output, "Araboly game with {} players has started!".format(len(context.players["numMap"])))
-                    output = ArabolyGenerals._push_output(channel, context, output, "{numMap[0]}: roll the dice!".format(**context.players))
-                    context.players["curNum"] = 0
-                    context.state = ArabolyGameState.GAME
         return args, channel, context, output, src, status
     # }}}
     # {{{ dispatch_kick(args, channel, context, output, srcFull, status): XXX

@@ -18,7 +18,7 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
     commandsFilter = [
         "accept", "bid", "board", "bugcheck", "buy", "develop", "dice",
         "help", "join", "kick", "lift", "load", "melp", "mortgage", "part",
-        "pass", "reject", "save", "sell", "start", "status", "stop"]
+        "pass", "reject", "save", "sell", "setup", "start", "status", "stop"]
 
     # {{{ dispatch001(context, output): Dispatch single 001 (RPL_WELCOME)
     @staticmethod

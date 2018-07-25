@@ -11,10 +11,11 @@
 
 Attract mode IRC commands:
 * .mload <filename> -- Load local snapshot from assets/savefiles/<filename>
-* .mstart <players> -- Start new game with <players> players
+* .msetup [<max_players>] -- Enter new game setup mode; <max_players> defaults to 6
 
 Game setup mode IRC commands:
 * .mjoin -- Join game
+* .mstart -- Start game
 
 In-game IRC commands:
 * .maccept <player> -- Accept last trade offer from <player>
@@ -22,6 +23,7 @@
 * .mbuy <player> <field> <price> -- Offer/counter-offer to buy <field> from <player> at <price>
 * .mdevelop <field> <level> -- Develop property on <field> at level <level>
 * .mdice -- Roll dice, advance player, and process turn
+* .mjoin -- Join game
 * .mlift <field> -- Lift mortgaged property <field> at the cost of 50% market value and 10% interest
 * .mmortgage <field> -- Mortgage <field> property at 50% market value and 10% interest
 * .mreject <player> -- Reject last trade offer from <player>

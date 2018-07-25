@@ -53,20 +53,27 @@ class ArabolyAttractMode(ArabolyTypeClass):
                 output = ArabolyGenerals._push_output(channel, context, output, "New game state: {}".format(stateString))
         return args, channel, context, output, srcFull, status
     # }}}
-    # {{{ dispatch_start(args, channel, context, output, src, status): XXX
+    # {{{ dispatch_setup(args, channel, context, output, src, status): XXX
     @staticmethod
-    def dispatch_start(args, channel, context, output, src, status):
-        if len(args) != 1 or not args[0].isdigit()  \
-        or int(args[0]) < 2 or int(args[0]) > 6:
-            status = False
+    def dispatch_setup(args, channel, context, output, src, status):
+        if len(args) == 1:
+            if not args[0].isdigit()    \
+            or int(args[0]) < 2 or int(args[0]) > 6:
+                status = False
+            else:
+                players = int(args[0])
+        elif len(args) == 0:
+            players = 6
         else:
-            players = int(args[0])
+            status = False
+        if status:
             context.players["byName"] = {src:{"field":0, "name":src, "num":0, "properties":[], "wallet":1500}}
             context.players["curNum"] = 0
             context.players["numMap"] = [None] * players
             context.players["numMap"][0] = src
             context.state = ArabolyGameState.SETUP
-            output = ArabolyGenerals._push_output(channel, context, output, "Starting Araboly game with {players} players!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "Entering Araboly game setup mode!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "Maximum player limit: {players}".format(**locals()))
             output = ArabolyGenerals._push_output(channel, context, output, "Player {src} joins Araboly game!".format(**locals()))
         return args, channel, context, output, src, status
     # }}}

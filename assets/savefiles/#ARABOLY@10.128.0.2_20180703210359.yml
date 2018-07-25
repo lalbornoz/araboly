@@ -1,6 +1,6 @@
 - args: ['4']
   channel: '#ARABOLY'
-  cmd: start
+  cmd: setup
   eventType: command
   src: alghazi
   srcFull: alghazi!alghazi@127.0.0.1
@@ -21,11 +21,11 @@
   time: 1530644673
 - args: []
   channel: '#ARABOLY'
-  cmd: status
+  cmd: start
   eventType: command
-  src: v
-  srcFull: v!arab@127.0.0.1
-  time: 1530644680
+  src: alghazi
+  srcFull: alghazi!alghazi@127.0.0.1
+  time: 1530644674
 - args: []
   channel: '#ARABOLY'
   cmd: join
@@ -33,6 +33,13 @@
   src: v
   srcFull: v!arab@127.0.0.1
   time: 1530644682
+- args: []
+  channel: '#ARABOLY'
+  cmd: status
+  eventType: command
+  src: v
+  srcFull: v!arab@127.0.0.1
+  time: 1530644680
 - args: [5, 2, 4, 179, 3]
   channel: '#ARABOLY'
   cmd: dice
