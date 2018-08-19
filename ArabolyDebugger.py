@@ -142,7 +142,7 @@ class ArabolyDebugger(Araboly):
             if len(breakpoint) == 2 or len(breakpoint) == 3:
                 if not breakpoint[0].startswith("Araboly"):
                     breakpoint[0] = "Araboly" + \
-                        breakpoint[0][0].upper() + breakpoing[0][1:]
+                        breakpoint[0][0].upper() + breakpoint[0][1:]
                 if len(breakpoint) == 3:
                     breakpoint[2] = int(breakpoint[2])
                 options["breakpoint"] = breakpoint
