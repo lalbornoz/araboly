@@ -145,27 +145,30 @@ class ArabolyFree(ArabolyTypeClass):
             statusPlayer = src
         elif len(args) == 1:
             statusPlayer = args[0]
-        if not statusPlayer in context.players["byName"].keys():
-            status = False
         else:
-            playerField = context.board[context.players["byName"][statusPlayer]["field"]]
-            playerProps = context.players["byName"][statusPlayer]["properties"]
-            playerWallet = context.players["byName"][statusPlayer]["wallet"]
-            output = ArabolyGenerals._push_output(channel, context, output, "Araboly status for player {statusPlayer}:".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
-            output = ArabolyGenerals._push_output(channel, context, output, "Field....: {playerField[title]}".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
-            output = ArabolyGenerals._push_output(channel, context, output, "Wallet...: ${playerWallet}".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
-            if len(playerProps):
-                output = ArabolyGenerals._push_output(channel, context, output, "Properties owned:", outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
-                for playerPropNum in playerProps:
-                    playerProp = context.board[playerPropNum]
-                    mortgagedString = " (\u001fMORTGAGED\u001f)" if playerProp["mortgaged"] else ""
-                    developmentsList = []
-                    for levelNum in range(playerProp["level"] + 1):
-                        developmentsList += playerProp["strings"][ArabolyStringType.NAME][levelNum]
-                    developmentsString = ", level {}, developments: {}".format(playerProp["level"], ", ".join(developmentsList))
-                    output = ArabolyGenerals._push_output(channel, context, output, "\u0003{:02d}${}{} (#{}) -- {}{}".format(playerProp["colourMiRC"], playerProp["price"], mortgagedString, playerProp["field"], playerProp["title"], developmentsString), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
-            output = ArabolyTrade._status(channel, context, output, statusPlayer)
-            output = ArabolyGenerals._push_output(channel, context, output, "Current turn: {}".format(context.players["numMap"][context.players["curNum"]]), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
+            status = False
+        if status:
+            if not statusPlayer in context.players["byName"].keys():
+                status = False
+            else:
+                playerField = context.board[context.players["byName"][statusPlayer]["field"]]
+                playerProps = context.players["byName"][statusPlayer]["properties"]
+                playerWallet = context.players["byName"][statusPlayer]["wallet"]
+                output = ArabolyGenerals._push_output(channel, context, output, "Araboly status for player {statusPlayer}:".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
+                output = ArabolyGenerals._push_output(channel, context, output, "Field....: {playerField[title]}".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
+                output = ArabolyGenerals._push_output(channel, context, output, "Wallet...: ${playerWallet}".format(**locals()), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
+                if len(playerProps):
+                    output = ArabolyGenerals._push_output(channel, context, output, "Properties owned:", outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
+                    for playerPropNum in playerProps:
+                        playerProp = context.board[playerPropNum]
+                        mortgagedString = " (\u001fMORTGAGED\u001f)" if playerProp["mortgaged"] else ""
+                        developmentsList = []
+                        for levelNum in range(playerProp["level"] + 1):
+                            developmentsList += playerProp["strings"][ArabolyStringType.NAME][levelNum]
+                        developmentsString = ", level {}, developments: {}".format(playerProp["level"], ", ".join(developmentsList))
+                        output = ArabolyGenerals._push_output(channel, context, output, "\u0003{:02d}${}{} (#{}) -- {}{}".format(playerProp["colourMiRC"], playerProp["price"], mortgagedString, playerProp["field"], playerProp["title"], developmentsString), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
+                output = ArabolyTrade._status(channel, context, output, statusPlayer)
+                output = ArabolyGenerals._push_output(channel, context, output, "Current turn: {}".format(context.players["numMap"][context.players["curNum"]]), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
         return args, channel, context, output, src, status
     # }}}
     # {{{ dispatch_stop(args, channel, context, output, src, srcFull, status): XXX
