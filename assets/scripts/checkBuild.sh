@@ -23,7 +23,7 @@ main() {
 	else
 		mkdir "${_log_dname}";
 	fi;
-	for _savefile_pname in $(find assets/savefiles -name *.yml -not -name last.yml); do
+	for _savefile_pname in $(find assets/savefiles -name \*.yml -not -name last.yml | sort); do
 		_savefile_fname="${_savefile_pname##*/}";
 		_log_pname="${_log_dname}/${_savefile_fname}.log";
 		printf "[97m${_savefile_fname}[0m: ";
