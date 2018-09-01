@@ -104,7 +104,7 @@ class ArabolyIrcBot(Araboly):
     # {{{ _logRoutine(self, isOutput, **event): XXX
     def _logRoutine(self, isOutput, **event):
         eventLevel = event["outputLevel"] if "outputLevel" in event else None;
-        if event["eventType"] == "timer" \
+        if event["eventType"] == "timer"    \
         or eventLevel == ArabolyOutputLevel.LEVEL_GRAPHICS:
             return
         elif event["eventType"] == "command":
@@ -117,11 +117,18 @@ class ArabolyIrcBot(Araboly):
                 src = event["src"]
                 print("{} {} Command {} from {} on {}{}".format(ts, "<<<", cmd, src, channel, msg))
         elif event["eventType"] == "message":
-            ts = datetime.now().strftime("%d-%b-%Y %H:%M:%S").upper()
-            destType = "channel " + event["args"][0] if event["args"][0][0] == "#" else "server"
+            if  len(event["args"]) > 1      \
+            and event["args"][0][0] == "#":
+                destType = "channel " + event["args"][0]
+                msg = " ".join(event["args"][1:]).rstrip("\n")
+            elif len(event["args"]) >= 1:
+                destType = "client"
+                msg = " ".join(event["args"]).rstrip("\n")
+            else:
+                destType, msg = "server", ""
             cmdType = event["cmd"].upper() + " command"
-            msg = " ".join(event["args"][1:]).rstrip("\n")
             msg = ": " + msg if len(msg) else ""
+            ts = datetime.now().strftime("%d-%b-%Y %H:%M:%S").upper()
             if isOutput:
                 dest = " to " + event["args"][0] if "args" in event else ""
                 print("{} {} {} {}{}{}".format(ts, ">>>", destType.title(), cmdType, dest, msg))
