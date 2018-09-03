@@ -6,7 +6,7 @@
 #
 
 from collections import defaultdict
-import os, re, sys
+import os, re, sys, yaml
 
 # {{{ ArabolyAlignedReplace(old, patterns, new): XXX
 def ArabolyAlignedReplace(old, patterns, new):
@@ -28,6 +28,13 @@ def ArabolyAlignedReplace(old, patterns, new):
 def ArabolyDefaultDict(*args):
     return defaultdict(*args)
 # }}}
+# {{{ ArabolyDefaultDictConstructor(*args): XXX
+def ArabolyDefaultDictConstructor(loader, node):
+    try:
+        return loader.construct_sequence(node)
+    except yaml.constructor.ConstructorError:
+        return loader.construct_mapping(node)
+# }}}
 # {{{ ArabolyGlob(dirName, patterns): XXX
 def ArabolyGlob(dirName, patterns):
     files = []
@@ -43,6 +50,10 @@ def ArabolyGlob(dirName, patterns):
 def ArabolyNestedDict():
     return defaultdict(ArabolyNestedDict)
 # }}}
+# {{{ ArabolyNestedDictConstructor(*args): XXX
+def ArabolyNestedDictConstructor(loader, node):
+    return ArabolyNestedDict()
+# }}}
 # {{{ ArabolyRandom(limit=None, max=None, min=0): XXX
 def ArabolyRandom(limit=None, max=None, min=0):
     randomInt = int.from_bytes(os.urandom(1), byteorder=sys.byteorder)
@@ -54,5 +65,8 @@ def ArabolyRandom(limit=None, max=None, min=0):
         raise ValueError
     return (randomInt % (limit - min)) + min
 # }}}
+
+yaml.add_constructor("tag:yaml.org,2002:python/object/apply:collections.defaultdict", ArabolyDefaultDictConstructor, yaml.SafeLoader)
+yaml.add_constructor("tag:yaml.org,2002:python/name:ArabolyRtl.ArabolyNestedDict", ArabolyNestedDictConstructor, yaml.SafeLoader)
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=0
