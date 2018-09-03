@@ -5,7 +5,7 @@
 # This project is licensed under the terms of the MIT licence.
 #
 
-from ArabolyRtl import ArabolyDefaultDict, ArabolyGlob, ArabolyNestedDict
+from ArabolyRtl import ArabolyDefaultDict, ArabolyGlob
 import yaml, os
 
 ArabolyColourMiRCMap = ArabolyDefaultDict(int, {
@@ -31,7 +31,7 @@ class ArabolyState(object):
     # {{{ _initBoard(self, boardPathName=os.path.join("assets", "YAML", "ArabolyBoard.yml"), fieldsDirName=os.path.join("assets", "MiRCart"), fieldsPatterns=["ArabolyBoardFields([0-9][0-9])_([0-9][0-9]).irc", "ArabolyBoardField([0-9][0-9]?).irc"], **kwargs):
     def _initBoard(self, boardPathName=os.path.join("assets", "YAML", "ArabolyBoard.yml"), fieldsDirName=os.path.join("assets", "MiRCart"), fieldsPatterns=["ArabolyBoardFields([0-9][0-9])_([0-9][0-9]).irc", "ArabolyBoardField([0-9][0-9]?).irc"], **kwargs):
         with open(boardPathName, "r") as fileObject:
-            self.board = yaml.load(fileObject)
+            self.board = yaml.safe_load(fileObject)
         self.graphics["fields"] = []
         for fileInfo in ArabolyGlob(fieldsDirName, fieldsPatterns):
             if len(fileInfo["matches"]) == 1:
@@ -56,7 +56,7 @@ class ArabolyState(object):
         self.clientParams["testing"] = testing
         self.clientParams["inhibitUntil"] = 0; self.clientParams.update(kwargs);
         with open(uafPathName, "r") as fileObject:
-            self.clientParams["uaf"] = yaml.load(fileObject)
+            self.clientParams["uaf"] = yaml.safe_load(fileObject)
     # }}}
     # {{{ _initGraphics(self, dirName=os.path.join("assets", "MiRCart"), **kwargs): XXX
     def _initGraphics(self, dirName=os.path.join("assets", "MiRCart"), **kwargs):

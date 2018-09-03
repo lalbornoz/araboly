@@ -29,7 +29,7 @@ class ArabolyAttractMode(ArabolyTypeClass):
             else:
                 output = ArabolyGenerals._push_output(channel, context, output, "Loading snapshot from {snapshotPath}!".format(**locals()))
                 with open(snapshotPath, "r") as fileObject:
-                    contextNew = yaml.load(fileObject)
+                    contextNew = yaml.safe_load(fileObject)
                 for newAttr in ["auctionState", "board", "players", "state", "tradeState"]:
                     setattr(context, newAttr, getattr(contextNew, newAttr))
                 context.clientParams["nickMap"].clear()

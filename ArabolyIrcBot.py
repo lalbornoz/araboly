@@ -238,7 +238,7 @@ class ArabolyIrcBot(Araboly):
             if os.path.exists(self.options["snapshot_path"]):
                 with open(self.options["snapshot_path"], "r") as fileObject:
                     print("Loading game snapshot from {}!".format(self.options["snapshot_path"]))
-                    self.typeObjects[ArabolyState] = yaml.load(fileObject)
+                    self.typeObjects[ArabolyState] = yaml.safe_load(fileObject)
     # }}}
 
 if __name__ == "__main__":
