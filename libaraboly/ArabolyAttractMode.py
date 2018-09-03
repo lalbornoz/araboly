@@ -23,7 +23,7 @@ class ArabolyAttractMode(ArabolyTypeClass):
         or not ArabolyGenerals._authorised(channel, context, srcFull):
             status = False
         else:
-            snapshotPath = os.path.join("assets", "savefiles", args[0])
+            snapshotPath = os.path.join("assets", "savefiles", os.path.basename(args[0]))
             if not os.path.exists(snapshotPath):
                 status = False
             else:
