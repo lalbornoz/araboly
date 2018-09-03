@@ -17,7 +17,7 @@
   cmd: join
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532545894
 - args: []
   channel: '#ARABOLY'
@@ -73,7 +73,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532545953
 - args: [6, 1]
   channel: '#ARABOLY'
@@ -101,7 +101,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546006
 - args: [3, 5]
   channel: '#ARABOLY'
@@ -129,14 +129,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546035
 - args: [6, 6]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546053
 - args: [5, 4]
   channel: '#ARABOLY'
@@ -171,7 +171,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546093
 - args: [6, 3]
   channel: '#ARABOLY'
@@ -199,7 +199,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546128
 - args: [4, 6]
   channel: '#ARABOLY'
@@ -248,7 +248,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546163
 - args: [4, 2]
   channel: '#ARABOLY'
@@ -283,7 +283,7 @@
   cmd: bid
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546188
 - args: ['125']
   channel: '#ARABOLY'
@@ -325,7 +325,7 @@
   cmd: bid
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546215
 - args: []
   channel: '#ARABOLY'
@@ -367,7 +367,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546252
 - args: [2, 4]
   channel: '#ARABOLY'
@@ -402,7 +402,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546287
 - args: [3, 4]
   channel: '#ARABOLY'
@@ -444,7 +444,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546327
 - args: []
   channel: '#ARABOLY'
@@ -458,7 +458,7 @@
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546336
 - args: [6, 4]
   channel: '#ARABOLY'
@@ -486,14 +486,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546375
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546383
 - args: []
   channel: '#ARABOLY'
@@ -521,14 +521,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546421
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546430
 - args: [3, 5]
   channel: '#ARABOLY'
@@ -563,14 +563,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546451
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546456
 - args: [3, 3]
   channel: '#ARABOLY'
@@ -605,7 +605,7 @@
   cmd: bid
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546498
 - args: [6, 1]
   channel: '#ARABOLY'
@@ -640,7 +640,7 @@
   cmd: bid
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546523
 - args: []
   channel: '#ARABOLY'
@@ -661,21 +661,21 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546538
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546549
 - args: [6, 2]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546556
 - args: [2, 6, 5]
   channel: '#ARABOLY'
@@ -696,7 +696,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546588
 - args: [6, 5, 3, 1]
   channel: '#ARABOLY'
@@ -724,7 +724,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546633
 - args: [2, 2]
   channel: '#ARABOLY'
@@ -780,7 +780,7 @@
   cmd: bid
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546713
 - args: []
   channel: '#ARABOLY'
@@ -808,7 +808,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546750
 - args: [4, 2]
   channel: '#ARABOLY'
@@ -829,7 +829,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532546778
 - args: ['16']
   channel: '#ARABOLY'
@@ -906,7 +906,7 @@
   cmd: pass
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547110
 - args: [6, 2]
   channel: '#ARABOLY'
@@ -927,7 +927,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547143
 - args: [5, 5]
   channel: '#ARABOLY'
@@ -948,14 +948,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547234
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547241
 - args: [1, 6]
   channel: '#ARABOLY'
@@ -983,7 +983,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547279
 - args: [4, 5]
   channel: '#ARABOLY'
@@ -1004,7 +1004,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547313
 - args: [5, 4]
   channel: '#ARABOLY'
@@ -1032,7 +1032,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547348
 - args: [4, 3]
   channel: '#ARABOLY'
@@ -1067,7 +1067,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547397
 - args: [6, 2, 4, 122, 1]
   channel: '#ARABOLY'
@@ -1095,7 +1095,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547426
 - args: [alghazi]
   channel: '#ARABOLY'
@@ -1116,7 +1116,7 @@
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547440
 - args: [6, 2]
   channel: '#ARABOLY'
@@ -1144,7 +1144,7 @@
   cmd: reject
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547568
 - args: [symbolz, '19', '220']
   channel: '#ARABOLY'
@@ -1165,14 +1165,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547660
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547686
 - args: [5, 6]
   channel: '#ARABOLY'
@@ -1193,7 +1193,7 @@
   cmd: reject
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547915
 - args: [5, 1]
   channel: '#ARABOLY'
@@ -1207,7 +1207,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547932
 - args: [4, 2]
   channel: '#ARABOLY'
@@ -1228,7 +1228,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532547972
 - args: [5, 5]
   channel: '#ARABOLY'
@@ -1256,7 +1256,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548023
 - args: [6, 5]
   channel: '#ARABOLY'
@@ -1284,7 +1284,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548050
 - args: []
   channel: '#ARABOLY'
@@ -1312,14 +1312,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548129
 - args: [3, 1]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548143
 - args: [4, 5]
   channel: '#ARABOLY'
@@ -1354,7 +1354,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548259
 - args: [3, 4]
   channel: '#ARABOLY'
@@ -1375,7 +1375,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548279
 - args: [6, 4]
   channel: '#ARABOLY'
@@ -1403,7 +1403,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548324
 - args: [5, 5]
   channel: '#ARABOLY'
@@ -1438,14 +1438,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548375
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548460
 - args: [4, 4]
   channel: '#ARABOLY'
@@ -1487,7 +1487,7 @@
   cmd: accept
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548628
 - args: [symbolz, '9', '1']
   channel: '#ARABOLY'
@@ -1501,7 +1501,7 @@
   cmd: accept
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548671
 - args: []
   channel: '#ARABOLY'
@@ -1529,14 +1529,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548701
 - args: [6, 2]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548730
 - args: [4, 3]
   channel: '#ARABOLY'
@@ -1564,7 +1564,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548770
 - args: [5, 3]
   channel: '#ARABOLY'
@@ -1592,7 +1592,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548813
 - args: [3, 3]
   channel: '#ARABOLY'
@@ -1620,7 +1620,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548849
 - args: [2, 6]
   channel: '#ARABOLY'
@@ -1641,7 +1641,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548916
 - args: [4, 3]
   channel: '#ARABOLY'
@@ -1690,7 +1690,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532548984
 - args: [1, 1, 5]
   channel: '#ARABOLY'
@@ -1739,7 +1739,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549089
 - args: [1, 4]
   channel: '#ARABOLY'
@@ -1760,14 +1760,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549145
 - args: [5, 3]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549172
 - args: [6, 2]
   channel: '#ARABOLY'
@@ -1795,7 +1795,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549221
 - args: [5, 1]
   channel: '#ARABOLY'
@@ -1816,7 +1816,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549275
 - args: [6, 5]
   channel: '#ARABOLY'
@@ -1865,7 +1865,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549376
 - args: []
   channel: '#ARABOLY'
@@ -1893,7 +1893,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549451
 - args: [3, 6, 2, 6]
   channel: '#ARABOLY'
@@ -1935,7 +1935,7 @@
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549702
 - args: [alghazi]
   channel: '#ARABOLY'
@@ -1963,14 +1963,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549728
 - args: [5, 4]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549771
 - args: [4, 1]
   channel: '#ARABOLY'
@@ -2019,21 +2019,21 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549836
 - args: ['21', '1']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549877
 - args: [2, 6]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532549886
 - args: [5, 6]
   channel: '#ARABOLY'
@@ -2068,7 +2068,7 @@
   cmd: reject
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550065
 - args: ['29', '3']
   channel: '#ARABOLY'
@@ -2089,14 +2089,14 @@
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550089
 - args: [4, 3]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550112
 - args: [4, 5, 1, 108]
   channel: '#ARABOLY'
@@ -2124,49 +2124,49 @@
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550198
 - args: [3, 3]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550203
 - args: ['24', '2']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550228
 - args: [3, 6]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550233
 - args: [3, 5]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550244
 - args: [1, 5]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550250
 - args: [5, 6]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550255
 - args: [3, 1]
   channel: '#ARABOLY'
@@ -2187,21 +2187,21 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550301
 - args: ['21', '2']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550315
 - args: [4, 1]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550321
 - args: [3, 1]
   channel: '#ARABOLY'
@@ -2236,7 +2236,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550382
 - args: [2, 5, 5]
   channel: '#ARABOLY'
@@ -2257,7 +2257,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550460
 - args: [symbolz]
   channel: '#ARABOLY'
@@ -2292,7 +2292,7 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550559
 - args: [4, 1]
   channel: '#ARABOLY'
@@ -2306,14 +2306,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550634
 - args: [v]
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550702
 - args: [3, 6]
   channel: '#ARABOLY'
@@ -2355,7 +2355,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550767
 - args: [1, 6]
   channel: '#ARABOLY'
@@ -2376,56 +2376,56 @@
   cmd: help
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550842
 - args: []
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550858
 - args: [v]
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550865
 - args: [alghazi]
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550876
 - args: []
   channel: '#ARABOLY'
   cmd: board
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550891
 - args: ['28']
   channel: '#ARABOLY'
   cmd: lift
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550936
 - args: [5, 5]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550978
 - args: [1, 1]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532550989
 - args: [4, 4]
   channel: '#ARABOLY'
@@ -2453,14 +2453,14 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551166
 - args: [4, 6]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551181
 - args: [1, 1]
   channel: '#ARABOLY'
@@ -2495,7 +2495,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551220
 - args: [1, 4]
   channel: '#ARABOLY'
@@ -2516,49 +2516,49 @@
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551281
 - args: ['6', '1']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551297
 - args: ['9', '1']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551308
 - args: ['8', '2']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551322
 - args: ['6', '2']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551336
 - args: ['9', '2']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551367
 - args: [1, 5]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551374
 - args: [symbolz]
   channel: '#ARABOLY'
@@ -2572,35 +2572,35 @@
   cmd: mortgage
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551449
 - args: ['35']
   channel: '#ARABOLY'
   cmd: mortgage
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551468
 - args: ['19']
   channel: '#ARABOLY'
   cmd: mortgage
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551480
 - args: []
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551491
 - args: ['14']
   channel: '#ARABOLY'
   cmd: mortgage
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551523
 - args: [3, 4]
   channel: '#ARABOLY'
@@ -2628,7 +2628,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551559
 - args: [4, 1]
   channel: '#ARABOLY'
@@ -2649,14 +2649,14 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551608
 - args: [3, 1]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551622
 - args: [2, 5]
   channel: '#ARABOLY'
@@ -2698,7 +2698,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551678
 - args: []
   channel: '#ARABOLY'
@@ -2775,7 +2775,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551794
 - args: [3, 2]
   channel: '#ARABOLY'
@@ -2796,7 +2796,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551857
 - args: [2, 1]
   channel: '#ARABOLY'
@@ -2831,7 +2831,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532551908
 - args: []
   channel: '#ARABOLY'
@@ -2873,7 +2873,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552060
 - args: [6, 5]
   channel: '#ARABOLY'
@@ -2901,14 +2901,14 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552112
 - args: [6, 3, 1, 138]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552123
 - args: [1, 1]
   channel: '#ARABOLY'
@@ -2950,14 +2950,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552232
 - args: [1, 3]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552289
 - args: [4, 4]
   channel: '#ARABOLY'
@@ -2985,7 +2985,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552356
 - args: []
   channel: '#ARABOLY'
@@ -3013,14 +3013,14 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552392
 - args: [4, 3]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552400
 - args: [4, 5]
   channel: '#ARABOLY'
@@ -3041,14 +3041,14 @@
   cmd: lift
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552450
 - args: [6, 3]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552454
 - args: [5, 6]
   channel: '#ARABOLY'
@@ -3062,7 +3062,7 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552481
 - args: [3, 2]
   channel: '#ARABOLY'
@@ -3076,21 +3076,21 @@
   cmd: lift
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552518
 - args: ['35']
   channel: '#ARABOLY'
   cmd: lift
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552524
 - args: [6, 4]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552528
 - args: [3, 2]
   channel: '#ARABOLY'
@@ -3111,7 +3111,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552555
 - args: [5, 6]
   channel: '#ARABOLY'
@@ -3132,14 +3132,14 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552581
 - args: [3, 1]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552591
 - args: [5, 4]
   channel: '#ARABOLY'
@@ -3160,7 +3160,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552625
 - args: [3, 1]
   channel: '#ARABOLY'
@@ -3181,7 +3181,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552653
 - args: [6, 2]
   channel: '#ARABOLY'
@@ -3202,14 +3202,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552723
 - args: []
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552769
 - args: [2, 6]
   channel: '#ARABOLY'
@@ -3230,14 +3230,14 @@
   cmd: lift
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552804
 - args: [4, 2]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552813
 - args: [6, 2]
   channel: '#ARABOLY'
@@ -3265,7 +3265,7 @@
   cmd: reject
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552894
 - args: [5, 6]
   channel: '#ARABOLY'
@@ -3279,7 +3279,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552938
 - args: [4, 3]
   channel: '#ARABOLY'
@@ -3300,7 +3300,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552959
 - args: [1, 6]
   channel: '#ARABOLY'
@@ -3328,7 +3328,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532552998
 - args: [6, 4]
   channel: '#ARABOLY'
@@ -3349,7 +3349,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553032
 - args: [5, 4]
   channel: '#ARABOLY'
@@ -3370,21 +3370,21 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553066
 - args: [v]
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553072
 - args: [5, 1, 5]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553096
 - args: []
   channel: '#ARABOLY'
@@ -3412,7 +3412,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553131
 - args: [3, 3]
   channel: '#ARABOLY'
@@ -3433,7 +3433,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553157
 - args: [3, 6]
   channel: '#ARABOLY'
@@ -3461,7 +3461,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553182
 - args: [2, 3]
   channel: '#ARABOLY'
@@ -3482,7 +3482,7 @@
   cmd: reject
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553224
 - args: [5, 1]
   channel: '#ARABOLY'
@@ -3496,14 +3496,14 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553247
 - args: [v, '19', '500']
   channel: '#ARABOLY'
   cmd: sell
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553263
 - args: []
   channel: '#ARABOLY'
@@ -3524,7 +3524,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553282
 - args: [1, 5]
   channel: '#ARABOLY'
@@ -3545,7 +3545,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553308
 - args: [6, 2]
   channel: '#ARABOLY'
@@ -3566,7 +3566,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553365
 - args: [3, 5]
   channel: '#ARABOLY'
@@ -3629,7 +3629,7 @@
   cmd: reject
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553454
 - args: [symbolz]
   channel: '#ARABOLY'
@@ -3657,7 +3657,7 @@
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553528
 - args: [symbolz]
   channel: '#ARABOLY'
@@ -3671,21 +3671,21 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553545
 - args: [2, 2]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553578
 - args: [6, 2]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553591
 - args: [5, 3]
   channel: '#ARABOLY'
@@ -3720,7 +3720,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553655
 - args: [6, 3]
   channel: '#ARABOLY'
@@ -3741,7 +3741,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553680
 - args: [2, 5]
   channel: '#ARABOLY'
@@ -3762,21 +3762,21 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553698
 - args: [4, 4]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553702
 - args: [alghazi, '19', '500']
   channel: '#ARABOLY'
   cmd: sell
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553734
 - args: []
   channel: '#ARABOLY'
@@ -3797,7 +3797,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553759
 - args: [4, 1]
   channel: '#ARABOLY'
@@ -3909,7 +3909,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553834
 - args: [4, 3, 1, 97]
   channel: '#ARABOLY'
@@ -3930,14 +3930,14 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553858
 - args: [2, 1]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553863
 - args: [1, 6]
   channel: '#ARABOLY'
@@ -3972,14 +3972,14 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553930
 - args: [3, 1]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553933
 - args: [5, 3]
   channel: '#ARABOLY'
@@ -4000,7 +4000,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553968
 - args: [2, 1]
   channel: '#ARABOLY'
@@ -4014,14 +4014,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553986
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532553994
 - args: [5, 6]
   channel: '#ARABOLY'
@@ -4035,28 +4035,28 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554062
 - args: ['35', '1']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554080
 - args: ['25', '1']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554112
 - args: [1, 4]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554118
 - args: [4, 5]
   channel: '#ARABOLY'
@@ -4077,7 +4077,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554153
 - args: [6, 6]
   channel: '#ARABOLY'
@@ -4098,14 +4098,14 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554171
 - args: [3, 4]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554187
 - args: [5, 2]
   channel: '#ARABOLY'
@@ -4119,7 +4119,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554212
 - args: [1, 3, 3, 2]
   channel: '#ARABOLY'
@@ -4133,35 +4133,35 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554236
 - args: []
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554246
 - args: [4, 6]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554274
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554288
 - args: []
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554298
 - args: [5, 4]
   channel: '#ARABOLY'
@@ -4182,14 +4182,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554323
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554332
 - args: []
   channel: '#ARABOLY'
@@ -4210,7 +4210,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554360
 - args: [1, 5]
   channel: '#ARABOLY'
@@ -4224,14 +4224,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554374
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554381
 - args: [symbolz, '37', '1']
   channel: '#ARABOLY'
@@ -4245,21 +4245,21 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554425
 - args: [alghazi]
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554453
 - args: [alghazi]
   channel: '#ARABOLY'
   cmd: accept
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554470
 - args: [symbolz, '34', '1']
   channel: '#ARABOLY'
@@ -4273,7 +4273,7 @@
   cmd: accept
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554530
 - args: []
   channel: '#ARABOLY'
@@ -4287,7 +4287,7 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554544
 - args: ['37', '1']
   channel: '#ARABOLY'
@@ -4315,35 +4315,35 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554575
 - args: ['31', '1']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554587
 - args: ['32', '1']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554597
 - args: ['34', '1']
   channel: '#ARABOLY'
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554606
 - args: [1, 2]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554620
 - args: []
   channel: '#ARABOLY'
@@ -4371,14 +4371,14 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554658
 - args: [6, 6]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554687
 - args: []
   channel: '#ARABOLY'
@@ -4406,7 +4406,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554733
 - args: [5, 4]
   channel: '#ARABOLY'
@@ -4420,7 +4420,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554745
 - args: []
   channel: '#ARABOLY'
@@ -4448,14 +4448,14 @@
   cmd: develop
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554771
 - args: [4, 1]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554793
 - args: [2, 4]
   channel: '#ARABOLY'
@@ -4469,70 +4469,70 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554806
 - args: [3, 4]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554824
 - args: []
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554846
 - args: ['28']
   channel: '#ARABOLY'
   cmd: mortgage
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554866
 - args: ['13']
   channel: '#ARABOLY'
   cmd: mortgage
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554892
 - args: ['14']
   channel: '#ARABOLY'
   cmd: mortgage
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554918
 - args: []
   channel: '#ARABOLY'
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554926
 - args: ['31']
   channel: '#ARABOLY'
   cmd: mortgage
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554948
 - args: ['32']
   channel: '#ARABOLY'
   cmd: mortgage
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554974
 - args: ['34']
   channel: '#ARABOLY'
   cmd: mortgage
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532554985
 - args: [3, 4]
   channel: '#ARABOLY'
@@ -4546,21 +4546,21 @@
   cmd: status
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532555015
 - args: [5, 5, 1, 40]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532555027
 - args: [2, 1]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532555042
 - args: ['39', '2']
   channel: '#ARABOLY'
@@ -4581,7 +4581,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532555059
 - args: [4, 5]
   channel: '#ARABOLY'
@@ -4595,7 +4595,7 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532555070
 - args: ['37', '3']
   channel: '#ARABOLY'
@@ -4616,5 +4616,5 @@
   cmd: dice
   eventType: command
   src: symbolz
-  srcFull: symbolz!symbolz@46.101.58.199
+  srcFull: symbolz!symbolz@0.0.0.0
   time: 1532555100

@@ -31,7 +31,7 @@
   cmd: join
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531940557
 - args: []
   channel: '#ARABOLY'
@@ -52,14 +52,14 @@
   cmd: part
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531940827
 - args: []
   channel: '#ARABOLY'
   cmd: join
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531940857
 - args: []
   channel: '#ARABOLY'
@@ -115,7 +115,7 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941183
 - args: ["\u0455\u029C\u1D07"]
   channel: '#ARABOLY'
@@ -129,7 +129,7 @@
   cmd: buy
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941194
 - args: [1, 6, 5]
   channel: '#ARABOLY'
@@ -178,7 +178,7 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941258
 - args: [2, 2]
   channel: '#ARABOLY'
@@ -234,14 +234,14 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941313
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941321
 - args: [6, 2]
   channel: '#ARABOLY'
@@ -318,7 +318,7 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941392
 - args: [1, 3]
   channel: '#ARABOLY'
@@ -360,35 +360,35 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941448
 - args: [3, 5]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941464
 - args: [4, 1]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941474
 - args: [4, 2]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941479
 - args: [3, 5]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941486
 - args: [5, 1]
   channel: '#ARABOLY'
@@ -430,7 +430,7 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941521
 - args: [5, 3]
   channel: '#ARABOLY'
@@ -486,7 +486,7 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941603
 - args: [6, 3]
   channel: '#ARABOLY'
@@ -507,7 +507,7 @@
   cmd: status
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941631
 - args: [3, 4]
   channel: '#ARABOLY'
@@ -542,7 +542,7 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941667
 - args: [2, 5]
   channel: '#ARABOLY'
@@ -591,14 +591,14 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941727
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941733
 - args: [5, 4]
   channel: '#ARABOLY'
@@ -661,14 +661,14 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941789
 - args: []
   channel: '#ARABOLY'
   cmd: buy
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941797
 - args: [1, 6]
   channel: '#ARABOLY'
@@ -689,7 +689,7 @@
   cmd: status
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941806
 - args: []
   channel: '#ARABOLY'
@@ -752,7 +752,7 @@
   cmd: bid
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941846
 - args: []
   channel: '#ARABOLY'
@@ -766,7 +766,7 @@
   cmd: bid
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941856
 - args: []
   channel: '#ARABOLY'
@@ -794,7 +794,7 @@
   cmd: bid
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941880
 - args: ['150']
   channel: '#ARABOLY'
@@ -808,7 +808,7 @@
   cmd: bid
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941893
 - args: ['192']
   channel: '#ARABOLY'
@@ -822,7 +822,7 @@
   cmd: pass
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941908
 - args: ['200']
   channel: '#ARABOLY'
@@ -899,7 +899,7 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531941979
 - args: [3, 2]
   channel: '#ARABOLY'
@@ -913,7 +913,7 @@
   cmd: status
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942001
 - args: [3, 2]
   channel: '#ARABOLY'
@@ -962,14 +962,14 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942068
 - args: [2, 4]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942074
 - args: []
   channel: '#ARABOLY'
@@ -1011,7 +1011,7 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942119
 - args: [4, 2]
   channel: '#ARABOLY'
@@ -1025,7 +1025,7 @@
   cmd: status
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942128
 - args: []
   channel: '#ARABOLY'
@@ -1053,7 +1053,7 @@
   cmd: accept
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942220
 - args: []
   channel: '#ARABOLY'
@@ -1109,7 +1109,7 @@
   cmd: reject
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942295
 - args: [1, 3]
   channel: '#ARABOLY'
@@ -1130,7 +1130,7 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942318
 - args: ["\u0648\u0631\u064E\u062E", '16', '200']
   channel: '#ARABOLY'
@@ -1214,7 +1214,7 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942413
 - args: []
   channel: '#ARABOLY'
@@ -1256,14 +1256,14 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942451
 - args: [2, 4]
   channel: '#ARABOLY'
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942457
 - args: [1, 3]
   channel: '#ARABOLY'
@@ -1347,7 +1347,7 @@
   cmd: bid
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942530
 - args: ['201']
   channel: '#ARABOLY'
@@ -1368,7 +1368,7 @@
   cmd: bid
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942546
 - args: ['210']
   channel: '#ARABOLY'
@@ -1382,7 +1382,7 @@
   cmd: pass
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942561
 - args: [alghazi]
   channel: '#ARABOLY'
@@ -1410,7 +1410,7 @@
   cmd: dice
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942605
 - args: []
   channel: '#ARABOLY'
@@ -1487,7 +1487,7 @@
   cmd: part
   eventType: command
   src: Caku
-  srcFull: Caku!niggers@162.253.176.251
+  srcFull: Caku!niggers@0.0.0.0
   time: 1531942668
 - args: [4, 2]
   channel: '#ARABOLY'
