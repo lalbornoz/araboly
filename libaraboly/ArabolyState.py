@@ -6,7 +6,7 @@
 #
 
 from ArabolyRtl import ArabolyDefaultDict, ArabolyGlob
-import yaml, os
+import os, yaml
 
 ArabolyColourMiRCMap = ArabolyDefaultDict(int, {
     "NONE":-1, "BLUE":12, "DARK_BLUE":2, "DARK_GREEN":3, "DARK_RED":5, "GREEN":9, "PINK":13, "RED":4, "YELLOW":8})
@@ -19,7 +19,7 @@ class ArabolyOutputLevel():
 class ArabolyStringType(object):
     DEVELOP = 1; LAND = 2; NAME = 3; RENT = 4
 
-class ArabolyState(object):
+class ArabolyState(yaml.YAMLObject, object):
     """XXX"""
     initDictsClear = ["auctionState", "board", "clientParams", "graphics", "kades", "players", "tradeState"]
     initFunctions = ["board", "clientParams", "graphics", "kades"]
@@ -27,6 +27,8 @@ class ArabolyState(object):
         "auctionState":{"bids":{}, "field":None, "minBid":-1},  \
         "players":{"byName":{}, "curNum":-1, "numMap":[]},      \
         "state":ArabolyGameState.ATTRACT}
+    yaml_loader = yaml.SafeLoader
+    yaml_tag = u'tag:yaml.org,2002:python/object:ArabolyState.ArabolyState'
 
     # {{{ _initBoard(self, boardPathName=os.path.join("assets", "YAML", "ArabolyBoard.yml"), fieldsDirName=os.path.join("assets", "MiRCart"), fieldsPatterns=["ArabolyBoardFields([0-9][0-9])_([0-9][0-9]).irc", "ArabolyBoardField([0-9][0-9]?).irc"], **kwargs):
     def _initBoard(self, boardPathName=os.path.join("assets", "YAML", "ArabolyBoard.yml"), fieldsDirName=os.path.join("assets", "MiRCart"), fieldsPatterns=["ArabolyBoardFields([0-9][0-9])_([0-9][0-9]).irc", "ArabolyBoardField([0-9][0-9]?).irc"], **kwargs):
