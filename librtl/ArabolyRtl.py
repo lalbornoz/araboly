@@ -28,7 +28,7 @@ def ArabolyAlignedReplace(old, patterns, new):
 def ArabolyDefaultDict(*args):
     return defaultdict(*args)
 # }}}
-# {{{ ArabolyDefaultDictConstructor(*args): XXX
+# {{{ ArabolyDefaultDictConstructor(loader, node): XXX
 def ArabolyDefaultDictConstructor(loader, node):
     try:
         return loader.construct_sequence(node)
@@ -50,7 +50,7 @@ def ArabolyGlob(dirName, patterns):
 def ArabolyNestedDict():
     return defaultdict(ArabolyNestedDict)
 # }}}
-# {{{ ArabolyNestedDictConstructor(*args): XXX
+# {{{ ArabolyNestedDictConstructor(loader, node): XXX
 def ArabolyNestedDictConstructor(loader, node):
     return ArabolyNestedDict()
 # }}}
