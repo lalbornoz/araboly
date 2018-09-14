@@ -5,11 +5,10 @@
 # This project is licensed under the terms of the MIT licence.
 #
 
-from ArabolyRtl import ArabolyDefaultDict, ArabolyGlob
+from ArabolyRtl import ArabolyGlob
 import os, yaml
 
-ArabolyColourMiRCMap = ArabolyDefaultDict(int, {
-    "NONE":-1, "BLUE":12, "DARK_BLUE":2, "DARK_GREEN":3, "DARK_RED":5, "GREEN":9, "PINK":13, "RED":4, "YELLOW":8})
+ArabolyColourMiRCMap = {"NONE":-1, "BLUE":12, "DARK_BLUE":2, "DARK_GREEN":3, "DARK_RED":5, "GREEN":9, "PINK":13, "RED":4, "YELLOW":8}
 class ArabolyGameField(object):
     CHANCE = 1; CHEST = 2; FREE_LSD = 3; LOONY_BIN = 4; PROPERTY = 5; SECTIONED = 6; START = 7; TAX = 8; UTILITY = 9; CHRONO = 10;
 class ArabolyGameState(object):
