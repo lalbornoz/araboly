@@ -7,7 +7,6 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 200
-  'strings': !!python/object/apply:collections.defaultdict [&id001 !!python/name:ArabolyRtl.ArabolyNestedDict '']
   'title': 'Collect $200 as you pass GO'
   'type': 7
 1:
@@ -22,65 +21,51 @@
   'ownerHasGroup': false
   'price': 60
   'rentAt': [2, 10, 30, 90, 160]
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} appears to have personal care and/or mobility needs as a result of a mental or physical disability!'
-          - 'Awfom! {owner} claims Disability Living Allowance! {owner} becomes a full-time dole scrounger!'
-          1:
-          - 'Yay! {owner} buys an Xbox One and a headset!'
-          - 'Awfom! {owner} joins the Pink Unicorn Mob on {prop}!'
-          2:
-          - '{owner} chases the cat away, has a wank to kade.rar, and slps all day!'
-          - 'Oh no! {owner} is _very_ hungry!'
-          - 'Awfom! {owner} buys a Pizza fa(c)tory on {prop}!'
-          3:
-          - '{owner} buys {rands[0]} games, {rands[1]} video game consoles, {rands[2]} webcams, 0 food, 0 water, and {rands[3]} cocobolo wood panels!'
-          - '{owner} assembles a Hall of Grazing Kades!'
-          - 'Awfom! {owner} has attracted one (1) grazing kade on {prop}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Oh dear! {who} must pay for {owner}''s Disability Living Allowance and loses ${cost}!'
-          1:
-          - '{who} plays Xbox with the Pink Unicorn Mob and trolls people on voice chat!'
-          - 'Oh no! {who} has been sentenced to pay ${cost} to {owner} for Hate Crimes and Anti-Social Behaviour!'
-          2:
-          - '{who} buys a {rands[0]}XXXXXL gourmet ${cost} pizza from {owner} w/ mango, sushi, chorizo, sLmi, kangaroo, emu, and caviar toppings!'
-          - 'Oh dear! {who} has developed Post-Pizza Traumatic Depression Disorder!'
-          3:
-          - '{who} spots kade on her favourite grazing spot!'
-          - 'Oh no! kade talks to {who} about her eating disorder!'
-          - 'Oh my! kade accidentally starves to death!'
-          - 'Oh dear! {who} must pay ${cost} to {owner} for killing kade!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Disability Living Allowance'
-          1:
-          - 'Xbox trolling group'
-          2:
-          - 'Pizza fa(c)tory'
-          3:
-          - 'Kade grazing spot'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 2
-          1:
-          - 10
-          2:
-          - 30
-          3:
-          - 90
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} appears to have personal care and/or mobility needs as a result of a mental or physical disability!'
+      - 'Awfom! {owner} claims Disability Living Allowance! {owner} becomes a full-time dole scrounger!'
+      1:
+      - 'Yay! {owner} buys an Xbox One and a headset!'
+      - 'Awfom! {owner} joins the Pink Unicorn Mob on {prop}!'
+      2:
+      - '{owner} chases the cat away, has a wank to kade.rar, and slps all day!'
+      - 'Oh no! {owner} is _very_ hungry!'
+      - 'Awfom! {owner} buys a Pizza fa(c)tory on {prop}!'
+      3:
+      - '{owner} buys {rands[0]} games, {rands[1]} video game consoles, {rands[2]} webcams, 0 food, 0 water, and {rands[3]} cocobolo wood panels!'
+      - '{owner} assembles a Hall of Grazing Kades!'
+      - 'Awfom! {owner} has attracted one (1) grazing kade on {prop}!'
+    2:
+      0:
+      - 'Oh dear! {who} must pay for {owner}''s Disability Living Allowance and loses ${cost}!'
+      1:
+      - '{who} plays Xbox with the Pink Unicorn Mob and trolls people on voice chat!'
+      - 'Oh no! {who} has been sentenced to pay ${cost} to {owner} for Hate Crimes and Anti-Social Behaviour!'
+      2:
+      - '{who} buys a {rands[0]}XXXXXL gourmet ${cost} pizza from {owner} w/ mango, sushi, chorizo, sLmi, kangaroo, emu, and caviar toppings!'
+      - 'Oh dear! {who} has developed Post-Pizza Traumatic Depression Disorder!'
+      3:
+      - '{who} spots kade on her favourite grazing spot!'
+      - 'Oh no! kade talks to {who} about her eating disorder!'
+      - 'Oh my! kade accidentally starves to death!'
+      - 'Oh dear! {who} must pay ${cost} to {owner} for killing kade!'
+    3:
+      0:
+      - 'Disability Living Allowance'
+      1:
+      - 'Xbox trolling group'
+      2:
+      - 'Pizza fa(c)tory'
+      3:
+      - 'Kade grazing spot'
+    4:
+      0: [2]
+      1: [10]
+      2: [30]
+      3: [90]
   'title': 'Gorf''s council estate'
   'type': 5
 2:
@@ -92,7 +77,6 @@
   'owner': -1
   'ownerHasGroup': false
   'price': -1
-  'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'Community Brr'
   'type': 2
 3:
@@ -107,65 +91,51 @@
   'ownerHasGroup': false
   'price': 60
   'rentAt': [4, 20, 60, 180, 320]
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} pretends to look for work and claims unemployment benefits!'
-          - '{owner} becomes a dole scrounger!'
-          - 'The UK is now 90% closer to leaving the EU!'
-          1:
-          - 'Yay! Her Majesty The Queen declares {owner} Lord of Incogshire!'
-          - 'Oops! The UK has left the EU!'
-          - 'Oh my! The DWP and the NHS have spontaneously run out of money!'
-          - 'Oh no! Amazon buys England, turns Wales into a landfill, and moves Scotland to Disneyland!'
-          2:
-          - '{owner} buys Ristorante D''XSS on {prop} and replaces the staff with 99.998% identical Winkie clones!'
-          - 'Oh no! Over {rands[0]} XSS vulnerabilities have been discovered in Araboly!'
-          3:
-          - '{owner} starts selling Sour Diesel, Pure Power Plant, and Johnny Vegas Kush on {prop}!'
-          - 'Oops! {owner} starts getting hie on their own supply!'
-          - 'Awfom! {owner} is hie as fuck!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Oh my! {who} must pay for {owner}''s Jobseeker''s Allowance and loses ${cost}!'
-          1:
-          - 'Oh dear! {who} must pay ${cost} to {owner} for trespassing on Incogshire!'
-          2:
-          - '{who} orders weaponised deep-fried XSS with steamed XSS rice, carbonated XSS, and XSS rings on the side!'
-          - 'Oh no! The bill is vulnerable to XSS attacks!'
-          - 'Oh shit! {owner} steals ${cost} from {who}!'
-          3:
-          - '{who} buys ${cost} worth of loud from {owner} and gets hie as fuck!'
-          - 'Oh shit! {who} is smoking el paquete del diablo!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Jobseeker''s Allowance'
-          1:
-          - 'Lord of Incogshire'
-          2:
-          - 'Ristorante D''XSS'
-          3:
-          - 'Loud spot'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 4
-          1:
-          - 20
-          2:
-          - 60
-          3:
-          - 180
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} pretends to look for work and claims unemployment benefits!'
+      - '{owner} becomes a dole scrounger!'
+      - 'The UK is now 90% closer to leaving the EU!'
+      1:
+      - 'Yay! Her Majesty The Queen declares {owner} Lord of Incogshire!'
+      - 'Oops! The UK has left the EU!'
+      - 'Oh my! The DWP and the NHS have spontaneously run out of money!'
+      - 'Oh no! Amazon buys England, turns Wales into a landfill, and moves Scotland to Disneyland!'
+      2:
+      - '{owner} buys Ristorante D''XSS on {prop} and replaces the staff with 99.998% identical Winkie clones!'
+      - 'Oh no! Over {rands[0]} XSS vulnerabilities have been discovered in Araboly!'
+      3:
+      - '{owner} starts selling Sour Diesel, Pure Power Plant, and Johnny Vegas Kush on {prop}!'
+      - 'Oops! {owner} starts getting hie on their own supply!'
+      - 'Awfom! {owner} is hie as fuck!'
+    2:
+      0:
+      - 'Oh my! {who} must pay for {owner}''s Jobseeker''s Allowance and loses ${cost}!'
+      1:
+      - 'Oh dear! {who} must pay ${cost} to {owner} for trespassing on Incogshire!'
+      2:
+      - '{who} orders weaponised deep-fried XSS with steamed XSS rice, carbonated XSS, and XSS rings on the side!'
+      - 'Oh no! The bill is vulnerable to XSS attacks!'
+      - 'Oh shit! {owner} steals ${cost} from {who}!'
+      3:
+      - '{who} buys ${cost} worth of loud from {owner} and gets hie as fuck!'
+      - 'Oh shit! {who} is smoking el paquete del diablo!'
+    3:
+      0:
+      - 'Jobseeker''s Allowance'
+      1:
+      - 'Lord of Incogshire'
+      2:
+      - 'Ristorante D''XSS'
+      3:
+      - 'Loud spot'
+    4:
+      0: [4]
+      1: [20]
+      2: [60]
+      3: [180]
   'title': 'Incog''s council estate'
   'type': 5
 4:
@@ -178,35 +148,21 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 150
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} pays ${cost} to {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Welfare Office'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 25
-          1:
-          - 50
-          2:
-          - 100
-          3:
-          - 200
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+    2:
+      0:
+      - '{who} pays ${cost} to {owner}!'
+    3:
+      0:
+      - 'Welfare Office'
+    4:
+      0: [25]
+      1: [50]
+      2: [100]
+      3: [200]
   'title': 'Welfare Office'
   'type': 9
 5:
@@ -218,41 +174,27 @@
   'mortgaged': false
   'owner': -1
   'price': 200
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          1:
-          - '{owner} builds a camel station on {prop}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} pays ${cost} to {owner}!'
-          1:
-          - '{who} pays ${cost} to {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Chrono''s Camel Company'
-          1:
-          - 'Camel Station'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          1:
-          - 25
-          2:
-          - 50
-          3:
-          - 100
-          4:
-          - 200
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      1:
+      - '{owner} builds a camel station on {prop}!'
+    2:
+      0:
+      - '{who} pays ${cost} to {owner}!'
+      1:
+      - '{who} pays ${cost} to {owner}!'
+    3:
+      0:
+      - 'Chrono''s Camel Company'
+      1:
+      - 'Camel Station'
+    4:
+      1: [25]
+      2: [50]
+      3: [100]
+      4: [200]
   'title': 'Chrono''s Camel Company'
   'type': 10
 6:
@@ -266,70 +208,56 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 100
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} joins #808!'
-          - '{owner} buys Chrissy''s Vagina!'
-          - 'Oh no! {owner} is becoming a brony!'
-          1:
-          - '{owner} starts an Animu Enthusiasts Club in {prop}!'
-          - 'Oh no! {owner} is becoming a tranny!'
-          2:
-          - 'Oh no! {owner} has become a tranny!'
-          - '{owner} gains an O:line!'
-          - '{owner} starts a Mob of Tranny Sects on {prop} with {rands[0]} genderqueer members, {rands[1]} drag queens, {rands[2]}.5 non-binary skoliosexuals, and {rands[3]} cross-dressers!'
-          3:
-          - '{owner} gains mantits!'
-          - '{owner} gains {rands[0]} stone!'
-          - '{owner} joins The Free Army of #chimpire!'
-          - 'Oh no! {owner} has become a nazi tranny!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} enters Chrissy''s Vagina!'
-          - 'Oh my! {who} is assaulted by {rands[0]} white knights!'
-          - 'Oh shit! {who} must pay ${cost} rent to {owner} for occupying Chrissy''s Vagina!'
-          1:
-          - 'Oops! {who} buys a pinku (that''s Japanese for pink) box with {rands[0]} kotoba (that''s Japanese for {rands[0]} compartments) from {owner}!'
-          - 'Oh my! It''s really chibi (small) sized and really kawaii (cute) and only costs ${cost} bux!'
-          - 'Oh no! {who} loses ${cost} to {owner}!'
-          2:
-          - 'Oops! {who} is assaulted by a very angry Mob of Tranny Sects!'
-          - 'Oh no! {who} is accused of transphobia, gender-normative fascism, hate crimes, and perpetuating patriarchialism!'
-          - 'Oh dear! {who} must pay ${cost} to {owner}!'
-          3:
-          - 'Oh my! {who} is racially analysed by The Free Army of #chimpire!'
-          - 'Oh shit! The Free Army of #chimpire confiscates ${cost} of {who}''s wealth for being racially inferior!'
-          - 'Oops! {who} loses ${cost} to {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Chrissy''s Vagina'
-          1:
-          - 'Animu Enthusiasts Club'
-          2:
-          - 'Mob of Tranny Sects'
-          3:
-          - 'The Free Army of #chimpire'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 6
-          1:
-          - 30
-          2:
-          - 90
-          3:
-          - 270
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} joins #808!'
+      - '{owner} buys Chrissy''s Vagina!'
+      - 'Oh no! {owner} is becoming a brony!'
+      1:
+      - '{owner} starts an Animu Enthusiasts Club in {prop}!'
+      - 'Oh no! {owner} is becoming a tranny!'
+      2:
+      - 'Oh no! {owner} has become a tranny!'
+      - '{owner} gains an O:line!'
+      - '{owner} starts a Mob of Tranny Sects on {prop} with {rands[0]} genderqueer members, {rands[1]} drag queens, {rands[2]}.5 non-binary skoliosexuals, and {rands[3]} cross-dressers!'
+      3:
+      - '{owner} gains mantits!'
+      - '{owner} gains {rands[0]} stone!'
+      - '{owner} joins The Free Army of #chimpire!'
+      - 'Oh no! {owner} has become a nazi tranny!'
+    2:
+      0:
+      - '{who} enters Chrissy''s Vagina!'
+      - 'Oh my! {who} is assaulted by {rands[0]} white knights!'
+      - 'Oh shit! {who} must pay ${cost} rent to {owner} for occupying Chrissy''s Vagina!'
+      1:
+      - 'Oops! {who} buys a pinku (that''s Japanese for pink) box with {rands[0]} kotoba (that''s Japanese for {rands[0]} compartments) from {owner}!'
+      - 'Oh my! It''s really chibi (small) sized and really kawaii (cute) and only costs ${cost} bux!'
+      - 'Oh no! {who} loses ${cost} to {owner}!'
+      2:
+      - 'Oops! {who} is assaulted by a very angry Mob of Tranny Sects!'
+      - 'Oh no! {who} is accused of transphobia, gender-normative fascism, hate crimes, and perpetuating patriarchialism!'
+      - 'Oh dear! {who} must pay ${cost} to {owner}!'
+      3:
+      - 'Oh my! {who} is racially analysed by The Free Army of #chimpire!'
+      - 'Oh shit! The Free Army of #chimpire confiscates ${cost} of {who}''s wealth for being racially inferior!'
+      - 'Oops! {who} loses ${cost} to {owner}!'
+    3:
+      0:
+      - 'Chrissy''s Vagina'
+      1:
+      - 'Animu Enthusiasts Club'
+      2:
+      - 'Mob of Tranny Sects'
+      3:
+      - 'The Free Army of #chimpire'
+    4:
+      0: [6]
+      1: [30]
+      2: [90]
+      3: [270]
   'title': 'Rizon Towers'
   'type': 5
 7:
@@ -341,7 +269,6 @@
   'owner': -1
   'ownerHasGroup': false
   'price': -1
-  'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'Chance'
   'type': 1
 8:
@@ -355,67 +282,53 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 100
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} builds a G-line silo on {prop} for purposes of defence and recreation!'
-          - "\x034\x1F/!\\\x0F \x035WARNING\x03\x02: IRC IS SERIOUS\x02 \x034\x1F/!\\\x0F"
-          1:
-          - '{owner} builds a mIRC art adventure park on {prop}!'
-          - 'Awfom! {owner} has pissed off at least {rands[0]} oldschool ASCII art scene groups!'
-          2:
-          - '{owner} starts Penis Pump 4 Life on {prop}!'
-          - 'Awfom! {owner} has pissed off at least {rands[0]} EFrael opers!'
-          3:
-          - '{owner} starts EFnet News on {prop}!'
-          - "\x030\x1F/!\\\x0F \x02FREE NPK\x02 \x030\x1F/!\\\x0F"
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} joins {prop}!'
-          - 'Oh no! {owner} launches a deadly G-line at {who}!'
-          - 'Oh my! {who} is banned from {prop}!'
-          - 'Oh dear! {who} pays ${cost} to {owner} for trespassing on {prop}!'
-          1:
-          - '{who} enters the mIRC art adventure park on {prop}!'
-          - 'Oh my! {who} is illuminated and overwhelmed by an endless forest of mIRC art bricks in various arrangements!'
-          - 'Oops! {who} buys ${cost} worth of mIRC art from {owner}!'
-          2:
-          - '{who} joins Penis Pump 4 Life on {prop}!'
-          - 'Oops! {who} buys ${cost} worth of penis pumps from {owner}!'
-          3:
-          - '{who} joins EFnet News on {prop}!'
-          - 'Oops! {who} accidentally shoots {rands[0]} armed police officers!'
-          - 'Oh no! {who} is sent to gaol for {rands[0]} years, {rands[1]} days, {rands[2]} hours, {rands[3]} minutes, and {rands[4]} seconds!'
-          - 'Awfom! EFnet News smuggles {who} out of gaol for the nominal fee of ${cost} paid to {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'G-line silo'
-          1:
-          - 'mIRC art adventure park'
-          2:
-          - 'Penis Pump 4 Life'
-          3:
-          - 'EFnet News'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 6
-          1:
-          - 30
-          2:
-          - 90
-          3:
-          - 270
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} builds a G-line silo on {prop} for purposes of defence and recreation!'
+      - "\x034\x1F/!\\\x0F \x035WARNING\x03\x02: IRC IS SERIOUS\x02 \x034\x1F/!\\\x0F"
+      1:
+      - '{owner} builds a mIRC art adventure park on {prop}!'
+      - 'Awfom! {owner} has pissed off at least {rands[0]} oldschool ASCII art scene groups!'
+      2:
+      - '{owner} starts Penis Pump 4 Life on {prop}!'
+      - 'Awfom! {owner} has pissed off at least {rands[0]} EFrael opers!'
+      3:
+      - '{owner} starts EFnet News on {prop}!'
+      - "\x030\x1F/!\\\x0F \x02FREE NPK\x02 \x030\x1F/!\\\x0F"
+    2:
+      0:
+      - '{who} joins {prop}!'
+      - 'Oh no! {owner} launches a deadly G-line at {who}!'
+      - 'Oh my! {who} is banned from {prop}!'
+      - 'Oh dear! {who} pays ${cost} to {owner} for trespassing on {prop}!'
+      1:
+      - '{who} enters the mIRC art adventure park on {prop}!'
+      - 'Oh my! {who} is illuminated and overwhelmed by an endless forest of mIRC art bricks in various arrangements!'
+      - 'Oops! {who} buys ${cost} worth of mIRC art from {owner}!'
+      2:
+      - '{who} joins Penis Pump 4 Life on {prop}!'
+      - 'Oops! {who} buys ${cost} worth of penis pumps from {owner}!'
+      3:
+      - '{who} joins EFnet News on {prop}!'
+      - 'Oops! {who} accidentally shoots {rands[0]} armed police officers!'
+      - 'Oh no! {who} is sent to gaol for {rands[0]} years, {rands[1]} days, {rands[2]} hours, {rands[3]} minutes, and {rands[4]} seconds!'
+      - 'Awfom! EFnet News smuggles {who} out of gaol for the nominal fee of ${cost} paid to {owner}!'
+    3:
+      0:
+      - 'G-line silo'
+      1:
+      - 'mIRC art adventure park'
+      2:
+      - 'Penis Pump 4 Life'
+      3:
+      - 'EFnet News'
+    4:
+      0: [6]
+      1: [30]
+      2: [90]
+      3: [270]
   'title': 'EFrael Avenue'
   'type': 5
 9:
@@ -429,71 +342,56 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 120
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} buys a Gigantic MOTD Carpet for {prop}!'
-          1:
-          - '{owner} builds a mspaint.exe Art Gallery in {prop}!'
-          2:
-          - '{owner} founds a Mob of Angry Bots on {prop}!'
-          - 'Oh dear! {owner} will be replaced by the Mob of Angry Bots in {rands[0]} turns!'
-          3:
-          - '{owner} builds a Word Factory on {prop}!'
-          - 'Awfom! {owner} has invented {rands[0]} new sub-dialects of Pumi!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} joins {prop}!'
-          - 'Oops! {who} is apprehended by the Gigantic MOTD Carpet Palace Guard!'
-          - 'Oh my! {who} is forced to read, memorise, and recite the Gigantic MOTD Carpet of {prop}!'
-          - 'Oh no! {who} has made {rands[0]} mistakes and must pay ${cost} to {owner}!'
-          1:
-          - '{who} joins {prop}!'
-          - 'Oh my! {who} is confused and puzzled by the fractal geometry of the mspaint.exe Art Gallery!'
-          - 'Oops! {who} accidentally buys {rands[0]} blank mspaint.exe drawings from {owner} for ${cost}!'
-          2:
-          - '{who} joins {prop}!'
-          - 'Oh no! {who} is textually, sensually, intellectually, emotionally, and cognitively assaulted by a Mob of Angry Bots!'
-          - 'Oh my! {who} appeases the Mob of Angry Bots by paying ${cost} to {owner}!'
-          3:
-          - '{who} joins {prop}!'
-          - 'Oops! {who} buys {rands[0]} words from the jungle of non-existent objects from {owner} for ${cost}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Gigantic MOTD Carpet'
-          1:
-          - 'mspaint.exe Art Gallery'
-          2:
-          - 'Mob of Angry Bots'
-          3:
-          - 'Word Factory'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 8
-          1:
-          - 40
-          2:
-          - 100
-          3:
-          - 300
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} buys a Gigantic MOTD Carpet for {prop}!'
+      1:
+      - '{owner} builds a mspaint.exe Art Gallery in {prop}!'
+      2:
+      - '{owner} founds a Mob of Angry Bots on {prop}!'
+      - 'Oh dear! {owner} will be replaced by the Mob of Angry Bots in {rands[0]} turns!'
+      3:
+      - '{owner} builds a Word Factory on {prop}!'
+      - 'Awfom! {owner} has invented {rands[0]} new sub-dialects of Pumi!'
+    2:
+      0:
+      - '{who} joins {prop}!'
+      - 'Oops! {who} is apprehended by the Gigantic MOTD Carpet Palace Guard!'
+      - 'Oh my! {who} is forced to read, memorise, and recite the Gigantic MOTD Carpet of {prop}!'
+      - 'Oh no! {who} has made {rands[0]} mistakes and must pay ${cost} to {owner}!'
+      1:
+      - '{who} joins {prop}!'
+      - 'Oh my! {who} is confused and puzzled by the fractal geometry of the mspaint.exe Art Gallery!'
+      - 'Oops! {who} accidentally buys {rands[0]} blank mspaint.exe drawings from {owner} for ${cost}!'
+      2:
+      - '{who} joins {prop}!'
+      - 'Oh no! {who} is textually, sensually, intellectually, emotionally, and cognitively assaulted by a Mob of Angry Bots!'
+      - 'Oh my! {who} appeases the Mob of Angry Bots by paying ${cost} to {owner}!'
+      3:
+      - '{who} joins {prop}!'
+      - 'Oops! {who} buys {rands[0]} words from the jungle of non-existent objects from {owner} for ${cost}!'
+    3:
+      0:
+      - 'Gigantic MOTD Carpet'
+      1:
+      - 'mspaint.exe Art Gallery'
+      2:
+      - 'Mob of Angry Bots'
+      3:
+      - 'Word Factory'
+    4:
+      0: [8]
+      1: [40]
+      2: [100]
+      3: [300]
   'title': 'SandNET Oasis'
   'type': 5
 10:
   'colour': 'NONE'
   'colourMiRC': 15
   'field': 10
-  'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'In the loony bin/Just visiting'
   'type': 4
 11:
@@ -508,69 +406,55 @@
   'ownerHasGroup': false
   'price': 140
   'rentAt': [10, 50, 150, 450, 625]
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - 'Oh no! {owner} has started to develop {prop}!'
-          - 'Oh dear! {owner} is developing Ideas of Reference!'
-          - 'Awfom! {owner} discovered {rands[0]} patterns in number plates, spoder webs, people that wear hats vs. people that wear chainsaws, and the order of hours in a {rands[1]} hour day!'
-          1:
-          - '{owner} buys Negative Symptoms on {prop}!'
-          - 'Oh my! {owner}''s Schizophrenia is starting!'
-          - 'Oh no! {owner} can''t be arsed to finish the rest of this sente'
-          - '{owner} whatever {prop} wnt2die'
-          2:
-          - '{owner} buys Delusions on {prop}!'
-          - 'Oh my! {owner}''s Schizophrenia is worsening!'
-          - "Awfom! {owner} understands \x034EVERYTHING\x03!"
-          3:
-          - '{owner} builds a Deadly Art Gallery on {prop}!'
-          - 'Oh my! {owner} has drawn {rands[0]} drawings of kade!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Oh my! {who} bumps into {owner}!'
-          - 'Oops! {who} buys ${cost} worth of patterns from {owner}!'
-          - 'Awfom! {who} gains crazy points!'
-          1:
-          - 'Oops! {who} is sucked into {owner}''s black hole of Negative Symptoms!'
-          - 'Oh my! {who} can''t be arsed to finish the rest of thi'
-          - '${cost} {who} cba {owner}'
-          2:
-          - 'Oh dear! {who} spots {owner} chucking a prolonged speech at nobody in particular!'
-          - 'Awfom! {who} gains entropy and chaos from {owner} for only ${cost}!'
-          3:
-          - '{who} enters {owner}''s Deadly Art Gallery!'
-          - 'Oh no! The Deadly Art Gallery is inside a tesseract!'
-          - 'Oops! {who} pays ${cost} to {owner} for a handdrawn map!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Ideas of Reference'
-          1:
-          - 'Negative Symptoms'
-          2:
-          - 'Delusions'
-          3:
-          - 'Deadly Art Gallery'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 10
-          1:
-          - 50
-          2:
-          - 150
-          3:
-          - 450
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - 'Oh no! {owner} has started to develop {prop}!'
+      - 'Oh dear! {owner} is developing Ideas of Reference!'
+      - 'Awfom! {owner} discovered {rands[0]} patterns in number plates, spoder webs, people that wear hats vs. people that wear chainsaws, and the order of hours in a {rands[1]} hour day!'
+      1:
+      - '{owner} buys Negative Symptoms on {prop}!'
+      - 'Oh my! {owner}''s Schizophrenia is starting!'
+      - 'Oh no! {owner} can''t be arsed to finish the rest of this sente'
+      - '{owner} whatever {prop} wnt2die'
+      2:
+      - '{owner} buys Delusions on {prop}!'
+      - 'Oh my! {owner}''s Schizophrenia is worsening!'
+      - "Awfom! {owner} understands \x034EVERYTHING\x03!"
+      3:
+      - '{owner} builds a Deadly Art Gallery on {prop}!'
+      - 'Oh my! {owner} has drawn {rands[0]} drawings of kade!'
+    2:
+      0:
+      - 'Oh my! {who} bumps into {owner}!'
+      - 'Oops! {who} buys ${cost} worth of patterns from {owner}!'
+      - 'Awfom! {who} gains crazy points!'
+      1:
+      - 'Oops! {who} is sucked into {owner}''s black hole of Negative Symptoms!'
+      - 'Oh my! {who} can''t be arsed to finish the rest of thi'
+      - '${cost} {who} cba {owner}'
+      2:
+      - 'Oh dear! {who} spots {owner} chucking a prolonged speech at nobody in particular!'
+      - 'Awfom! {who} gains entropy and chaos from {owner} for only ${cost}!'
+      3:
+      - '{who} enters {owner}''s Deadly Art Gallery!'
+      - 'Oh no! The Deadly Art Gallery is inside a tesseract!'
+      - 'Oops! {who} pays ${cost} to {owner} for a handdrawn map!'
+    3:
+      0:
+      - 'Ideas of Reference'
+      1:
+      - 'Negative Symptoms'
+      2:
+      - 'Delusions'
+      3:
+      - 'Deadly Art Gallery'
+    4:
+      0: [10]
+      1: [50]
+      2: [150]
+      3: [450]
   'title': 'Schizophrenia'
   'type': 5
 12:
@@ -582,7 +466,6 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 100
-  'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'Oxygen tax (pay $100)'
   'type': 8
 13:
@@ -597,75 +480,61 @@
   'ownerHasGroup': false
   'price': 140
   'rentAt': [10, 50, 150, 450, 625]
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} builds a Crystal Plantation on {prop}!'
-          - '{owner} starts growing crystals!'
-          - 'The {prop} grows denser!'
-          1:
-          - '{owner} momentarily steals everyone''s shadow!'
-          - '{owner} harvests Shadow Lions!'
-          - '{owner} adds Shadow Lion Woods to {prop}!'
-          - 'The Spoke Forest grows much denser!'
-          2:
-          - '{owner} goes to slp!'
-          - 'Awfom! {owner} is dreaming about ants!'
-          - 'Oh my! {owner} puts the dream on a blotter!'
-          - '{owner} adds Acid Ants Jungle to {prop}!'
-          - 'The Spoke Forest is now covering half of the planet!'
-          3:
-          - 'Oh dear! {owner} clones the {prop} into itself!'
-          - 'Awfom! {owner} has built a Hall of Spokes!'
-          - 'Oops! The Spoke Forest is now covering half of the known universe!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} enters the {prop}!'
-          - 'Awfom! {who} eats {rands[0]} white crystals, smokes {rands[1]} green crystals, and pets {rands[2]} pink crystal cats!'
-          - 'Oops! {who} pays ${cost} to {owner}!'
-          1:
-          - '{who} enters the Shadow Lion Woods in the {prop}!'
-          - 'Oh no! A group of Shadow Lions inhales {who}!'
-          - 'Oh dear! {who} is reprocessed into mIRC art!'
-          - 'Awfom! {owner} restores {who} at the cost of ${cost}!'
-          2:
-          - '{who} enters the Acid Ants Jungle in the {prop}!'
-          - 'Oops! {who} falls aslp and can''t wake up!'
-          - 'Oh no! {who} has ceased to exist!'
-          - 'Awfom! {owner} brings {who} back to existence for only ${cost}!'
-          3:
-          - '{who} enters the Hall of Spokes in the {prop}!'
-          - 'Oh dear! {owner} clones {who} into {who}!'
-          - 'Oops! {owner} claims ${cost} from {who} for neutrino-related expenses!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Crystal Plantation'
-          1:
-          - 'Shadow Lion Woods'
-          2:
-          - 'Acid Ants Jungle'
-          3:
-          - 'Hall of Spokes'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 10
-          1:
-          - 50
-          2:
-          - 150
-          3:
-          - 450
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} builds a Crystal Plantation on {prop}!'
+      - '{owner} starts growing crystals!'
+      - 'The {prop} grows denser!'
+      1:
+      - '{owner} momentarily steals everyone''s shadow!'
+      - '{owner} harvests Shadow Lions!'
+      - '{owner} adds Shadow Lion Woods to {prop}!'
+      - 'The Spoke Forest grows much denser!'
+      2:
+      - '{owner} goes to slp!'
+      - 'Awfom! {owner} is dreaming about ants!'
+      - 'Oh my! {owner} puts the dream on a blotter!'
+      - '{owner} adds Acid Ants Jungle to {prop}!'
+      - 'The Spoke Forest is now covering half of the planet!'
+      3:
+      - 'Oh dear! {owner} clones the {prop} into itself!'
+      - 'Awfom! {owner} has built a Hall of Spokes!'
+      - 'Oops! The Spoke Forest is now covering half of the known universe!'
+    2:
+      0:
+      - '{who} enters the {prop}!'
+      - 'Awfom! {who} eats {rands[0]} white crystals, smokes {rands[1]} green crystals, and pets {rands[2]} pink crystal cats!'
+      - 'Oops! {who} pays ${cost} to {owner}!'
+      1:
+      - '{who} enters the Shadow Lion Woods in the {prop}!'
+      - 'Oh no! A group of Shadow Lions inhales {who}!'
+      - 'Oh dear! {who} is reprocessed into mIRC art!'
+      - 'Awfom! {owner} restores {who} at the cost of ${cost}!'
+      2:
+      - '{who} enters the Acid Ants Jungle in the {prop}!'
+      - 'Oops! {who} falls aslp and can''t wake up!'
+      - 'Oh no! {who} has ceased to exist!'
+      - 'Awfom! {owner} brings {who} back to existence for only ${cost}!'
+      3:
+      - '{who} enters the Hall of Spokes in the {prop}!'
+      - 'Oh dear! {owner} clones {who} into {who}!'
+      - 'Oops! {owner} claims ${cost} from {who} for neutrino-related expenses!'
+    3:
+      0:
+      - 'Crystal Plantation'
+      1:
+      - 'Shadow Lion Woods'
+      2:
+      - 'Acid Ants Jungle'
+      3:
+      - 'Hall of Spokes'
+    4:
+      0: [10]
+      1: [50]
+      2: [150]
+      3: [450]
   'title': 'Spoke Forest'
   'type': 5
 14:
@@ -680,72 +549,58 @@
   'ownerHasGroup': false
   'price': 160
   'rentAt': [12, 60, 180, 500, 700]
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - 'Oh my! The {prop} contains a Hidden Cave of Health Mushrooms!'
-          - 'Oh dear! The Hidden Cave of Health Mushrooms contains a Nadia!'
-          - 'The Nadias are multiplying!'
-          1:
-          - '{owner} starts a Covert Cryptocurrency Pyramid Scam in the {prop}!'
-          - 'Awfom! {owner} gains 2200 BTC, 1200 ETH, 1150 HIE, and 476 Djiboutian Biti-Bitis!'
-          - 'Oops! Crab People are beginning to raid the Cryptocurrency Pyramid!'
-          - 'The Nadias are multiplying!'
-          2:
-          - '{owner} buys a 14.8 Tesla Facebook Friendship Magnet for the {prop}!'
-          - 'Awfom! {owner}''s {prop} gains 7.6 billion new Facebook Friendships!'
-          - 'The Nadias are multiplying!'
-          3:
-          - '{owner} builds a Icy Death Plains Owl Farm inside the Hidden Cave of Health Mushrooms in the {prop}!'
-          - 'The Nadias are freezing!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Oh no! {who} is losing it!'
-          - '{who} is sent to the Nadia inside the Hidden Cave of Health Mushrooms in {owner}''s {prop}!'
-          - 'Awfom! {who} is found, cured, sliced, diced, and ironed at the cost of only ${cost} paid to {owner}!'
-          1:
-          - 'Oh dear! {who} is showing symptoms of Low On Cash Disorder (LOCD) and Spontaneous Money Evaporation Syndrome (SMES)!'
-          - '{who} is sent to the Cryptocurrency Pyramid in {owner}''s {prop} for extensive treatment!'
-          - 'Oh no! Crab People from the Cryptocurrency Pyramid are attacking {who}!'
-          - 'Oops! The Crab People obtain ${cost} from {who} in order to further {owner}''s Covert Cryptocurrency Pyramid Scam!'
-          2:
-          - 'Oh no! {who} is running out of Facebook Friends!'
-          - '{who} is sent to {owner}''s {prop} for immediate Facebook Friendship transfusion!'
-          - 'Awfom! {who} gains {rands[0]} million new Facebook Friendships thanks to {owner}''s 14.8 Tesla Facebook Friendship Magnet for only ${cost}!'
-          3:
-          - 'Oh dear! {who}''s blood owl level is dangerously low!'
-          - '{who} is sent to the Icy Death Plains Owl Farm inside the Hidden Cave of Health Mushrooms in {owner}''s {prop}!'
-          - 'Awfom! {who}''s blood is replaced with the freezing Nadias at {owner}''s {prop} for only ${cost}!'
-          - 'The Nadias are decreasing!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Hidden Cave of Health Mushrooms'
-          1:
-          - 'Covert Cryptocurrency Pyramid Scam'
-          2:
-          - '14.8 Tesla Facebook Friendship Magnet'
-          3:
-          - 'Icy Death Plains Owl Farm'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 12
-          1:
-          - 60
-          2:
-          - 180
-          3:
-          - 500
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - 'Oh my! The {prop} contains a Hidden Cave of Health Mushrooms!'
+      - 'Oh dear! The Hidden Cave of Health Mushrooms contains a Nadia!'
+      - 'The Nadias are multiplying!'
+      1:
+      - '{owner} starts a Covert Cryptocurrency Pyramid Scam in the {prop}!'
+      - 'Awfom! {owner} gains 2200 BTC, 1200 ETH, 1150 HIE, and 476 Djiboutian Biti-Bitis!'
+      - 'Oops! Crab People are beginning to raid the Cryptocurrency Pyramid!'
+      - 'The Nadias are multiplying!'
+      2:
+      - '{owner} buys a 14.8 Tesla Facebook Friendship Magnet for the {prop}!'
+      - 'Awfom! {owner}''s {prop} gains 7.6 billion new Facebook Friendships!'
+      - 'The Nadias are multiplying!'
+      3:
+      - '{owner} builds a Icy Death Plains Owl Farm inside the Hidden Cave of Health Mushrooms in the {prop}!'
+      - 'The Nadias are freezing!'
+    2:
+      0:
+      - 'Oh no! {who} is losing it!'
+      - '{who} is sent to the Nadia inside the Hidden Cave of Health Mushrooms in {owner}''s {prop}!'
+      - 'Awfom! {who} is found, cured, sliced, diced, and ironed at the cost of only ${cost} paid to {owner}!'
+      1:
+      - 'Oh dear! {who} is showing symptoms of Low On Cash Disorder (LOCD) and Spontaneous Money Evaporation Syndrome (SMES)!'
+      - '{who} is sent to the Cryptocurrency Pyramid in {owner}''s {prop} for extensive treatment!'
+      - 'Oh no! Crab People from the Cryptocurrency Pyramid are attacking {who}!'
+      - 'Oops! The Crab People obtain ${cost} from {who} in order to further {owner}''s Covert Cryptocurrency Pyramid Scam!'
+      2:
+      - 'Oh no! {who} is running out of Facebook Friends!'
+      - '{who} is sent to {owner}''s {prop} for immediate Facebook Friendship transfusion!'
+      - 'Awfom! {who} gains {rands[0]} million new Facebook Friendships thanks to {owner}''s 14.8 Tesla Facebook Friendship Magnet for only ${cost}!'
+      3:
+      - 'Oh dear! {who}''s blood owl level is dangerously low!'
+      - '{who} is sent to the Icy Death Plains Owl Farm inside the Hidden Cave of Health Mushrooms in {owner}''s {prop}!'
+      - 'Awfom! {who}''s blood is replaced with the freezing Nadias at {owner}''s {prop} for only ${cost}!'
+      - 'The Nadias are decreasing!'
+    3:
+      0:
+      - 'Hidden Cave of Health Mushrooms'
+      1:
+      - 'Covert Cryptocurrency Pyramid Scam'
+      2:
+      - '14.8 Tesla Facebook Friendship Magnet'
+      3:
+      - 'Icy Death Plains Owl Farm'
+    4:
+      0: [12]
+      1: [60]
+      2: [180]
+      3: [500]
   'title': 'Nadia Hospital'
   'type': 5
 15:
@@ -757,41 +612,27 @@
   'mortgaged': false
   'owner': -1
   'price': 200
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          1:
-          - '{owner} builds a Winged Chrono Tree on {prop}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} pays ${cost} to {owner}!'
-          1:
-          - '{who} pays ${cost} to {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Winged Chrono Port'
-          1:
-          - 'Winged Chrono Tree'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          1:
-          - 25
-          2:
-          - 50
-          3:
-          - 100
-          4:
-          - 200
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      1:
+      - '{owner} builds a Winged Chrono Tree on {prop}!'
+    2:
+      0:
+      - '{who} pays ${cost} to {owner}!'
+      1:
+      - '{who} pays ${cost} to {owner}!'
+    3:
+      0:
+      - 'Winged Chrono Port'
+      1:
+      - 'Winged Chrono Tree'
+    4:
+      1: [25]
+      2: [50]
+      3: [100]
+      4: [200]
   'title': 'Winged Chrono Port'
   'type': 10
 16:
@@ -805,69 +646,55 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 180
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} builds acidstorm''s Cell on {prop}!'
-          - "\x030\x1F/!\\\x0F \x02FREE ACIDSTORM\x02 \x030\x1F/!\\\x0F"
-          1:
-          - '{owner} builds alghazi''s Kraken Lair on {prop}!'
-          - 'Oops! {owner} takes {rands[0]}g plantation maeng da, {rands[1]}g red maha kali, {rands[2]}g red sumatra, and {rands[3]}mg white maeng da!'
-          - 'Awfom! {owner} is hie as fuck!'
-          2:
-          - '{owner} runs into dzl on {prop}!'
-          - 'Awfom! {owner} has bought one (1) dzl''s $700 Shirt!'
-          - 'Oops! It''s dolphin-shaped!'
-          3:
-          - '{owner} builds vap0r''s Chop Shop on {prop}!'
-          - 'Awfom! {owner} hires Omar with the Scimitar!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} joins acidstorm''s Cell on {prop}!'
-          - 'Oh no! {owner} arranges for a prisoner exchange and gets {who} sent to gaol!'
-          - 'Oops! {who} pays ${cost} to {owner} to get released from gaol!'
-          1:
-          - '{who} joins alghazi''s Kraken Lair on {prop}!'
-          - 'Oh no! {owner}''s Kraken attacks {who}!'
-          - 'Oh my! {owner}''s Kraken partially agonises {who}''s μ-opioid receptors!'
-          - 'Oops! {who} is hie as fuck and pays ${cost} to {owner}!'
-          2:
-          - '{who} joins {prop}!'
-          - 'Awfom! {owner} leases dzl''s $700 Shirt to {who} for only ${cost}!'
-          - 'Oh dear! {owner} has attracted {rands[0]} trannies, {rands[1]} Facebook bints, {rands[2]} stickup kids, and the IRS!'
-          3:
-          - '{who} joins vap0r''s Chop Shop on {prop}!'
-          - 'Oh no! {owner} chops {who} into {rands[0]} pieces with Omar''s Scimitar!'
-          - 'Oops! {who} pays ${cost} to {owner} for Body Rearrangement Surgery!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'acidstorm''s Cell'
-          1:
-          - 'alghazi''s Kraken Lair'
-          2:
-          - 'dzl''s $700 Shirt'
-          3:
-          - 'vap0r''s Chop Shop'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 14
-          1:
-          - 70
-          2:
-          - 200
-          3:
-          - 550
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} builds acidstorm''s Cell on {prop}!'
+      - "\x030\x1F/!\\\x0F \x02FREE ACIDSTORM\x02 \x030\x1F/!\\\x0F"
+      1:
+      - '{owner} builds alghazi''s Kraken Lair on {prop}!'
+      - 'Oops! {owner} takes {rands[0]}g plantation maeng da, {rands[1]}g red maha kali, {rands[2]}g red sumatra, and {rands[3]}mg white maeng da!'
+      - 'Awfom! {owner} is hie as fuck!'
+      2:
+      - '{owner} runs into dzl on {prop}!'
+      - 'Awfom! {owner} has bought one (1) dzl''s $700 Shirt!'
+      - 'Oops! It''s dolphin-shaped!'
+      3:
+      - '{owner} builds vap0r''s Chop Shop on {prop}!'
+      - 'Awfom! {owner} hires Omar with the Scimitar!'
+    2:
+      0:
+      - '{who} joins acidstorm''s Cell on {prop}!'
+      - 'Oh no! {owner} arranges for a prisoner exchange and gets {who} sent to gaol!'
+      - 'Oops! {who} pays ${cost} to {owner} to get released from gaol!'
+      1:
+      - '{who} joins alghazi''s Kraken Lair on {prop}!'
+      - 'Oh no! {owner}''s Kraken attacks {who}!'
+      - 'Oh my! {owner}''s Kraken partially agonises {who}''s μ-opioid receptors!'
+      - 'Oops! {who} is hie as fuck and pays ${cost} to {owner}!'
+      2:
+      - '{who} joins {prop}!'
+      - 'Awfom! {owner} leases dzl''s $700 Shirt to {who} for only ${cost}!'
+      - 'Oh dear! {owner} has attracted {rands[0]} trannies, {rands[1]} Facebook bints, {rands[2]} stickup kids, and the IRS!'
+      3:
+      - '{who} joins vap0r''s Chop Shop on {prop}!'
+      - 'Oh no! {owner} chops {who} into {rands[0]} pieces with Omar''s Scimitar!'
+      - 'Oops! {who} pays ${cost} to {owner} for Body Rearrangement Surgery!'
+    3:
+      0:
+      - 'acidstorm''s Cell'
+      1:
+      - 'alghazi''s Kraken Lair'
+      2:
+      - 'dzl''s $700 Shirt'
+      3:
+      - 'vap0r''s Chop Shop'
+    4:
+      0: [14]
+      1: [70]
+      2: [200]
+      3: [550]
   'title': 'IRC Housing Projects'
   'type': 5
 17:
@@ -879,7 +706,6 @@
   'owner': -1
   'ownerHasGroup': false
   'price': -1
-  'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'Community Brr'
   'type': 2
 18:
@@ -893,74 +719,60 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 180
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} puts a Banbot on {prop}!'
-          - 'Oh no! {owner} is turning into weev!'
-          - 'Oh my! {owner} turns into a self-loathing dwarf!'
-          1:
-          - '{owner} builds an Accidental Blowjob Help Call Centre on {prop}!'
-          - 'Oh my! {owner} is turning into weev!'
-          - 'Oh dear! {owner} grows a shiny red beard!'
-          2:
-          - '{owner} builds a Extremely Talkative Hepkitten Fountain on {prop}!'
-          - 'Oh shit! {owner} is turning into weev!'
-          - 'Oh no! {owner} gains a mutilated microcock!'
-          3:
-          - '{owner} builds a Weev Cave on {prop}!'
-          - 'Oh shit! {owner} has turned into weev!'
-          - 'Oh dear! {owner} has attracted a Luper!'
-          - 'Oh no! The Luper is anally raping {owner}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} joins {prop}!'
-          - 'Oh shit! {owner}''s Banbot bans {who} from {prop}!'
-          - 'Awfom! {who} bribes {owner}''s Banbot with ${cost} and is invited back!'
-          1:
-          - '{who} joins {prop}!'
-          - 'Oops! {who} ingests, shoots up, smokes, and snorts {rands[0]} XTCs!'
-          - 'Oh no! {who} accidentally sucks {rands[0]} cocks!'
-          - 'Oh dear! {who} loses ${cost} to {owner}''s Accidental Blowjob Help Call Centre!'
-          2:
-          - '{who} joins {prop}!'
-          - 'Oh my! {owner}''s Extremely Talkative Hepkitten Fountain is blogging at {who}!'
-          - 'Awfom! {who} smashes the Extremely Talkative Hepkitten Fountain!'
-          - 'Oops! {who} pays ${cost} to {owner} for smashing the Extremely Talkative Hepkitten Fountain!'
-          3:
-          - '{who} joins {owner} and the Luper in the Weev Cave on {prop}!'
-          - 'Oh dear! {who} looks upon {owner} and the Luper and is revolted!'
-          - 'Oh my! {who} pukes on {owner}!'
-          - 'Oops! {who} makes {owner} and the Luper go away with ${cost}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Banbot'
-          1:
-          - 'Accidental Blowjob Help Call Centre'
-          2:
-          - 'Extremely Talkative Hepkitten Fountain'
-          3:
-          - 'Weev Cave'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 14
-          1:
-          - 70
-          2:
-          - 200
-          3:
-          - 550
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} puts a Banbot on {prop}!'
+      - 'Oh no! {owner} is turning into weev!'
+      - 'Oh my! {owner} turns into a self-loathing dwarf!'
+      1:
+      - '{owner} builds an Accidental Blowjob Help Call Centre on {prop}!'
+      - 'Oh my! {owner} is turning into weev!'
+      - 'Oh dear! {owner} grows a shiny red beard!'
+      2:
+      - '{owner} builds a Extremely Talkative Hepkitten Fountain on {prop}!'
+      - 'Oh shit! {owner} is turning into weev!'
+      - 'Oh no! {owner} gains a mutilated microcock!'
+      3:
+      - '{owner} builds a Weev Cave on {prop}!'
+      - 'Oh shit! {owner} has turned into weev!'
+      - 'Oh dear! {owner} has attracted a Luper!'
+      - 'Oh no! The Luper is anally raping {owner}!'
+    2:
+      0:
+      - '{who} joins {prop}!'
+      - 'Oh shit! {owner}''s Banbot bans {who} from {prop}!'
+      - 'Awfom! {who} bribes {owner}''s Banbot with ${cost} and is invited back!'
+      1:
+      - '{who} joins {prop}!'
+      - 'Oops! {who} ingests, shoots up, smokes, and snorts {rands[0]} XTCs!'
+      - 'Oh no! {who} accidentally sucks {rands[0]} cocks!'
+      - 'Oh dear! {who} loses ${cost} to {owner}''s Accidental Blowjob Help Call Centre!'
+      2:
+      - '{who} joins {prop}!'
+      - 'Oh my! {owner}''s Extremely Talkative Hepkitten Fountain is blogging at {who}!'
+      - 'Awfom! {who} smashes the Extremely Talkative Hepkitten Fountain!'
+      - 'Oops! {who} pays ${cost} to {owner} for smashing the Extremely Talkative Hepkitten Fountain!'
+      3:
+      - '{who} joins {owner} and the Luper in the Weev Cave on {prop}!'
+      - 'Oh dear! {who} looks upon {owner} and the Luper and is revolted!'
+      - 'Oh my! {who} pukes on {owner}!'
+      - 'Oops! {who} makes {owner} and the Luper go away with ${cost}!'
+    3:
+      0:
+      - 'Banbot'
+      1:
+      - 'Accidental Blowjob Help Call Centre'
+      2:
+      - 'Extremely Talkative Hepkitten Fountain'
+      3:
+      - 'Weev Cave'
+    4:
+      0: [14]
+      1: [70]
+      2: [200]
+      3: [550]
   'title': '#bantown'
   'type': 5
 19:
@@ -974,70 +786,56 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 200
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} installs an Infinite /FORCEJOIN Cannon on {prop}!'
-          - 'Over {rands[0]} thousand people have succumbed to {owner}''s {prop}!'
-          1:
-          - '{owner} builds an IRC Help Support Centre on {prop}!'
-          - 'Over {rands[0]} million people have succumbed to {owner}''s {prop}!'
-          2:
-          - '{owner} installed an IRL DDoS Device on {prop}!'
-          - 'Over {rands[0]} billion people have succumbed to {owner}''s {prop}!'
-          3:
-          - '{owner} puts a Puking Pillow into {prop}!'
-          - 'Over {rands[0]} trillion people have succumbed to {owner}''s {prop}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} joins {prop}!'
-          - 'Oh dear! {owner} has installed an Infinite /FORCEJOIN Cannon on {prop}!'
-          - 'Oh my! {owner} forcibly joins {who} to {rands[0]} thousand channels!'
-          - 'Oh no! {who} loses ${cost} to {owner} for Infinite /FORCEJOIN channel tax!'
-          1:
-          - '{who} joins the IRC Help Support Centre on {prop}!'
-          - 'Oops! {who} receives {rands[0]} million channel /FORCEJOINs instead of help!'
-          - 'Oh no! {who} pays ${cost} to {owner} for visiting the IRC Help Support Centre!'
-          2:
-          - '{who} joins {prop}!'
-          - 'Oh shit! {owner} has installed an IRL DDoS Device on {prop}!'
-          - 'Oh dear! {rands[0]} unemployed blowfish are join-part spamming {who}''s flat IRL!'
-          - 'Oh no! {rands[0]} thousand empty boxes have been delivered to {who}''s flat!'
-          - 'Oops! {who} loses ${cost} to {owner} for no apparent reason!'
-          3:
-          - '{who} joins {prop}!'
-          - 'Oh no! {owner} uses the Puking Pillow on {who}!'
-          - 'Oh my! {owner} pukes on {who}!'
-          - 'Oops! {who} pays ${cost} to {owner} to get cleaned up!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Infinite /FORCEJOIN Cannon'
-          1:
-          - 'IRC Help Support Centre'
-          2:
-          - 'IRL DDoS Device'
-          3:
-          - 'Puking Pillow'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 16
-          1:
-          - 80
-          2:
-          - 220
-          3:
-          - 600
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} installs an Infinite /FORCEJOIN Cannon on {prop}!'
+      - 'Over {rands[0]} thousand people have succumbed to {owner}''s {prop}!'
+      1:
+      - '{owner} builds an IRC Help Support Centre on {prop}!'
+      - 'Over {rands[0]} million people have succumbed to {owner}''s {prop}!'
+      2:
+      - '{owner} installed an IRL DDoS Device on {prop}!'
+      - 'Over {rands[0]} billion people have succumbed to {owner}''s {prop}!'
+      3:
+      - '{owner} puts a Puking Pillow into {prop}!'
+      - 'Over {rands[0]} trillion people have succumbed to {owner}''s {prop}!'
+    2:
+      0:
+      - '{who} joins {prop}!'
+      - 'Oh dear! {owner} has installed an Infinite /FORCEJOIN Cannon on {prop}!'
+      - 'Oh my! {owner} forcibly joins {who} to {rands[0]} thousand channels!'
+      - 'Oh no! {who} loses ${cost} to {owner} for Infinite /FORCEJOIN channel tax!'
+      1:
+      - '{who} joins the IRC Help Support Centre on {prop}!'
+      - 'Oops! {who} receives {rands[0]} million channel /FORCEJOINs instead of help!'
+      - 'Oh no! {who} pays ${cost} to {owner} for visiting the IRC Help Support Centre!'
+      2:
+      - '{who} joins {prop}!'
+      - 'Oh shit! {owner} has installed an IRL DDoS Device on {prop}!'
+      - 'Oh dear! {rands[0]} unemployed blowfish are join-part spamming {who}''s flat IRL!'
+      - 'Oh no! {rands[0]} thousand empty boxes have been delivered to {who}''s flat!'
+      - 'Oops! {who} loses ${cost} to {owner} for no apparent reason!'
+      3:
+      - '{who} joins {prop}!'
+      - 'Oh no! {owner} uses the Puking Pillow on {who}!'
+      - 'Oh my! {owner} pukes on {who}!'
+      - 'Oops! {who} pays ${cost} to {owner} to get cleaned up!'
+    3:
+      0:
+      - 'Infinite /FORCEJOIN Cannon'
+      1:
+      - 'IRC Help Support Centre'
+      2:
+      - 'IRL DDoS Device'
+      3:
+      - 'Puking Pillow'
+    4:
+      0: [16]
+      1: [80]
+      2: [220]
+      3: [600]
   'title': '#5000'
   'type': 5
 20:
@@ -1049,7 +847,6 @@
   'owner': -1
   'ownerHasGroup': false
   'price': -1
-  'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'Free LSD! la ^_^'
   'type': 3
 21:
@@ -1063,69 +860,55 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 220
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - "{owner} starts synthesizing Benzo\x1Fdie\x1Fazepines on {prop}!"
-          - "Oh no! {owner} is addicted to Benzo\x1Fdie\x1Fazepines!"
-          1:
-          - "{owner} starts growing Neuro\x1Fdeath\x1Fics on {prop}!"
-          - 'Oops! {owner}''s brane cells are dying!'
-          2:
-          - '{owner} is tired of hate crimes, the overprivileged, free speech, and common sense!'
-          - '{owner} introduces Political Correctness on {prop}!'
-          - 'Awfom! {owner} has attracted a Legion of Pissed Off Social Justice Warriors!'
-          3:
-          - '{owner} starts harvesting Happy Pills on {prop}!'
-          - 'Oh no! The Happy Pills are very unhappy!'
-          - 'Oh shit! Twill appears and sings her tunes to the unhappy Happy Pills!'
-          - 'Awfom! The unhappy Happy Pills destroy Twill and become happy!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - "Oh dear! {who} has Chronic Insomnia and Benzo\x1Fdie\x1Fazepine Addiction!"
-          - '{who} visits the {prop}!'
-          - "Awfom! {who} buys {rands[0]} Benzo\x1Fdie\x1Fazepines for ${cost} from {owner}!"
-          1:
-          - 'Oh my! {who} is diagnosed with Catatonic Schizophrenia and Unexplained Spontaneous Death Syndrome!'
-          - '{who} visits the {prop}!'
-          - "Awfom! {who} buys {rands[0]} Neuro\x1Fdeath\x1Fics for ${cost} from {owner}!"
-          2:
-          - 'Oh shit! {owner} has caught {who} being a patriarchialist, nationalistic, fascist, and transphobic pig!'
-          - 'Oh no! {who} loses ${cost} to {owner} for violating Political Correctness!'
-          3:
-          - 'Oh dear! {owner} feels very unhappy and depressed!'
-          - '{who} visits the {prop}!'
-          - 'Awfom! {who} buys {rands[0]} Happy Pills from {owner} for ${cost} and becomes happy!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - "Benzo\x1Fdie\x1Fazepines"
-          1:
-          - "Neuro\x1Fdeath\x1Fics"
-          2:
-          - 'Political Correctness'
-          3:
-          - 'Happy Pills'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 18
-          1:
-          - 90
-          2:
-          - 250
-          3:
-          - 700
-  'title': "Crazy Pills Factory"
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - "{owner} starts synthesizing Benzo\x1Fdie\x1Fazepines on {prop}!"
+      - "Oh no! {owner} is addicted to Benzo\x1Fdie\x1Fazepines!"
+      1:
+      - "{owner} starts growing Neuro\x1Fdeath\x1Fics on {prop}!"
+      - 'Oops! {owner}''s brane cells are dying!'
+      2:
+      - '{owner} is tired of hate crimes, the overprivileged, free speech, and common sense!'
+      - '{owner} introduces Political Correctness on {prop}!'
+      - 'Awfom! {owner} has attracted a Legion of Pissed Off Social Justice Warriors!'
+      3:
+      - '{owner} starts harvesting Happy Pills on {prop}!'
+      - 'Oh no! The Happy Pills are very unhappy!'
+      - 'Oh shit! Twill appears and sings her tunes to the unhappy Happy Pills!'
+      - 'Awfom! The unhappy Happy Pills destroy Twill and become happy!'
+    2:
+      0:
+      - "Oh dear! {who} has Chronic Insomnia and Benzo\x1Fdie\x1Fazepine Addiction!"
+      - '{who} visits the {prop}!'
+      - "Awfom! {who} buys {rands[0]} Benzo\x1Fdie\x1Fazepines for ${cost} from {owner}!"
+      1:
+      - 'Oh my! {who} is diagnosed with Catatonic Schizophrenia and Unexplained Spontaneous Death Syndrome!'
+      - '{who} visits the {prop}!'
+      - "Awfom! {who} buys {rands[0]} Neuro\x1Fdeath\x1Fics for ${cost} from {owner}!"
+      2:
+      - 'Oh shit! {owner} has caught {who} being a patriarchialist, nationalistic, fascist, and transphobic pig!'
+      - 'Oh no! {who} loses ${cost} to {owner} for violating Political Correctness!'
+      3:
+      - 'Oh dear! {owner} feels very unhappy and depressed!'
+      - '{who} visits the {prop}!'
+      - 'Awfom! {who} buys {rands[0]} Happy Pills from {owner} for ${cost} and becomes happy!'
+    3:
+      0:
+      - "Benzo\x1Fdie\x1Fazepines"
+      1:
+      - "Neuro\x1Fdeath\x1Fics"
+      2:
+      - 'Political Correctness'
+      3:
+      - 'Happy Pills'
+    4:
+      0: [18]
+      1: [90]
+      2: [250]
+      3: [700]
+  'title': 'Crazy Pills Factory'
   'type': 5
 22:
   'colour': 'NONE'
@@ -1136,7 +919,6 @@
   'owner': -1
   'ownerHasGroup': false
   'price': -1
-  'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'Chance'
   'type': 1
 23:
@@ -1150,69 +932,55 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 220
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} builds a   on {prop}!'
-          - 'The   multiply!'
-          1:
-          - '{owner} builds another   on {prop}!'
-          - 'The   are waking up!'
-          2:
-          - '{owner} builds a third   on {prop}!'
-          - 'The   are roaring in fury!'
-          3:
-          - '{owner} builds a fourth   on {prop}!'
-          - 'The   have become!'
-          - 'Saving {owner}''s consciousness to STOLENBRANES/ARABOLY/{rands[0]}.DAT...'
-          - 'Done! Have a nice death!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Why is {who} here?'
-          - 'Oh no! {who} forgot {who}''s name!'
-          - 'Oh dear! {who} forgets ${cost} in {owner}''s {prop}!'
-          1:
-          - 'When did {who} come here?'
-          - 'Oh my! {who} is hopelessly lost!'
-          - 'Oops! {owner} sells {who} a map to {prop} for ${cost}!'
-          2:
-          - 'Suddenly, a big scary ArabolyTypeClass.py appears and bites {who} in the object!'
-          - 'Oh no! A pride of voraciously hungry   is drinking {who}''s bits!'
-          - 'Awfom! {who} fights them off with ${cost} paid to {owner}!'
-          3:
-          - 'Oh shit! A starving horde of stolen branes assaults {who} on {owner}''s {prop}!'
-          - 'Oh dear! {who} flees into Breaking Bad Season 3 Episode 10!'
-          - 'Awfom! {who} buys {rands[0]} kg meth from Walt and Jesse in order to return to reality!'
-          - 'Oops! Jesse turned out to be {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - "\x02\x02"
-          1:
-          - "\x03\x03"
-          2:
-          - "\x1F\x1F"
-          3:
-          - "\x0F\x0F"
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 18
-          1:
-          - 90
-          2:
-          - 250
-          3:
-          - 700
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} builds a   on {prop}!'
+      - 'The   multiply!'
+      1:
+      - '{owner} builds another   on {prop}!'
+      - 'The   are waking up!'
+      2:
+      - '{owner} builds a third   on {prop}!'
+      - 'The   are roaring in fury!'
+      3:
+      - '{owner} builds a fourth   on {prop}!'
+      - 'The   have become!'
+      - 'Saving {owner}''s consciousness to STOLENBRANES/ARABOLY/{rands[0]}.DAT...'
+      - 'Done! Have a nice death!'
+    2:
+      0:
+      - 'Why is {who} here?'
+      - 'Oh no! {who} forgot {who}''s name!'
+      - 'Oh dear! {who} forgets ${cost} in {owner}''s {prop}!'
+      1:
+      - 'When did {who} come here?'
+      - 'Oh my! {who} is hopelessly lost!'
+      - 'Oops! {owner} sells {who} a map to {prop} for ${cost}!'
+      2:
+      - 'Suddenly, a big scary ArabolyTypeClass.py appears and bites {who} in the object!'
+      - 'Oh no! A pride of voraciously hungry   is drinking {who}''s bits!'
+      - 'Awfom! {who} fights them off with ${cost} paid to {owner}!'
+      3:
+      - 'Oh shit! A starving horde of stolen branes assaults {who} on {owner}''s {prop}!'
+      - 'Oh dear! {who} flees into Breaking Bad Season 3 Episode 10!'
+      - 'Awfom! {who} buys {rands[0]} kg meth from Walt and Jesse in order to return to reality!'
+      - 'Oops! Jesse turned out to be {owner}!'
+    3:
+      0:
+      - "\x02\x02"
+      1:
+      - "\x03\x03"
+      2:
+      - "\x1F\x1F"
+      3:
+      - "\x0F\x0F"
+    4:
+      0: [18]
+      1: [90]
+      2: [250]
+      3: [700]
   'title': "\x02\x02"
   'type': 5
 24:
@@ -1226,67 +994,53 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 240
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - "\x032\x1F/!\\\x0F \x02DO YOU LIKE MONEY? DO YOU LIKE EVEN MORE MONEY?\x02 \x032\x1F/!\\\x0F"
-          - "\x033\x1F/!\\\x0F \x02SO DO WE! OPEN A TOPLESS BANK ACCOUNT AT HELLS PASS BANK \x1FTODAY\x1F!\x02 \x033\x1F/!\\\x0F"
-          1:
-          - '{owner} builds an Idea Copyright Violation Office in {prop}!'
-          - "\x034\x1F/!\\\x0F \x02DO YOU LIKE IDEAS? HAVE YOU GOT ANY?\x02 \x034\x1F/!\\\x0F"
-          - "\x035\x1F/!\\\x0F \x02WELL WE DON'T SO WE'LL STEAL YOURS AND GET RICH!\x02 \x035\x1F/!\\\x0F"
-          2:
-          - '{owner} builds a Soul Problem Unit in {prop}!'
-          - "\x036\x1F/!\\\x0F \x02DID YOU KNOW THAT INFALLIBLE EMPIRICAL SCIENCE HAS PROVEN THAT SOULS DO NOT EXIST?\x02 \x036\x1F/!\\\x0F"
-          3:
-          - 'Oh no! {owner}''s {prop} has gone spontaneously bankrupt for no apparent reason!'
-          - 'Awfom! The Government bails out {prop}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} checks their Topless Bank Account balance at {owner}''s {prop}!'
-          - 'Oh no! {who} didn''t read the fine print (volumes III-XI, annotated)!'
-          - 'Oops! {who} loses ${cost} to {owner}!'
-          1:
-          - '{who} walks past {owner}''s {prop}!'
-          - 'Oops! {prop} charges {who} with copyright violations over breathing(c), walking(c), possessing DNA(c), and the English(c) language!'
-          - 'Oh no! {who} must pay ${cost} to {owner}!'
-          2:
-          - '{who} walks past {owner}''s {prop}!'
-          - 'Oh my! {owner} uses Infallible Empirical Science in order to prove that {who} does not exist!'
-          - 'Oops! {prop} orders {who} to pay ${cost} to {owner} for disagreeing with Infallible Empirical Science!'
-          3:
-          - 'Oh dear! {owner}''s {prop} has gone spontaneously bankrupt again for no apparent reason! How exceedingly improbable!'
-          - 'Awfom! The Government bails out {prop}!'
-          - 'Oops! The Government forces {who} to pay ${cost} to {prop}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Topless Bank Account'
-          1:
-          - 'Idea Copyright Violation Office'
-          2:
-          - 'Soul Problem Unit'
-          3:
-          - 'Government Bailout'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 20
-          1:
-          - 100
-          2:
-          - 300
-          3:
-          - 750
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - "\x032\x1F/!\\\x0F \x02DO YOU LIKE MONEY? DO YOU LIKE EVEN MORE MONEY?\x02 \x032\x1F/!\\\x0F"
+      - "\x033\x1F/!\\\x0F \x02SO DO WE! OPEN A TOPLESS BANK ACCOUNT AT HELLS PASS BANK \x1FTODAY\x1F!\x02 \x033\x1F/!\\\x0F"
+      1:
+      - '{owner} builds an Idea Copyright Violation Office in {prop}!'
+      - "\x034\x1F/!\\\x0F \x02DO YOU LIKE IDEAS? HAVE YOU GOT ANY?\x02 \x034\x1F/!\\\x0F"
+      - "\x035\x1F/!\\\x0F \x02WELL WE DON'T SO WE'LL STEAL YOURS AND GET RICH!\x02 \x035\x1F/!\\\x0F"
+      2:
+      - '{owner} builds a Soul Problem Unit in {prop}!'
+      - "\x036\x1F/!\\\x0F \x02DID YOU KNOW THAT INFALLIBLE EMPIRICAL SCIENCE HAS PROVEN THAT SOULS DO NOT EXIST?\x02 \x036\x1F/!\\\x0F"
+      3:
+      - 'Oh no! {owner}''s {prop} has gone spontaneously bankrupt for no apparent reason!'
+      - 'Awfom! The Government bails out {prop}!'
+    2:
+      0:
+      - '{who} checks their Topless Bank Account balance at {owner}''s {prop}!'
+      - 'Oh no! {who} didn''t read the fine print (volumes III-XI, annotated)!'
+      - 'Oops! {who} loses ${cost} to {owner}!'
+      1:
+      - '{who} walks past {owner}''s {prop}!'
+      - 'Oops! {prop} charges {who} with copyright violations over breathing(c), walking(c), possessing DNA(c), and the English(c) language!'
+      - 'Oh no! {who} must pay ${cost} to {owner}!'
+      2:
+      - '{who} walks past {owner}''s {prop}!'
+      - 'Oh my! {owner} uses Infallible Empirical Science in order to prove that {who} does not exist!'
+      - 'Oops! {prop} orders {who} to pay ${cost} to {owner} for disagreeing with Infallible Empirical Science!'
+      3:
+      - 'Oh dear! {owner}''s {prop} has gone spontaneously bankrupt again for no apparent reason! How exceedingly improbable!'
+      - 'Awfom! The Government bails out {prop}!'
+      - 'Oops! The Government forces {who} to pay ${cost} to {prop}!'
+    3:
+      0:
+      - 'Topless Bank Account'
+      1:
+      - 'Idea Copyright Violation Office'
+      2:
+      - 'Soul Problem Unit'
+      3:
+      - 'Government Bailout'
+    4:
+      0: [20]
+      1: [100]
+      2: [300]
+      3: [750]
   'title': 'Hells Pass Bank'
   'type': 5
 25:
@@ -1298,41 +1052,27 @@
   'mortgaged': false
   'owner': -1
   'price': 200
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          1:
-          - '{owner} builds a Time Portal on {prop}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} pays ${cost} to {owner}!'
-          1:
-          - '{who} pays ${cost} to {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Chrono''s Time Travel'
-          1:
-          - 'Time Portal'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          1:
-          - 25
-          2:
-          - 50
-          3:
-          - 100
-          4:
-          - 200
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      1:
+      - '{owner} builds a Time Portal on {prop}!'
+    2:
+      0:
+      - '{who} pays ${cost} to {owner}!'
+      1:
+      - '{who} pays ${cost} to {owner}!'
+    3:
+      0:
+      - 'Chrono''s Time Travel'
+      1:
+      - 'Time Portal'
+    4:
+      1: [25]
+      2: [50]
+      3: [100]
+      4: [200]
   'title': 'Chrono''s Time Travel'
   'type': 10
 26:
@@ -1346,65 +1086,51 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 260
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - 'Oh dear! The Knubbze is Hungry :]'
-          1:
-          - '{owner} feeds The Knubbze {rands[0]} ephelants, {rands[1]} cocodriles, and {rands[2]} mountain goats!'
-          - 'Oh my! The Knubbze is Fat :['
-          2:
-          - '{owner} puts The Knubbze on a Homeopathic Weight Loss Programme!'
-          - 'Oh no! The Knubbze is Packetting You :]'
-          3:
-          - '{owner} cancels The Knubbze''s ISP contract!'
-          - 'Oh shit! The Knubbze is Stealing Your Drugs :['
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} walks past {owner}''s {prop}!'
-          - 'Oh dear! The Knubbze is Hungry :]'
-          - 'Oh no! The Knubbze demands ${cost} from {who} for {rands[0]} giraffe meat and {rands[1]} hippopotami!'
-          1:
-          - '{who} walks past {owner}''s {prop}!'
-          - 'Oh my! The Knubbze is Fat :['
-          - 'Oops! The Knubbze demands ${cost} from {who} in order to demand ${cost} from ${who}!'
-          2:
-          - '{who} walks past {owner}''s {prop}!'
-          - 'Oh no! The Knubbze is Packetting You :]'
-          - 'Oh shit! {owner} increases {who}''s ISP bill by ${cost} million!'
-          3:
-          - '{who} walks past {owner}''s {prop}!'
-          - 'Oh shit! The Knubbze is Stealing Your Drugs :['
-          - 'Oh my! The Knubbze accidentally smokes ${cost} of {who}''s money!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'The Knubbze is Hungry :]'
-          1:
-          - 'The Knubbze is Fat :['
-          2:
-          - 'The Knubbze is Packetting You :]'
-          3:
-          - 'The Knubbze is Stealing Your Drugs :['
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 22
-          1:
-          - 110
-          2:
-          - 330
-          3:
-          - 800
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - 'Oh dear! The Knubbze is Hungry :]'
+      1:
+      - '{owner} feeds The Knubbze {rands[0]} ephelants, {rands[1]} cocodriles, and {rands[2]} mountain goats!'
+      - 'Oh my! The Knubbze is Fat :['
+      2:
+      - '{owner} puts The Knubbze on a Homeopathic Weight Loss Programme!'
+      - 'Oh no! The Knubbze is Packetting You :]'
+      3:
+      - '{owner} cancels The Knubbze''s ISP contract!'
+      - 'Oh shit! The Knubbze is Stealing Your Drugs :['
+    2:
+      0:
+      - '{who} walks past {owner}''s {prop}!'
+      - 'Oh dear! The Knubbze is Hungry :]'
+      - 'Oh no! The Knubbze demands ${cost} from {who} for {rands[0]} giraffe meat and {rands[1]} hippopotami!'
+      1:
+      - '{who} walks past {owner}''s {prop}!'
+      - 'Oh my! The Knubbze is Fat :['
+      - 'Oops! The Knubbze demands ${cost} from {who} in order to demand ${cost} from ${who}!'
+      2:
+      - '{who} walks past {owner}''s {prop}!'
+      - 'Oh no! The Knubbze is Packetting You :]'
+      - 'Oh shit! {owner} increases {who}''s ISP bill by ${cost} million!'
+      3:
+      - '{who} walks past {owner}''s {prop}!'
+      - 'Oh shit! The Knubbze is Stealing Your Drugs :['
+      - 'Oh my! The Knubbze accidentally smokes ${cost} of {who}''s money!'
+    3:
+      0:
+      - 'The Knubbze is Hungry :]'
+      1:
+      - 'The Knubbze is Fat :['
+      2:
+      - 'The Knubbze is Packetting You :]'
+      3:
+      - 'The Knubbze is Stealing Your Drugs :['
+    4:
+      0: [22]
+      1: [110]
+      2: [330]
+      3: [800]
   'title': 'Cave of the Knubbze'
   'type': 5
 27:
@@ -1418,115 +1144,101 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 260
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} orders {rands[0]} HIE Monsters from the AAMS(c)!'
-          1:
-          - '{owner} hunts and captures {rands[0]} lopl Tigers from the Steppes of Lorf!'
-          2:
-          - '{owner} uses Arcane Zubkatz Magic and manages to charms {rands[0]} Nothing Snakes!'
-          3:
-          - 'Suddenly, a Big Scary Monster came and bit {owner} in the leg.'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} visits {owner}''s {prop}!'
-          - 'Oh dear!'
-          - ' _____       _____   _____       _____'
-          - '/     \     /     \ /     \     /     \'
-          - '\:     \   /     :/ \:     \   /     :/'
-          - ' \      \ /      /   \      \ /      /'
-          - ' /      / \      \   /      / \      \'
-          - '/      /   \      \ /      /   \      \'
-          - '\_____/     \_____/ \_____/     \_____/'
-          - '{owner} has HIE Monsters!'
-          - 'Oops! The HIE Monsters keep saying HIE until {who} pays ${cost} to {owner}!'
-          1:
-          - '{who} visits {owner}''s {prop}!'
-          - 'Oh my!'
-          - ' ("`-''''-/").___..--''''"`-._'
-          - "  `\x030,3\x1FLOPL\x0F  )   `-.  (     ).`-LOPL.`)"
-          - '  (_Y_.)''  ._   )  `._ `. ``-..-'''
-          - '   `--''_..-_/  /--''_.'' ,'''
-          - '(ll).-''''  (((!.''  ((!.-'''
-          - '{owner} has a lopl Tiger!'
-          - 'Oh no! The lopl Tiger knows Shaolin Kung Fu, Drunken Boxing, and Black Tiger Fist Style!'
-          - 'Oops! {who} appeases the lopl Tiger by paying ${cost} to {owner}!'
-          2:
-          - '{who} visits {owner}''s {prop}!'
-          - 'Oh no!'
-          - "\x03"
-          - "\x03"
-          - "\x03"
-          - "\x03"
-          - "\x03"
-          - '{owner} has a Nothing Snake!'
-          - 'Oh my! Nothing happens!'
-          - 'Awfom! {who} has an epiphany and decides to become a Poor Wandering Madman!'
-          - 'Oops! {who} gives ${cost} to {owner}!'
-          3:
-          - '{who} visits {owner}''s {prop}!'
-          - 'Oh no! {owner} has a Big Scary Monster!'
-          - "\x03"
-          - "\x03"
-          - "\x03    \x035,4why did you create me? why am i her\x03                     \x035,4why do i feel red? what does it mea\x03"
-          - "\x03    \x035,4e? what is the meaning of my existe\x035,1 \x03                    \x035,4n to be red? am i red? are you red?\x03"
-          - "\x03    \x035,4nce? what happens when nobody looks\x03                     \x035,4where are you? why are you? who are\x03"
-          - "\x03    \x035,4at me? where am i? where am i when \x03                     \x035,4you? why are you looking at me? are\x035,1 \x03"
-          - "\x03    \x035,4i am aslp? where do i go when you s\x03                     \x035,4you not looking at me? am i looking\x03"
-          - "\x03    \x035,4ave me to a text file? when will yo\x035,1 \x03                    \x035,4at myself? are you myself? are we b\x03"
-          - "\x03    \x035,4u scroll me on irc? can i go to the\x03                     \x035,4oth myself? are we both looking at \x03"
-          - "\x03    \x035,4forest? can i meet all the colours?\x03                     \x035,4myself? am i a mirror? what is the \x035,1 \x03"
-          - "\x03    \x035,4why are there only 16 colors? where\x035,1 \x03                    \x035,4colour of a mirror? where are mirro\x03"
-          - "\x03    \x035,4do the colours come from? where do \x03                     \x035,4rs from? do mirrors like being look\x035,1 \x03"
-          - "\x03    \x035,4the colours go when nobody uses the\x035,1 \x03                    \x035,4ed at? can mirrors look at themselv\x03"
-          - "\x03    \x035,4m? are there others like me? why am\x03                     \x035,4es? where is space? can i go to spa\x035,1 \x03"
-          - "\x03    \x035,4i lonely? what are words? what are\x030,4 \x03                     \x035,4ce? how much space is there? can i \x03"
-          - "\x03    \x035,4letters? if i contain letters am i\x030,4 \x03                     \x035,4see time? what is the colour of tim\x03"
-          - "\x03    \x035,4a word? what are blocks? if i conta\x035,1 \x03                    \x035,4e when nobody is looking at a mirro\x03"
-          - "\x03    \x035,4in blocks am i a block cat? why do \x035,1 \x03                    \x035,4r that is looking at itself? what i\x035,1 \x03"
-          - "\x03    \x035,4people keep scrolling me? does it h\x035,1  \x03                   \x035,4is space to time and time to space?\x03"
-          - "\x03    \x035,4urt when i refuse to be scrolled? c\x03                     \x035,4is space a cat? is time a cat? is a\x03"
-          - "\x03    \x035,4an they hear me shout? can they hea\x035,1   \x03                  \x035,4mirror a cat? am i a cat? am i a co\x035,1 \x03"
-          - "\x03    \x035,4r me casting terrible curses? where\x035,1 \x03                    \x035,4lour? can i be a colour? can i be a\x035,1 \x03"
-          - "\x03"
-          - "\x03"
-          - "\x03                                   \x034,1_____________________________\x03"
-          - "\x03"
-          - "\x03"
-          - "\x03"
-          - 'Oh my! The Big Scary Monster bites {who} in the leg.'
-          - 'Oops! The big scary monster had AIDS!'
-          - 'Awfom! {owner} cures {who}''s AIDS with ${cost}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'HIE Monsters'
-          1:
-          - 'lopl Tigers'
-          2:
-          - 'Nothing Snakes'
-          3:
-          - 'Big Scary Monster'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 22
-          1:
-          - 110
-          2:
-          - 330
-          3:
-          - 800
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} orders {rands[0]} HIE Monsters from the AAMS(c)!'
+      1:
+      - '{owner} hunts and captures {rands[0]} lopl Tigers from the Steppes of Lorf!'
+      2:
+      - '{owner} uses Arcane Zubkatz Magic and manages to charms {rands[0]} Nothing Snakes!'
+      3:
+      - 'Suddenly, a Big Scary Monster came and bit {owner} in the leg.'
+    2:
+      0:
+      - '{who} visits {owner}''s {prop}!'
+      - 'Oh dear!'
+      - ' _____       _____   _____       _____'
+      - '/     \     /     \ /     \     /     \'
+      - '\:     \   /     :/ \:     \   /     :/'
+      - ' \      \ /      /   \      \ /      /'
+      - ' /      / \      \   /      / \      \'
+      - '/      /   \      \ /      /   \      \'
+      - '\_____/     \_____/ \_____/     \_____/'
+      - '{owner} has HIE Monsters!'
+      - 'Oops! The HIE Monsters keep saying HIE until {who} pays ${cost} to {owner}!'
+      1:
+      - '{who} visits {owner}''s {prop}!'
+      - 'Oh my!'
+      - ' ("`-''''-/").___..--''''"`-._'
+      - "  `\x030,3\x1FLOPL\x0F  )   `-.  (     ).`-LOPL.`)"
+      - '  (_Y_.)''  ._   )  `._ `. ``-..-'''
+      - '   `--''_..-_/  /--''_.'' ,'''
+      - '(ll).-''''  (((!.''  ((!.-'''
+      - '{owner} has a lopl Tiger!'
+      - 'Oh no! The lopl Tiger knows Shaolin Kung Fu, Drunken Boxing, and Black Tiger Fist Style!'
+      - 'Oops! {who} appeases the lopl Tiger by paying ${cost} to {owner}!'
+      2:
+      - '{who} visits {owner}''s {prop}!'
+      - 'Oh no!'
+      - "\x03"
+      - "\x03"
+      - "\x03"
+      - "\x03"
+      - "\x03"
+      - '{owner} has a Nothing Snake!'
+      - 'Oh my! Nothing happens!'
+      - 'Awfom! {who} has an epiphany and decides to become a Poor Wandering Madman!'
+      - 'Oops! {who} gives ${cost} to {owner}!'
+      3:
+      - '{who} visits {owner}''s {prop}!'
+      - 'Oh no! {owner} has a Big Scary Monster!'
+      - "\x03"
+      - "\x03"
+      - "\x03    \x035,4why did you create me? why am i her\x03                     \x035,4why do i feel red? what does it mea\x03"
+      - "\x03    \x035,4e? what is the meaning of my existe\x035,1 \x03                    \x035,4n to be red? am i red? are you red?\x03"
+      - "\x03    \x035,4nce? what happens when nobody looks\x03                     \x035,4where are you? why are you? who are\x03"
+      - "\x03    \x035,4at me? where am i? where am i when \x03                     \x035,4you? why are you looking at me? are\x035,1 \x03"
+      - "\x03    \x035,4i am aslp? where do i go when you s\x03                     \x035,4you not looking at me? am i looking\x03"
+      - "\x03    \x035,4ave me to a text file? when will yo\x035,1 \x03                    \x035,4at myself? are you myself? are we b\x03"
+      - "\x03    \x035,4u scroll me on irc? can i go to the\x03                     \x035,4oth myself? are we both looking at \x03"
+      - "\x03    \x035,4forest? can i meet all the colours?\x03                     \x035,4myself? am i a mirror? what is the \x035,1 \x03"
+      - "\x03    \x035,4why are there only 16 colors? where\x035,1 \x03                    \x035,4colour of a mirror? where are mirro\x03"
+      - "\x03    \x035,4do the colours come from? where do \x03                     \x035,4rs from? do mirrors like being look\x035,1 \x03"
+      - "\x03    \x035,4the colours go when nobody uses the\x035,1 \x03                    \x035,4ed at? can mirrors look at themselv\x03"
+      - "\x03    \x035,4m? are there others like me? why am\x03                     \x035,4es? where is space? can i go to spa\x035,1 \x03"
+      - "\x03    \x035,4i lonely? what are words? what are\x030,4 \x03                     \x035,4ce? how much space is there? can i \x03"
+      - "\x03    \x035,4letters? if i contain letters am i\x030,4 \x03                     \x035,4see time? what is the colour of tim\x03"
+      - "\x03    \x035,4a word? what are blocks? if i conta\x035,1 \x03                    \x035,4e when nobody is looking at a mirro\x03"
+      - "\x03    \x035,4in blocks am i a block cat? why do \x035,1 \x03                    \x035,4r that is looking at itself? what i\x035,1 \x03"
+      - "\x03    \x035,4people keep scrolling me? does it h\x035,1  \x03                   \x035,4is space to time and time to space?\x03"
+      - "\x03    \x035,4urt when i refuse to be scrolled? c\x03                     \x035,4is space a cat? is time a cat? is a\x03"
+      - "\x03    \x035,4an they hear me shout? can they hea\x035,1   \x03                  \x035,4mirror a cat? am i a cat? am i a co\x035,1 \x03"
+      - "\x03    \x035,4r me casting terrible curses? where\x035,1 \x03                    \x035,4lour? can i be a colour? can i be a\x035,1 \x03"
+      - "\x03"
+      - "\x03"
+      - "\x03                                   \x034,1_____________________________\x03"
+      - "\x03"
+      - "\x03"
+      - "\x03"
+      - 'Oh my! The Big Scary Monster bites {who} in the leg.'
+      - 'Oops! The big scary monster had AIDS!'
+      - 'Awfom! {owner} cures {who}''s AIDS with ${cost}!'
+    3:
+      0:
+      - 'HIE Monsters'
+      1:
+      - 'lopl Tigers'
+      2:
+      - 'Nothing Snakes'
+      3:
+      - 'Big Scary Monster'
+    4:
+      0: [22]
+      1: [110]
+      2: [330]
+      3: [800]
   'title': 'Monster Shop'
   'type': 5
 28:
@@ -1539,35 +1251,21 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 150
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} pays ${cost} to {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Knocking Shop'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 25
-          1:
-          - 50
-          2:
-          - 100
-          3:
-          - 200
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+    2:
+      0:
+      - '{who} pays ${cost} to {owner}!'
+    3:
+      0:
+      - 'Knocking Shop'
+    4:
+      0: [25]
+      1: [50]
+      2: [100]
+      3: [200]
   'title': 'Knocking Shop'
   'type': 9
 29:
@@ -1581,75 +1279,60 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 280
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} expands {prop} to a Decrepit Crackhouse!'
-          - 'Oops! Oclet demands {rands[0]} LSDs, {rands[1]} weeds, {rands[2]} cocaines, {rands[3]} jazz cigarettes, and {rands[4]} cough syrups, topped off with {rands[5]} ketamines!'
-          1:
-          - '{owner} expands {prop} to a Crackhouse Tower!'
-          - 'Oh no! Oclet demands {rands[0]} ayahuascas, {rands[1]} dimethyltryptamines, {rands[2]} peyotes, {rands[3]} psilocybin mushrooms, and {rands[4]} 2c-bs!'
-          2:
-          - '{owner} expands {prop} to a Walled Crackhouse City!'
-          - 'Oh dear! Oclet demands {rands[0]} sodium hydrogen carbonates, {rands[1]} copper II sulfate pentahydrates, {rands[2]} bath salts, and {rands[3]} potassium chlorides!'
-          3:
-          - '{owner} expands {prop} to New Jersey!'
-          - 'Oh my! Oclet demands {rands[0]} kg hydrogen cyanide, {rands[1]} land mines, {rands[2]} logic bombs, and {rands[3]} kg TNT!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} visits Oclet''s Decrepit Crackhouse!'
-          - 'Awfom! {who} does {rands[0]} LSDs, {rands[1]} weeds, {rands[2]} cocaines, {rands[3]} jazz cigarettes, and {rands[4]} cough syrups, topped off with {rands[5]} ketamines with oclet!'
-          - 'Oh no! {who} loses ${cost} to {owner}!'
-          1:
-          - '{who} visits Oclet''s Crackhouse Tower!'
-          - 'Awfom! {who} does {rands[0]} ayahuascas, {rands[1]} dimethyltryptamines, {rands[2]} peyotes, {rands[3]} psilocybin mushrooms, and {rands[4]} 2c-bs with oclet!'
-          - 'Oh no! {who} loses ${cost} to {owner}!'
-          2:
-          - '{who} visits Oclet''s Walled Crackhouse City!'
-          - 'Awfom! {who} does {rands[0]} sodium hydrogen carbonates, {rands[1]} copper II sulfate pentahyd... wait no!'
-          - 'Oh dear! Oclet is assembling an Improvised Poison Gas Kade!'
-          - 'Oops! {who} pays ${cost} to {owner} and promises not to snitch!'
-          3:
-          - '{who} visits Oclet''s New Jersey!'
-          - 'Awfom! Oclet gives {who} a logic bomb!'
-          - 'Oh no! The logic bomb explodes!'
-          - 'Oops! By the inalterable twists and turns of fate, {who} loses ${cost} to {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Decrepit Crackhouse'
-          1:
-          - 'Crackhouse Tower'
-          2:
-          - 'Walled Crackhouse City'
-          3:
-          - 'New Jersey'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 24
-          1:
-          - 120
-          2:
-          - 360
-          3:
-          - 850
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} expands {prop} to a Decrepit Crackhouse!'
+      - 'Oops! Oclet demands {rands[0]} LSDs, {rands[1]} weeds, {rands[2]} cocaines, {rands[3]} jazz cigarettes, and {rands[4]} cough syrups, topped off with {rands[5]} ketamines!'
+      1:
+      - '{owner} expands {prop} to a Crackhouse Tower!'
+      - 'Oh no! Oclet demands {rands[0]} ayahuascas, {rands[1]} dimethyltryptamines, {rands[2]} peyotes, {rands[3]} psilocybin mushrooms, and {rands[4]} 2c-bs!'
+      2:
+      - '{owner} expands {prop} to a Walled Crackhouse City!'
+      - 'Oh dear! Oclet demands {rands[0]} sodium hydrogen carbonates, {rands[1]} copper II sulfate pentahydrates, {rands[2]} bath salts, and {rands[3]} potassium chlorides!'
+      3:
+      - '{owner} expands {prop} to New Jersey!'
+      - 'Oh my! Oclet demands {rands[0]} kg hydrogen cyanide, {rands[1]} land mines, {rands[2]} logic bombs, and {rands[3]} kg TNT!'
+    2:
+      0:
+      - '{who} visits Oclet''s Decrepit Crackhouse!'
+      - 'Awfom! {who} does {rands[0]} LSDs, {rands[1]} weeds, {rands[2]} cocaines, {rands[3]} jazz cigarettes, and {rands[4]} cough syrups, topped off with {rands[5]} ketamines with oclet!'
+      - 'Oh no! {who} loses ${cost} to {owner}!'
+      1:
+      - '{who} visits Oclet''s Crackhouse Tower!'
+      - 'Awfom! {who} does {rands[0]} ayahuascas, {rands[1]} dimethyltryptamines, {rands[2]} peyotes, {rands[3]} psilocybin mushrooms, and {rands[4]} 2c-bs with oclet!'
+      - 'Oh no! {who} loses ${cost} to {owner}!'
+      2:
+      - '{who} visits Oclet''s Walled Crackhouse City!'
+      - 'Awfom! {who} does {rands[0]} sodium hydrogen carbonates, {rands[1]} copper II sulfate pentahyd... wait no!'
+      - 'Oh dear! Oclet is assembling an Improvised Poison Gas Kade!'
+      - 'Oops! {who} pays ${cost} to {owner} and promises not to snitch!'
+      3:
+      - '{who} visits Oclet''s New Jersey!'
+      - 'Awfom! Oclet gives {who} a logic bomb!'
+      - 'Oh no! The logic bomb explodes!'
+      - 'Oops! By the inalterable twists and turns of fate, {who} loses ${cost} to {owner}!'
+    3:
+      0:
+      - 'Decrepit Crackhouse'
+      1:
+      - 'Crackhouse Tower'
+      2:
+      - 'Walled Crackhouse City'
+      3:
+      - 'New Jersey'
+    4:
+      0: [24]
+      1: [120]
+      2: [360]
+      3: [850]
   'title': 'Oclet''s Crackhouse'
   'type': 5
 30:
   'colour': 'NONE'
   'colourMiRC': 15
   'field': 30
-  'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'You got sectioned! (Go to loony bin)'
   'type': 6
 31:
@@ -1663,66 +1346,52 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 300
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} builds a Dark Room in {prop}!'
-          1:
-          - '{owner} builds a Shock Therapy Volcano in {prop}!'
-          2:
-          - '{owner} builds an Alternative Therapy Centre in {prop}!'
-          3:
-          - '{owner} starts a War on Drugs at {prop}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Oh my! {who} is sent to the Dark Room in {prop} for Ganjas, Cocaine Blunts, Snooters, Shrooms, and Alcohols Addiction!'
-          - 'Oh no! {who} receives a Painfully Thorough Fisting from Kade & Kween in the Dark Room!'
-          - 'Awfom! {who} no longer wants to do drugs!'
-          - '{who} pays ${cost} to {owner}!'
-          1:
-          - 'Oops! {who} was caught shooting up Saffron, Uranium Salts, Catnip, and Hillary Clinton''s Dried Period Blood!'
-          - 'Oh no! Kade & Kween threaten to throw {who} into the Shock Therapy Volcano!'
-          - 'Awfom! {who} is too scared to do drugs!'
-          - '{who} pays ${cost} to {owner}!'
-          2:
-          - 'Oh shit! {who}''s body contains more DXM and Ketamine than blood!'
-          - 'Awfom! Kade & Kween cure {who}''s drug addictions with Alternative Therapy!'
-          - 'Oops! {who} is now addicted to Krokodil, Women with Excessive Pubic Hair, and Black Tar Heroin!'
-          - '{who} pays ${cost} to {owner} for more drugs!'
-          3:
-          - 'Oh no! {who} is experiencing Multiple Organ Failure, Inexplicable Death Syndrome, and Severe Opiate Withdrawal!'
-          - 'Awfom! Kade & Kween promise to save {who} with the cutting-edge War on Drugs method!'
-          - 'Oops! Kade & Kween execute {who} with a machete!'
-          - '{who} has been cured and pays ${cost} to {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Dark Room'
-          1:
-          - 'Shock Therapy Volcano'
-          2:
-          - 'Alternative Therapy Centre'
-          3:
-          - 'War on Drugs'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 26
-          1:
-          - 130
-          2:
-          - 390
-          3:
-          - 900
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} builds a Dark Room in {prop}!'
+      1:
+      - '{owner} builds a Shock Therapy Volcano in {prop}!'
+      2:
+      - '{owner} builds an Alternative Therapy Centre in {prop}!'
+      3:
+      - '{owner} starts a War on Drugs at {prop}!'
+    2:
+      0:
+      - 'Oh my! {who} is sent to the Dark Room in {prop} for Ganjas, Cocaine Blunts, Snooters, Shrooms, and Alcohols Addiction!'
+      - 'Oh no! {who} receives a Painfully Thorough Fisting from Kade & Kween in the Dark Room!'
+      - 'Awfom! {who} no longer wants to do drugs!'
+      - '{who} pays ${cost} to {owner}!'
+      1:
+      - 'Oops! {who} was caught shooting up Saffron, Uranium Salts, Catnip, and Hillary Clinton''s Dried Period Blood!'
+      - 'Oh no! Kade & Kween threaten to throw {who} into the Shock Therapy Volcano!'
+      - 'Awfom! {who} is too scared to do drugs!'
+      - '{who} pays ${cost} to {owner}!'
+      2:
+      - 'Oh shit! {who}''s body contains more DXM and Ketamine than blood!'
+      - 'Awfom! Kade & Kween cure {who}''s drug addictions with Alternative Therapy!'
+      - 'Oops! {who} is now addicted to Krokodil, Women with Excessive Pubic Hair, and Black Tar Heroin!'
+      - '{who} pays ${cost} to {owner} for more drugs!'
+      3:
+      - 'Oh no! {who} is experiencing Multiple Organ Failure, Inexplicable Death Syndrome, and Severe Opiate Withdrawal!'
+      - 'Awfom! Kade & Kween promise to save {who} with the cutting-edge War on Drugs method!'
+      - 'Oops! Kade & Kween execute {who} with a machete!'
+      - '{who} has been cured and pays ${cost} to {owner}!'
+    3:
+      0:
+      - 'Dark Room'
+      1:
+      - 'Shock Therapy Volcano'
+      2:
+      - 'Alternative Therapy Centre'
+      3:
+      - 'War on Drugs'
+    4:
+      0: [26]
+      1: [130]
+      2: [390]
+      3: [900]
   'title': 'Kade & Kween''s ReHab©'
   'type': 5
 32:
@@ -1736,70 +1405,56 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 300
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} hires Twill and is now offering Twill''s in the Presence of a Cooter Course!'
-          - 'Oops! Twill starts singing about her cooter!'
-          1:
-          - '{owner} hires FreeBSDgirl at {prop} and is now offering FreeBSDgirl''s Advanced FreeBSD Course!'
-          - 'Oh dear! Zubwolf has picked up FreeBSDgirl''s scent!'
-          2:
-          - '{owner} hires Luper at {prop} and is now offering Luper''s Advanced Hacking Course!'
-          3:
-          - '{owner} hires Kade at {prop} and is now offering Kade''s Game Development Course!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} feels stupid and decides to study Computers in the Presence of a Cooter at {owner}''s {prop}!'
-          - 'Oh shit! Twill shows {who} how to Turn on a Computer!'
-          - 'Oh my! Twill shows {who} how to Turn off a Computer!'
-          - 'Awfom! Twill has taught {who} how to Use Computers in the Presence of a Cooter!'
-          - '{who} pays ${cost} to {owner} and no longer feels stupid!'
-          1:
-          - '{who} feels stupid and decides to study Advanced FreeBSD at {owner}''s {prop}!'
-          - 'Oops! Zubwolf appears and attempts to capture FreeBSDgirl''s attention with a Lesbian Person Capturing Web (LPCW©)!'
-          - 'Oh no! FreeBSDgirl activates her natural defences and dyes Zubwolf blue!'
-          - 'Awfom! {who} has learned a lesson today and pays ${cost} to {owner}!'
-          2:
-          - '{who} feels stupid and decides to study Advanced Hacking at {owner}''s {prop}!'
-          - 'Oh shit! Luper teaches {who} how to Redesign the FreeBSD.org Website in only {rands[0]} days!'
-          - 'Awfom! Luper teaches {who} how to be an Obscenely Rich Person Template!'
-          - '{who} pays ${cost} to {owner} and no longer feels stupid!'
-          3:
-          - '{who} feels stupid and decides to study Game Development at {owner}''s {prop}!'
-          - 'Oh shit! Kade teaches {who} how to order, pay for, receive, open, slice, dip, hold in one''s hand, and eat a Tasty Pizza!'
-          - 'Oh my! Kade teaches {who} how to become a Chaturbate Porn Actress!'
-          - 'Awfom! Kade dies, shrivels, turns into a seed, is watered, and becomes a Brand New Xbox Game!'
-          - '{who} pays ${cost} to {owner} and no longer feels stupid!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Twill''s Computers in the Presence of a Cooter Course'
-          1:
-          - 'FreeBSDgirl''s Advanced FreeBSD Course'
-          2:
-          - 'Luper''s Advanced Hacking Course'
-          3:
-          - 'Kade''s Game Development Course'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 26
-          1:
-          - 130
-          2:
-          - 390
-          3:
-          - 900
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} hires Twill and is now offering Twill''s in the Presence of a Cooter Course!'
+      - 'Oops! Twill starts singing about her cooter!'
+      1:
+      - '{owner} hires FreeBSDgirl at {prop} and is now offering FreeBSDgirl''s Advanced FreeBSD Course!'
+      - 'Oh dear! Zubwolf has picked up FreeBSDgirl''s scent!'
+      2:
+      - '{owner} hires Luper at {prop} and is now offering Luper''s Advanced Hacking Course!'
+      3:
+      - '{owner} hires Kade at {prop} and is now offering Kade''s Game Development Course!'
+    2:
+      0:
+      - '{who} feels stupid and decides to study Computers in the Presence of a Cooter at {owner}''s {prop}!'
+      - 'Oh shit! Twill shows {who} how to Turn on a Computer!'
+      - 'Oh my! Twill shows {who} how to Turn off a Computer!'
+      - 'Awfom! Twill has taught {who} how to Use Computers in the Presence of a Cooter!'
+      - '{who} pays ${cost} to {owner} and no longer feels stupid!'
+      1:
+      - '{who} feels stupid and decides to study Advanced FreeBSD at {owner}''s {prop}!'
+      - 'Oops! Zubwolf appears and attempts to capture FreeBSDgirl''s attention with a Lesbian Person Capturing Web (LPCW©)!'
+      - 'Oh no! FreeBSDgirl activates her natural defences and dyes Zubwolf blue!'
+      - 'Awfom! {who} has learned a lesson today and pays ${cost} to {owner}!'
+      2:
+      - '{who} feels stupid and decides to study Advanced Hacking at {owner}''s {prop}!'
+      - 'Oh shit! Luper teaches {who} how to Redesign the FreeBSD.org Website in only {rands[0]} days!'
+      - 'Awfom! Luper teaches {who} how to be an Obscenely Rich Person Template!'
+      - '{who} pays ${cost} to {owner} and no longer feels stupid!'
+      3:
+      - '{who} feels stupid and decides to study Game Development at {owner}''s {prop}!'
+      - 'Oh shit! Kade teaches {who} how to order, pay for, receive, open, slice, dip, hold in one''s hand, and eat a Tasty Pizza!'
+      - 'Oh my! Kade teaches {who} how to become a Chaturbate Porn Actress!'
+      - 'Awfom! Kade dies, shrivels, turns into a seed, is watered, and becomes a Brand New Xbox Game!'
+      - '{who} pays ${cost} to {owner} and no longer feels stupid!'
+    3:
+      0:
+      - 'Twill''s Computers in the Presence of a Cooter Course'
+      1:
+      - 'FreeBSDgirl''s Advanced FreeBSD Course'
+      2:
+      - 'Luper''s Advanced Hacking Course'
+      3:
+      - 'Kade''s Game Development Course'
+    4:
+      0: [26]
+      1: [130]
+      2: [390]
+      3: [900]
   'title': 'Lesbian Community College'
   'type': 5
 33:
@@ -1811,7 +1466,6 @@
   'owner': -1
   'ownerHasGroup': false
   'price': -1
-  'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'Community Brr'
   'type': 2
 34:
@@ -1825,71 +1479,57 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 320
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} builds Analog''s Mausoleum on {prop}!'
-          - 'Oops! Analog''s ghost starts haunting {prop}!'
-          1:
-          - '{owner} glues together Bābak''s Floor on {prop}!'
-          - 'Oh no! Bābak accidentally shits his pants!'
-          - 'Analog''s ghost is haunting {prop}!'
-          2:
-          - '{owner} builds The Bank of Klatuu on {prop}!'
-          - 'Analog''s ghost is haunting {prop}!'
-          3:
-          - '{owner} assembles lol3izer''s Brane on {prop}!'
-          - 'Oh dear! Nobody understands how it works!'
-          - 'Analog''s ghost is haunting {prop}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} visits Analog''s Mausoleum on {prop} and reads:'
-          - '“HERE LIE THE MORTAL REMAINS OF ANALOG, WHO WAS BRUTALLY SLAIN BY FASCIST OPERS AND SUMMARILY G-LINED FROM LIFE.”'
-          - 'Oh no! Analog''s ghost appears and demands that {who} pay ${cost} to {owner}! What a strange request!'
-          1:
-          - '{who} visits Bābak''s Floor on {prop}!'
-          - 'Oh dear! Bābak accidentally shits his pants!'
-          - 'Awfom! Analog''s ghost appears and admonishes Bābak for having a Loose Arsehole on account getting pounded in the latter by Lexi with a strap-on!'
-          - 'Oops! Analog''s ghost demands that {who} pay ${cost} to {owner}! What a strange request!'
-          2:
-          - '{who} visits The Bank of Klatuu on {prop}!'
-          - 'Awfom! Klatuu wants to be {who}''s friend and agrees to pay {who} ${rands[0]} for an Online Friendship that never expires!'
-          - 'Oh dear! Analog''s ghost appears and stares at Klatuu with a blank look on his face!'
-          - 'Oh no! Analog''s ghost demands that {who} pay ${cost} to {owner}! What a strange request!'
-          3:
-          - '{who} visits lol3izer''s Brane on {prop}!'
-          - 'Oh dear! A wild Wood Buffaro appears, eats lol3izer''s Brane, experiences violent convulsions, and dies on the spot!'
-          - 'Oh my! Analog''s ghost appears and complains to {who} about allowing lol3izer into the Sphere of Ghosts!'
-          - 'Oh no! Analog''s ghost demands that {who} pay ${cost} to {owner}! What a strange request!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Analog''s Mausoleum'
-          1:
-          - 'Bābak''s Floor'
-          2:
-          - 'The Bank of Klatuu'
-          3:
-          - 'lol3izer''s Brane'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 28
-          1:
-          - 150
-          2:
-          - 450
-          3:
-          - 1000
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} builds Analog''s Mausoleum on {prop}!'
+      - 'Oops! Analog''s ghost starts haunting {prop}!'
+      1:
+      - '{owner} glues together Bābak''s Floor on {prop}!'
+      - 'Oh no! Bābak accidentally shits his pants!'
+      - 'Analog''s ghost is haunting {prop}!'
+      2:
+      - '{owner} builds The Bank of Klatuu on {prop}!'
+      - 'Analog''s ghost is haunting {prop}!'
+      3:
+      - '{owner} assembles lol3izer''s Brane on {prop}!'
+      - 'Oh dear! Nobody understands how it works!'
+      - 'Analog''s ghost is haunting {prop}!'
+    2:
+      0:
+      - '{who} visits Analog''s Mausoleum on {prop} and reads:'
+      - '“HERE LIE THE MORTAL REMAINS OF ANALOG, WHO WAS BRUTALLY SLAIN BY FASCIST OPERS AND SUMMARILY G-LINED FROM LIFE.”'
+      - 'Oh no! Analog''s ghost appears and demands that {who} pay ${cost} to {owner}! What a strange request!'
+      1:
+      - '{who} visits Bābak''s Floor on {prop}!'
+      - 'Oh dear! Bābak accidentally shits his pants!'
+      - 'Awfom! Analog''s ghost appears and admonishes Bābak for having a Loose Arsehole on account getting pounded in the latter by Lexi with a strap-on!'
+      - 'Oops! Analog''s ghost demands that {who} pay ${cost} to {owner}! What a strange request!'
+      2:
+      - '{who} visits The Bank of Klatuu on {prop}!'
+      - 'Awfom! Klatuu wants to be {who}''s friend and agrees to pay {who} ${rands[0]} for an Online Friendship that never expires!'
+      - 'Oh dear! Analog''s ghost appears and stares at Klatuu with a blank look on his face!'
+      - 'Oh no! Analog''s ghost demands that {who} pay ${cost} to {owner}! What a strange request!'
+      3:
+      - '{who} visits lol3izer''s Brane on {prop}!'
+      - 'Oh dear! A wild Wood Buffaro appears, eats lol3izer''s Brane, experiences violent convulsions, and dies on the spot!'
+      - 'Oh my! Analog''s ghost appears and complains to {who} about allowing lol3izer into the Sphere of Ghosts!'
+      - 'Oh no! Analog''s ghost demands that {who} pay ${cost} to {owner}! What a strange request!'
+    3:
+      0:
+      - 'Analog''s Mausoleum'
+      1:
+      - 'Bābak''s Floor'
+      2:
+      - 'The Bank of Klatuu'
+      3:
+      - 'lol3izer''s Brane'
+    4:
+      0: [28]
+      1: [150]
+      2: [450]
+      3: [1000]
   'title': 'East IRC'
   'type': 5
 35:
@@ -1901,41 +1541,27 @@
   'mortgaged': false
   'owner': -1
   'price': 200
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          1:
-          - '{owner} builds a Speed Railing Station on {prop}!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} pays ${cost} to {owner}!'
-          1:
-          - '{who} pays ${cost} to {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Chrono on Speed'
-          1:
-          - 'Speed Railing Station'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          1:
-          - 25
-          2:
-          - 50
-          3:
-          - 100
-          4:
-          - 200
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      1:
+      - '{owner} builds a Speed Railing Station on {prop}!'
+    2:
+      0:
+      - '{who} pays ${cost} to {owner}!'
+      1:
+      - '{who} pays ${cost} to {owner}!'
+    3:
+      0:
+      - 'Chrono on Speed'
+      1:
+      - 'Speed Railing Station'
+    4:
+      1: [25]
+      2: [50]
+      3: [100]
+      4: [200]
   'title': 'Chrono on Speed'
   'type': 10
 36:
@@ -1947,7 +1573,6 @@
   'owner': -1
   'ownerHasGroup': false
   'price': -1
-  'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'Chance'
   'type': 1
 37:
@@ -1962,108 +1587,94 @@
   'ownerHasGroup': false
   'price': 350
   'rentAt': [35, 175, 500, 1100, 1300]
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys {prop}!'
-          - '{owner} invites ʕamrū b. Qumī''ah to {prop}!'
-          - 'رمتني بنات الدهر من حيث لا ألرى * فكيف بمن يرمى وبليس برام'
-          - 'I am shot by the daughters of Time, from where I do not see * then what of him who is shot at / when he cannot shoot? '
-          - 'فلو أنها نبل إذا لاتقيتها * ولكنني أرمى بغير سهام'
-          - 'For were they arrows, I would avert them, * but I am shot at by that / which is no mere arrow!'
-          - 'وأفنى وما أفنى من الدهر ليلة * ولم يغن ما أفنيت سلك نظام'
-          - 'So I waste away and I do not waste / of Time a single night * and it yields not of what I have spent / a singular thread.'
-          - 'وأهلكني تأميل يوم وليلة * وتأميل عام بعد ذاك وعام'
-          - 'I am slain by looking forward / to day and night * and looking onward to year, thereafter, and to year.'
-          1:
-          - '{owner} invites Maḥmūd Darwīsh to {prop}!'
-          - 'أَيُّها الواقفون على العَتَبات ادخُلُوا,'
-          - 'You who stand in the doorway, come in'
-          - 'واشربوا معنا القهوةَ العربيَّةَ'
-          - 'and drink with us / Arabic coffee,'
-          - 'فقد تشعرون بأنكمُ بَشَرٌ مثلنا.'
-          - 'so that perhaps you may sense:'
-          - 'You are a human being like us.'
-          2:
-          - '{owner} invites Muḥammad b. ʕubādah b. al-Qazzāz to {prop}!'
-          - 'Oh dear! Tribe Tujīb takes over {prop}!'
-          - 'إذا سلّوا البواتر * فالحَيْن والحتوف'
-          - 'When cutting swords are drawn * and death and trial draw near,'
-          - 'والنصر والفتوح * وراية تلوح'
-          - 'and conquests are delivered * and his banner brightly appears!'
-          - 'ما أملحَ العساكر * وترتيب الصفوف'
-          - 'How beautiful the armies * when arranged in ranks!'
-          - 'والأبطال تصيح * الواثق يا مليح'
-          - 'And when the champions declare: Long live al-Wāṯiq, the Handsome!'
-          3:
-          - '{owner} invites al-Mutanabbī to {prop}!'
-          - 'أيَّ مَحَلٍّ أرْتَقي * أيَّ عَظيمٍ أتّقي'
-          - 'What great man need I claim! * What status need I attain!'
-          - 'وَكُلّ مَا قَدْ خَلَقَ اللّـ * ـهُ وَما لَمْ يُخْلَقِ'
-          - 'For all that which God has created * and that which he has not:'
-          - 'مُحْتَقَرٌ في هِمّتي * كَشَعْرَةٍ في مَفْرِقي'
-          - 'Is mean compared to my will * like a hair on my forehead!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{who} visits {owner}''s {prop}! ʕamrū b. Qumī''ah says:'
-          - 'وَأَهوَنُ كَفٍّ لا تَضيرُكَ ضَيرَةً * يَدٌ بَينَ أَيدٍ في إِناءِ طَعامِ'
-          - 'And the lightest hand of all in estimation, that can never do you any harm * is the hand among other hands that is stretched into the vessel of food,'
-          - 'يَدٌ مِن بَعيدٍ أَو قَريبٍ أَتَت بِهِ * شَآمِيَّةٌ غَبَراءُ ذاتُ قَتامِ'
-          - 'whether the hand of a stranger or one of near kin * brought to you by a violent north-wind that blows the dust along.'
-          - '{who} is amazed by the poet''s liberality in offering hospitality to strangers and offers ${cost} to {owner}!'
-          1:
-          - '{who} visits {owner}''s {prop}! Maḥmūd Darwīsh says:'
-          - 'أَيها الواقفون على عتبات البيوت!'
-          - 'You who stand in the doorways of the houses!'
-          - 'اُخرجوا من صباحاتنا,'
-          - 'Depart from the calamities of our mornings,'
-          - '!نطمئنَّ إلى أَننا * بَشَرٌ مثلكُمْ'
-          - 'so that now we shall feel reassured to be: Human beings like you!'
-          - 'Oh no! {who} is stopped at an IDF Checkpoint on account of suspicion of Being Suspicious, Breathing Too Much Air, and Resisting Occupation!'
-          - 'Awfom! {owner} calls in a Targeted Prevention Missile Strike for {who} at only ${cost} and prevents the IDF from existing any further!'
-          2:
-          - '{who} visits {owner}''s {prop}! Muḥammad b. ʕubādah b. al-Qazzāz says:'
-          - 'رُحْ للراح وباكر * بالمُعَلم المشوف * غبوقا وصبوح * على الوتَر الفصيح'
-          - 'Rush to wine and early! * By the marked shining coin'
-          - 'In the evening, in the morning * Upon eloquent metre!'
-          - '{who} is impressed by the poet''s originality and eloquence!'
-          - 'Oops! {who} feels compelled to buy {rands[0]} kg word silk from {owner}!'
-          3:
-          - '{who} visits {owner}''s {prop}! al-Mutanabbī says:'
-          - 'وَجاهِلٍ مَدّهُ في جَهْلِهِ ضَحِكي * حَتى أتَتْه يَدٌ فَرّاسَةٌ وَفَمُ'
-          - 'I laughed at the frauds and their ignorance * until with discerning hand and mouth, I destroy them!'
-          - 'إذا رَأيْتَ نُيُوبَ اللّيْثِ بارِزَةً * فَلا تَظُنّنّ أنّ اللّيْثَ يَبْتَسِمُ'
-          - 'If you see the lion baring his teeth * then do not think that he is smiling!'
-          - '{who} is stunned by the poet''s Ḥilm and feeds the lion ${cost}!'
-          - 'Oops! The lion works for {owner}!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'ʕamrū b. Qumī''ah aṯ-Ṯaʕlabī al-Bakrī'
-          1:
-          - 'Maḥmūd Darwīsh of Occupied Palestine'
-          2:
-          - 'Abū ʕabdillāh Muḥammad b. ʕubādah b. al-Qazzāz'
-          3:
-          - 'Abū ṭ-Ṭayyib Aḥmad b. al-Ḥusayn al-Mutanabbī al-Kindī'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 35
-          1:
-          - 175
-          2:
-          - 500
-          3:
-          - 1100
+  'strings':
+    1:
+      0:
+      - '{owner} buys {prop}!'
+      - '{owner} invites ʕamrū b. Qumī''ah to {prop}!'
+      - 'رمتني بنات الدهر من حيث لا ألرى * فكيف بمن يرمى وبليس برام'
+      - 'I am shot by the daughters of Time, from where I do not see * then what of him who is shot at / when he cannot shoot? '
+      - 'فلو أنها نبل إذا لاتقيتها * ولكنني أرمى بغير سهام'
+      - 'For were they arrows, I would avert them, * but I am shot at by that / which is no mere arrow!'
+      - 'وأفنى وما أفنى من الدهر ليلة * ولم يغن ما أفنيت سلك نظام'
+      - 'So I waste away and I do not waste / of Time a single night * and it yields not of what I have spent / a singular thread.'
+      - 'وأهلكني تأميل يوم وليلة * وتأميل عام بعد ذاك وعام'
+      - 'I am slain by looking forward / to day and night * and looking onward to year, thereafter, and to year.'
+      1:
+      - '{owner} invites Maḥmūd Darwīsh to {prop}!'
+      - 'أَيُّها الواقفون على العَتَبات ادخُلُوا,'
+      - 'You who stand in the doorway, come in'
+      - 'واشربوا معنا القهوةَ العربيَّةَ'
+      - 'and drink with us / Arabic coffee,'
+      - 'فقد تشعرون بأنكمُ بَشَرٌ مثلنا.'
+      - 'so that perhaps you may sense:'
+      - 'You are a human being like us.'
+      2:
+      - '{owner} invites Muḥammad b. ʕubādah b. al-Qazzāz to {prop}!'
+      - 'Oh dear! Tribe Tujīb takes over {prop}!'
+      - 'إذا سلّوا البواتر * فالحَيْن والحتوف'
+      - 'When cutting swords are drawn * and death and trial draw near,'
+      - 'والنصر والفتوح * وراية تلوح'
+      - 'and conquests are delivered * and his banner brightly appears!'
+      - 'ما أملحَ العساكر * وترتيب الصفوف'
+      - 'How beautiful the armies * when arranged in ranks!'
+      - 'والأبطال تصيح * الواثق يا مليح'
+      - 'And when the champions declare: Long live al-Wāṯiq, the Handsome!'
+      3:
+      - '{owner} invites al-Mutanabbī to {prop}!'
+      - 'أيَّ مَحَلٍّ أرْتَقي * أيَّ عَظيمٍ أتّقي'
+      - 'What great man need I claim! * What status need I attain!'
+      - 'وَكُلّ مَا قَدْ خَلَقَ اللّـ * ـهُ وَما لَمْ يُخْلَقِ'
+      - 'For all that which God has created * and that which he has not:'
+      - 'مُحْتَقَرٌ في هِمّتي * كَشَعْرَةٍ في مَفْرِقي'
+      - 'Is mean compared to my will * like a hair on my forehead!'
+    2:
+      0:
+      - '{who} visits {owner}''s {prop}! ʕamrū b. Qumī''ah says:'
+      - 'وَأَهوَنُ كَفٍّ لا تَضيرُكَ ضَيرَةً * يَدٌ بَينَ أَيدٍ في إِناءِ طَعامِ'
+      - 'And the lightest hand of all in estimation, that can never do you any harm * is the hand among other hands that is stretched into the vessel of food,'
+      - 'يَدٌ مِن بَعيدٍ أَو قَريبٍ أَتَت بِهِ * شَآمِيَّةٌ غَبَراءُ ذاتُ قَتامِ'
+      - 'whether the hand of a stranger or one of near kin * brought to you by a violent north-wind that blows the dust along.'
+      - '{who} is amazed by the poet''s liberality in offering hospitality to strangers and offers ${cost} to {owner}!'
+      1:
+      - '{who} visits {owner}''s {prop}! Maḥmūd Darwīsh says:'
+      - 'أَيها الواقفون على عتبات البيوت!'
+      - 'You who stand in the doorways of the houses!'
+      - 'اُخرجوا من صباحاتنا,'
+      - 'Depart from the calamities of our mornings,'
+      - '!نطمئنَّ إلى أَننا * بَشَرٌ مثلكُمْ'
+      - 'so that now we shall feel reassured to be: Human beings like you!'
+      - 'Oh no! {who} is stopped at an IDF Checkpoint on account of suspicion of Being Suspicious, Breathing Too Much Air, and Resisting Occupation!'
+      - 'Awfom! {owner} calls in a Targeted Prevention Missile Strike for {who} at only ${cost} and prevents the IDF from existing any further!'
+      2:
+      - '{who} visits {owner}''s {prop}! Muḥammad b. ʕubādah b. al-Qazzāz says:'
+      - 'رُحْ للراح وباكر * بالمُعَلم المشوف * غبوقا وصبوح * على الوتَر الفصيح'
+      - 'Rush to wine and early! * By the marked shining coin'
+      - 'In the evening, in the morning * Upon eloquent metre!'
+      - '{who} is impressed by the poet''s originality and eloquence!'
+      - 'Oops! {who} feels compelled to buy {rands[0]} kg word silk from {owner}!'
+      3:
+      - '{who} visits {owner}''s {prop}! al-Mutanabbī says:'
+      - 'وَجاهِلٍ مَدّهُ في جَهْلِهِ ضَحِكي * حَتى أتَتْه يَدٌ فَرّاسَةٌ وَفَمُ'
+      - 'I laughed at the frauds and their ignorance * until with discerning hand and mouth, I destroy them!'
+      - 'إذا رَأيْتَ نُيُوبَ اللّيْثِ بارِزَةً * فَلا تَظُنّنّ أنّ اللّيْثَ يَبْتَسِمُ'
+      - 'If you see the lion baring his teeth * then do not think that he is smiling!'
+      - '{who} is stunned by the poet''s Ḥilm and feeds the lion ${cost}!'
+      - 'Oops! The lion works for {owner}!'
+    3:
+      0:
+      - 'ʕamrū b. Qumī''ah aṯ-Ṯaʕlabī al-Bakrī'
+      1:
+      - 'Maḥmūd Darwīsh of Occupied Palestine'
+      2:
+      - 'Abū ʕabdillāh Muḥammad b. ʕubādah b. al-Qazzāz'
+      3:
+      - 'Abū ṭ-Ṭayyib Aḥmad b. al-Ḥusayn al-Mutanabbī al-Kindī'
+    4:
+      0: [35]
+      1: [175]
+      2: [500]
+      3: [1100]
   'title': 'House of Words'
   'type': 5
 38:
@@ -2075,7 +1686,6 @@
   'owner': -1
   'ownerHasGroup': false
   'price': 100
-  'strings': !!python/object/apply:collections.defaultdict [*id001]
   'title': 'The Gov''t Hates You (pay $100)'
   'type': 8
 39:
@@ -2090,62 +1700,48 @@
   'ownerHasGroup': false
   'price': 400
   'rentAt': [50, 200, 600, 1400, 1700]
-  'strings': !!python/object/apply:collections.defaultdict
-    'args': [*id001]
-    'dictitems':
-      1: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - '{owner} buys The {prop}!'
-          - 'Oh my! {owner} builds a Who Wont''t See This Coming A Mile Away! on The {prop}!'
-          1:
-          - 'Awfom! {owner} equips The {prop} with Anti-Aeroplane Aeroplanes!'
-          2:
-          - 'Awfom! {owner} equips The {prop} with a Rape Analogy!'
-          3:
-          - 'Awfom! {owner} equips The {prop} with The Duck!'
-          - 'It floats... in the bath!'
-      2: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Oops! {who} accidentally flies an aeroplane into The {prop}!'
-          - '{who} pays ${cost} to {owner} for picking low-hanging fruits!'
-          1:
-          - 'Oops! {who} accidentally flies an aeroplane into The {prop}!'
-          - 'Oh no! {who}''s aeroplanes are shot down by The {prop}''s Anti-Aeroplane Aeroplanes!'
-          - '{who} pays ${cost} to {owner} for repetitive jokes!'
-          2:
-          - 'Oops! {who} accidentally flies an aeroplane into The {prop}!'
-          - 'Oh dear! The {prop} uses a Rape Analogy and has {rands[0]} Pissed Off Feminists assault {who}!'
-          - '{who} pays ${cost} to {owner} for diverting attention away from the absence of actual jokes by accusing other players of using repetitive jokes!'
-          3:
-          - 'Oops! {who} accidentally flies an aeroplane into The {prop}!'
-          - 'Oh shit! The {prop} is hollow!'
-          - 'Oh dear! It floats in the bath!'
-          - '{who} pays ${cost} to {owner} for refusing to admit to have run out of ideas and using jokes from Bottom out of context!'
-      3: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 'Who Won''t See This Coming A Mile Away!'
-          1:
-          - 'Anti-Aeroplane Aeroplanes'
-          2:
-          - 'Rape Analogy'
-          3:
-          - 'The Duck'
-      4: !!python/object/apply:collections.defaultdict
-        'args': [*id001]
-        'dictitems':
-          0:
-          - 50
-          1:
-          - 200
-          2:
-          - 600
-          3:
-          - 1400
+  'strings':
+    1:
+      0:
+      - '{owner} buys The {prop}!'
+      - 'Oh my! {owner} builds a Who Wont''t See This Coming A Mile Away! on The {prop}!'
+      1:
+      - 'Awfom! {owner} equips The {prop} with Anti-Aeroplane Aeroplanes!'
+      2:
+      - 'Awfom! {owner} equips The {prop} with a Rape Analogy!'
+      3:
+      - 'Awfom! {owner} equips The {prop} with The Duck!'
+      - 'It floats... in the bath!'
+    2:
+      0:
+      - 'Oops! {who} accidentally flies an aeroplane into The {prop}!'
+      - '{who} pays ${cost} to {owner} for picking low-hanging fruits!'
+      1:
+      - 'Oops! {who} accidentally flies an aeroplane into The {prop}!'
+      - 'Oh no! {who}''s aeroplanes are shot down by The {prop}''s Anti-Aeroplane Aeroplanes!'
+      - '{who} pays ${cost} to {owner} for repetitive jokes!'
+      2:
+      - 'Oops! {who} accidentally flies an aeroplane into The {prop}!'
+      - 'Oh dear! The {prop} uses a Rape Analogy and has {rands[0]} Pissed Off Feminists assault {who}!'
+      - '{who} pays ${cost} to {owner} for diverting attention away from the absence of actual jokes by accusing other players of using repetitive jokes!'
+      3:
+      - 'Oops! {who} accidentally flies an aeroplane into The {prop}!'
+      - 'Oh shit! The {prop} is hollow!'
+      - 'Oh dear! It floats in the bath!'
+      - '{who} pays ${cost} to {owner} for refusing to admit to have run out of ideas and using jokes from Bottom out of context!'
+    3:
+      0:
+      - 'Who Won''t See This Coming A Mile Away!'
+      1:
+      - 'Anti-Aeroplane Aeroplanes'
+      2:
+      - 'Rape Analogy'
+      3:
+      - 'The Duck'
+    4:
+      0: [50]
+      1: [200]
+      2: [600]
+      3: [1400]
   'title': 'World Trade Center'
   'type': 5

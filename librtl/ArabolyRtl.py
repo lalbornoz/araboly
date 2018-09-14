@@ -5,8 +5,7 @@
 # This project is licensed under the terms of the MIT licence.
 #
 
-from collections import defaultdict
-import os, re, sys, yaml
+import os, re, sys
 
 # {{{ ArabolyAlignedReplace(old, patterns, new): XXX
 def ArabolyAlignedReplace(old, patterns, new):
@@ -24,17 +23,6 @@ def ArabolyAlignedReplace(old, patterns, new):
             old = old.replace(pattern, " " * len(pattern))
     return old
 # }}}
-# {{{ ArabolyDefaultDict(*args): XXX
-def ArabolyDefaultDict(*args):
-    return defaultdict(*args)
-# }}}
-# {{{ ArabolyDefaultDictConstructor(loader, node): XXX
-def ArabolyDefaultDictConstructor(loader, node):
-    try:
-        return loader.construct_sequence(node)
-    except yaml.constructor.ConstructorError:
-        return loader.construct_mapping(node)
-# }}}
 # {{{ ArabolyGlob(dirName, patterns): XXX
 def ArabolyGlob(dirName, patterns):
     files = []
@@ -45,14 +33,6 @@ def ArabolyGlob(dirName, patterns):
                 files += [{"pathName":os.path.join(dirName, fileName), "matches":[*match.groups()]}]
                 break
     return files
-# }}}
-# {{{ ArabolyNestedDict(): XXX
-def ArabolyNestedDict():
-    return defaultdict(ArabolyNestedDict)
-# }}}
-# {{{ ArabolyNestedDictConstructor(loader, node): XXX
-def ArabolyNestedDictConstructor(loader, node):
-    return ArabolyNestedDict()
 # }}}
 # {{{ ArabolyRandom(limit=None, max=None, min=0): XXX
 def ArabolyRandom(limit=None, max=None, min=0):
@@ -65,8 +45,5 @@ def ArabolyRandom(limit=None, max=None, min=0):
         raise ValueError
     return (randomInt % (limit - min)) + min
 # }}}
-
-yaml.add_constructor("tag:yaml.org,2002:python/object/apply:collections.defaultdict", ArabolyDefaultDictConstructor, yaml.SafeLoader)
-yaml.add_constructor("tag:yaml.org,2002:python/name:ArabolyRtl.ArabolyNestedDict", ArabolyNestedDictConstructor, yaml.SafeLoader)
 
 # vim:expandtab foldmethod=marker sw=4 ts=4 tw=0
