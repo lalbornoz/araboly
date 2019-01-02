@@ -56,23 +56,31 @@ class ArabolyAttractMode(ArabolyTypeClass):
     # {{{ dispatch_setup(args, channel, context, output, src, status): XXX
     @staticmethod
     def dispatch_setup(args, channel, context, output, src, status):
-        if len(args) == 1:
-            if not args[0].isdigit()    \
-            or int(args[0]) < 2 or int(args[0]) > 6:
+        difficulty, players = "easy", 6
+        if len(args) == 2:
+            if not args[0] in ["easy", "hard"]:
+                status = False
+            elif not args[1].isdigit()  \
+            or   int(args[1]) < 2 or int(args[1]) > 6:
                 status = False
             else:
-                players = int(args[0])
-        elif len(args) == 0:
-            players = 6
-        else:
+                difficulty, players = args[0], int(args[1])
+        elif len(args) == 1:
+            if not args[0] in ["easy", "hard"]:
+                status = False
+            else:
+                difficulty = args[0]
+        elif len(args) != 0:
             status = False
         if status:
             context.players["byName"] = {src:{"field":0, "name":src, "num":0, "properties":[], "wallet":1500}}
             context.players["curNum"] = 0
+            context.players["difficulty"] = difficulty
             context.players["numMap"] = [None] * players
             context.players["numMap"][0] = src
             context.state = ArabolyGameState.SETUP
             output = ArabolyGenerals._push_output(channel, context, output, "Entering Araboly game setup mode!".format(**locals()))
+            output = ArabolyGenerals._push_output(channel, context, output, "Difficulty: {difficulty}".format(**locals()))
             output = ArabolyGenerals._push_output(channel, context, output, "Maximum player limit: {players}".format(**locals()))
             output = ArabolyGenerals._push_output(channel, context, output, "Player {src} joins Araboly game!".format(**locals()))
         return args, channel, context, output, src, status

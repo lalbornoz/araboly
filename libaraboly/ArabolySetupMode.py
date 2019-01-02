@@ -26,6 +26,7 @@ class ArabolySetupMode(ArabolyTypeClass):
                 status = False
             else:
                 output = ArabolyGenerals._push_output(channel, context, output, "Araboly game with {} players has started!".format(len(playerList)))
+                output = ArabolyGenerals._push_output(channel, context, output, "Difficulty: {}".format(context.players["difficulty"]))
                 output = ArabolyGenerals._push_output(channel, context, output, "Maximum player limit: {}".format(len(context.players["numMap"])))
                 output = ArabolyGenerals._push_output(channel, context, output, "{numMap[0]}: roll the dice!".format(**context.players))
                 context.players["curNum"] = 0
@@ -39,6 +40,7 @@ class ArabolySetupMode(ArabolyTypeClass):
             status = False
         else:
             output = ArabolyGenerals._push_output(channel, context, output, "Current Araboly status:", outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
+            output = ArabolyGenerals._push_output(channel, context, output, "Difficulty..: {}".format(context.players["difficulty"]), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
             output = ArabolyGenerals._push_output(channel, context, output, "Max. players: {}".format(len(context.players["numMap"])), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
             output = ArabolyGenerals._push_output(channel, context, output, "Players.....: {}".format(", ".join(context.players["byName"].keys())), outputLevel=ArabolyOutputLevel.LEVEL_NODELAY)
         return args, channel, context, output, status

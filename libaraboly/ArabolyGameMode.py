@@ -34,9 +34,14 @@ class ArabolyGameMode(ArabolyTypeClass):
             and field["type"] != ArabolyGameField.PROPERTY              \
             and field["type"] != ArabolyGameField.UTILITY:
                 status = False
-            elif field["devCost"] >= srcPlayer["wallet"]                \
-            or   field["mortgaged"]                                     \
-            or   field["owner"] != src:
+            else:
+                if context.players["difficulty"] == "hard":
+                    devCost = field["devCost"] * 2
+                else:
+                    devCost = field["devCost"]
+            if devCost >= srcPlayer["wallet"]                           \
+            or field["mortgaged"]                                       \
+            or field["owner"] != src:
                 status = False
             elif field["type"] == ArabolyGameField.CHRONO:
                 if not (field["level"] == 0 and newLevel == 1):
@@ -46,7 +51,7 @@ class ArabolyGameMode(ArabolyTypeClass):
                     for developString in field["strings"][ArabolyStringType.DEVELOP][newLevel]:
                         rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                         output = ArabolyGenerals._push_output(channel, context, output, developString.format(owner=src, prop=field["title"], rands=rands))
-                    srcPlayer["wallet"] -= field["devCost"]
+                    srcPlayer["wallet"] -= devCost
             else:
                 if not field["ownerHasGroup"]:
                     status = False
@@ -63,7 +68,7 @@ class ArabolyGameMode(ArabolyTypeClass):
                         for developString in field["strings"][ArabolyStringType.DEVELOP][newLevel]:
                             rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                             output = ArabolyGenerals._push_output(channel, context, output, developString.format(owner=src, prop=field["title"], rands=rands))
-                        srcPlayer["wallet"] -= field["devCost"]
+                        srcPlayer["wallet"] -= devCost
         return args, channel, context, output, src, status
     # }}}
     # {{{ dispatch_dice(args, channel, context, output, src, srcFull, status): XXX

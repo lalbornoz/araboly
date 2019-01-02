@@ -203,6 +203,8 @@ class ArabolyFields(ArabolyTypeClass):
                         output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src))
                     else:
                         output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src), delay=0)
+                if context.players["difficulty"] == "hard":
+                    srcPropRent *= 2
                 context.players["byName"][srcField["owner"]]["wallet"] += srcPropRent
                 srcPlayer["wallet"] -= srcPropRent
         return context, output, srcField, srcPlayer
@@ -259,6 +261,8 @@ class ArabolyFields(ArabolyTypeClass):
                         output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src))
                     else:
                         output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src), delay=0)
+                if context.players["difficulty"] == "hard":
+                    srcPropRent *= 2
                 context.players["byName"][srcField["owner"]]["wallet"] += srcPropRent
                 srcPlayer["wallet"] -= srcPropRent
         return context, output, srcField, srcPlayer
@@ -282,7 +286,10 @@ class ArabolyFields(ArabolyTypeClass):
     @staticmethod
     def _land_tax(channel, context, output, src, srcField, srcPlayer):
         output = ArabolyGenerals._push_output(channel, context, output, "Oh no! {src} must pay ${srcField[price]}!".format(**locals()))
-        srcPlayer["wallet"] -= srcField["price"]
+        if context.players["difficulty"] == "hard":
+            srcPlayer["wallet"] -= (srcField["price"] * 2)
+        else:
+            srcPlayer["wallet"] -= srcField["price"]
         return context, output, srcField, srcPlayer
     # }}}
 

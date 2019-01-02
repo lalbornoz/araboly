@@ -63,6 +63,7 @@ Requires Python >= v3.5 and YAML.
 ### Attract mode IRC commands:
 * **.mload** *filename* -- Load local snapshot from assets/savefiles/*filename*
 * **.msetup** *max_players* -- Enter new game setup mode; *max_players* defaults to 6
+* **.msetup** *difficulty* *max_players* -- Enter new game setup mode; *difficulty* must be either of easy or hard, defaults to easy *max_players* defaults to 6
 
 ### Game setup mode IRC commands:
 * **.mjoin** -- Join game

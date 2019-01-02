@@ -155,6 +155,7 @@ class ArabolyGenerals(ArabolyTypeClass):
             context.players["numMap"][otherPlayer["num"]] = None
         if len([n for n in context.players["numMap"] if n != None]) == 0:
             context.players["curNum"] = -1
+            del context.players["difficulty"]
             context.players["numMap"].clear()
         return context, output
     # }}}

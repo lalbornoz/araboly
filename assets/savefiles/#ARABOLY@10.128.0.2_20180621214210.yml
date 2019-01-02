@@ -1,4 +1,4 @@
-- args: ['5']
+- args: ['easy', '5']
   channel: '#ARABOLY'
   cmd: setup
   eventType: command
