@@ -197,14 +197,14 @@ class ArabolyFields(ArabolyTypeClass):
                 srcPropRent = srcField["strings"][ArabolyStringType.RENT][otherChronos][0]
                 if srcField["level"] == 1:
                     srcPropRent *= 2
+                if context.players["difficulty"] == "hard":
+                    srcPropRent *= 2
                 for rentString in srcField["strings"][ArabolyStringType.LAND][srcField["level"]]:
                     rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                     if len(srcField["strings"][ArabolyStringType.LAND][srcField["level"]]) < 10:
                         output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src))
                     else:
                         output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src), delay=0)
-                if context.players["difficulty"] == "hard":
-                    srcPropRent *= 2
                 context.players["byName"][srcField["owner"]]["wallet"] += srcPropRent
                 srcPlayer["wallet"] -= srcPropRent
         return context, output, srcField, srcPlayer
@@ -255,14 +255,14 @@ class ArabolyFields(ArabolyTypeClass):
                 if  srcField["level"] == 0  \
                 and srcField["ownerHasGroup"]:
                     srcPropRent *= 2
+                if context.players["difficulty"] == "hard":
+                    srcPropRent *= 2
                 for rentString in srcField["strings"][ArabolyStringType.LAND][srcField["level"]]:
                     rands = [ArabolyRandom(limit=150-5, min=5) for x in range(10)]
                     if len(srcField["strings"][ArabolyStringType.LAND][srcField["level"]]) < 10:
                         output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src))
                     else:
                         output = ArabolyGenerals._push_output(channel, context, output, rentString.format(cost=srcPropRent, owner=srcField["owner"], prop=srcField["title"], rands=rands, who=src), delay=0)
-                if context.players["difficulty"] == "hard":
-                    srcPropRent *= 2
                 context.players["byName"][srcField["owner"]]["wallet"] += srcPropRent
                 srcPlayer["wallet"] -= srcPropRent
         return context, output, srcField, srcPlayer
@@ -285,11 +285,11 @@ class ArabolyFields(ArabolyTypeClass):
     # {{{ _land_tax(channel, context, output, src, srcField, srcPlayer): XXX
     @staticmethod
     def _land_tax(channel, context, output, src, srcField, srcPlayer):
-        output = ArabolyGenerals._push_output(channel, context, output, "Oh no! {src} must pay ${srcField[price]}!".format(**locals()))
+        srcPropRent = srcField["price"]
         if context.players["difficulty"] == "hard":
-            srcPlayer["wallet"] -= (srcField["price"] * 2)
-        else:
-            srcPlayer["wallet"] -= srcField["price"]
+            srcPropRent *= 2
+        output = ArabolyGenerals._push_output(channel, context, output, "Oh no! {src} must pay ${srcPropRent}!".format(**locals()))
+        srcPlayer["wallet"] -= srcPropRent
         return context, output, srcField, srcPlayer
     # }}}
 
