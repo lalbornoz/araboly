@@ -75,7 +75,7 @@ class ArabolyIrcBot(Araboly):
     # }}}
     # {{{ _inputRecordRoutine(self, event, paramsOut): XXX
     def _inputRecordRoutine(self, event, paramsOut):
-        if paramsOut["cmd"] == "start":
+        if paramsOut["cmd"] == "setup":
             self.typeObjects[ArabolyState].clientParams["recording_path"] =                     \
                 os.path.join("assets", "savefiles", "{}@{}_{}.yml".format(                      \
                     self.typeObjects[ArabolyState].clientParams["channel"],                     \
