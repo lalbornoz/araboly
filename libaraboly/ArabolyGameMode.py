@@ -53,7 +53,8 @@ class ArabolyGameMode(ArabolyTypeClass):
                         output = ArabolyGenerals._push_output(channel, context, output, developString.format(owner=src, prop=field["title"], rands=rands))
                     srcPlayer["wallet"] -= devCost
             else:
-                if not field["ownerHasGroup"]:
+                if  not field["ownerHasGroup"]                          \
+                and context.players["difficulty"] != "hard":
                     status = False
                 elif field["level"] == newLevel:
                     status = False
