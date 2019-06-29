@@ -34,6 +34,8 @@ class ArabolyGameMode(ArabolyTypeClass):
             and field["type"] != ArabolyGameField.PROPERTY              \
             and field["type"] != ArabolyGameField.UTILITY:
                 status = False
+            elif not ArabolyStringType.DEVELOP in field["strings"]:
+                status = False
             else:
                 if context.players["difficulty"] == "hard":
                     devCost = field["devCost"] * 2
