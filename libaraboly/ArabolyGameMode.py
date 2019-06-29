@@ -59,11 +59,12 @@ class ArabolyGameMode(ArabolyTypeClass):
                 elif field["level"] == newLevel:
                     status = False
                 else:
-                    for otherFieldNum in field["groupFields"]:
-                        otherField = context.board[otherFieldNum]
-                        if  otherField["level"] != newLevel             \
-                        and otherField["level"] != (newLevel - 1):
-                            status = False; break;
+                    if context.players["difficulty"] != "hard":
+                        for otherFieldNum in field["groupFields"]:
+                            otherField = context.board[otherFieldNum]
+                            if  otherField["level"] != newLevel         \
+                            and otherField["level"] != (newLevel - 1):
+                                status = False; break;
                     if status:
                         field["level"] = newLevel
                         for developString in field["strings"][ArabolyStringType.DEVELOP][newLevel]:
