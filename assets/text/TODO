@@ -1,0 +1,108 @@
+{{{ Araboly commands
+1)  .m{buy,pass}              : add help string on .m{buy,pass} prompt
+2)  .m{buy,sell}              : allow {buy,sell}ing mortgaged properties again
+3)  .m{accept,buy,reject,sell}: allow during bankruptcy
+4)  .mdevelop                 : always print devCost on develop
+5)  .mhie                     : in game hie meter
+6)  .moffer                   : guess whether {buy,sell} is intended; same @ .m{accept,reject}
+7)  .mpart                    : print properties returned to bank
+8)  .mproperty <field>        : implement (who owns property?)
+9)  .mreturn                  : return development(s) to the bank
+10) .mshup                    : clear queue, limited to ops
+11) .mstart                   : add difficulty, e.g. 1=normal, 0.5=easy, 2=hard, scaling rent/development/...
+12) .mstatus                  : auction mode: include auction status
+13) .mstatus                  : dont print `level 0,' if level < 1
+14) .mstatus                  : fix pending trade strings
+15) .mstatus                  : include game state & loony bin status
+16) .mstatus                  : include list of players
+17) .mstatus                  : property mode: print when/whether property has been offered
+18) .mstatus                  : --short flag
+19) .mswitch                  : part player A, join player B, B = A
+}}}
+{{{ Araboly effects
+1)  Bankruptcy: collateral check: exclude if only 2 props would remain non-mortgaged
+2)  Chance field: put player into {gaol,loony bin}
+3)  Chance field: rig the game, e.g. bias PRNG, bias .mdice, ...
+4)  Chance field: swap everyone w/ everyone and/or swap everyone's wealth w/ everyone
+5)  Chance field: turn player into ghost
+6)  Field effects: benzos, drugs, crazy, ...
+7)  hie: ? bonus when everyone is hie
+8)  hie: {flatten,puzzle,schief,wave} board
+9)  hie: alignedreplace: fix ^_ handling
+10) hie: implement decay
+11) hie: refuse to work @ random
+12) hie: text effects, e.g. mess w/ names, mess up spelling, reverse, GRRify, replace s w/ f, etc. pp.
+13) Community brr proc: {de,in}crease other player's property rent
+14) Community brr proc: Public Assistance: stay in cheap properties for <n> turns e.g. when broke
+15) Community brr proc: rob another player
+16) Community brr proc: Socialism: combines the total number of collectable rent on the board; everyone gets the same rent
+17) Community brr proc: Time Travel
+18) Loony bin: ? bonus when everyone - 1/everyone is @ loony bin
+19) Timeouts/timers: call out player if idle for >=15 seconds every 10 seconds
+20) Timeouts/timers: forcibly end auction if not concluded after >= 45 seconds
+21) Timeouts/timers: optional timer: most {assets,cash} wins (.mstart <players> [<timer>])
+22) Timeouts/timers: remove player altogether if skipped 2 times in a row
+23) Timeouts/timers: skip player turn if idle for >=45 seconds
+24) Winning: awards for e.g. owns most utility fields like @ Worms Armageddon
+25) Winning: first player to lose becomes bank; may cheat
+}}}
+{{{ Araboly fields and mIRC art
+1)  Bug: Oops! v feels compelled to buy 20 kg word silk from alghazi! <- no {rent} info
+2)  Chrono fields: allow moving to other chrono fields on board on landing
+3)  Chrono fields: mess w/ other player(s) moving about the board on monopoly
+4)  Fields: add level 4 (hotels) strings
+5)  Fields: randomise Oh no! Oops! Oh my! etc. strings (+ add Oy vey!)
+6)  Free LSD field: generalise into Free Drugs field (lsd, dmt, dxm, ...)
+7)  Loony bin: allow >=2 players to conspire against another player
+8)  Loony bin: add more {mental illnesses,therapies}
+9)  New art: kade-in-a-pinepple ascii, spoke's matthew ascii, wr34k tentacles ascii
+10) New art: new kades & nadias
+11) New fields: Beautiful Misfits, Braces Place, Church of Wikipedia, Club Numbers, Eternal Hall of Slp, Milkshaykh's YouTube
+12) New fields: Pollos Hermanos, Python Dungeon, SandNET Mosque, Swarm of Mosquitoes, Trump Tower, Vixen Village, Vxp's movies.txt, Washington Heights
+13) {Tax,Utility} fields: player control
+}}}
+{{{ Ideas dump
+dark/bright red, dark/bright green, dark/bright blue, yellow, pink = crack & IRC, kraken & louf, cocaine & crazy pills, heroin, pussy
+drug spot competition; dont show up @ rivals drug spot or face the choice of being shot at or robbed or attempt to take over their block
+sufficient + prolonged addiction eventually causes physiological + psychological symptoms of addiction + withdrawal
+Anti-bonuses: 1) buy drugs on consignment + sell them for a (meagre profit)
+drug (ab)use causes status effects for <n> turns
+Bonuses: 1) game sends you to fields more often
+drugs are obtained + consumed @ drug spots
+swap each thers property and/or money
+blowies from emi @ knocking shop
+}}}
+{{{ IRC bot
+1)  allow using player IDs instead of nicks
+2)  delete snapshot dumps @ (successful) end of game
+3)  ensure recording clientParams are {loaded,stored} on .m{load,save}
+4)  honour nick changes
+5)  implement {<cant join channel numerics>,ERROR,KILL,QUIT}
+6)  implement auto-ignore & ignore list
+7)  implement Tcl bridge
+8)  split long lines
+9)  use {bold,colours,underline} in output
+}}}
+{{{ libaraboly
+1)  add error strings & include cmd help in output on error
+2)  Bug: collect $200 upon getting sectioned anyway (see savefile from 23 Jun)
+3)  Bug: rolling doubles & getting sectioned results in loop -> retain behaviour but print message to this effect (see savefile from 23 Jun)
+}}}
+{{{ Unsorted
+1)  visualisations: wealth map, 3D map of effective structure, ...
+2)  actions on landing on self-owned prop
+3)  add botquotes for kade @ loony bin
+4)  see #araboly.log from 19 jul 2018
+5)  kade based fishing/slots minigame
+6)  add ghost field to analog prop
+7)  kade: beneficial effects
+8)  squatting @ properties
+9)  kade: police auctions
+10) markov chains AI
+11) araboly cats
+12) Separate functional from compositional structure, refactor & clean up generalised functions
+13) Split off effects: bankruptcy, winning, being hie, main game logic (e.g. state)
+14) Convert ArabolyMonad into {Maybe,State,Time} Monad and provide {lift,run}()
+15) Implement COW semantics for context & free monad w/ AST and provide final transform
+16) ArabolyDebugger.py: see StudioHost.py in MiRCARTStudio/README.md
+}}}
