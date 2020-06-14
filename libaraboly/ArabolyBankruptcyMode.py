@@ -7,7 +7,7 @@
 
 from ArabolyGenerals import ArabolyGenerals
 from ArabolyMonad import ArabolyDecorator
-from ArabolyState import ArabolyGameState
+from ArabolyState import ArabolyGameField, ArabolyGameState
 from ArabolyTypeClass import ArabolyTypeClass
 
 #@ArabolyDecorator(context={"state":ArabolyGameState.BANKRUPTCY})
@@ -22,14 +22,20 @@ class ArabolyBankruptcyMode(ArabolyTypeClass):
             status = False
         elif context.players["numMap"][context.players["curNum"]] != src    \
         or   len(args) != 1                                                 \
+        or   not args[0].isdigit()                                          \
+        or   int(args[0]) < 0                                               \
         or   int(args[0]) >= len(context.board):
             status = False
         else:
             fieldNum = int(args[0])
             field, srcPlayer = context.board[fieldNum], context.players["byName"][src]
-            if not field["mortgaged"]                                       \
-            or field["owner"] != src                                        \
-            or (int(field["price"] / 2) * 1.10) >= srcPlayer["wallet"]:
+            if  field["type"] != ArabolyGameField.CHRONO                    \
+            and field["type"] != ArabolyGameField.PROPERTY                  \
+            and field["type"] != ArabolyGameField.UTILITY:
+                status = False
+            elif not field["mortgaged"]                                     \
+            or   field["owner"] != src                                      \
+            or   (int(field["price"] / 2) * 1.10) >= srcPlayer["wallet"]:
                 status = False
             else:
                 mortgageAmount = int((field["price"] / 2) * 1.10)
@@ -47,13 +53,18 @@ class ArabolyBankruptcyMode(ArabolyTypeClass):
             status = False
         elif context.players["numMap"][context.players["curNum"]] != src    \
         or   len(args) != 1                                                 \
+        or   not args[0].isdigit()                                          \
         or   int(args[0]) >= len(context.board):
             status = False
         else:
             fieldNum = int(args[0])
             field, srcPlayer = context.board[fieldNum], context.players["byName"][src]
-            if field["mortgaged"]                                           \
-            or field["owner"] != src:
+            if  field["type"] != ArabolyGameField.CHRONO                    \
+            and field["type"] != ArabolyGameField.PROPERTY                  \
+            and field["type"] != ArabolyGameField.UTILITY:
+                status = False
+            elif field["mortgaged"]                                         \
+            or   field["owner"] != src:
                 status = False
             else:
                 mortgageAmount = int(field["price"] / 2)
