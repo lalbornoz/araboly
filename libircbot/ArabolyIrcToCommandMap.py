@@ -31,6 +31,8 @@ class ArabolyIrcToCommandMap(ArabolyTypeClass):
     def dispatch353(args, context, idFull):
         if args[2].lower() == context.clientParams["channel"].lower():
             for nickSpec in args[3].split(" "):
+                if len(nickSpec) == 0:
+                    continue
                 if nickSpec[0].lower() not in ascii_lowercase:
                     nickSpec = nickSpec[1:]
                 if nickSpec.lower() != idFull[0].lower():
