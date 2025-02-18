@@ -73,7 +73,10 @@ class ArabolyIrcClient(object):
                         self.partialLine += msgs[0]; msgs = [];
                 for msg in msgs:
                     msg = str(msg, encoding="utf-8", errors="ignore")
-                    msg = msg.split(" :", 1)
+                    if len(msg) == 0:
+                        continue
+                    else:
+                        msg = msg.split(" :", 1)
                     if len(msg) == 1:
                         msg = msg[0].split(" ")
                     elif len(msg) == 2:
