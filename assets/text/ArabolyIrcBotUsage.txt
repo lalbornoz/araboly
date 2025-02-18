@@ -1,6 +1,7 @@
 usage: ./ArabolyIrcBot.py [-c <channel name>] [-d] [-C <connect timeout>]
                           [-f <delay in ms>] [-h] [-n <nick name>] [-p <port>]
-                          [-r <IRC real name>] [-R] [-S] [-u <user name>] -H <hostname>
+                          [-r <IRC real name>] [-R] [-S] [-u <user name>] [-v]
+                          -H <hostname>
 
          -c <channel name>.....:  defaults to #ARABOLY.
          -C <connect timeout>..:  defaults to 15 (seconds.)
@@ -14,3 +15,4 @@ usage: ./ArabolyIrcBot.py [-c <channel name>] [-d] [-C <connect timeout>]
          -R ...................:  record games to savefiles; disabled by default.
          -S ...................:  use SSL; disabled by default.
          -u <user name>........:  defaults to ARABOLY.
+         -v ...................:  be verbose (log all IRC traffic including PING, PONG, 372); disabled by default.

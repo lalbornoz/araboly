@@ -21,12 +21,13 @@ class ArabolyIrcBot(Araboly):
         "flood_delay":0, "help":None, "hostname":None, "nick":"ARABOLY",
         "port":"6667", "realname":"Araboly 2000 Advanced Server SP4",
         "recording":False, "snapshot_path":os.path.join("assets", "savefiles", "snapshot.dmp"),
-        "ssl":False, "user":"ARABOLY"}
-    optionsString = "b:c:C:df:hH:n:p:r:RSt:u:"
+        "ssl":False, "user":"ARABOLY", "verbose":False}
+    optionsString = "b:c:C:df:hH:n:p:r:RSt:u:v"
     optionsStringMap = {
         "c":"channel", "C":"connect_timeout", "d":"debug",
         "f":"flood_delay", "h":"help", "H":"hostname", "n":"nick",
-        "p":"port", "r":"realname", "R":"recording", "S":"ssl", "u":"user"}
+        "p":"port", "r":"realname", "R":"recording", "S":"ssl", "u":"user",
+        "v":"verbose"}
     typeObjects = [*Araboly.typeObjects, ArabolyEvents, ArabolyIrcClient]
 
     # {{{ _errorRoutine(self, eventsOut, paramsOut, status): XXX
@@ -124,8 +125,17 @@ class ArabolyIrcBot(Araboly):
             elif len(event["args"]) >= 1:
                 destType = "client"
                 msg = " ".join(event["args"]).rstrip("\n")
+                if  (not self.options["verbose"])       \
+                and ((event["cmd"].upper() == "PING")   \
+                or   (event["cmd"].upper() == "PONG")):
+                    return
+                elif (not self.options["verbose"])      \
+                and  (event["cmd"].upper() == "372"):
+                    return
             else:
                 destType, msg = "server", ""
+                if not self.options["verbose"]:
+                    return
             cmdType = event["cmd"].upper() + " command"
             msg = ": " + msg if len(msg) else ""
             ts = datetime.now().strftime("%d-%b-%Y %H:%M:%S").upper()
