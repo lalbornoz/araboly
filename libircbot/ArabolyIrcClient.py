@@ -31,7 +31,7 @@ class ArabolyIrcClient(object):
         else:
             select.select([], [self.clientSocket.fileno()], [])
         if self.sslFlag:
-            self.clientSocket = ssl.wrap_socket(self.clientSocket, do_handshake_on_connect=False)
+            self.clientSocket = ssl.create_default_context().wrap_socket(self.clientSocket, do_handshake_on_connect=False, server_hostname=self.serverHname)
             while True:
                 try:
                     self.clientSocket.do_handshake()
