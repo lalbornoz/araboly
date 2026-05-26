@@ -48,9 +48,9 @@ class ArabolyIrcClient(object):
         lines = []
         while True:
             try:
-                if len(self.partialLine) >= 512:
+                if len(self.partialLine) >= 1024:
                     raise ValueError
-                newLines = self.clientSocket.recv(512 - len(self.partialLine))
+                newLines = self.clientSocket.recv(1024 - len(self.partialLine))
             except ssl.SSLWantReadError:
                 return lines
             except BlockingIOError:
@@ -99,9 +99,9 @@ class ArabolyIrcClient(object):
                     msgPfx = ":{}!{}@{} {} :".format(self.clientNick, self.clientIdent, self.clientHost, msg)
                     msgPfxLen = len(msgPfx.encode())
                     msgLen = msgPfxLen + len(args[-1].encode())
-                    if msgLen > 512:
+                    if msgLen > 1024:
                         lastArgs = args[-1].encode()
-                        splitLen = 512 - len("\r\n") - msgPfxLen
+                        splitLen = 1024 - len("\r\n") - msgPfxLen
                         for idx in range(0, len(lastArgs), splitLen):
                             lastArg = lastArgs[idx:idx+splitLen]
                             self.queue(cmd, [*args[:-1], lastArg.decode()])
